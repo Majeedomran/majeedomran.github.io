@@ -1,5 +1,5 @@
 // ضع رابط Cloudflare Worker بعد نشره، مثال: https://majeed-admin.example.workers.dev
-const API_BASE = "https://YOUR-WORKER-NAME.workers.dev";
+const API_BASE = "https://majeed-ps4-admin-api.majeedomran.workers.dev";
 const $ = id => document.getElementById(id);
 let sessionToken = "";
 async function api(path, options = {}) {

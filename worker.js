@@ -2,7 +2,6 @@ const ORIGIN = "https://majeedomran.github.io";
 const OWNER = "Majeedomran";
 const REPO = "majeedomran.github.io";
 const PATH = "catalog.json";
-const COOKIE = "majeed_admin_session";
 const SESSION_SECONDS = 12 * 60 * 60;
 
 function json(data, status = 200, extra = {}) {
@@ -15,7 +14,7 @@ function corsHeaders() {
   return {
     "Access-Control-Allow-Origin": ORIGIN,
     "Access-Control-Allow-Credentials": "true",
-    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Headers": "Content-Type, Authorization",
     "Access-Control-Allow-Methods": "GET, POST, PUT, OPTIONS",
     "Vary": "Origin"
   };
@@ -39,10 +38,7 @@ async function makeSession(secret) {
   const data = "v1." + payload;
   return data + "." + await sign(data, secret);
 }
-async function validSession(request, secret) {
-  const cookie = request.headers.get("Cookie") || "";
-  const token = cookie.split(";").map(x => x.trim()).find(x => x.startsWith(COOKIE + "="))?.slice(COOKIE.length + 1);
-  if (!token) return false;
+async function validSessionToken(token, secret) {
   const parts = token.split(".");
   if (parts.length !== 3 || parts[0] !== "v1") return false;
   const expected = await sign(parts[0] + "." + parts[1], secret);
@@ -51,9 +47,6 @@ async function validSession(request, secret) {
     const payload = JSON.parse(new TextDecoder().decode(fromB64url(parts[1])));
     return payload.exp > Math.floor(Date.now()/1000);
   } catch { return false; }
-}
-function cookie(value, maxAge) {
-  return `${COOKIE}=${value}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=${maxAge}`;
 }
 async function githubRequest(env, method, body) {
   const url = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${PATH}`;
@@ -82,13 +75,15 @@ export default {
       const body = await request.json().catch(() => ({}));
       if (typeof body.password !== "string" || body.password !== env.ADMIN_PASSWORD) return json({ error: "كلمة المرور غير صحيحة" }, 401, headers);
       const token = await makeSession(env.SESSION_SECRET);
-      return json({ ok: true }, 200, { ...headers, "Set-Cookie": cookie(token, SESSION_SECONDS) });
+      return json({ ok: true, token }, 200, headers);
     }
     if (url.pathname === "/logout" && request.method === "POST") {
-      return json({ ok: true }, 200, { ...headers, "Set-Cookie": cookie("", 0) });
+      return json({ ok: true }, 200, headers);
     }
     if (url.pathname === "/admin/catalog" && (request.method === "GET" || request.method === "PUT")) {
-      if (!await validSession(request, env.SESSION_SECRET)) return json({ error: "يلزم تسجيل الدخول مجدداً" }, 401, headers);
+      const auth = request.headers.get("Authorization") || "";
+      const token = auth.startsWith("Bearer ") ? auth.slice(7) : "";
+      if (!token || !await validSessionToken(token, env.SESSION_SECRET)) return json({ error: "يلزم تسجيل الدخول مجدداً" }, 401, headers);
       try {
         if (request.method === "GET") {
           const data = await githubRequest(env, "GET");

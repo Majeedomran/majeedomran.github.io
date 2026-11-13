@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#080b13">
+<title>إدارة الموقع | MAJEED PS4 HOST</title><link rel="stylesheet" href="style.css">
+<style>
+.admin-wrap{max-width:980px;margin:55px auto;padding:0 18px}.admin-panel{background:#101624;border:1px solid #263149;border-radius:18px;padding:24px;margin:18px 0}.admin-panel h1,.admin-panel h2{margin-top:0}.admin-panel p,.hint{color:#9aa8bd;font-size:13px}.admin-panel textarea{width:100%;min-height:390px;background:#080f1c;color:#eaf1ff;border:1px solid #263149;border-radius:12px;padding:14px;font:13px/1.7 monospace;direction:ltr;text-align:left}.admin-panel input{max-width:440px;display:block;margin:8px 0 14px}.admin-btn{background:linear-gradient(100deg,#4d8dff,#6959e8);border:0;border-radius:10px;color:white;padding:11px 20px;font-weight:700;cursor:pointer;margin:6px 0}.admin-btn.secondary{background:transparent;border:1px solid #263149}.admin-status{margin:12px 0;color:#42d7e8;font-size:13px;min-height:24px}.hidden{display:none!important}.admin-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+</style></head>
+<body>
+<header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">M</span><span>MAJEED <b>PS4 HOST</b><small>ADMINISTRATION</small></span></a><a class="secondary" href="index.html">العودة للموقع</a></header>
+<main class="admin-wrap">
+<section class="admin-panel" id="loginPanel"><h1>دخول لوحة التحكم</h1><p>هذه الصفحة مخصصة لإدارة كتالوج الموقع.</p><label for="password">كلمة مرور الإدارة</label><input id="password" type="password" autocomplete="current-password" placeholder="أدخل كلمة المرور"><button class="admin-btn" id="loginBtn">تسجيل الدخول</button><div class="admin-status" id="loginStatus" role="status"></div></section>
+<section class="admin-panel hidden" id="editorPanel"><div class="admin-top"><div><h1>إدارة الكتالوج</h1><p>عدّل بيانات التطبيقات والـPayloads وإصدارات النظام بصيغة JSON.</p></div><button class="admin-btn secondary" id="logoutBtn">تسجيل الخروج</button></div>
+<p class="hint">الحالات المسموحة: verified / unverified / experimental / unsupported. لا تضع رابط تحميل أو توافقاً إلا بعد التحقق من المصدر الرسمي.</p>
+<textarea id="catalogEditor" spellcheck="false" aria-label="محرر بيانات الكتالوج"></textarea>
+<div><button class="admin-btn" id="loadBtn">إعادة تحميل البيانات</button> <button class="admin-btn" id="saveBtn">حفظ ونشر التغييرات</button></div><div class="admin-status" id="editorStatus" role="status"></div></section>
+</main>
+<script src="admin.js"></script></body></html>

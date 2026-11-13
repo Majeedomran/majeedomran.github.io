@@ -1,0 +1,62 @@
+{
+  "notice": "هذا كتالوج ابتدائي. لا تضف روابط أو معلومات توافق إلا بعد التحقق من المصدر الرسمي.",
+  "firmware": [
+    {
+      "version": "5.05",
+      "status": "unverified",
+      "note": ""
+    },
+    {
+      "version": "6.72",
+      "status": "unverified",
+      "note": ""
+    },
+    {
+      "version": "7.02",
+      "status": "unverified",
+      "note": ""
+    },
+    {
+      "version": "7.55",
+      "status": "unverified",
+      "note": ""
+    },
+    {
+      "version": "9.00",
+      "status": "unverified",
+      "note": ""
+    },
+    {
+      "version": "9.03",
+      "status": "unverified",
+      "note": ""
+    },
+    {
+      "version": "9.60",
+      "status": "unverified",
+      "note": ""
+    },
+    {
+      "version": "10.00",
+      "status": "unverified",
+      "note": ""
+    },
+    {
+      "version": "11.00",
+      "status": "unverified",
+      "note": ""
+    },
+    {
+      "version": "11.02",
+      "status": "unverified",
+      "note": ""
+    },
+    {
+      "version": "12.00",
+      "status": "unverified",
+      "note": ""
+    }
+  ],
+  "payloads": [],
+  "apps": []
+}

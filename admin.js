@@ -1,9 +1,12 @@
 // ضع رابط Cloudflare Worker بعد نشره، مثال: https://majeed-admin.example.workers.dev
 const API_BASE = "https://YOUR-WORKER-NAME.workers.dev";
 const $ = id => document.getElementById(id);
+let sessionToken = "";
 async function api(path, options = {}) {
   if (API_BASE.includes("YOUR-WORKER-NAME")) throw new Error("يجب ضبط رابط Cloudflare Worker أولاً داخل admin.js");
-  const response = await fetch(API_BASE + path, { credentials: "include", ...options, headers: { "Content-Type": "application/json", ...(options.headers || {}) } });
+  const headers = { "Content-Type": "application/json", ...(options.headers || {}) };
+  if (sessionToken) headers.Authorization = "Bearer " + sessionToken;
+  const response = await fetch(API_BASE + path, { ...options, headers });
   const data = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(data.error || "تعذر الاتصال بالخادم");
   return data;
@@ -21,7 +24,8 @@ async function loadCatalog() {
 $("loginBtn").addEventListener("click", async () => {
   status("loginStatus", "جارٍ تسجيل الدخول...");
   try {
-    await api("/login", { method: "POST", body: JSON.stringify({ password: $("password").value }) });
+    const login = await api("/login", { method: "POST", body: JSON.stringify({ password: $("password").value }) });
+    sessionToken = login.token;
     $("password").value = "";
     showEditor(true);
     await loadCatalog();
@@ -44,7 +48,7 @@ $("saveBtn").addEventListener("click", async () => {
   } catch (e) { status("editorStatus", e.message); }
 });
 $("logoutBtn").addEventListener("click", async () => {
-  try { await api("/logout", { method: "POST", body: "{}" }); } catch {}
+  sessionToken = "";
   showEditor(false);
   status("loginStatus", "تم تسجيل الخروج.");
 });

@@ -120,11 +120,11 @@
   "payloads": [
     {
       "name": "GoldHEN",
-      "version": "غير محدد",
+      "version": "2.3",
       "status": "unverified",
-      "description": "مُمكّن Homebrew لجهاز PS4. لم تُضف روابط تنزيل مباشرة أو معلومات توافق قبل التحقق من الإصدار المناسب.",
-      "firmware": "غير محدد",
-      "sourceUrl": "https://github.com/GoldHEN/GoldHEN"
+      "description": "مُمكّن Homebrew رسمي للمجتمع مع Debug Settings وFTP وBinLoader ودعم Plugins وقائمة Cheats. ميزات BinLoader وقائمة الغش موصوفة بأنها تجريبية؛ تحقق من توافق جهازك قبل التحميل.",
+      "firmware": "تحقق من صفحة الإصدارات الرسمية لكل Firmware",
+      "sourceUrl": "https://github.com/GoldHEN/GoldHEN/releases"
     },
     {
       "name": "PS4 HEN (Scene-Collective)",
@@ -282,6 +282,51 @@
       "status": "unverified",
       "category": "Translations",
       "description": "فهرس مجتمعي لمشاريع Homebrew والمنافذ والمحاكيات والألعاب. ليس مستودعاً لملفات تعريب مؤكدة؛ تحقق من كل مشروع وترخيصه ومصدره.",
+      "firmware": "حسب المشروع",
+      "sourceUrl": "https://github.com/CaptainTuckerRvB/PS4-Native-Ports-Recomps-Emulators-Apps-Directory"
+    },
+    {
+      "name": "Dolphin for PS4",
+      "version": "04.19",
+      "status": "unverified",
+      "category": "Emulators",
+      "description": "محاكي Nintendo GameCube وWii على PS4. آخر إصدار ظاهر في صفحة Releases هو 04.19؛ الأداء والتوافق يختلفان حسب اللعبة.",
+      "firmware": "راجع صفحة الإصدار ومتطلبات التشغيل",
+      "sourceUrl": "https://github.com/iHaiDeeZ/DolphinPS4/releases"
+    },
+    {
+      "name": "GoldHEN Cheats Manager",
+      "version": "غير محدد",
+      "status": "unverified",
+      "category": "Mods",
+      "description": "تطبيق Homebrew لإدارة ملفات الغش المتوافقة مع GoldHEN؛ لا يعني وجود ملف غش أنه يعمل مع كل تحديث لعبة.",
+      "firmware": "يتطلب بيئة GoldHEN متوافقة",
+      "sourceUrl": "https://github.com/GoldHEN/GoldHEN_Cheat_Manager"
+    },
+    {
+      "name": "GoldHEN Cheat Repository",
+      "version": "متجدد",
+      "status": "unverified",
+      "category": "Mods",
+      "description": "قاعدة ملفات غش بصيغ JSON وSHN وMC4. ملفات الغش تجريبية وقد لا تناسب كل إصدار لعبة؛ خذ نسخة احتياطية.",
+      "firmware": "حسب GoldHEN وإصدار اللعبة",
+      "sourceUrl": "https://github.com/GoldHEN/GoldHEN_Cheat_Repository"
+    },
+    {
+      "name": "PS4 Store",
+      "version": "غير محدد",
+      "status": "unverified",
+      "category": "Homebrew",
+      "description": "متجر Homebrew يتحدث عبر الإنترنت؛ المطور يوجّه لتنزيل حزمة التطبيق من PKG-Zone فقط، بينما مستودع GitHub يحتوي ملفات المشروع ومكونات الخادم.",
+      "firmware": "غير محدد",
+      "sourceUrl": "https://github.com/LightningMods/PS4-Store"
+    },
+    {
+      "name": "PS4 Native Ports / Emulators / Apps Directory",
+      "version": "متجدد",
+      "status": "unverified",
+      "category": "Emulators",
+      "description": "دليل مجتمعي يجمع منافذ الألعاب الأصلية والمحاكيات والتطبيقات؛ ليس كل مشروع إصداراً مستقراً أو متوافقاً مع كل جهاز.",
       "firmware": "حسب المشروع",
       "sourceUrl": "https://github.com/CaptainTuckerRvB/PS4-Native-Ports-Recomps-Emulators-Apps-Directory"
     }

@@ -237,6 +237,17 @@
       "firmware_en": "Not specified."
     },
     {
+      "name": "Orbis Toolbox",
+      "version": "1.0.1190",
+      "status": "unverified",
+      "category": "Utilities",
+      "description": "مجموعة أدوات وتعديلات لواجهة PS4. المستودع مؤرشف منذ 2023؛ مشروع قديم وليس مضمون التوافق مع الأنظمة الحديثة.",
+      "firmware": "المستودع يذكر 5.05 و6.72 و7.02 و7.55 و9.00",
+      "sourceUrl": "https://github.com/OSM-Made/Orbis-Toolbox",
+      "description_en": "A collection of tools and interface modifications for PS4. The repository has been archived since 2023; compatibility with modern system versions is not guaranteed.",
+      "firmware_en": "The repository lists 5.05, 6.72, 7.02, 7.55 and 9.00."
+    },
+    {
       "name": "PS4 Homebrew Store",
       "version": "غير محدد",
       "status": "unverified",
@@ -246,6 +257,40 @@
       "sourceUrl": "https://github.com/LightningMods/PS4-Store",
       "description_en": "A store/interface for browsing and installing homebrew applications. Verify the package source and update method before installation.",
       "firmware_en": "Not specified."
+    },
+    {
+      "name": "PS4 Store",
+      "version": "غير محدد",
+      "status": "unverified",
+      "category": "Homebrew",
+      "description": "متجر Homebrew يتحدث عبر الإنترنت؛ المطور يوجّه لتنزيل حزمة التطبيق من PKG-Zone فقط، بينما مستودع GitHub يحتوي ملفات المشروع ومكونات الخادم.",
+      "firmware": "غير محدد",
+      "sourceUrl": "https://github.com/LightningMods/PS4-Store",
+      "description_en": "An online-updating homebrew store. The developer directs users to download the application package from PKG-Zone only; the GitHub repository contains project files and server components.",
+      "firmware_en": "Not specified."
+    },
+    {
+      "name": "Dolphin for PS4",
+      "version": "04.19",
+      "status": "unverified",
+      "category": "Emulators",
+      "description": "محاكي Nintendo GameCube وWii على PS4. آخر إصدار ظاهر في صفحة Releases هو 04.19؛ الأداء والتوافق يختلفان حسب اللعبة.",
+      "firmware": "راجع صفحة الإصدار ومتطلبات التشغيل",
+      "sourceUrl": "https://github.com/iHaiDeeZ/DolphinPS4/releases",
+      "description_en": "A Nintendo GameCube and Wii emulator for PS4. The latest release shown on its Releases page is 04.19; performance and compatibility vary by game.",
+      "firmware_en": "Check the release page and runtime requirements."
+    },
+    {
+      "name": "shadPS4 (PC Emulator)",
+      "name_en": "shadPS4 (PC Emulator)",
+      "version": "0.21.0",
+      "status": "unverified",
+      "category": "Desktop",
+      "description": "محاكي PlayStation 4 لأنظمة Windows وLinux وmacOS. هذا البرنامج للكمبيوتر وليس تطبيقاً يُثبت على جهاز PS4؛ المشروع ما زال قيد التطوير والتوافق يختلف من لعبة لأخرى.",
+      "description_en": "A PlayStation 4 emulator for Windows, Linux and macOS. This is a desktop application, not something installed on a PS4 console; the project is still in development and compatibility varies by game.",
+      "firmware": "للكمبيوتر فقط؛ محاكاة PS4 قيد التطوير",
+      "firmware_en": "Desktop only; PS4 emulation is still in development.",
+      "sourceUrl": "https://github.com/shadps4-emu/shadPS4/releases"
     },
     {
       "name": "PS4 Player",
@@ -259,15 +304,37 @@
       "firmware_en": "Not specified."
     },
     {
-      "name": "Orbis Toolbox",
-      "version": "1.0.1190",
+      "name": "PS4 Patch Installer",
+      "version": "غير محدد",
       "status": "unverified",
-      "category": "Utilities",
-      "description": "مجموعة أدوات وتعديلات لواجهة PS4. المستودع مؤرشف منذ 2023؛ مشروع قديم وليس مضمون التوافق مع الأنظمة الحديثة.",
-      "firmware": "المستودع يذكر 5.05 و6.72 و7.02 و7.55 و9.00",
-      "sourceUrl": "https://github.com/OSM-Made/Orbis-Toolbox",
-      "description_en": "A collection of tools and interface modifications for PS4. The repository has been archived since 2023; compatibility with modern system versions is not guaranteed.",
-      "firmware_en": "The repository lists 5.05, 6.72, 7.02, 7.55 and 9.00."
+      "category": "Mods",
+      "description": "أداة تثبيت تحديثات الألعاب من قاعدة ORBIS Patches؛ تحقق من قيود تحديثات الأقراص ومتطلبات النظام قبل الاستخدام.",
+      "firmware": "يختلف حسب تحديث اللعبة",
+      "sourceUrl": "https://orbispatches.com/",
+      "description_en": "A tool for installing game updates from the ORBIS Patches database. Check disc-update limitations and system requirements before use.",
+      "firmware_en": "Varies by game update."
+    },
+    {
+      "name": "GoldHEN Cheats Manager",
+      "version": "غير محدد",
+      "status": "unverified",
+      "category": "Mods",
+      "description": "تطبيق Homebrew لإدارة ملفات الغش المتوافقة مع GoldHEN؛ لا يعني وجود ملف غش أنه يعمل مع كل تحديث لعبة.",
+      "firmware": "يتطلب بيئة GoldHEN متوافقة",
+      "sourceUrl": "https://github.com/GoldHEN/GoldHEN_Cheat_Manager",
+      "description_en": "A homebrew application for managing cheat files compatible with GoldHEN. A listed cheat file is not guaranteed to work with every game update.",
+      "firmware_en": "Requires a compatible GoldHEN environment."
+    },
+    {
+      "name": "GoldHEN Cheat Repository",
+      "version": "متجدد",
+      "status": "unverified",
+      "category": "Mods",
+      "description": "قاعدة ملفات غش بصيغ JSON وSHN وMC4. ملفات الغش تجريبية وقد لا تناسب كل إصدار لعبة؛ خذ نسخة احتياطية.",
+      "firmware": "حسب GoldHEN وإصدار اللعبة",
+      "sourceUrl": "https://github.com/GoldHEN/GoldHEN_Cheat_Repository",
+      "description_en": "A database of cheat files in JSON, SHN and MC4 formats. Cheats are experimental and may not match every game version; keep a backup.",
+      "firmware_en": "Depends on GoldHEN and the game version."
     },
     {
       "name": "OpenOrbis PS4 Toolchain",
@@ -314,17 +381,6 @@
       "firmware_en": "Payload support up to 13.02 according to the developer."
     },
     {
-      "name": "PS4 Patch Installer",
-      "version": "غير محدد",
-      "status": "unverified",
-      "category": "Mods",
-      "description": "أداة تثبيت تحديثات الألعاب من قاعدة ORBIS Patches؛ تحقق من قيود تحديثات الأقراص ومتطلبات النظام قبل الاستخدام.",
-      "firmware": "يختلف حسب تحديث اللعبة",
-      "sourceUrl": "https://orbispatches.com/",
-      "description_en": "A tool for installing game updates from the ORBIS Patches database. Check disc-update limitations and system requirements before use.",
-      "firmware_en": "Varies by game update."
-    },
-    {
       "name": "PS4 Native Ports / Emulators / Apps Directory",
       "version": "متجدد",
       "status": "unverified",
@@ -334,50 +390,6 @@
       "sourceUrl": "https://github.com/CaptainTuckerRvB/PS4-Native-Ports-Recomps-Emulators-Apps-Directory",
       "description_en": "A community index of game-port, emulator and application projects. It is not a translation library; review each project's source and licence.",
       "firmware_en": "Depends on the project."
-    },
-    {
-      "name": "Dolphin for PS4",
-      "version": "04.19",
-      "status": "unverified",
-      "category": "Emulators",
-      "description": "محاكي Nintendo GameCube وWii على PS4. آخر إصدار ظاهر في صفحة Releases هو 04.19؛ الأداء والتوافق يختلفان حسب اللعبة.",
-      "firmware": "راجع صفحة الإصدار ومتطلبات التشغيل",
-      "sourceUrl": "https://github.com/iHaiDeeZ/DolphinPS4/releases",
-      "description_en": "A Nintendo GameCube and Wii emulator for PS4. The latest release shown on its Releases page is 04.19; performance and compatibility vary by game.",
-      "firmware_en": "Check the release page and runtime requirements."
-    },
-    {
-      "name": "GoldHEN Cheats Manager",
-      "version": "غير محدد",
-      "status": "unverified",
-      "category": "Mods",
-      "description": "تطبيق Homebrew لإدارة ملفات الغش المتوافقة مع GoldHEN؛ لا يعني وجود ملف غش أنه يعمل مع كل تحديث لعبة.",
-      "firmware": "يتطلب بيئة GoldHEN متوافقة",
-      "sourceUrl": "https://github.com/GoldHEN/GoldHEN_Cheat_Manager",
-      "description_en": "A homebrew application for managing cheat files compatible with GoldHEN. A listed cheat file is not guaranteed to work with every game update.",
-      "firmware_en": "Requires a compatible GoldHEN environment."
-    },
-    {
-      "name": "GoldHEN Cheat Repository",
-      "version": "متجدد",
-      "status": "unverified",
-      "category": "Mods",
-      "description": "قاعدة ملفات غش بصيغ JSON وSHN وMC4. ملفات الغش تجريبية وقد لا تناسب كل إصدار لعبة؛ خذ نسخة احتياطية.",
-      "firmware": "حسب GoldHEN وإصدار اللعبة",
-      "sourceUrl": "https://github.com/GoldHEN/GoldHEN_Cheat_Repository",
-      "description_en": "A database of cheat files in JSON, SHN and MC4 formats. Cheats are experimental and may not match every game version; keep a backup.",
-      "firmware_en": "Depends on GoldHEN and the game version."
-    },
-    {
-      "name": "PS4 Store",
-      "version": "غير محدد",
-      "status": "unverified",
-      "category": "Homebrew",
-      "description": "متجر Homebrew يتحدث عبر الإنترنت؛ المطور يوجّه لتنزيل حزمة التطبيق من PKG-Zone فقط، بينما مستودع GitHub يحتوي ملفات المشروع ومكونات الخادم.",
-      "firmware": "غير محدد",
-      "sourceUrl": "https://github.com/LightningMods/PS4-Store",
-      "description_en": "An online-updating homebrew store. The developer directs users to download the application package from PKG-Zone only; the GitHub repository contains project files and server components.",
-      "firmware_en": "Not specified."
     },
     {
       "name": "Ta3reb – مكتبة تعريبات PS4",

@@ -153,9 +153,9 @@ function applyLanguage(){
 function card(item,type){
  const el=document.createElement("article");el.className="item-card";
  const translated=currentLang==="en"?(itemEnglish[item.name]||{}):{};
- const displayName=translated.name||item.name;
- const displayDescription=translated.description||item.description;
- const displayFirmware=translated.firmware||item.firmware;
+ const displayName=(currentLang==="en"?(item.name_en||translated.name):item.name)||item.name;
+ const displayDescription=(currentLang==="en"?(item.description_en||translated.description):item.description)||t("noDesc");
+ const displayFirmware=(currentLang==="en"?(item.firmware_en||translated.firmware):item.firmware)||"—";
  const source=item.sourceUrl&&/^https:\/\//i.test(item.sourceUrl)?`<a href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noopener noreferrer">${t("source")}</a>`:`<span class="meta">${t("noSource")}</span>`;
  const download=item.downloadUrl&&/^https:\/\//i.test(item.downloadUrl)?`<a href="${escapeHtml(item.downloadUrl)}" target="_blank" rel="noopener noreferrer">${t("download")}</a>`:"";
  el.innerHTML=`<div class="item-top"><span class="item-icon">${type==="payload"?"P":"A"}</span><span class="status ${item.status==="verified"?"verified":""}">${statusLabel(item.status||"unverified")}</span></div><h3>${escapeHtml(displayName)}</h3><p>${escapeHtml(displayDescription||t("noDesc"))}</p><div class="meta">${t("version")} ${escapeHtml(item.version||"—")} · ${t("compatibility")} ${escapeHtml(displayFirmware||"—")}</div>${source}${download}`;
@@ -164,7 +164,7 @@ function card(item,type){
 function render(list,target,type,query="",filter="all",category="all"){
  target.innerHTML="";
  const q=query.trim().toLowerCase();
- const items=list.filter(x=>(!q||((x.name||"")+" "+(x.description||"")).toLowerCase().includes(q))&&(filter==="all"||x.status===(filter==="verified"?"verified":"unverified"))&&(category==="all"||x.category===category));
+ const items=list.filter(x=>(!q||((x.name||"")+" "+(x.name_en||"")+" "+(x.description||"")+" "+(x.description_en||"")).toLowerCase().includes(q))&&(filter==="all"||x.status===(filter==="verified"?"verified":"unverified"))&&(category==="all"||x.category===category));
  if(!items.length){target.innerHTML=`<div class="empty">${t("noItems")}</div>`;return;}
  items.forEach(x=>target.appendChild(card(x,type)));
 }
@@ -174,13 +174,13 @@ async function init(){
   if(!response.ok)throw new Error("Catalogue load failed");
   const catalog=await response.json();
   catalog.firmware.forEach(x=>{const o=document.createElement("option");o.value=x.version;o.textContent=x.version;$("#fwSelect").appendChild(o);});
-  $("#fwSelect").addEventListener("change",e=>{const f=catalog.firmware.find(x=>x.version===e.target.value);$("#fwResult").textContent=f?`${statusLabel(f.status)} — ${(currentLang==="en"&&f.note?firmwareNoteEnglish:f.note)||t("noFirmwareNote")}`:t("notSelected");});
+  $("#fwSelect").addEventListener("change",e=>{const f=catalog.firmware.find(x=>x.version===e.target.value);$("#fwResult").textContent=f?`${statusLabel(f.status)} — ${(currentLang==="en"?(f.note_en||firmwareNoteEnglish):f.note)||t("noFirmwareNote")}`:t("notSelected");});
   function draw(){
    render(catalog.payloads||[],$("#payloadCards"),"payload",$("#payloadSearch").value,$("#payloadFilter").value);
    render(catalog.apps||[],$("#appCards"),"app",$("#appSearch").value,"all",$("#appCategory").value);
   }
   ["payloadSearch","payloadFilter","appSearch","appCategory"].forEach(id=>$("#"+id).addEventListener("input",draw));
-  $("#langBtn").addEventListener("click",()=>{currentLang=currentLang==="ar"?"en":"ar";localStorage.setItem("majeedLang",currentLang);applyLanguage();draw();const fw=$("#fwSelect").value;if(fw){const f=catalog.firmware.find(x=>x.version===fw);$("#fwResult").textContent=f?`${statusLabel(f.status)} — ${f.note||t("noFirmwareNote")}`:t("notSelected");}else $("#fwResult").textContent=t("fwEmpty");});
+  $("#langBtn").addEventListener("click",()=>{currentLang=currentLang==="ar"?"en":"ar";localStorage.setItem("majeedLang",currentLang);applyLanguage();draw();const fw=$("#fwSelect").value;if(fw){const f=catalog.firmware.find(x=>x.version===fw);$("#fwResult").textContent=f?`${statusLabel(f.status)} — ${(currentLang==="en"?(f.note_en||f.note):f.note)||t("noFirmwareNote")}`:t("notSelected");}else $("#fwResult").textContent=t("fwEmpty");});
   $("#year").textContent=new Date().getFullYear();
   applyLanguage();draw();
  }catch(error){console.error(error);$("#payloadCards").innerHTML=`<div class="empty">${t("loadError")}</div>`;}

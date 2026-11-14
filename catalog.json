@@ -57,6 +57,25 @@
       "note": ""
     }
   ],
-  "payloads": [],
-  "apps": []
+  "payloads": [
+    {
+      "name": "GoldHEN",
+      "version": "غير محدد",
+      "status": "unverified",
+      "description": "مُمكّن Homebrew لجهاز PS4. لم تُضف روابط تنزيل مباشرة أو معلومات توافق قبل التحقق من الإصدار المناسب.",
+      "firmware": "غير محدد",
+      "sourceUrl": "https://github.com/GoldHEN/GoldHEN"
+    }
+  ],
+  "apps": [
+    {
+      "name": "Apollo Save Tool",
+      "version": "1.6.0",
+      "status": "verified",
+      "category": "Utilities",
+      "description": "أداة لإدارة نسخ حفظ الألعاب واستعادتها وتطبيق تعديلات الحفظ. الإصدار مذكور في صفحة الإصدارات الرسمية؛ توافق النظام يحتاج تحققاً منفصلاً.",
+      "firmware": "غير محدد",
+      "sourceUrl": "https://github.com/bucanero/apollo-ps4/releases"
+    }
+  ]
 }

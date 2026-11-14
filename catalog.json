@@ -189,6 +189,26 @@
       "sourceUrl": "https://github.com/Al-Azif/ps4-payload-guest/releases",
       "description_en": "An application for managing and loading payload files from internal storage or USB and sending them to BinLoader.",
       "firmware_en": "Not specified."
+    },
+    {
+      "name": "elfldr",
+      "version": "0.7",
+      "status": "unverified",
+      "description": "محمل ELF لأجهزة PS4 المعدلة؛ يستقبل ملفات ELF عبر الشبكة على المنفذ 9021. تحقق من متطلبات الإصدار وطريقة الإرسال قبل الاستخدام.",
+      "description_en": "An ELF loader for jailbroken PS4 consoles; receives ELF files over the network on port 9021. Check release requirements and the sending procedure before use.",
+      "firmware": "حسب إصدار المشروع وبيئة HEN",
+      "firmware_en": "Depends on the project release and HEN environment.",
+      "sourceUrl": "https://github.com/ps4-payload-dev/elfldr/releases"
+    },
+    {
+      "name": "Fan Control",
+      "version": "1.1",
+      "status": "unverified",
+      "description": "Payload لضبط درجة الحرارة التي ترفع عندها مروحة PS4 سرعتها عبر ملف إعدادات. يتطلب محمل ELF؛ غيّر الإعدادات بحذر وراقب حرارة الجهاز.",
+      "description_en": "A payload that sets the temperature threshold at which the PS4 fan ramps up, using a configuration file. Requires an ELF loader; change settings carefully and monitor console temperatures.",
+      "firmware": "يتطلب محمل ELF متوافقاً؛ راجع المصدر",
+      "firmware_en": "Requires a compatible ELF loader; check the source.",
+      "sourceUrl": "https://github.com/grimstatic/fan-control/releases"
     }
   ],
   "apps": [
@@ -196,7 +216,7 @@
       "name": "Apollo Save Tool",
       "version": "2.4.0",
       "status": "verified",
-      "category": "Utilities",
+      "category": "Essentials",
       "description": "إدارة وتعديل وحفظ واستعادة ملفات Save، إدارة الكؤوس، وأدوات Patch/Cheat. الإصدار 2.4.0 منشور رسمياً؛ توافق كل وظيفة يعتمد على النظام واللعبة.",
       "firmware": "إصدار 2.0+ يذكر دعم جميع إصدارات النظام؛ بعض الوظائف قد تتطلب GoldHEN/ps4debug",
       "sourceUrl": "https://github.com/bucanero/apollo-ps4/releases",
@@ -207,7 +227,7 @@
       "name": "Itemzflow",
       "version": "1.08",
       "status": "unverified",
-      "category": "Utilities",
+      "category": "Essentials",
       "description": "مدير مكتبة الألعاب ومشغلها وأداة لإدارة المحتوى. سجل الإصدار يذكر إضافة دعم FUSE لإصدارات محددة حتى 13.02؛ تحقق من الملاحظات قبل الاستخدام.",
       "firmware": "دعم FUSE موثق في سجل المشروع لبعض الإصدارات حتى 13.02؛ ليس حكماً عاماً",
       "sourceUrl": "https://github.com/LightningMods/Itemzflow/releases",
@@ -218,7 +238,7 @@
       "name": "ezRemote Client",
       "version": "2.09 (GitHub Releases)",
       "status": "unverified",
-      "category": "Utilities",
+      "category": "Essentials",
       "description": "مدير ملفات واتصالات FTP/SFTP/SMB/NFS/WebDAV وGoogle Drive، مع تنزيل وتثبيت PKG عن بُعد. قد تعرض المتاجر نسخاً أحدث من صفحة Releases؛ راجع المصدر.",
       "firmware": "راجع متطلبات الإصدار",
       "sourceUrl": "https://github.com/cy33hc/ps4-ezremote-client/releases",
@@ -229,12 +249,47 @@
       "name": "PS4-Xplorer",
       "version": "2.0.0",
       "status": "unverified",
-      "category": "Utilities",
+      "category": "Essentials",
       "description": "مدير ملفات لجهاز PS4 مع FTP وتصفح الملفات وأدوات إدارة؛ صفحة GitHub للمصدر لا توفر Releases حالياً.",
       "firmware": "غير محدد",
       "sourceUrl": "https://github.com/Lapy055/PS4-Xplorer",
       "description_en": "A PS4 file manager with FTP, file browsing and management tools. The source GitHub page currently has no Releases section.",
       "firmware_en": "Not specified."
+    },
+    {
+      "name": "PS4 Homebrew Store",
+      "version": "غير محدد",
+      "status": "unverified",
+      "category": "Essentials",
+      "description": "متجر/واجهة لتصفح وتثبيت تطبيقات Homebrew. تحقق من مصدر الحزمة وطريقة التحديث قبل التثبيت.",
+      "firmware": "غير محدد",
+      "sourceUrl": "https://github.com/LightningMods/PS4-Store",
+      "description_en": "A store/interface for browsing and installing homebrew applications. Verify the package source and update method before installation.",
+      "firmware_en": "Not specified."
+    },
+    {
+      "name": "PS MTP Explorer",
+      "name_en": "PS MTP Explorer",
+      "version": "2.0.0",
+      "status": "unverified",
+      "category": "Essentials",
+      "description": "مدير ملفات USB عبر MTP لنقل الملفات مباشرة بين هاتف Android ووحدة USB والقرص الداخلي في PS4، مع تثبيت PKG مباشرة. المطور يذكر اختباره على 9.00 و10.01 و11.00؛ لا تعمم التوافق على غيرها.",
+      "description_en": "A USB MTP file manager for direct transfers between an Android phone, USB storage and the PS4 internal drive, with direct PKG installation. The developer reports testing on 9.00, 10.01 and 11.00; do not generalize compatibility beyond those versions.",
+      "firmware": "اختبار المطور: 9.00 و10.01 و11.00 مع GoldHEN",
+      "firmware_en": "Developer-reported tests: 9.00, 10.01 and 11.00 with GoldHEN.",
+      "sourceUrl": "https://github.com/nueex/ps-mtp-explorer/releases"
+    },
+    {
+      "name": "Remote PKG Installer NextGen",
+      "name_en": "Remote PKG Installer NextGen",
+      "version": "0.0.8 (release page)",
+      "status": "unverified",
+      "category": "Essentials",
+      "description": "تطبيق PS4 لتثبيت ملفات PKG عبر الشبكة مع لوحة متابعة للنقل وإيقافه واستئنافه. يتطلب GoldHEN أو بيئة تدعم تثبيت fPKG؛ راجع سجل الإصدار قبل التثبيت.",
+      "description_en": "A PS4 app for installing PKG files over the network, with a transfer dashboard and pause/resume controls. Requires GoldHEN or an environment supporting fPKG installation; review release notes before installing.",
+      "firmware": "يتطلب HEN متوافقاً؛ راجع صفحة الإصدارات",
+      "firmware_en": "Requires compatible HEN; check the releases page.",
+      "sourceUrl": "https://github.com/AldySan/ps4_remote_pkg_installer_nextgen/releases"
     },
     {
       "name": "Orbis Toolbox",
@@ -246,17 +301,6 @@
       "sourceUrl": "https://github.com/OSM-Made/Orbis-Toolbox",
       "description_en": "A collection of tools and interface modifications for PS4. The repository has been archived since 2023; compatibility with modern system versions is not guaranteed.",
       "firmware_en": "The repository lists 5.05, 6.72, 7.02, 7.55 and 9.00."
-    },
-    {
-      "name": "PS4 Homebrew Store",
-      "version": "غير محدد",
-      "status": "unverified",
-      "category": "Homebrew",
-      "description": "متجر/واجهة لتصفح وتثبيت تطبيقات Homebrew. تحقق من مصدر الحزمة وطريقة التحديث قبل التثبيت.",
-      "firmware": "غير محدد",
-      "sourceUrl": "https://github.com/LightningMods/PS4-Store",
-      "description_en": "A store/interface for browsing and installing homebrew applications. Verify the package source and update method before installation.",
-      "firmware_en": "Not specified."
     },
     {
       "name": "PS4 Store",
@@ -279,6 +323,30 @@
       "sourceUrl": "https://github.com/iHaiDeeZ/DolphinPS4/releases",
       "description_en": "A Nintendo GameCube and Wii emulator for PS4. The latest release shown on its Releases page is 04.19; performance and compatibility vary by game.",
       "firmware_en": "Check the release page and runtime requirements."
+    },
+    {
+      "name": "EmuSuNi",
+      "name_en": "EmuSuNi",
+      "version": "00.24",
+      "status": "unverified",
+      "category": "Emulators",
+      "description": "حزمة محاكيات متعددة في تطبيق واحد لأجهزة PS4 المعدلة: NES وSNES وN64 وGame Boy وGBA وPS1 وPSP وDreamcast وDS وغيرها. بعض الأنظمة تجريبية؛ استخدم نسخ ألعابك وملفات BIOS التي تملكها فقط.",
+      "description_en": "A multi-system emulator launcher for jailbroken PS4: NES, SNES, N64, Game Boy, GBA, PS1, PSP, Dreamcast, DS and more. Some systems are experimental; use only your own game backups and BIOS files.",
+      "firmware": "يتطلب PS4 مع GoldHEN؛ الأداء والتوافق يختلفان حسب النظام واللعبة",
+      "firmware_en": "Requires a PS4 with GoldHEN; performance and compatibility vary by system and game.",
+      "sourceUrl": "https://github.com/arturofuentes1988/EmuSuNi/releases"
+    },
+    {
+      "name": "RetroArchV",
+      "name_en": "RetroArchV",
+      "version": "0.1.8",
+      "status": "unverified",
+      "category": "Emulators",
+      "description": "منفذ RetroArch مخصص لـPS4 مع مجموعة من 114 نواة Libretro. صفحة المشروع تعرض حزمة PS4 ومتطلبات تشغيلها؛ تحقق من متطلبات GoldHEN والفيرموير قبل التثبيت.",
+      "description_en": "A RetroArch port for PS4 with a collection of 114 Libretro cores. The project page provides the PS4 package and runtime requirements; check GoldHEN and firmware requirements before installing.",
+      "firmware": "صفحة المشروع تعرض Firmware 11.00 وGoldHEN 2.4b18.10",
+      "firmware_en": "Project page lists firmware 11.00 and GoldHEN 2.4b18.10.",
+      "sourceUrl": "https://prx0.com/"
     },
     {
       "name": "shadPS4 (PC Emulator)",

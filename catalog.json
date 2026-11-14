@@ -125,17 +125,165 @@
       "description": "مُمكّن Homebrew لجهاز PS4. لم تُضف روابط تنزيل مباشرة أو معلومات توافق قبل التحقق من الإصدار المناسب.",
       "firmware": "غير محدد",
       "sourceUrl": "https://github.com/GoldHEN/GoldHEN"
+    },
+    {
+      "name": "PS4 HEN (Scene-Collective)",
+      "version": "pre-release-main-184",
+      "status": "unverified",
+      "description": "مشروع HEN مفتوح المصدر. إصدار تجريبي؛ افحص ملاحظات الإصدار والتوافق قبل التشغيل.",
+      "firmware": "غير محدد؛ راجع المصدر",
+      "sourceUrl": "https://github.com/Scene-Collective/ps4-hen/releases"
+    },
+    {
+      "name": "ps4debug",
+      "version": "1.1.19",
+      "status": "unverified",
+      "description": "Payload لتصحيح أخطاء PS4 ودعم أدوات التدريب والتعديل. سجل الإصدار يذكر دعماً حتى 12.02؛ لا تفترض توافقه مع الإصدارات الأحدث.",
+      "firmware": "حتى 12.02 وفق سجل الإصدار",
+      "sourceUrl": "https://github.com/GoldHEN/ps4debug/releases"
+    },
+    {
+      "name": "PS4 FTP Server",
+      "version": "1.09",
+      "status": "unverified",
+      "description": "خادم FTP محسّن لنقل الملفات بين PS4 والكمبيوتر. الإصدار 1.09 معلن كتجريبي ويدعم حتى 13.02 وفق المطور.",
+      "firmware": "حتى 13.02 وفق المطور",
+      "sourceUrl": "https://github.com/hippie68/ps4-ftp/releases"
+    },
+    {
+      "name": "App2USB",
+      "version": "غير محدد",
+      "status": "unverified",
+      "description": "Payload لنقل/تشغيل تطبيقات مدعومة من وحدة تخزين خارجية؛ يتطلب بناءً مناسباً من SDK.",
+      "firmware": "حسب إصدار Scene Collective Payload SDK",
+      "sourceUrl": "https://github.com/Scene-Collective/ps4-app2usb"
+    },
+    {
+      "name": "Payload Guest",
+      "version": "0.98",
+      "status": "unverified",
+      "description": "تطبيق لإدارة وتحميل ملفات Payload من القرص الداخلي أو USB وإرسالها إلى BinLoader.",
+      "firmware": "غير محدد",
+      "sourceUrl": "https://github.com/Al-Azif/ps4-payload-guest/releases"
     }
   ],
   "apps": [
     {
       "name": "Apollo Save Tool",
-      "version": "1.6.0",
+      "version": "2.4.0",
       "status": "verified",
       "category": "Utilities",
-      "description": "أداة لإدارة نسخ حفظ الألعاب واستعادتها وتطبيق تعديلات الحفظ. الإصدار مذكور في صفحة الإصدارات الرسمية؛ توافق النظام يحتاج تحققاً منفصلاً.",
-      "firmware": "غير محدد",
+      "description": "إدارة وتعديل وحفظ واستعادة ملفات Save، إدارة الكؤوس، وأدوات Patch/Cheat. الإصدار 2.4.0 منشور رسمياً؛ توافق كل وظيفة يعتمد على النظام واللعبة.",
+      "firmware": "إصدار 2.0+ يذكر دعم جميع إصدارات النظام؛ بعض الوظائف قد تتطلب GoldHEN/ps4debug",
       "sourceUrl": "https://github.com/bucanero/apollo-ps4/releases"
+    },
+    {
+      "name": "Itemzflow",
+      "version": "1.08",
+      "status": "unverified",
+      "category": "Utilities",
+      "description": "مدير مكتبة الألعاب ومشغلها وأداة لإدارة المحتوى. سجل الإصدار يذكر إضافة دعم FUSE لإصدارات محددة حتى 13.02؛ تحقق من الملاحظات قبل الاستخدام.",
+      "firmware": "دعم FUSE موثق في سجل المشروع لبعض الإصدارات حتى 13.02؛ ليس حكماً عاماً",
+      "sourceUrl": "https://github.com/LightningMods/Itemzflow/releases"
+    },
+    {
+      "name": "ezRemote Client",
+      "version": "2.09 (GitHub Releases)",
+      "status": "unverified",
+      "category": "Utilities",
+      "description": "مدير ملفات واتصالات FTP/SFTP/SMB/NFS/WebDAV وGoogle Drive، مع تنزيل وتثبيت PKG عن بُعد. قد تعرض المتاجر نسخاً أحدث من صفحة Releases؛ راجع المصدر.",
+      "firmware": "راجع متطلبات الإصدار",
+      "sourceUrl": "https://github.com/cy33hc/ps4-ezremote-client/releases"
+    },
+    {
+      "name": "PS4-Xplorer",
+      "version": "2.0.0",
+      "status": "unverified",
+      "category": "Utilities",
+      "description": "مدير ملفات لجهاز PS4 مع FTP وتصفح الملفات وأدوات إدارة؛ صفحة GitHub للمصدر لا توفر Releases حالياً.",
+      "firmware": "غير محدد",
+      "sourceUrl": "https://github.com/Lapy055/PS4-Xplorer"
+    },
+    {
+      "name": "PS4 Homebrew Store",
+      "version": "غير محدد",
+      "status": "unverified",
+      "category": "Homebrew",
+      "description": "متجر/واجهة لتصفح وتثبيت تطبيقات Homebrew. تحقق من مصدر الحزمة وطريقة التحديث قبل التثبيت.",
+      "firmware": "غير محدد",
+      "sourceUrl": "https://github.com/LightningMods/PS4-Store"
+    },
+    {
+      "name": "PS4 Player",
+      "version": "غير محدد",
+      "status": "unverified",
+      "category": "Media",
+      "description": "مشغل وسائط لـ PS4 مبني باستخدام Unity؛ صفحة المشروع للمصدر.",
+      "firmware": "غير محدد",
+      "sourceUrl": "https://github.com/Lapy055/PS4Player"
+    },
+    {
+      "name": "Orbis Toolbox",
+      "version": "1.0.1190",
+      "status": "unverified",
+      "category": "Utilities",
+      "description": "مجموعة أدوات وتعديلات لواجهة PS4. المستودع مؤرشف منذ 2023؛ مشروع قديم وليس مضمون التوافق مع الأنظمة الحديثة.",
+      "firmware": "المستودع يذكر 5.05 و6.72 و7.02 و7.55 و9.00",
+      "sourceUrl": "https://github.com/OSM-Made/Orbis-Toolbox"
+    },
+    {
+      "name": "OpenOrbis PS4 Toolchain",
+      "version": "غير محدد",
+      "status": "unverified",
+      "category": "Development",
+      "description": "سلسلة أدوات تطوير تطبيقات PS4 مفتوحة المصدر، تشمل headers وlibrary stubs وأدوات البناء وأمثلة.",
+      "firmware": "للمطورين؛ يختلف حسب المشروع",
+      "sourceUrl": "https://github.com/OpenOrbis/OpenOrbis-PS4-Toolchain"
+    },
+    {
+      "name": "LibOrbisPkg",
+      "version": "غير محدد",
+      "status": "unverified",
+      "category": "Development",
+      "description": "مكتبة وأدوات GUI/CLI لإنشاء وفحص وتعديل ملفات PS4 PKG وSFO وPFS والأنواع المرتبطة.",
+      "firmware": "أداة كمبيوتر للمطورين",
+      "sourceUrl": "https://github.com/OpenOrbis/LibOrbisPkg"
+    },
+    {
+      "name": "PS4 PKG Manager",
+      "version": "غير محدد",
+      "status": "unverified",
+      "category": "Development",
+      "description": "برنامج كمبيوتر لإدارة مجموعات ملفات PKG الخاصة بـ PS4.",
+      "firmware": "برنامج كمبيوتر",
+      "sourceUrl": "https://github.com/hippie68/ps4-pkg-manager"
+    },
+    {
+      "name": "PS4 FTP Server (Linux/PC companion)",
+      "version": "1.09",
+      "status": "unverified",
+      "category": "Development",
+      "description": "مشروع خادم FTP يتضمن نسخة PS4 وأدوات/مصدر للمساعدة في النقل والاختبار.",
+      "firmware": "حتى 13.02 للـPayload وفق المطور",
+      "sourceUrl": "https://github.com/hippie68/ps4-ftp"
+    },
+    {
+      "name": "PS4 Patch Installer",
+      "version": "غير محدد",
+      "status": "unverified",
+      "category": "Mods",
+      "description": "أداة تثبيت تحديثات الألعاب من قاعدة ORBIS Patches؛ تحقق من قيود تحديثات الأقراص ومتطلبات النظام قبل الاستخدام.",
+      "firmware": "يختلف حسب تحديث اللعبة",
+      "sourceUrl": "https://orbispatches.com/"
+    },
+    {
+      "name": "PS4 Game & Homebrew Directory",
+      "version": "متجدد",
+      "status": "unverified",
+      "category": "Translations",
+      "description": "فهرس مجتمعي لمشاريع Homebrew والمنافذ والمحاكيات والألعاب. ليس مستودعاً لملفات تعريب مؤكدة؛ تحقق من كل مشروع وترخيصه ومصدره.",
+      "firmware": "حسب المشروع",
+      "sourceUrl": "https://github.com/CaptainTuckerRvB/PS4-Native-Ports-Recomps-Emulators-Apps-Directory"
     }
   ]
 }

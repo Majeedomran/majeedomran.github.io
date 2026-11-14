@@ -8,8 +8,8 @@ const words = {
   explore:'استكشف الملفات <span>←</span>',checkVersion:"تحقق من إصدارك",trust1:"● مصادر رسمية",trust2:"● معلومات توافق واضحة",trust3:"● تحديثات موثقة",
   fwTitle:"ما إصدار نظام جهازك؟",fwDesc:"اختر الإصدار يدوياً لعرض حالة المعلومات المسجلة في الكتالوج.",fwLabel:"إصدار النظام",chooseVersion:"اختر إصداراً",fwEmpty:"لم يتم اختيار إصدار بعد.",
   payloadDesc:"ملفات ومشاريع من مصادرها الأصلية.",showAll:"عرض الكل ←",payloadSearch:"ابحث عن Payload...",allStatuses:"كل الحالات",verified:"موثق",unverified:"غير موثق",
-  appsTitle:"تطبيقات PS4",appsDesc:"تطبيقات وأدوات وتعديلات ومكتبات تطوير ومراجع التعريب مرتبة حسب النوع.",appSearch:"ابحث عن تطبيق...",allCategories:"كل التصنيفات",
-  catMedia:"وسائط",catUtilities:"أدوات مساعدة",catHomebrew:"هومبرو",catEmulators:"محاكيات",catMods:"تعديلات",catTranslations:"تعريبات",catDevelopment:"تطوير",
+  appsTitle:"تطبيقات PS4",appsDesc:"كل فئة في قسم مستقل، مع تقديم الأدوات الأساسية للتعديل والمحاكيات أولاً.",appSearch:"ابحث عن تطبيق...",allCategories:"كل التصنيفات",
+  catEssentials:"البرامج الأساسية للتعديل",catMedia:"وسائط",catUtilities:"أدوات مساعدة",catHomebrew:"هومبرو",catEmulators:"محاكيات على PS4",catDesktop:"محاكيات PS4 على الكمبيوتر",catMods:"تعديلات وغش",catTranslations:"التعريبات والألعاب العربية",catDevelopment:"التطوير",
   noticeTitle:"معلومات مهمة قبل التحميل",noticeDesc:"حالة التوافق تختلف حسب إصدار النظام والمشروع. لا يعني ظهور إصدار في القائمة أنه قابل لكسر الحماية. لا توجد روابط تحميل تجريبية في هذه النسخة؛ أضف روابط المصدر الرسمي بعد التحقق منها.",
   footerNote:"مشروع مجتمعي مستقل، غير تابع لشركة Sony.",
   experimental:"تجريبي",unsupported:"غير مدعوم",unknown:"غير موثق",noDesc:"لا يوجد وصف مضاف.",noSource:"لم تتم إضافة مصدر رسمي بعد",source:"صفحة المصدر الرسمي ↗",download:"تحميل مباشر ↗",
@@ -22,8 +22,8 @@ const words = {
   explore:'Explore files <span>→</span>',checkVersion:"Check your firmware",trust1:"● Original sources",trust2:"● Clear compatibility details",trust3:"● Documented updates",
   fwTitle:"Which system software version do you use?",fwDesc:"Select your version to view the information recorded in the catalogue.",fwLabel:"System version",chooseVersion:"Choose a version",fwEmpty:"No version selected yet.",
   payloadDesc:"Files and projects linked to their original sources.",showAll:"View all →",payloadSearch:"Search payloads...",allStatuses:"All statuses",verified:"Verified",unverified:"Unverified",
-  appsTitle:"PS4 Applications",appsDesc:"Apps, tools, mods, development libraries and translation directories organized by type.",appSearch:"Search applications...",allCategories:"All categories",
-  catMedia:"Media",catUtilities:"Utilities",catHomebrew:"Homebrew",catEmulators:"Emulators",catMods:"Mods",catTranslations:"Translations",catDevelopment:"Development",
+  appsTitle:"PS4 Applications",appsDesc:"Separate sections for each category, with essential modding tools and emulators shown first.",appSearch:"Search applications...",allCategories:"All categories",
+  catEssentials:"Essential Modding Tools",catMedia:"Media",catUtilities:"Utilities",catHomebrew:"Homebrew",catEmulators:"PS4 Emulators",catDesktop:"PS4 Emulators for PC",catMods:"Mods & Cheats",catTranslations:"Translations & Arabic Games",catDevelopment:"Development",
   noticeTitle:"Important information before downloading",noticeDesc:"Compatibility varies by system software version and project. A version appearing in this list does not mean it is jailbreakable. This catalogue does not include unverified direct download links; use the official source after checking it.",
   footerNote:"Independent community project. Not affiliated with Sony.",
   experimental:"Experimental",unsupported:"Unsupported",unknown:"Unverified",noDesc:"No description provided.",noSource:"No official source has been added",source:"Official source page ↗",download:"Direct download ↗",
@@ -177,7 +177,22 @@ async function init(){
   $("#fwSelect").addEventListener("change",e=>{const f=catalog.firmware.find(x=>x.version===e.target.value);$("#fwResult").textContent=f?`${statusLabel(f.status)} — ${(currentLang==="en"?(f.note_en||firmwareNoteEnglish):f.note)||t("noFirmwareNote")}`:t("notSelected");});
   function draw(){
    render(catalog.payloads||[],$("#payloadCards"),"payload",$("#payloadSearch").value,$("#payloadFilter").value);
-   render(catalog.apps||[],$("#appCards"),"app",$("#appSearch").value,"all",$("#appCategory").value);
+   const groupOrder=["Essentials","Utilities","Homebrew","Emulators","Desktop","Media","Mods","Development","Translations"];
+   const labels={Essentials:"catEssentials",Utilities:"catUtilities",Homebrew:"catHomebrew",Emulators:"catEmulators",Desktop:"catDesktop",Media:"catMedia",Mods:"catMods",Development:"catDevelopment",Translations:"catTranslations"};
+   const q=$("#appSearch").value.trim().toLowerCase(), selected=$("#appCategory").value;
+   const host=$("#appGroups");host.innerHTML="";
+   groupOrder.filter(cat=>selected==="all"||selected===cat).forEach(cat=>{
+    const matches=(catalog.apps||[]).filter(x=>x.category===cat&&(!q||((x.name||"")+" "+(x.name_en||"")+" "+(x.description||"")+" "+(x.description_en||"")).toLowerCase().includes(q)));
+    if(!matches.length)return;
+    const section=document.createElement("section");section.className="category-group";
+    const head=document.createElement("div");head.className="category-heading";
+    const heading=document.createElement("h3");heading.textContent=t(labels[cat]);
+    const count=document.createElement("span");count.className="category-count";count.textContent=matches.length;
+    head.append(heading,count);section.appendChild(head);
+    const cards=document.createElement("div");cards.className="cards";section.appendChild(cards);
+    render(matches,cards,"app",q,"all",cat);host.appendChild(section);
+   });
+   if(!host.children.length)host.innerHTML=`<div class="empty">${t("noItems")}</div>`;
   }
   ["payloadSearch","payloadFilter","appSearch","appCategory"].forEach(id=>$("#"+id).addEventListener("input",draw));
   $("#langBtn").addEventListener("click",()=>{currentLang=currentLang==="ar"?"en":"ar";localStorage.setItem("majeedLang",currentLang);applyLanguage();draw();const fw=$("#fwSelect").value;if(fw){const f=catalog.firmware.find(x=>x.version===fw);$("#fwResult").textContent=f?`${statusLabel(f.status)} — ${(currentLang==="en"?(f.note_en||f.note):f.note)||t("noFirmwareNote")}`:t("notSelected");}else $("#fwResult").textContent=t("fwEmpty");});

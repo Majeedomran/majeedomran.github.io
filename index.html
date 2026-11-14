@@ -10,36 +10,36 @@
 <body>
 <header class="topbar">
   <a class="brand" href="#"><span class="brand-mark">M</span><span>MAJEED <b>PS4 HOST</b><small>HOMEbrew • PAYLOADS • FIRMWARE</small></span></a>
-  <nav><a href="#firmware">الفيرموير</a><a href="#payloads">Payloads</a><a href="#apps">التطبيقات</a><a href="#about">حول الموقع</a></nav>
+  <nav><a href="#firmware" data-i18n="navFirmware">الفيرموير</a><a href="#payloads" data-i18n="navPayloads">Payloads</a><a href="#apps" data-i18n="navApps">التطبيقات</a><a href="#about" data-i18n="navAbout">حول الموقع</a></nav>
   <button id="langBtn" class="outline">EN</button>
 </header>
 <main>
 <section class="hero">
   <div class="hero-copy">
     <span class="eyebrow">PLAYSTATION 4 COMMUNITY HUB</span>
-    <h1>كل أدوات PS4<br><em>بمكان واحد.</em></h1>
-    <p>كتالوج منظم للتطبيقات والـPayloads والأدوات والتعديلات ومكتبات التطوير ومراجع التعريب، مع روابط المصادر الأصلية.</p>
-    <div class="hero-actions"><a class="primary" href="#payloads">استكشف الملفات <span>←</span></a><a class="secondary" href="#firmware">تحقق من إصدارك</a></div>
-    <div class="trust"><span>● مصادر رسمية</span><span>● معلومات توافق واضحة</span><span>● تحديثات موثقة</span></div>
+    <h1 data-i18n="heroTitle">كل أدوات PS4<br><em>بمكان واحد.</em></h1>
+    <p data-i18n="heroDesc">كتالوج منظم للتطبيقات والـPayloads والأدوات والتعديلات ومكتبات التطوير ومراجع التعريب، مع روابط المصادر الأصلية.</p>
+    <div class="hero-actions"><a class="primary" href="#payloads" data-i18n="explore">استكشف الملفات <span>←</span></a><a class="secondary" href="#firmware" data-i18n="checkVersion">تحقق من إصدارك</a></div>
+    <div class="trust"><span data-i18n="trust1">● مصادر رسمية</span><span data-i18n="trust2">● معلومات توافق واضحة</span><span data-i18n="trust3">● تحديثات موثقة</span></div>
   </div>
   <div class="hero-art" aria-label="PlayStation 4 themed graphic"><div class="orb"></div><div class="console"><div class="console-line"></div><div class="console-light"></div></div><div class="floating-chip">PS4 / HOST</div></div>
 </section>
 <section class="firmware-panel" id="firmware">
- <div><span class="eyebrow">FIRMWARE CHECK</span><h2>ما إصدار نظام جهازك؟</h2><p>اختر الإصدار يدوياً لعرض حالة المعلومات المسجلة في الكتالوج.</p></div>
- <div class="firmware-controls"><label for="fwSelect">إصدار النظام</label><select id="fwSelect"><option value="">اختر إصداراً</option></select><div id="fwResult" class="fw-result">لم يتم اختيار إصدار بعد.</div></div>
+ <div><span class="eyebrow">FIRMWARE CHECK</span><h2 data-i18n="fwTitle">ما إصدار نظام جهازك؟</h2><p data-i18n="fwDesc">اختر الإصدار يدوياً لعرض حالة المعلومات المسجلة في الكتالوج.</p></div>
+ <div class="firmware-controls"><label for="fwSelect" data-i18n="fwLabel">إصدار النظام</label><select id="fwSelect"><option value="" data-i18n="chooseVersion">اختر إصداراً</option></select><div id="fwResult" class="fw-result" data-i18n="fwEmpty">لم يتم اختيار إصدار بعد.</div></div>
 </section>
 <section class="section" id="payloads">
- <div class="section-head"><div><span class="eyebrow">PAYLOAD LIBRARY</span><h2>Payloads</h2><p>ملفات ومشاريع من مصادرها الأصلية.</p></div><a class="text-link" href="#payloads">عرض الكل ←</a></div>
- <div class="toolbar"><input id="payloadSearch" placeholder="ابحث عن Payload..." aria-label="ابحث عن Payload"><select id="payloadFilter"><option value="all">كل الحالات</option><option value="verified">موثق</option><option value="unverified">غير موثق</option></select></div>
+ <div class="section-head"><div><span class="eyebrow">PAYLOAD LIBRARY</span><h2>Payloads</h2><p data-i18n="payloadDesc">ملفات ومشاريع من مصادرها الأصلية.</p></div><a class="text-link" href="#payloads" data-i18n="showAll">عرض الكل ←</a></div>
+ <div class="toolbar"><input id="payloadSearch" placeholder="ابحث عن Payload..." aria-label="ابحث عن Payload" data-i18n-placeholder="payloadSearch" data-i18n-aria="payloadSearch"><select id="payloadFilter"><option value="all" data-i18n="allStatuses">كل الحالات</option><option value="verified" data-i18n="verified">موثق</option><option value="unverified" data-i18n="unverified">غير موثق</option></select></div>
  <div class="cards" id="payloadCards"></div>
 </section>
 <section class="section" id="apps">
- <div class="section-head"><div><span class="eyebrow">HOMEBREW COLLECTION</span><h2>تطبيقات PS4</h2><p>تطبيقات وأدوات وتعديلات ومكتبات تطوير ومراجع التعريب مرتبة حسب النوع.</p></div></div>
- <div class="toolbar"><input id="appSearch" placeholder="ابحث عن تطبيق..." aria-label="ابحث عن تطبيق"><select id="appCategory"><option value="all">كل التصنيفات</option><option>Media</option><option>Utilities</option><option>Homebrew</option><option>Emulators</option><option>Mods</option><option>Translations</option><option>Development</option></select></div>
+ <div class="section-head"><div><span class="eyebrow">HOMEBREW COLLECTION</span><h2 data-i18n="appsTitle">تطبيقات PS4</h2><p data-i18n="appsDesc">تطبيقات وأدوات وتعديلات ومكتبات تطوير ومراجع التعريب مرتبة حسب النوع.</p></div></div>
+ <div class="toolbar"><input id="appSearch" placeholder="ابحث عن تطبيق..." aria-label="ابحث عن تطبيق" data-i18n-placeholder="appSearch" data-i18n-aria="appSearch"><select id="appCategory"><option value="all" data-i18n="allCategories">كل التصنيفات</option><option>Media</option><option>Utilities</option><option>Homebrew</option><option>Emulators</option><option>Mods</option><option>Translations</option><option>Development</option></select></div>
  <div class="cards" id="appCards"></div>
 </section>
-<section class="notice" id="about"><div class="notice-icon">i</div><div><h3>معلومات مهمة قبل التحميل</h3><p>حالة التوافق تختلف حسب إصدار النظام والمشروع. لا يعني ظهور إصدار في القائمة أنه قابل لكسر الحماية. لا توجد روابط تحميل تجريبية في هذه النسخة؛ أضف روابط المصدر الرسمي بعد التحقق منها.</p></div></section>
+<section class="notice" id="about"><div class="notice-icon">i</div><div><h3 data-i18n="noticeTitle">معلومات مهمة قبل التحميل</h3><p data-i18n="noticeDesc">حالة التوافق تختلف حسب إصدار النظام والمشروع. لا يعني ظهور إصدار في القائمة أنه قابل لكسر الحماية. لا توجد روابط تحميل تجريبية في هذه النسخة؛ أضف روابط المصدر الرسمي بعد التحقق منها.</p></div></section>
 </main>
-<footer><div class="brand small-brand"><span class="brand-mark">M</span><span>MAJEED <b>PS4 HOST</b></span></div><span>مشروع مجتمعي مستقل، غير تابع لشركة Sony.</span><span>© <span id="year"></span> MAJEED PS4 HOST</span></footer>
+<footer><div class="brand small-brand"><span class="brand-mark">M</span><span>MAJEED <b>PS4 HOST</b></span></div><span data-i18n="footerNote">مشروع مجتمعي مستقل، غير تابع لشركة Sony.</span><span>© <span id="year"></span> MAJEED PS4 HOST</span></footer>
 <script src="app.js"></script>
 </body></html>

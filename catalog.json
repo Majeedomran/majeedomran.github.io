@@ -277,11 +277,11 @@
       "sourceUrl": "https://orbispatches.com/"
     },
     {
-      "name": "PS4 Game & Homebrew Directory",
+      "name": "PS4 Native Ports / Emulators / Apps Directory",
       "version": "متجدد",
       "status": "unverified",
-      "category": "Translations",
-      "description": "فهرس مجتمعي لمشاريع Homebrew والمنافذ والمحاكيات والألعاب. ليس مستودعاً لملفات تعريب مؤكدة؛ تحقق من كل مشروع وترخيصه ومصدره.",
+      "category": "Development",
+      "description": "فهرس مجتمعي لمشاريع منافذ الألعاب والمحاكيات والتطبيقات. ليس مكتبة تعريبات؛ راجع كل مشروع وترخيصه ومصدره.",
       "firmware": "حسب المشروع",
       "sourceUrl": "https://github.com/CaptainTuckerRvB/PS4-Native-Ports-Recomps-Emulators-Apps-Directory"
     },
@@ -329,6 +329,24 @@
       "description": "دليل مجتمعي يجمع منافذ الألعاب الأصلية والمحاكيات والتطبيقات؛ ليس كل مشروع إصداراً مستقراً أو متوافقاً مع كل جهاز.",
       "firmware": "حسب المشروع",
       "sourceUrl": "https://github.com/CaptainTuckerRvB/PS4-Native-Ports-Recomps-Emulators-Apps-Directory"
+    },
+    {
+      "name": "Ta3reb – مكتبة تعريبات PS4",
+      "version": "محتوى متجدد",
+      "status": "unverified",
+      "category": "Translations",
+      "description": "فهرس مجتمعي للتعريبات مع صفحات تعرض معرف اللعبة CUSA وإصدار اللعبة ونوع التعريب. تحقق يدوياً من المصدر والنسخة والتوافق قبل تطبيق أي ملف؛ ليس مستودعاً رسمياً من Sony.",
+      "firmware": "حسب اللعبة ونسخة التحديث",
+      "sourceUrl": "https://ta3reb.com/?platform=PS4"
+    },
+    {
+      "name": "Muarrab – دليل الألعاب العربية",
+      "version": "محتوى متجدد",
+      "status": "unverified",
+      "category": "Translations",
+      "description": "دليل للبحث عن الألعاب التي تتوفر باللغة العربية على PS4، مع التفريق بين التعريب الرسمي ومشاريع المجتمع. استخدمه كفهرس معلومات ولا تعتبر كل نتيجة ملفاً صالحاً للتثبيت على PS4.",
+      "firmware": "حسب اللعبة",
+      "sourceUrl": "https://muarrab.com/en/platforms/ps4/"
     }
   ]
 }

@@ -132,13 +132,13 @@
   "payloads": [
     {
       "name": "GoldHEN",
-      "version": "2.3",
+      "version": "2.4b18",
       "status": "unverified",
       "description": "مُمكّن Homebrew رسمي للمجتمع مع Debug Settings وFTP وBinLoader ودعم Plugins وقائمة Cheats. ميزات BinLoader وقائمة الغش موصوفة بأنها تجريبية؛ تحقق من توافق جهازك قبل التحميل.",
-      "firmware": "تحقق من صفحة الإصدارات الرسمية لكل Firmware",
+      "firmware": "الإصدار الرسمي على GitHub يذكر 5.05 و6.71/6.72 و9.00 و9.60 و10.00/10.01 و11.00. توجد إصدارات أحدث منشورة عبر قنوات أخرى؛ تحقق من ملاحظات الإصدار ومصدر الملف قبل الاستخدام.",
       "sourceUrl": "https://github.com/GoldHEN/GoldHEN/releases",
       "description_en": "A community homebrew enabler with Debug Settings, FTP, BinLoader, plugin support and a cheats menu. BinLoader and cheat-menu features are experimental; check device compatibility before use.",
-      "firmware_en": "Check the official release page for each firmware version."
+      "firmware_en": "The GitHub release notes list 5.05, 6.71/6.72, 9.00, 9.60, 10.00/10.01 and 11.00. Other builds are published through separate channels; verify the exact release and source before use."
     },
     {
       "name": "PS4 HEN (Scene-Collective)",
@@ -209,6 +209,30 @@
       "firmware": "يتطلب محمل ELF متوافقاً؛ راجع المصدر",
       "firmware_en": "Requires a compatible ELF loader; check the source.",
       "sourceUrl": "https://github.com/grimstatic/fan-control/releases"
+    },
+    {
+      "name": "AnyPad PS4",
+      "name_en": "AnyPad PS4",
+      "version": "0.3.1-beta",
+      "status": "experimental",
+      "category": "Utilities",
+      "description": "Payload/ELF لدعم وحدات تحكم إضافية عبر Bluetooth الخاص بالجهاز، ومنها DualSense وSwitch Pro وفق الإصدار. سجل الإصدار يذكر أن الاختبارات الحالية على Firmware 13.52 فقط؛ لا تستخدمه مع OneFamily عند تفعيل تعديل Bluetooth.",
+      "description_en": "Payload/ELF for additional controllers over the console's Bluetooth, including DualSense and Switch Pro in this release. Release notes report testing on firmware 13.52 only; do not run it alongside OneFamily when Bluetooth patching is enabled.",
+      "firmware": "13.52 فقط وفق سجل الإصدار 0.3.1-beta؛ تجريبي.",
+      "firmware_en": "Firmware 13.52 only according to v0.3.1-beta release notes; experimental.",
+      "sourceUrl": "https://github.com/Vld439/AnyPad-PS4/releases"
+    },
+    {
+      "name": "Controller3To4Bridge",
+      "name_en": "Controller3To4Bridge",
+      "version": "1.4.0",
+      "status": "experimental",
+      "category": "Utilities",
+      "description": "جسر ELF لتشغيل DualShock 3 وبعض وحدات DualSense على PS4 مع GoldHEN. توجد اختبارات موثقة محدودة؛ لا تعتبر كل الإصدارات والأجهزة مختبرة.",
+      "description_en": "ELF bridge for using DualShock 3 and selected DualSense controllers on a PS4 running GoldHEN. Published testing is limited; not all firmware and hardware combinations are verified.",
+      "firmware": "اختبارات محدودة؛ راجع سجل الإصدار والتوافق قبل التشغيل.",
+      "firmware_en": "Limited testing; review release notes and compatibility before running.",
+      "sourceUrl": "https://github.com/veildarkness001/controller3to4Bridge"
     }
   ],
   "apps": [
@@ -236,14 +260,15 @@
     },
     {
       "name": "ezRemote Client",
-      "version": "2.09 (GitHub Releases)",
+      "version": "2.11",
       "status": "unverified",
       "category": "Essentials",
       "description": "مدير ملفات واتصالات FTP/SFTP/SMB/NFS/WebDAV وGoogle Drive، مع تنزيل وتثبيت PKG عن بُعد. قد تعرض المتاجر نسخاً أحدث من صفحة Releases؛ راجع المصدر.",
-      "firmware": "راجع متطلبات الإصدار",
+      "firmware": "راجع متطلبات الإصدار المحدد؛ رقم الإصدار المعروض من فهرس Brewology.",
       "sourceUrl": "https://github.com/cy33hc/ps4-ezremote-client/releases",
       "description_en": "A file and connection manager for FTP/SFTP/SMB/NFS/WebDAV and Google Drive, with remote PKG downloading and installation. Stores may list newer builds than GitHub Releases; check the source.",
-      "firmware_en": "Check the requirements for the selected release."
+      "firmware_en": "Check the selected release requirements; version cross-checked against the Brewology index.",
+      "version_note": "Latest version listed by Brewology on 14 Nov 2026; check developer release page."
     },
     {
       "name": "PS4-Xplorer",
@@ -282,13 +307,13 @@
     {
       "name": "Remote PKG Installer NextGen",
       "name_en": "Remote PKG Installer NextGen",
-      "version": "0.0.8 (release page)",
+      "version": "0.0.9",
       "status": "unverified",
       "category": "Essentials",
       "description": "تطبيق PS4 لتثبيت ملفات PKG عبر الشبكة مع لوحة متابعة للنقل وإيقافه واستئنافه. يتطلب GoldHEN أو بيئة تدعم تثبيت fPKG؛ راجع سجل الإصدار قبل التثبيت.",
       "description_en": "A PS4 app for installing PKG files over the network, with a transfer dashboard and pause/resume controls. Requires GoldHEN or an environment supporting fPKG installation; review release notes before installing.",
-      "firmware": "يتطلب HEN متوافقاً؛ راجع صفحة الإصدارات",
-      "firmware_en": "Requires compatible HEN; check the releases page.",
+      "firmware": "يتطلب HEN متوافقاً؛ راجع صفحة الإصدارات.",
+      "firmware_en": "Requires a compatible HEN environment; check the release notes.",
       "sourceUrl": "https://github.com/AldySan/ps4_remote_pkg_installer_nextgen/releases"
     },
     {
@@ -482,6 +507,66 @@
       "description_en": "A directory for finding PS4 games available in Arabic, distinguishing official localization from community projects. Use it as an information index; not every result is an installable PS4 file.",
       "firmware_en": "Depends on the game.",
       "name_en": "Muarrab – Arabic Games Directory"
+    },
+    {
+      "name": "OneFamily",
+      "name_en": "OneFamily",
+      "version": "1.2.3",
+      "status": "experimental",
+      "category": "Utilities",
+      "description": "مشروع لدعم وحدات تحكم إضافية وميزات متعلقة بالتوافق. إصدار 1.2.3 يتضمن إصلاحات للمستخدم والتعرف على وحدات التحكم؛ راجع تعليمات المطور ولا تجمعه مع AnyPad عند تعديل Bluetooth.",
+      "description_en": "A project for additional controller support and compatibility features. Version 1.2.3 includes user-profile navigation and controller-recognition fixes; follow developer instructions and do not combine with AnyPad when Bluetooth patching is active.",
+      "firmware": "المطور يذكر 5.05 إلى 14.00+؛ التوافق الفعلي يعتمد على الجهاز والوظيفة.",
+      "firmware_en": "Developer notes mention 5.05 through 14.00+; actual compatibility depends on hardware and feature.",
+      "sourceUrl": "https://github.com/ChiricoG/OneFamily/releases"
+    },
+    {
+      "name": "VCFG – Frame Generation Plugin",
+      "name_en": "VCFG – Frame Generation Plugin",
+      "version": "2.36",
+      "status": "experimental",
+      "category": "Mods",
+      "description": "إضافة GoldHEN لتوليد إطارات وسيطة للألعاب على PS4. المشروع تجريبي وتوافقه يعتمد على CUSA وتحديث اللعبة وطراز الجهاز؛ توجد ألعاب غير مدعومة وتحذيرات من التعارض مع إضافات أخرى.",
+      "description_en": "A GoldHEN plugin that generates intermediate frames for PS4 games. Experimental; compatibility depends on CUSA, game update and console model. Some titles are unsupported and plugin conflicts may cause crashes.",
+      "firmware": "يتطلب GoldHEN؛ راجع قائمة التوافق لكل لعبة. لا يوجد دعم عام لكل الألعاب.",
+      "firmware_en": "Requires GoldHEN; check per-title compatibility. Not universally supported.",
+      "sourceUrl": "https://github.com/Melnikoff07/vcfg/releases"
+    },
+    {
+      "name": "Brewology PS4 Homebrew Store",
+      "name_en": "Brewology PS4 Homebrew Store",
+      "version": "متجدد",
+      "status": "unverified",
+      "category": "Homebrew",
+      "description": "فهرس مجتمعي متجدد لتطبيقات وألعاب ومحاكيات وأدوات وPayloads PS4. استخدمه لاكتشاف المشاريع، ثم افتح صفحة المطور الأصلية للتحقق من المصدر والإصدار.",
+      "description_en": "A frequently updated community index of PS4 apps, games, emulators, tools and payloads. Use it to discover projects, then verify each item on its original developer page.",
+      "firmware": "حسب كل مشروع؛ ليس مصدراً رسمياً موحداً لكل الملفات.",
+      "firmware_en": "Depends on each project; this is an aggregator, not a single official source.",
+      "sourceUrl": "https://store.brewology.com/ps4/"
+    },
+    {
+      "name": "PS4 Exploit Chart (ConsoleMods)",
+      "name_en": "PS4 Exploit Chart (ConsoleMods)",
+      "version": "متجدد",
+      "status": "unverified",
+      "category": "Development",
+      "description": "جدول مجتمعي يشرح نقاط الدخول والثغرات المتاحة حسب Firmware، ويفصل بين Userland وKernel وخطوات HEN. راجع التحذيرات والمراجع قبل اتخاذ قرار.",
+      "description_en": "Community-maintained chart of entry points and exploits by firmware, distinguishing userland, kernel and HEN stages. Review warnings and references before acting.",
+      "firmware": "مرجع معلوماتي؛ لا ينفذ كسر الحماية.",
+      "firmware_en": "Reference only; it does not jailbreak the console.",
+      "sourceUrl": "https://consolemods.org/wiki/PS4:Exploit_Chart"
+    },
+    {
+      "name": "PS4 FAQ & Safety Guide (ConsoleMods)",
+      "name_en": "PS4 FAQ & Safety Guide (ConsoleMods)",
+      "version": "متجدد",
+      "status": "unverified",
+      "category": "Development",
+      "description": "مرجع للأسئلة الشائعة ومخاطر المواقع المزيفة والفرق بين الثغرة وHEN؛ مفيد لفهم ما يمكن وما لا يمكن فعله.",
+      "description_en": "Reference for common questions, fake-site warnings and the difference between an exploit and HEN; useful for understanding capabilities and limitations.",
+      "firmware": "مرجع معلوماتي؛ راجع تاريخ تحديث الصفحة.",
+      "firmware_en": "Reference only; check the page's update history.",
+      "sourceUrl": "https://consolemods.org/wiki/PS4:FAQ"
     }
   ]
 }

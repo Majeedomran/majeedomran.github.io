@@ -229,7 +229,7 @@ async function init(){
     const r=await fetch("https://majeed-ps4-admin-api.majeedomran.workers.dev/link-check",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({urls})});
     if(!r.ok)throw new Error("HTTP "+r.status);
     const data=await r.json();
-    data.results.forEach(x=>{const el=document.createElement("div");el.className="link-row";const label=document.createElement("span");label.textContent=x.url;const state=document.createElement("strong");state.textContent=x.ok?t("linkOk")+" ("+x.status+")":t("linkBad")+" ("+(x.status||"—")+")";state.className=x.ok?"good":"bad";el.append(label,state);out.appendChild(el);});
+    data.results.forEach(x=>{const el=document.createElement("div");el.className="link-row";const label=document.createElement("a");label.textContent=x.url;label.href=x.url;label.target="_blank";label.rel="noopener noreferrer";label.className="link-result-url";const state=document.createElement("strong");state.textContent=x.ok?t("linkOk")+" ("+x.status+")":t("linkBad")+" ("+(x.status||"—")+")";state.className=x.ok?"good":"bad";el.append(label,state);out.appendChild(el);});
     const summary=document.createElement("p");summary.textContent=t("linkSummary")+": "+data.results.filter(x=>x.ok).length+" / "+data.results.length;out.prepend(summary);
    }catch(e){out.textContent=currentLang==="en"?"The checker service is unavailable.":"خدمة فحص الروابط غير متاحة حالياً. تأكد من تحديث Cloudflare Worker.";}
    finally{btn.disabled=false;btn.textContent=t("checkLinks");}

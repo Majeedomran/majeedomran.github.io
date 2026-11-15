@@ -30,7 +30,7 @@ Required Cloudflare Worker secrets (configure in Cloudflare, never commit them):
 
 The Worker health endpoint is `/health`. The link checker only checks HTTP response reachability for an allowlist of source domains; it does **not** scan file contents, prove download integrity, or guarantee firmware compatibility.
 
-## Current catalogue\n\nThe catalogue currently contains 23 firmware entries, 10 payloads and 29 applications/resources. Firmware notes distinguish exploit entry points, kernel exploit availability and HEN/payload compatibility; they are not blanket guarantees.\n\n## Catalogue standards
+## Current catalogue\n\nThe catalogue currently contains 23 firmware entries, 15 payloads and 36 applications/resources. Firmware notes distinguish exploit entry points, kernel exploit availability and HEN/payload compatibility; they are not blanket guarantees.\n\n## Catalogue standards
 
 - Prefer original developer repositories and release pages.
 - Mark uncertain or experimental compatibility clearly.

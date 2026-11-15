@@ -4,8 +4,8 @@ const savedLang = localStorage.getItem("majeedLang");
 let currentLang = savedLang === "ar" ? "ar" : "en";
 const words = {
  ar: {
-  navFirmware:"الفيرموير",navPayloads:"Payloads",navApps:"التطبيقات",navAbout:"حول الموقع",
-  heroTitle:'كل أدوات PS4<br><em>بمكان واحد.</em>',heroDesc:"كتالوج منظم للتطبيقات والـPayloads والأدوات والتعديلات ومكتبات التطوير ومراجع التعريب، مع روابط المصادر الأصلية.",
+  navFirmware:"الفيرموير",navPayloads:"Payloads",navApps:"التطبيقات",navAbout:"حول الموقع",navHome:"الرئيسية",startJailbreak:"ابدأ دليل الجيلبريك <span>←</span>",quickStartEyebrow:"بداية جيلبريك PS4",quickStartTitle:"ابدأ من إصدار جهازك",quickStartDesc:"اختر إصدار النظام المثبت فعلياً على جهازك.",fullFirmwareDetails:"تفاصيل الإصدار كاملة",goldhenLinkDesc:"الإصدارات والملاحظات الرسمية ↗",exploitChart:"مرجع ثغرات الجيلبريك",exploitChartDesc:"راجع طرق الدخول وملاحظات الإصدارات ↗",quickWarning:"مهم: وجود ثغرة دخول لا يعني تلقائياً توفر ثغرة Kernel أو HEN متوافق. تحقق من إصدار جهازك والملف المحدد قبل التشغيل.",payloadShortcut:"Payloads",payloadShortcutDesc:"افتحها عند الحاجة فقط",libraryShortcut:"مكتبة الهومبرو",libraryShortcutDesc:"التطبيقات والأدوات والمحاكيات",homeFwEmpty:"اختر إصدار جهازك لعرض ملاحظات الجيلبريك المسجلة.",
+  heroTitle:'جيلبريك PS4<br><em>بخطوات واضحة.</em>',heroDesc:"اختر إصدار جهازك، راجع معلومات الجيلبريك الموثقة، ثم افتح الأدوات التي تحتاجها فقط.",
   explore:'استكشف الملفات <span>←</span>',checkVersion:"تحقق من إصدارك",trust1:"● مصادر رسمية",trust2:"● معلومات توافق واضحة",trust3:"● تحديثات موثقة",
   fwTitle:"ما إصدار نظام جهازك؟",fwDesc:"اختر الإصدار يدوياً لعرض حالة المعلومات المسجلة في الكتالوج.",fwLabel:"إصدار النظام",chooseVersion:"اختر إصداراً",fwEmpty:"لم يتم اختيار إصدار بعد.",
   payloadDesc:"ملفات ومشاريع من مصادرها الأصلية.",showAll:"عرض الكل ←",payloadSearch:"ابحث عن Payload...",allStatuses:"كل الحالات",verified:"موثق",unverified:"غير موثق",
@@ -18,8 +18,8 @@ const words = {
   assistantTitle:"مساعد MAJEED الذكي",assistantDesc:"اختر إصدار جهازك كسياق مساعد، واكتب ما تبحث عنه. راجع ملاحظات التوافق لكل عنصر.",assistantQueryLabel:"شو بدك تلاقي؟",assistantPlaceholder:"مثلاً: مدير ملفات، محاكي، تعريب...",assistantRun:"ابحث في الكتالوج",assistantDisclaimer:"المساعد يبحث في بيانات الموقع ولا يستخدم نموذج ذكاء اصطناعي خارجي. النتائج ومعلومات التوافق تحتاج مراجعة المصدر.",assistantEmpty:"اكتب كلمة أو اختر نوع الأداة لعرض النتائج.",updatesTitle:"آخر تحديثات الموقع",updatesDesc:"سجل تغييرات الموقع والميزات المضافة.",linkTitle:"فاحص الروابط",linkDesc:"افحص روابط المصادر المسجلة في الكتالوج عند الطلب.",linkDisclaimer:"الفحص يختبر استجابة صفحات المصدر فقط؛ لا يضمن سلامة الملفات أو توافقها. قد تمنع بعض المواقع الفحص الآلي.",checkLinks:"ابدأ فحص الروابط",checkingLinks:"جارٍ فحص الروابط...",statusTitle:"حالة الموقع والمصادر",statusDesc:"معلومات فورية عن تحميل الكتالوج وخدمات الموقع.",catalogStatus:"الكتالوج",workerStatus:"خدمة الفحص",catalogCount:"عناصر الكتالوج",lastCheck:"آخر تحديث لهذه الصفحة",refreshStatus:"تحديث الحالة",statusOnline:"يعمل",statusOffline:"غير متاح",statusUnknown:"غير مفحوص",linkOk:"يستجيب",linkBad:"تعذر التحقق",linkSummary:"نتيجة الفحص",noItems:"لا توجد عناصر مطابقة حالياً. ستظهر الملفات بعد إضافة بياناتها والتحقق من مصادرها.",loadError:"تعذر تحميل بيانات الكتالوج حالياً."
  },
  en: {
-  navFirmware:"Firmware",navPayloads:"Payloads",navApps:"Apps",navAbout:"About",
-  heroTitle:'All PS4 tools<br><em>in one place.</em>',heroDesc:"An organized catalogue of apps, payloads, tools, mods, development libraries and Arabic translation directories, with links to original sources.",
+  navFirmware:"Firmware",navPayloads:"Payloads",navApps:"Apps",navAbout:"About",navHome:"Home",startJailbreak:"Start jailbreak guide <span>→</span>",quickStartEyebrow:"PS4 JAILBREAK QUICK START",quickStartTitle:"Start with your firmware",quickStartDesc:"Choose the exact system software version installed on your console.",fullFirmwareDetails:"Full firmware details",goldhenLinkDesc:"Official releases and notes ↗",exploitChart:"Exploit reference chart",exploitChartDesc:"Review entry points and firmware notes ↗",quickWarning:"Important: an entry-point exploit does not automatically mean a compatible kernel exploit or HEN is available. Verify your exact firmware and release before running files.",payloadShortcut:"Payloads",payloadShortcutDesc:"Open only when needed",libraryShortcut:"Homebrew library",libraryShortcutDesc:"Apps, tools and emulators",homeFwEmpty:"Choose your firmware to view the recorded jailbreak notes.",
+  heroTitle:'PS4 Jailbreak<br><em>Quick Start.</em>',heroDesc:"Find your PS4 firmware, check the documented jailbreak notes, then open only the tools you need.",
   explore:'Explore files <span>→</span>',checkVersion:"Check your firmware",trust1:"● Original sources",trust2:"● Clear compatibility details",trust3:"● Documented updates",
   fwTitle:"Which system software version do you use?",fwDesc:"Select your version to view the information recorded in the catalogue.",fwLabel:"System version",chooseVersion:"Choose a version",fwEmpty:"No version selected yet.",
   payloadDesc:"Files and projects linked to their original sources.",showAll:"View all →",payloadSearch:"Search payloads...",allStatuses:"All statuses",verified:"Verified",unverified:"Unverified",
@@ -171,17 +171,19 @@ function render(list,target,type,query="",filter="all",category="all"){
 }
 const categoryOrder=["Essentials","Utilities","Homebrew","Emulators","Desktop","Media","Mods","Development","Translations"];
 const categoryLabels={Essentials:["البرامج الأساسية","Essential tools"],Utilities:["أدوات مساعدة","Utilities"],Homebrew:["هومبرو","Homebrew"],Emulators:["محاكيات PS4","PS4 emulators"],Desktop:["محاكيات الكمبيوتر","PC emulators"],Media:["الوسائط","Media"],Mods:["التعديلات والغش","Mods & cheats"],Development:["التطوير","Development"],Translations:["التعريبات","Translations"]};
-let activeView="apps";
-function showView(view){activeView=view;document.querySelectorAll(".view-panel").forEach(el=>el.classList.toggle("is-hidden",el.id!==view));document.querySelectorAll(".library-menu button").forEach(b=>b.classList.toggle("active",b.dataset.view===view||(view==="apps"&&b.dataset.category===$("#appCategory").value)));}
+let activeView="home";
+let renderCatalogueView=()=>{};
+let refreshStatusView=()=>{};
+function showView(view){activeView=view;document.querySelectorAll(".view-panel").forEach(el=>el.classList.toggle("is-hidden",el.id!==view));document.querySelectorAll(".library-menu button").forEach(b=>b.classList.toggle("active",b.dataset.view===view||(view==="apps"&&b.dataset.category===$("#appCategory").value)));if(view==="apps"||view==="payloads")renderCatalogueView();if(view==="status")refreshStatusView();window.scrollTo({top:0,behavior:"auto"});}
 function buildMenu(draw){const host=$("#libraryMenu");host.innerHTML="";const add=(label,view,category=null,glyph="✦")=>{const b=document.createElement("button");b.type="button";b.className="menu-tile";b.dataset.view=view;b.setAttribute("aria-label",label);const icon=document.createElement("span");icon.className="menu-tile-icon";icon.setAttribute("aria-hidden","true");icon.textContent=glyph;const title=document.createElement("span");title.className="menu-tile-label";title.textContent=label;b.append(icon,title);if(category)b.dataset.category=category;b.addEventListener("click",()=>{if(category){$("#appCategory").value=category;showView("apps");draw();}else showView(view);});host.appendChild(b);};const glyphs={Essentials:"✦",Utilities:"⚙",Homebrew:"⌂",Emulators:"◈",Desktop:"▣",Media:"▶",Mods:"✚",Development:"</>",Translations:"文"};categoryOrder.forEach(cat=>add(categoryLabels[cat][currentLang==="en"?1:0],"apps",cat,glyphs[cat]));add(currentLang==="en"?"Payloads":"البايلودات","payloads",null,"⚡");add(currentLang==="en"?"Firmware":"إصدارات النظام","firmware",null,"⬡");add(currentLang==="en"?"Smart Assistant":"المساعد الذكي","assistant",null,"✧");add(currentLang==="en"?"Updates":"التحديثات","updates",null,"↻");add(currentLang==="en"?"Link Checker":"فاحص الروابط","linkcheck",null,"↗");add(currentLang==="en"?"Site Status":"حالة الموقع","status",null,"●");}
 async function init(){
  applyLanguage();
  try{
-  const response=await fetch("catalog.json?v="+Date.now(),{cache:"no-store"});
+  const response=await fetch("catalog.json?v=20261116-quickstart1",{cache:"force-cache"});
   if(!response.ok)throw new Error("Catalogue load failed");
   const catalog=await response.json();
-  catalog.firmware.forEach(x=>{const o=document.createElement("option");o.value=x.version;o.textContent=x.version;$("#fwSelect").appendChild(o);});
-  $("#fwSelect").addEventListener("change",e=>{const f=catalog.firmware.find(x=>x.version===e.target.value);$("#fwResult").textContent=f?`${statusLabel(f.status)} — ${(currentLang==="en"?(f.note_en||firmwareNoteEnglish):f.note)||t("noFirmwareNote")}`:t("notSelected");});
+  const updateFirmwareInfo=(version,target)=>{const f=catalog.firmware.find(x=>x.version===version);target.textContent=f?statusLabel(f.status)+" — "+((currentLang==="en"?(f.note_en||firmwareNoteEnglish):f.note)||t("noFirmwareNote")):t("homeFwEmpty");};
+  [$("#fwSelect"),$("#homeFwSelect")].forEach(select=>{catalog.firmware.forEach(x=>{const o=document.createElement("option");o.value=x.version;o.textContent=x.version;select.appendChild(o);});select.addEventListener("change",()=>updateFirmwareInfo(select.value,select.id==="homeFwSelect"?$("#homeFwResult"):$("#fwResult")));});
   function draw(){
    render(catalog.payloads||[],$("#payloadCards"),"payload",$("#payloadSearch").value,$("#payloadFilter").value);
    const selected=$("#appCategory").value;
@@ -192,6 +194,7 @@ async function init(){
    document.querySelectorAll(".library-menu button").forEach(b=>b.classList.toggle("active",b.dataset.category===selected&&activeView==="apps"));
   }
 
+  renderCatalogueView=draw;
   // Smart catalogue assistant: local keyword search, not an external AI service.
   const allItems=[...(catalog.apps||[]).map(x=>({...x,_type:"app"})),...(catalog.payloads||[]).map(x=>({...x,_type:"payload"}))];
   const af=$("#assistantFirmware");
@@ -223,7 +226,7 @@ async function init(){
    $("#workerStatus").textContent=t("statusUnknown");
    try{const r=await fetch("https://majeed-ps4-admin-api.majeedomran.workers.dev/health",{cache:"no-store"});$("#workerStatus").textContent=r.ok?t("statusOnline"):t("statusOffline");}catch{$("#workerStatus").textContent=t("statusOffline");}
   };
-  $("#refreshStatus").addEventListener("click",refreshStatus);refreshStatus();
+  $("#refreshStatus").addEventListener("click",refreshStatus);refreshStatusView=refreshStatus;
   $("#checkLinks").addEventListener("click",async()=>{
    const btn=$("#checkLinks"),out=$("#linkResults");btn.disabled=true;btn.textContent=t("checkingLinks");out.innerHTML="";
    try{
@@ -242,9 +245,11 @@ async function init(){
   });
 
   ["payloadSearch","payloadFilter","appSearch"].forEach(id=>$("#"+id).addEventListener("input",draw));
-  $("#langBtn").addEventListener("click",()=>{currentLang=currentLang==="ar"?"en":"ar";localStorage.setItem("majeedLang",currentLang);applyLanguage();buildMenu(draw);draw();$("#updatesList").querySelectorAll(".timeline-item p").forEach((p,i)=>p.textContent=currentLang==="en"?updates[i][2]:updates[i][1]);const fw=$("#fwSelect").value;if(fw){const f=catalog.firmware.find(x=>x.version===fw);$("#fwResult").textContent=f?`${statusLabel(f.status)} — ${(currentLang==="en"?(f.note_en||f.note):f.note)||t("noFirmwareNote")}`:t("notSelected");}else $("#fwResult").textContent=t("fwEmpty");});
+  document.querySelectorAll("[data-view]").forEach(control=>control.addEventListener("click",event=>{event.preventDefault();showView(control.dataset.view);if(control.dataset.view==="apps"&&control.dataset.category){$("#appCategory").value=control.dataset.category;draw();}history.replaceState(null,"","#"+control.dataset.view);}));
+  $("#langBtn").addEventListener("click",()=>{currentLang=currentLang==="ar"?"en":"ar";localStorage.setItem("majeedLang",currentLang);applyLanguage();buildMenu(draw);draw();$("#updatesList").querySelectorAll(".timeline-item p").forEach((p,i)=>p.textContent=currentLang==="en"?updates[i][2]:updates[i][1]);const fw=$("#fwSelect").value;if(fw)updateFirmwareInfo(fw,$("#fwResult"));else $("#fwResult").textContent=t("fwEmpty");const homeFw=$("#homeFwSelect").value;if(homeFw)updateFirmwareInfo(homeFw,$("#homeFwResult"));else $("#homeFwResult").textContent=t("homeFwEmpty");});
   $("#year").textContent=new Date().getFullYear();
-  $("#appCategory").value="Essentials";buildMenu(draw);showView("apps");applyLanguage();draw();
+  document.querySelectorAll(".view-panel").forEach(el=>el.classList.toggle("is-hidden",el.id!=="home"));
+  $("#appCategory").value="Essentials";buildMenu(draw);showView("home");applyLanguage();
  }catch(error){console.error(error);$("#payloadCards").innerHTML=`<div class="empty">${t("loadError")}</div>`;}
 }
 init();

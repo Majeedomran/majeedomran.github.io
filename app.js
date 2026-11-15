@@ -227,12 +227,16 @@ async function init(){
   $("#checkLinks").addEventListener("click",async()=>{
    const btn=$("#checkLinks"),out=$("#linkResults");btn.disabled=true;btn.textContent=t("checkingLinks");out.innerHTML="";
    try{
-    const urls=[...new Set(allItems.map(x=>x.sourceUrl).filter(u=>u&&/^https:\/\//i.test(u)))].slice(0,30);
-    const r=await fetch("https://majeed-ps4-admin-api.majeedomran.workers.dev/link-check",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({urls})});
-    if(!r.ok)throw new Error("HTTP "+r.status);
-    const data=await r.json();
-    data.results.forEach(x=>{const el=document.createElement("div");el.className="link-row";const linkWrap=document.createElement("div");linkWrap.className="link-result-link-wrap";const label=document.createElement("a");label.textContent=x.url;label.href=x.url;label.target="_blank";label.rel="noopener noreferrer";label.className="link-result-url";linkWrap.appendChild(label);const state=document.createElement("strong");state.textContent=x.ok?t("linkOk")+" ("+x.status+")":t("linkBad")+" ("+(x.status||"—")+")";state.className="link-result-status "+(x.ok?"good":"bad");el.append(linkWrap,state);out.appendChild(el);});
-    const summary=document.createElement("p");summary.textContent=t("linkSummary")+": "+data.results.filter(x=>x.ok).length+" / "+data.results.length;out.prepend(summary);
+    const urls=[...new Set(allItems.map(x=>x.sourceUrl).filter(u=>u&&/^https:\/\//i.test(u)))];
+    const batches=[];for(let i=0;i<urls.length;i+=30)batches.push(urls.slice(i,i+30));
+    const checked=await Promise.all(batches.map(async batch=>{
+     const r=await fetch("https://majeed-ps4-admin-api.majeedomran.workers.dev/link-check",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({urls:batch})});
+     if(!r.ok)throw new Error("HTTP "+r.status);
+     const data=await r.json();return Array.isArray(data.results)?data.results:[];
+    }));
+    const results=checked.flat();
+    results.forEach(x=>{const el=document.createElement("div");el.className="link-row";const linkWrap=document.createElement("div");linkWrap.className="link-result-link-wrap";const label=document.createElement("a");label.textContent=x.url;label.href=x.url;label.target="_blank";label.rel="noopener noreferrer";label.className="link-result-url";linkWrap.appendChild(label);const state=document.createElement("strong");state.textContent=x.ok?t("linkOk")+" ("+x.status+")":t("linkBad")+" ("+(x.status||"—")+")";state.className="link-result-status "+(x.ok?"good":"bad");el.append(linkWrap,state);out.appendChild(el);});
+    const summary=document.createElement("p");summary.textContent=t("linkSummary")+": "+results.filter(x=>x.ok).length+" / "+results.length;out.prepend(summary);
    }catch(e){out.textContent=currentLang==="en"?"The checker service is unavailable.":"خدمة فحص الروابط غير متاحة حالياً. تأكد من تحديث Cloudflare Worker.";}
    finally{btn.disabled=false;btn.textContent=t("checkLinks");}
   });

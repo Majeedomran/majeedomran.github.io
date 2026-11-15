@@ -102,7 +102,8 @@ $("entryForm").addEventListener("submit",e=>{
     : {name:field("entryName"),name_en:field("entryNameEn"),version:field("entryVersion"),status:$("entryStatus").value,category:$("entryCategory").value,description:field("entryDescription"),description_en:field("entryDescriptionEn"),firmware:field("entryFirmware"),firmware_en:field("entryFirmwareEn"),sourceUrl:field("entrySource"),downloadUrl:field("entryDownload")};
   if(isFirmware&&!item.version){status("editorStatus","Firmware version is required.");return;}
   if(!isFirmware&&!item.name){status("editorStatus","Entry name is required.");return;}
-  if(!isFirmware&&!item.sourceUrl){status("editorStatus","An original source URL is required.");return;}\n  if(!isFirmware&&!validHttps(item.sourceUrl,"Source URL"))return;
+  if(!isFirmware&&!item.sourceUrl){status("editorStatus","An original source URL is required.");return;}
+  if(!isFirmware&&!validHttps(item.sourceUrl,"Source URL"))return;
   if(!isFirmware&&item.downloadUrl&&!validHttps(item.downloadUrl,"Download URL"))return;
   const arr=listForType();
   if(selectedIndex>=0&&selectedIndex<arr.length) arr[selectedIndex]=item;

@@ -68,15 +68,16 @@ export default {
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: corsHeaders() });
     const url = new URL(request.url);
     const headers = corsHeaders();
-    if (url.pathname === "/health" && request.method === "GET") {\n      return json({ ok: true, service: "MAJEED PS4 HOST checker" }, 200, headers);\n    }\n    if (!env.ADMIN_PASSWORD || !env.GH_TOKEN || !env.SESSION_SECRET) return json({ error: "Worker secrets are not configured" }, 500, headers);\n    if (url.pathname === "/login" && request.method === "POST") {
+    if (url.pathname === "/health" && request.method === "GET") {
+      return json({ ok: true, service: "MAJEED PS4 HOST checker" }, 200, headers);
+    }
+    if (!env.ADMIN_PASSWORD || !env.GH_TOKEN || !env.SESSION_SECRET) return json({ error: "Worker secrets are not configured" }, 500, headers);
+    if (url.pathname === "/login" && request.method === "POST") {
       if (origin !== ORIGIN) return json({ error: "Invalid origin" }, 403, headers);
       const body = await request.json().catch(() => ({}));
       if (typeof body.password !== "string" || body.password !== env.ADMIN_PASSWORD) return json({ error: "كلمة المرور غير صحيحة" }, 401, headers);
       const token = await makeSession(env.SESSION_SECRET);
       return json({ ok: true, token }, 200, headers);
-    }
-    if (url.pathname === "/health" && request.method === "GET") {
-      return json({ ok: true, service: "MAJEED PS4 HOST checker" }, 200, headers);
     }
 
     if (!env.ADMIN_PASSWORD || !env.GH_TOKEN || !env.SESSION_SECRET) return json({ error: "Worker secrets are not configured" }, 500, headers);
@@ -114,7 +115,8 @@ export default {
       try {
         if (request.method === "GET") {
           const data = await githubRequest(env, "GET");
-          const raw = Uint8Array.from(atob(data.content.replace(/\n/g, "")), c => c.charCodeAt(0));
+          const raw = Uint8Array.from(atob(data.content.replace(/
+/g, "")), c => c.charCodeAt(0));
           return new Response(new TextDecoder().decode(raw), { headers: { ...headers, "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" } });
         }
         if (origin !== ORIGIN) return json({ error: "Invalid origin" }, 403, headers);

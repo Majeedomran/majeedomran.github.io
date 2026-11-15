@@ -14,7 +14,7 @@ const words = {
   footerNote:"مشروع مجتمعي مستقل، غير تابع لشركة Sony.",
   experimental:"تجريبي",unsupported:"غير مدعوم",unknown:"غير موثق",noDesc:"لا يوجد وصف مضاف.",noSource:"لم تتم إضافة مصدر رسمي بعد",source:"صفحة المصدر الرسمي ↗",download:"تحميل مباشر ↗",
   version:"الإصدار:",compatibility:"التوافق:",notSelected:"لم يتم اختيار إصدار بعد.",noFirmwareNote:"لا توجد ملاحظات إضافية.",
-  noItems:"لا توجد عناصر مطابقة حالياً. ستظهر الملفات بعد إضافة بياناتها والتحقق من مصادرها.",loadError:"تعذر تحميل بيانات الكتالوج حالياً."
+  assistantTitle:"مساعد MAJEED الذكي",assistantDesc:"اختر إصدار جهازك واكتب ما تبحث عنه لعرض العناصر المسجلة في الكتالوج.",assistantQueryLabel:"شو بدك تلاقي؟",assistantPlaceholder:"مثلاً: مدير ملفات، محاكي، تعريب...",assistantRun:"ابحث في الكتالوج",assistantDisclaimer:"المساعد يبحث في بيانات الموقع ولا يستخدم نموذج ذكاء اصطناعي خارجي. النتائج ومعلومات التوافق تحتاج مراجعة المصدر.",assistantEmpty:"اكتب كلمة أو اختر نوع الأداة لعرض النتائج.",updatesTitle:"آخر تحديثات الموقع",updatesDesc:"سجل تغييرات الموقع والميزات المضافة.",linkTitle:"فاحص الروابط",linkDesc:"افحص روابط المصادر المسجلة في الكتالوج عند الطلب.",linkDisclaimer:"الفحص يختبر استجابة صفحات المصدر فقط؛ لا يضمن سلامة الملفات أو توافقها. قد تمنع بعض المواقع الفحص الآلي.",checkLinks:"ابدأ فحص الروابط",checkingLinks:"جارٍ فحص الروابط...",statusTitle:"حالة الموقع والمصادر",statusDesc:"معلومات فورية عن تحميل الكتالوج وخدمات الموقع.",catalogStatus:"الكتالوج",workerStatus:"خدمة الفحص",catalogCount:"عناصر الكتالوج",lastCheck:"آخر تحديث لهذه الصفحة",refreshStatus:"تحديث الحالة",statusOnline:"يعمل",statusOffline:"غير متاح",statusUnknown:"غير مفحوص",linkOk:"يستجيب",linkBad:"تعذر التحقق",linkSummary:"نتيجة الفحص",noItems:"لا توجد عناصر مطابقة حالياً. ستظهر الملفات بعد إضافة بياناتها والتحقق من مصادرها.",loadError:"تعذر تحميل بيانات الكتالوج حالياً."
  },
  en: {
   navFirmware:"Firmware",navPayloads:"Payloads",navApps:"Apps",navAbout:"About",
@@ -28,7 +28,7 @@ const words = {
   footerNote:"Independent community project. Not affiliated with Sony.",
   experimental:"Experimental",unsupported:"Unsupported",unknown:"Unverified",noDesc:"No description provided.",noSource:"No official source has been added",source:"Official source page ↗",download:"Direct download ↗",
   version:"Version:",compatibility:"Compatibility:",notSelected:"No version selected yet.",noFirmwareNote:"No additional notes.",
-  noItems:"No matching items found. Entries will appear after their details and sources are added and checked.",loadError:"The catalogue data could not be loaded."
+  assistantTitle:"MAJEED Smart Assistant",assistantDesc:"Choose your console firmware and describe what you need to find in the catalogue.",assistantQueryLabel:"What are you looking for?",assistantPlaceholder:"e.g. file manager, emulator, Arabic translation...",assistantRun:"Search catalogue",assistantDisclaimer:"This assistant searches the site's catalogue and does not use an external AI model. Review each source; compatibility information is not a guarantee.",assistantEmpty:"Enter a keyword to see matching entries.",updatesTitle:"Latest site updates",updatesDesc:"A record of site changes and added features.",linkTitle:"Link checker",linkDesc:"Check the source links listed in the catalogue on demand.",linkDisclaimer:"This checks source-page responses only; it does not verify file safety or compatibility. Some sites may block automated checks.",checkLinks:"Check source links",checkingLinks:"Checking links...",statusTitle:"Site and source status",statusDesc:"Live information about catalogue loading and site services.",catalogStatus:"Catalogue",workerStatus:"Checking service",catalogCount:"Catalogue entries",lastCheck:"Page last refreshed",refreshStatus:"Refresh status",statusOnline:"Online",statusOffline:"Unavailable",statusUnknown:"Not checked",linkOk:"Responding",linkBad:"Could not verify",linkSummary:"Check result",noItems:"No matching items found. Entries will appear after their details and sources are added and checked.",loadError:"The catalogue data could not be loaded."
  }
 };
 const t = key => words[currentLang][key] || words.ar[key] || key;
@@ -172,7 +172,7 @@ const categoryOrder=["Essentials","Utilities","Homebrew","Emulators","Desktop","
 const categoryLabels={Essentials:["البرامج الأساسية","Essential tools"],Utilities:["أدوات مساعدة","Utilities"],Homebrew:["هومبرو","Homebrew"],Emulators:["محاكيات PS4","PS4 emulators"],Desktop:["محاكيات الكمبيوتر","PC emulators"],Media:["الوسائط","Media"],Mods:["التعديلات والغش","Mods & cheats"],Development:["التطوير","Development"],Translations:["التعريبات","Translations"]};
 let activeView="apps";
 function showView(view){activeView=view;document.querySelectorAll(".view-panel").forEach(el=>el.classList.toggle("is-hidden",el.id!==view));document.querySelectorAll(".library-menu button").forEach(b=>b.classList.toggle("active",b.dataset.view===view||(view==="apps"&&b.dataset.category===$("#appCategory").value)));}
-function buildMenu(draw){const host=$("#libraryMenu");host.innerHTML="";const add=(label,view,category=null)=>{const b=document.createElement("button");b.type="button";b.textContent=label;b.dataset.view=view;if(category)b.dataset.category=category;b.addEventListener("click",()=>{if(category){$("#appCategory").value=category;showView("apps");draw();}else showView(view);});host.appendChild(b);};categoryOrder.forEach(cat=>add(categoryLabels[cat][currentLang==="en"?1:0],"apps",cat));add(currentLang==="en"?"Payloads":"البايلودات","payloads");add(currentLang==="en"?"Firmware":"إصدارات النظام","firmware");}
+function buildMenu(draw){const host=$("#libraryMenu");host.innerHTML="";const add=(label,view,category=null)=>{const b=document.createElement("button");b.type="button";b.textContent=label;b.dataset.view=view;if(category)b.dataset.category=category;b.addEventListener("click",()=>{if(category){$("#appCategory").value=category;showView("apps");draw();}else showView(view);});host.appendChild(b);};categoryOrder.forEach(cat=>add(categoryLabels[cat][currentLang==="en"?1:0],"apps",cat));add(currentLang==="en"?"Payloads":"البايلودات","payloads");add(currentLang==="en"?"Firmware":"إصدارات النظام","firmware");add(currentLang==="en"?"Smart Assistant":"المساعد الذكي","assistant");add(currentLang==="en"?"Updates":"التحديثات","updates");add(currentLang==="en"?"Link Checker":"فاحص الروابط","linkcheck");add(currentLang==="en"?"Site Status":"حالة الموقع","status");}
 async function init(){
  try{
   const response=await fetch("catalog.json?v="+Date.now(),{cache:"no-store"});
@@ -189,8 +189,54 @@ async function init(){
    render(matches,cards,"app",$("#appSearch").value,"all",selected);
    document.querySelectorAll(".library-menu button").forEach(b=>b.classList.toggle("active",b.dataset.category===selected&&activeView==="apps"));
   }
+
+  // Smart catalogue assistant: local keyword search, not an external AI service.
+  const allItems=[...(catalog.apps||[]).map(x=>({...x,_type:"app"})),...(catalog.payloads||[]).map(x=>({...x,_type:"payload"}))];
+  const af=$("#assistantFirmware");
+  catalog.firmware.forEach(x=>{const o=document.createElement("option");o.value=x.version;o.textContent=x.version;af.appendChild(o);});
+  const assistantRun=()=>{
+   const q=$("#assistantQuery").value.trim().toLowerCase();
+   const fw=af.value;
+   const hits=allItems.filter(x=>!q||[x.name,x.name_en,x.description,x.description_en,x.category].join(" ").toLowerCase().includes(q));
+   const target=$("#assistantResults");target.innerHTML="";
+   if(!q){target.textContent=t("assistantEmpty");return;}
+   if(!hits.length){target.textContent=t("noItems");return;}
+   hits.slice(0,30).forEach(x=>{
+    const row=document.createElement("article");row.className="tool-result";
+    const title=document.createElement("strong");title.textContent=currentLang==="en"?(x.name_en||x.name):x.name;
+    const desc=document.createElement("p");desc.textContent=currentLang==="en"?(x.description_en||x.description||""):(x.description||"");
+    const meta=document.createElement("small");meta.textContent=(x.version||"—")+" · "+(x.firmware_en&&currentLang==="en"?x.firmware_en:(x.firmware||"—"))+(fw?" · "+(currentLang==="en"?"Selected firmware: ":"الإصدار المختار: ")+fw:"");
+    row.append(title,desc,meta);
+    if(x.sourceUrl){const a=document.createElement("a");a.href=x.sourceUrl;a.target="_blank";a.rel="noopener noreferrer";a.textContent=t("source");row.appendChild(a);}
+    target.appendChild(row);
+   });
+  };
+  $("#assistantRun").addEventListener("click",assistantRun);
+  $("#assistantQuery").addEventListener("keydown",e=>{if(e.key==="Enter")assistantRun();});
+  const updates=[["2026-11-15","إضافة المساعد الذكي وفاحص الروابط ولوحة الحالة وسجل التحديثات.","Added the smart catalogue assistant, link checker, status panel and changelog."],["2026-11-15","تحسين واجهة القوائم وإصلاح عرض أزرار البداية على الشاشات الصغيرة.","Improved category navigation and hero button layout on small screens."]];
+  $("#updatesList").innerHTML="";
+  updates.forEach(u=>{const el=document.createElement("article");el.className="timeline-item";const date=document.createElement("time");date.textContent=u[0];const p=document.createElement("p");p.textContent=currentLang==="en"?u[2]:u[1];el.append(date,p);$("#updatesList").appendChild(el);});
+  const refreshStatus=async()=>{
+   $("#catalogStatus").textContent=t("statusOnline");$("#catalogCount").textContent=String(allItems.length+catalog.firmware.length);$("#lastCheck").textContent=new Date().toLocaleString(currentLang==="en"?"en":"ar");
+   $("#workerStatus").textContent=t("statusUnknown");
+   try{const r=await fetch("https://majeed-ps4-admin-api.majeedomran.workers.dev/health",{cache:"no-store"});$("#workerStatus").textContent=r.ok?t("statusOnline"):t("statusOffline");}catch{$("#workerStatus").textContent=t("statusOffline");}
+  };
+  $("#refreshStatus").addEventListener("click",refreshStatus);refreshStatus();
+  $("#checkLinks").addEventListener("click",async()=>{
+   const btn=$("#checkLinks"),out=$("#linkResults");btn.disabled=true;btn.textContent=t("checkingLinks");out.innerHTML="";
+   try{
+    const urls=[...new Set(allItems.map(x=>x.sourceUrl).filter(u=>u&&/^https:\/\//i.test(u)))].slice(0,30);
+    const r=await fetch("https://majeed-ps4-admin-api.majeedomran.workers.dev/link-check",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({urls})});
+    if(!r.ok)throw new Error("HTTP "+r.status);
+    const data=await r.json();
+    data.results.forEach(x=>{const el=document.createElement("div");el.className="link-row";const label=document.createElement("span");label.textContent=x.url;const state=document.createElement("strong");state.textContent=x.ok?t("linkOk")+" ("+x.status+")":t("linkBad")+" ("+(x.status||"—")+")";state.className=x.ok?"good":"bad";el.append(label,state);out.appendChild(el);});
+    const summary=document.createElement("p");summary.textContent=t("linkSummary")+": "+data.results.filter(x=>x.ok).length+" / "+data.results.length;out.prepend(summary);
+   }catch(e){out.textContent=currentLang==="en"?"The checker service is unavailable.":"خدمة فحص الروابط غير متاحة حالياً. تأكد من تحديث Cloudflare Worker.";}
+   finally{btn.disabled=false;btn.textContent=t("checkLinks");}
+  });
+
   ["payloadSearch","payloadFilter","appSearch"].forEach(id=>$("#"+id).addEventListener("input",draw));
-  $("#langBtn").addEventListener("click",()=>{currentLang=currentLang==="ar"?"en":"ar";localStorage.setItem("majeedLang",currentLang);applyLanguage();buildMenu(draw);draw();const fw=$("#fwSelect").value;if(fw){const f=catalog.firmware.find(x=>x.version===fw);$("#fwResult").textContent=f?`${statusLabel(f.status)} — ${(currentLang==="en"?(f.note_en||f.note):f.note)||t("noFirmwareNote")}`:t("notSelected");}else $("#fwResult").textContent=t("fwEmpty");});
+  $("#langBtn").addEventListener("click",()=>{currentLang=currentLang==="ar"?"en":"ar";localStorage.setItem("majeedLang",currentLang);applyLanguage();buildMenu(draw);draw();$("#updatesList").querySelectorAll(".timeline-item p").forEach((p,i)=>p.textContent=currentLang==="en"?updates[i][2]:updates[i][1]);const fw=$("#fwSelect").value;if(fw){const f=catalog.firmware.find(x=>x.version===fw);$("#fwResult").textContent=f?`${statusLabel(f.status)} — ${(currentLang==="en"?(f.note_en||f.note):f.note)||t("noFirmwareNote")}`:t("notSelected");}else $("#fwResult").textContent=t("fwEmpty");});
   $("#year").textContent=new Date().getFullYear();
   $("#appCategory").value="Essentials";buildMenu(draw);showView("apps");applyLanguage();draw();
  }catch(error){console.error(error);$("#payloadCards").innerHTML=`<div class="empty">${t("loadError")}</div>`;}

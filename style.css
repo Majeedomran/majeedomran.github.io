@@ -55,3 +55,31 @@ footer{border-color:#263750}
 #firmware.firmware-panel{margin-top:24px}
 @media(max-width:850px){.compact-hero{padding:35px 22px 18px}.library-menu{margin-inline:-2px}#appGroups .cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.compact-hero{padding:30px 18px 15px}.compact-hero h1{font-size:36px}.compact-hero .trust{display:none}.library-menu{gap:7px;padding-bottom:12px}.library-menu button{padding:10px 13px;font-size:12px;border-radius:10px}#apps.section{padding:18px 15px 10px}#appGroups .cards{grid-template-columns:1fr}}
+
+/* Additional MAJEED tools and responsive hero fixes */
+.hero-actions{display:flex;align-items:center;justify-content:flex-start;gap:12px;flex-wrap:wrap;direction:rtl}
+.hero-actions a{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:46px;padding:10px 18px;line-height:1.4;text-align:center;white-space:normal;direction:rtl}
+html[dir="ltr"] .hero-actions{direction:ltr}
+html[dir="ltr"] .hero-actions a{direction:ltr}
+.tool-panel{max-width:1120px;margin-inline:auto}
+.tool-box{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px}
+.tool-fields{display:grid;grid-template-columns:1fr;gap:10px;max-width:620px}
+.tool-fields label{font-size:13px;color:var(--muted)}
+.tool-fields input,.tool-fields select{width:100%;min-width:0}
+.tool-action{margin-top:12px;min-height:44px}
+.tool-note{font-size:12px;color:var(--muted);margin:14px 0}
+.tool-results{display:grid;gap:10px;margin-top:16px}
+.tool-result,.timeline-item,.status-card{background:var(--panel2);border:1px solid var(--line);border-radius:13px;padding:14px}
+.tool-result p,.timeline-item p{margin:6px 0;color:var(--muted);font-size:13px}
+.tool-result small{display:block;color:var(--muted);margin:6px 0}
+.tool-result a{color:var(--cyan);font-size:12px}
+.timeline{display:grid;gap:10px}
+.timeline-item time{font-size:12px;color:var(--cyan)}
+.status-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0}
+.status-card span{display:block;color:var(--muted);font-size:12px}
+.status-card strong{display:block;margin-top:6px;overflow-wrap:anywhere}
+.link-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}
+.link-row span{overflow-wrap:anywhere;direction:ltr;text-align:left}
+.link-row .good{color:var(--green)}.link-row .bad{color:#ff8d8d}
+button:disabled{opacity:.6;cursor:wait}
+@media(max-width:600px){.hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}.hero-actions a{min-width:0;padding:10px 8px;font-size:12px}.status-grid{grid-template-columns:1fr 1fr}.tool-box{padding:14px}.link-row{display:grid}}

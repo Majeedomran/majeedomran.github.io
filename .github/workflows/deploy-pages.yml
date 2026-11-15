@@ -24,7 +24,7 @@ jobs:
       - name: Prepare website and pinned PS4 exploit host
         run: |
           mkdir -p _site/host
-          rsync -a --exclude='.git' --exclude='.github' ./ _site/
+          rsync -a --exclude='.git' --exclude='.github' --exclude='_site' ./ _site/
           git init /tmp/WebKitty
           git -C /tmp/WebKitty remote add origin https://github.com/ArabPixel/WebKitty.git
           git -C /tmp/WebKitty fetch --depth 1 origin 554cacbd1a24883531952cbdc5deb6d95100b09f

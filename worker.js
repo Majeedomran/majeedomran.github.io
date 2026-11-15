@@ -115,8 +115,7 @@ export default {
       try {
         if (request.method === "GET") {
           const data = await githubRequest(env, "GET");
-          const raw = Uint8Array.from(atob(data.content.replace(/
-/g, "")), c => c.charCodeAt(0));
+          const raw = Uint8Array.from(atob(data.content.replace(/\n/g, "")), c => c.charCodeAt(0));
           return new Response(new TextDecoder().decode(raw), { headers: { ...headers, "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" } });
         }
         if (origin !== ORIGIN) return json({ error: "Invalid origin" }, 403, headers);

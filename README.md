@@ -1,21 +1,52 @@
 # MAJEED PS4 HOST
 
-نسخة البداية للموقع، بواجهة عربية متجاوبة مناسبة للجوال ومتصفح PS4.
+A public, responsive PS4 community catalogue for homebrew applications, payloads, firmware references, emulators, utilities, mods, development resources and Arabic game-translation directories.
 
-## تشغيل محلي
-افتح `index.html` في المتصفح.
+**Live site:** https://majeedomran.github.io  
+**Admin panel:** https://majeedomran.github.io/admin.html
 
-## النشر على GitHub Pages
-1. أنشئ مستودعاً جديداً باسم `majeed-ps4-host`.
-2. ارفع جميع الملفات الموجودة في هذا المجلد إلى جذر المستودع.
-3. من Settings > Pages اختر Deploy from a branch.
-4. اختر `main` و`/(root)` ثم Save.
-5. انتظر ظهور رابط الموقع في صفحة Pages.
+## Project structure
 
-## ملاحظات مهمة
-- هذه نسخة واجهة ثابتة (Static Frontend)، وليست لوحة إدارة متصلة بقاعدة بيانات بعد.
-- بيانات التطبيقات والـPayloads فارغة عمداً إلى أن تتم إضافة روابط المصادر الرسمية والتحقق منها.
-- `catalog.json` يوضح بنية البيانات الأولية؛ الواجهة الحالية تستخدم بيانات `app.js`.
-- حالة الفيرموير كلها غير موثقة في هذه النسخة. لا تعتبر ظهور إصدار في القائمة تأكيداً لدعم كسر الحماية.
-- لا توجد خاصية كشف مضمون لإصدار النظام من متصفح PS4؛ لذلك الاختيار اليدوي هو الأساس.
-- لا تضع كلمات مرور أو مفاتيح API داخل ملفات الموقع العامة.
+- `index.html`, `style.css`, `app.js`: public interface, responsive layout, bilingual UI and catalogue rendering.
+- `catalog.json`: catalogue data for firmware, payloads and applications.
+- `admin.html`, `admin.js`: protected catalogue administration interface.
+- `worker.js`: Cloudflare Worker API for admin authentication, GitHub catalogue updates, health checks and source-link checks.
+
+## Languages and navigation
+
+- English is the default language for first-time visitors.
+- Arabic/English switching is available; the selected language is saved in the browser.
+- Library categories are presented as a compact tile grid rather than a horizontal scrolling menu.
+- Search, category filters, firmware lookup, catalogue assistant, link checker and service status are available in the interface.
+
+## Administration
+
+The admin panel authenticates through the Cloudflare Worker. The Worker reads and writes `catalog.json` in this repository using the GitHub API.
+
+Required Cloudflare Worker secrets (configure in Cloudflare, never commit them):
+- `ADMIN_PASSWORD`
+- `GH_TOKEN`
+- `SESSION_SECRET`
+
+The Worker health endpoint is `/health`. The link checker only checks HTTP response reachability for an allowlist of source domains; it does **not** scan file contents, prove download integrity, or guarantee firmware compatibility.
+
+## Catalogue standards
+
+- Prefer original developer repositories and release pages.
+- Mark uncertain or experimental compatibility clearly.
+- Distinguish PS4-native software from PC software and community indexes.
+- Do not describe a source-page HTTP 200 response as proof that a download is safe or compatible.
+- Firmware exploit chains, kernel access, HEN and individual payload support are separate compatibility stages. Always check the exact firmware, release notes and source.
+- Community translation directories are indexes, not official Sony repositories. Verify game CUSA ID, game version and translation source independently.
+
+## Local preview
+
+Open `index.html` in a modern browser. The public catalogue loads from `catalog.json`; the admin API requires the deployed Cloudflare Worker and configured secrets.
+
+## Deployment
+
+GitHub Pages serves the repository root from the default branch. Frontend changes publish through GitHub Pages automatically. Changes to `worker.js` require a separate deployment to Cloudflare Workers.
+
+## Disclaimer
+
+MAJEED PS4 HOST is an independent community project and is not affiliated with or endorsed by Sony Interactive Entertainment. Use homebrew, payloads, plugins and third-party files at your own risk. Back up important data and review each project's original documentation before use.

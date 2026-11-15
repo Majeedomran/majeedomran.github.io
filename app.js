@@ -168,6 +168,11 @@ function render(list,target,type,query="",filter="all",category="all"){
  if(!items.length){target.innerHTML=`<div class="empty">${t("noItems")}</div>`;return;}
  items.forEach(x=>target.appendChild(card(x,type)));
 }
+const categoryOrder=["Essentials","Utilities","Homebrew","Emulators","Desktop","Media","Mods","Development","Translations"];
+const categoryLabels={Essentials:["البرامج الأساسية","Essential tools"],Utilities:["أدوات مساعدة","Utilities"],Homebrew:["هومبرو","Homebrew"],Emulators:["محاكيات PS4","PS4 emulators"],Desktop:["محاكيات الكمبيوتر","PC emulators"],Media:["الوسائط","Media"],Mods:["التعديلات والغش","Mods & cheats"],Development:["التطوير","Development"],Translations:["التعريبات","Translations"]};
+let activeView="apps";
+function showView(view){activeView=view;document.querySelectorAll(".view-panel").forEach(el=>el.classList.toggle("is-hidden",el.id!==view));document.querySelectorAll(".library-menu button").forEach(b=>b.classList.toggle("active",b.dataset.view===view||(view==="apps"&&b.dataset.category===$("#appCategory").value)));}
+function buildMenu(){const host=$("#libraryMenu");host.innerHTML="";const add=(label,view,category=null)=>{const b=document.createElement("button");b.type="button";b.textContent=label;b.dataset.view=view;if(category)b.dataset.category=category;b.addEventListener("click",()=>{if(category){$("#appCategory").value=category;showView("apps");draw();}else showView(view);});host.appendChild(b);};categoryOrder.forEach(cat=>add(categoryLabels[cat][currentLang==="en"?1:0],"apps",cat));add(currentLang==="en"?"Payloads":"البايلودات","payloads");add(currentLang==="en"?"Firmware":"إصدارات النظام","firmware");}
 async function init(){
  try{
   const response=await fetch("catalog.json?v="+Date.now(),{cache:"no-store"});
@@ -177,27 +182,17 @@ async function init(){
   $("#fwSelect").addEventListener("change",e=>{const f=catalog.firmware.find(x=>x.version===e.target.value);$("#fwResult").textContent=f?`${statusLabel(f.status)} — ${(currentLang==="en"?(f.note_en||firmwareNoteEnglish):f.note)||t("noFirmwareNote")}`:t("notSelected");});
   function draw(){
    render(catalog.payloads||[],$("#payloadCards"),"payload",$("#payloadSearch").value,$("#payloadFilter").value);
-   const groupOrder=["Essentials","Utilities","Homebrew","Emulators","Desktop","Media","Mods","Development","Translations"];
-   const labels={Essentials:"catEssentials",Utilities:"catUtilities",Homebrew:"catHomebrew",Emulators:"catEmulators",Desktop:"catDesktop",Media:"catMedia",Mods:"catMods",Development:"catDevelopment",Translations:"catTranslations"};
-   const q=$("#appSearch").value.trim().toLowerCase(), selected=$("#appCategory").value;
+   const selected=$("#appCategory").value;
+   const matches=(catalog.apps||[]).filter(x=>x.category===selected);
    const host=$("#appGroups");host.innerHTML="";
-   groupOrder.filter(cat=>selected==="all"||selected===cat).forEach(cat=>{
-    const matches=(catalog.apps||[]).filter(x=>x.category===cat&&(!q||((x.name||"")+" "+(x.name_en||"")+" "+(x.description||"")+" "+(x.description_en||"")).toLowerCase().includes(q)));
-    if(!matches.length)return;
-    const section=document.createElement("section");section.className="category-group";
-    const head=document.createElement("div");head.className="category-heading";
-    const heading=document.createElement("h3");heading.textContent=t(labels[cat]);
-    const count=document.createElement("span");count.className="category-count";count.textContent=matches.length;
-    head.append(heading,count);section.appendChild(head);
-    const cards=document.createElement("div");cards.className="cards";section.appendChild(cards);
-    render(matches,cards,"app",q,"all",cat);host.appendChild(section);
-   });
-   if(!host.children.length)host.innerHTML=`<div class="empty">${t("noItems")}</div>`;
+   const cards=document.createElement("div");cards.className="cards";host.appendChild(cards);
+   render(matches,cards,"app",$("#appSearch").value,"all",selected);
+   document.querySelectorAll(".library-menu button").forEach(b=>b.classList.toggle("active",b.dataset.category===selected&&activeView==="apps"));
   }
-  ["payloadSearch","payloadFilter","appSearch","appCategory"].forEach(id=>$("#"+id).addEventListener("input",draw));
-  $("#langBtn").addEventListener("click",()=>{currentLang=currentLang==="ar"?"en":"ar";localStorage.setItem("majeedLang",currentLang);applyLanguage();draw();const fw=$("#fwSelect").value;if(fw){const f=catalog.firmware.find(x=>x.version===fw);$("#fwResult").textContent=f?`${statusLabel(f.status)} — ${(currentLang==="en"?(f.note_en||f.note):f.note)||t("noFirmwareNote")}`:t("notSelected");}else $("#fwResult").textContent=t("fwEmpty");});
+  ["payloadSearch","payloadFilter","appSearch"].forEach(id=>$("#"+id).addEventListener("input",draw));
+  $("#langBtn").addEventListener("click",()=>{currentLang=currentLang==="ar"?"en":"ar";localStorage.setItem("majeedLang",currentLang);applyLanguage();buildMenu();draw();const fw=$("#fwSelect").value;if(fw){const f=catalog.firmware.find(x=>x.version===fw);$("#fwResult").textContent=f?`${statusLabel(f.status)} — ${(currentLang==="en"?(f.note_en||f.note):f.note)||t("noFirmwareNote")}`:t("notSelected");}else $("#fwResult").textContent=t("fwEmpty");});
   $("#year").textContent=new Date().getFullYear();
-  applyLanguage();draw();
+  $("#appCategory").value="Essentials";buildMenu();showView("apps");applyLanguage();draw();
  }catch(error){console.error(error);$("#payloadCards").innerHTML=`<div class="empty">${t("loadError")}</div>`;}
 }
 init();

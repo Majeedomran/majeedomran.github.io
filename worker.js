@@ -80,7 +80,6 @@ export default {
       return json({ ok: true, token }, 200, headers);
     }
 
-    if (!env.ADMIN_PASSWORD || !env.GH_TOKEN || !env.SESSION_SECRET) return json({ error: "Worker secrets are not configured" }, 500, headers);
     if (url.pathname === "/link-check" && request.method === "POST") {
       const body = await request.json().catch(() => ({}));
       const allowed = new Set(["github.com","www.github.com","ta3reb.com","www.ta3reb.com","muarrab.com","www.muarrab.com","prx0.com","orbispatches.com","www.orbispatches.com","consolemods.org","www.consolemods.org","store.brewology.com"]);

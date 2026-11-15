@@ -10,18 +10,29 @@
 <body>
 <header class="topbar">
   <a class="brand" href="#"><span class="brand-mark">M</span><span>MAJEED <b>PS4 HOST</b><small>HOMEbrew • PAYLOADS • FIRMWARE</small></span></a>
-  <nav class="top-nav"><a href="#apps" data-i18n="navApps">المكتبة</a><a href="#payloads" data-i18n="navPayloads">Payloads</a><a href="#firmware" data-i18n="navFirmware">الفيرموير</a></nav>
+  <nav class="top-nav"><a href="#home" data-view="home" data-i18n="navHome">Home</a><a href="#apps" data-view="apps" data-i18n="navApps">Library</a><a href="#payloads" data-view="payloads" data-i18n="navPayloads">Payloads</a><a href="#firmware" data-view="firmware" data-i18n="navFirmware">Firmware</a></nav>
   <button id="langBtn" class="outline">EN</button>
 </header>
 <main>
+<section class="view-panel home-page" id="home">
 <section class="hero compact-hero">
   <div class="hero-copy">
     <span class="eyebrow">PLAYSTATION 4 COMMUNITY HUB</span>
-    <h1 data-i18n="heroTitle">كل أدوات PS4<br><em>بمكان واحد.</em></h1>
-    <p data-i18n="heroDesc">كتالوج منظم للتطبيقات والـPayloads والأدوات والتعديلات ومكتبات التطوير ومراجع التعريب، مع روابط المصادر الأصلية.</p>
-    <div class="hero-actions"><a class="primary" href="#libraryMenu" data-i18n="explore">استكشف الملفات <span>←</span></a><a class="secondary" href="#libraryMenu" data-i18n="checkVersion">تحقق من إصدارك</a></div>
+    <h1 data-i18n="heroTitle">PS4 Jailbreak<br><em>Quick Start.</em></h1>
+    <p data-i18n="heroDesc">Find your PS4 firmware, check the documented jailbreak notes, then open only the tools you need.</p>
+    <div class="hero-actions"><a class="primary" href="#quickStart" data-i18n="startJailbreak">Start jailbreak guide <span>→</span></a><a class="secondary" href="#apps" data-view="apps" data-i18n="explore">Browse library</a></div>
     <div class="trust"><span data-i18n="trust1">● مصادر رسمية</span><span data-i18n="trust2">● معلومات توافق واضحة</span><span data-i18n="trust3">● تحديثات موثقة</span></div>
   </div>
+</section>
+<section class="quick-start" id="quickStart">
+ <div class="quick-start-head"><span class="eyebrow" data-i18n="quickStartEyebrow">PS4 JAILBREAK QUICK START</span><h2 data-i18n="quickStartTitle">Start with your firmware</h2><p data-i18n="quickStartDesc">Choose the exact system software version installed on your console.</p></div>
+ <div class="quick-start-grid">
+  <div class="quick-start-select"><label for="homeFwSelect" data-i18n="fwLabel">System software</label><select id="homeFwSelect"><option value="" data-i18n="chooseVersion">Choose a version</option></select><div id="homeFwResult" class="quick-fw-result" aria-live="polite" data-i18n="homeFwEmpty">Choose your firmware to view the recorded jailbreak notes.</div><a class="secondary quick-detail-link" href="#firmware" data-view="firmware" data-i18n="fullFirmwareDetails">Full firmware details</a></div>
+  <div class="quick-start-links"><a href="https://github.com/GoldHEN/GoldHEN/releases" target="_blank" rel="noopener noreferrer"><strong>GoldHEN</strong><span data-i18n="goldhenLinkDesc">Official releases and notes ↗</span></a><a href="https://consolemods.org/wiki/PS4:Exploit_Chart" target="_blank" rel="noopener noreferrer"><strong data-i18n="exploitChart">Exploit reference chart</strong><span data-i18n="exploitChartDesc">Review entry points and firmware notes ↗</span></a></div>
+ </div>
+ <p class="quick-warning" data-i18n="quickWarning">Important: an entry-point exploit does not automatically mean a compatible kernel exploit or HEN is available. Verify your exact firmware and release before running files.</p>
+ <div class="quick-shortcuts"><button type="button" class="quick-shortcut" data-view="payloads"><span>⚡</span><b data-i18n="payloadShortcut">Payloads</b><small data-i18n="payloadShortcutDesc">Open only when needed</small></button><button type="button" class="quick-shortcut" data-view="apps"><span>▦</span><b data-i18n="libraryShortcut">Homebrew library</b><small data-i18n="libraryShortcutDesc">Apps, tools and emulators</small></button></div>
+</section>
 </section>
 <section class="firmware-panel view-panel is-hidden" id="firmware">
  <div><span class="eyebrow">FIRMWARE CHECK</span><h2 data-i18n="fwTitle">ما إصدار نظام جهازك؟</h2><p data-i18n="fwDesc">اختر الإصدار يدوياً لعرض حالة المعلومات المسجلة في الكتالوج.</p></div>
@@ -50,7 +61,7 @@
  <div class="toolbar"><input id="payloadSearch" placeholder="ابحث عن Payload..." aria-label="ابحث عن Payload" data-i18n-placeholder="payloadSearch" data-i18n-aria="payloadSearch"><select id="payloadFilter"><option value="all" data-i18n="allStatuses">كل الحالات</option><option value="verified" data-i18n="verified">موثق</option><option value="unverified" data-i18n="unverified">غير موثق</option></select></div>
  <div class="cards" id="payloadCards"></div>
 </section>
-<section class="section view-panel" id="apps">
+<section class="section view-panel is-hidden" id="apps">
  <div class="section-head"><div><span class="eyebrow">HOMEBREW COLLECTION</span><h2 data-i18n="appsTitle">مكتبة PS4</h2><p data-i18n="appsDesc">تطبيقات وأدوات وتعديلات ومكتبات تطوير ومراجع التعريب مرتبة حسب النوع.</p></div></div>
  <div class="library-menu" id="libraryMenu" aria-label="تصنيفات المكتبة"></div><div class="toolbar"><input id="appSearch" placeholder="ابحث عن تطبيق..." aria-label="ابحث عن تطبيق" data-i18n-placeholder="appSearch" data-i18n-aria="appSearch"><select id="appCategory" class="hidden-select"><option value="all" data-i18n="allCategories">كل التصنيفات</option><option value="Essentials" data-i18n="catEssentials">البرامج الأساسية للتعديل</option><option value="Utilities" data-i18n="catUtilities">Utilities</option><option value="Homebrew" data-i18n="catHomebrew">Homebrew</option><option value="Emulators" data-i18n="catEmulators">Emulators</option><option value="Desktop" data-i18n="catDesktop">PC Emulators</option><option value="Media" data-i18n="catMedia">Media</option><option value="Mods" data-i18n="catMods">Mods</option><option value="Development" data-i18n="catDevelopment">Development</option><option value="Translations" data-i18n="catTranslations">Translations</option></select></div>
  <div id="appGroups" class="app-groups"></div>
@@ -58,5 +69,5 @@
 <section class="notice" id="about"><div class="notice-icon">i</div><div><h3 data-i18n="noticeTitle">معلومات مهمة قبل التحميل</h3><p data-i18n="noticeDesc">حالة التوافق تختلف حسب إصدار النظام والمشروع. لا يعني ظهور إصدار في القائمة أنه قابل لكسر الحماية. لا توجد روابط تحميل تجريبية في هذه النسخة؛ أضف روابط المصدر الرسمي بعد التحقق منها.</p></div></section>
 </main>
 <footer><div class="brand small-brand"><span class="brand-mark">M</span><span>MAJEED <b>PS4 HOST</b></span></div><span data-i18n="footerNote">مشروع مجتمعي مستقل، غير تابع لشركة Sony.</span><span>© <span id="year"></span> MAJEED PS4 HOST</span></footer>
-<script src="app.js?v=20261116-final-audit4"></script>
+<script src="app.js?v=20261116-quickstart1"></script>
 </body></html>

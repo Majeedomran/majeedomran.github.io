@@ -33,3 +33,25 @@ body{background:radial-gradient(ellipse at 12% 0%,#1a3156 0,transparent 34%),rad
 footer{border-color:#263750}
 @media(max-width:850px){.category-group .cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.hero{padding-top:48px}.hero-art{border-radius:24px}.category-group{padding:15px;margin:22px 0 30px;border-radius:17px}.category-heading h3{font-size:16px}.category-group .cards{grid-template-columns:1fr}.item-card{min-height:0}}
+
+/* Compact menu-first navigation */
+.top-nav{display:none!important}
+.compact-hero{min-height:0;padding-top:38px;padding-bottom:28px;display:block}
+.compact-hero .hero-copy{max-width:820px}
+.compact-hero h1{font-size:clamp(34px,5vw,54px);margin:10px 0}
+.compact-hero p{max-width:700px;margin:10px 0 18px}
+.compact-hero .hero-actions{margin:16px 0}
+.compact-hero .trust{margin-top:14px}
+.view-panel.is-hidden{display:none!important}
+.library-menu{display:flex;gap:8px;overflow-x:auto;padding:12px 2px 16px;margin:8px 0 18px;scrollbar-width:thin;scrollbar-color:#45658d transparent}
+.library-menu button{flex:0 0 auto;border:1px solid #2c4262;background:linear-gradient(145deg,#14243a,#0d1727);color:#cbd8ec;padding:11px 16px;border-radius:12px;font:inherit;font-size:13px;cursor:pointer;transition:.18s}
+.library-menu button:hover{border-color:#6c9cff;color:#fff;transform:translateY(-1px)}
+.library-menu button.active{background:linear-gradient(130deg,#315eaa,#344c91);border-color:#76aaff;color:#fff;box-shadow:0 6px 22px #315eaa44}
+.hidden-select{display:none!important}
+#apps.section{padding-top:20px}
+#apps .section-head{margin-bottom:10px}
+#appGroups .cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+#payloads.section{padding-top:24px}
+#firmware.firmware-panel{margin-top:24px}
+@media(max-width:850px){.compact-hero{padding:35px 22px 18px}.library-menu{margin-inline:-2px}#appGroups .cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.compact-hero{padding:30px 18px 15px}.compact-hero h1{font-size:36px}.compact-hero .trust{display:none}.library-menu{gap:7px;padding-bottom:12px}.library-menu button{padding:10px 13px;font-size:12px;border-radius:10px}#apps.section{padding:18px 15px 10px}#appGroups .cards{grid-template-columns:1fr}}

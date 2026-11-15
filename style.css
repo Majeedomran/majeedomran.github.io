@@ -85,8 +85,9 @@ button:disabled{opacity:.6;cursor:wait}
 @media(max-width:600px){.hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}.hero-actions a{min-width:0;padding:10px 8px;font-size:12px}.status-grid{grid-template-columns:1fr 1fr}.tool-box{padding:14px}.link-row{display:grid}}
 
 
-/* Link checker: force URL and result status onto distinct lines */
-#linkResults .link-row{display:grid!important;grid-template-columns:minmax(0,1fr)!important;justify-content:stretch;align-items:start;gap:8px!important;width:100%;min-width:0}
-#linkResults .link-result-link-wrap{display:block;min-width:0;width:100%}
+/* Link checker: URL and status on opposite sides, kept as separate elements */
+#linkResults .link-row{display:flex!important;flex-direction:row;justify-content:space-between;align-items:center;gap:16px!important;width:100%;min-width:0}
+#linkResults .link-result-link-wrap{flex:1 1 auto;min-width:0}
 #linkResults a.link-result-url{display:block!important;width:100%;max-width:100%;margin:0!important;padding:0;direction:ltr;text-align:left;line-height:1.65;overflow-wrap:anywhere;word-break:break-word;white-space:normal}
-#linkResults .link-result-status{display:block!important;width:max-content;max-width:100%;margin:0!important;padding:5px 10px;border-radius:999px;font-size:11px;line-height:1.4;white-space:nowrap}
+#linkResults .link-result-status{display:inline-flex!important;flex:0 0 auto;align-items:center;width:max-content;max-width:100%;margin:0!important;padding:5px 10px;border-radius:999px;font-size:11px;line-height:1.4;white-space:nowrap}
+@media(max-width:600px){#linkResults .link-row{gap:10px!important;align-items:flex-start}#linkResults .link-result-status{font-size:10px;padding:5px 8px}}

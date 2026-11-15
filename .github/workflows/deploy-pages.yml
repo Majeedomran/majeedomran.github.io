@@ -23,18 +23,18 @@ jobs:
 
       - name: Prepare website and pinned PS4 exploit host
         run: |
-          mkdir -p _site/host
+          mkdir -p _site/jb
           rsync -a --exclude='.git' --exclude='.github' --exclude='_site' ./ _site/
           git init /tmp/WebKitty
           git -C /tmp/WebKitty remote add origin https://github.com/ArabPixel/WebKitty.git
           git -C /tmp/WebKitty fetch --depth 1 origin 554cacbd1a24883531952cbdc5deb6d95100b09f
           git -C /tmp/WebKitty checkout --detach FETCH_HEAD
-          rsync -a --exclude='.git' --exclude='CNAME' /tmp/WebKitty/ _site/host/
-          cp /tmp/WebKitty/index.html _site/host/index.html
-          touch _site/.nojekyll _site/host/.nojekyll
-          test -s _site/host/index.html
-          echo "Verified exploit host entry: _site/host/index.html"
-          find _site/host -maxdepth 1 -type f -printf '%f\\n' | sort
+          rsync -a --exclude='.git' --exclude='CNAME' /tmp/WebKitty/ _site/jb/
+          cp /tmp/WebKitty/index.html _site/jb/index.html
+          touch _site/.nojekyll _site/jb/.nojekyll
+          test -s _site/jb/index.html
+          echo "Verified exploit host entry: _site/jb/index.html"
+          find _site/jb -maxdepth 1 -type f -printf '%f\\n' | sort
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

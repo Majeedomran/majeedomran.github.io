@@ -138,7 +138,7 @@ const itemEnglish = {
   firmware:"Depends on the game."
  }
 };
-const firmwareNoteEnglish = "This system version is listed in the catalogue; jailbreak compatibility has not been documented for this version.";
+const firmwareNoteEnglish = "This catalogue entry does not yet contain a verified, firmware-specific compatibility assessment. Check the exploit chart and the exact project release notes.";
 
 const statusLabel = s => s==="verified"?t("verified"):s==="experimental"?t("experimental"):s==="unsupported"?t("unsupported"):t("unknown");
 function escapeHtml(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
@@ -175,6 +175,7 @@ let activeView="apps";
 function showView(view){activeView=view;document.querySelectorAll(".view-panel").forEach(el=>el.classList.toggle("is-hidden",el.id!==view));document.querySelectorAll(".library-menu button").forEach(b=>b.classList.toggle("active",b.dataset.view===view||(view==="apps"&&b.dataset.category===$("#appCategory").value)));}
 function buildMenu(draw){const host=$("#libraryMenu");host.innerHTML="";const add=(label,view,category=null,glyph="✦")=>{const b=document.createElement("button");b.type="button";b.className="menu-tile";b.dataset.view=view;b.setAttribute("aria-label",label);const icon=document.createElement("span");icon.className="menu-tile-icon";icon.setAttribute("aria-hidden","true");icon.textContent=glyph;const title=document.createElement("span");title.className="menu-tile-label";title.textContent=label;b.append(icon,title);if(category)b.dataset.category=category;b.addEventListener("click",()=>{if(category){$("#appCategory").value=category;showView("apps");draw();}else showView(view);});host.appendChild(b);};const glyphs={Essentials:"✦",Utilities:"⚙",Homebrew:"⌂",Emulators:"◈",Desktop:"▣",Media:"▶",Mods:"✚",Development:"</>",Translations:"文"};categoryOrder.forEach(cat=>add(categoryLabels[cat][currentLang==="en"?1:0],"apps",cat,glyphs[cat]));add(currentLang==="en"?"Payloads":"البايلودات","payloads",null,"⚡");add(currentLang==="en"?"Firmware":"إصدارات النظام","firmware",null,"⬡");add(currentLang==="en"?"Smart Assistant":"المساعد الذكي","assistant",null,"✧");add(currentLang==="en"?"Updates":"التحديثات","updates",null,"↻");add(currentLang==="en"?"Link Checker":"فاحص الروابط","linkcheck",null,"↗");add(currentLang==="en"?"Site Status":"حالة الموقع","status",null,"●");}
 async function init(){
+ applyLanguage();
  try{
   const response=await fetch("catalog.json?v="+Date.now(),{cache:"no-store"});
   if(!response.ok)throw new Error("Catalogue load failed");
@@ -208,7 +209,7 @@ async function init(){
     const desc=document.createElement("p");desc.textContent=currentLang==="en"?(x.description_en||x.description||""):(x.description||"");
     const meta=document.createElement("small");meta.textContent=(x.version||"—")+" · "+(x.firmware_en&&currentLang==="en"?x.firmware_en:(x.firmware||"—"))+(fw?" · "+(currentLang==="en"?"Selected firmware: ":"الإصدار المختار: ")+fw:"");
     row.append(title,desc,meta);
-    if(x.sourceUrl){const a=document.createElement("a");a.href=x.sourceUrl;a.target="_blank";a.rel="noopener noreferrer";a.textContent=t("source");row.appendChild(a);}
+    if(x.sourceUrl&&/^https:\/\//i.test(x.sourceUrl)){const a=document.createElement("a");a.href=x.sourceUrl;a.target="_blank";a.rel="noopener noreferrer";a.textContent=t("source");row.appendChild(a);}
     target.appendChild(row);
    });
   };

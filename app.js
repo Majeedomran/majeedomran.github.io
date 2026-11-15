@@ -1,6 +1,7 @@
 // Public catalogue renderer with Arabic/English interface switching.
 const $ = s => document.querySelector(s);
-let currentLang = localStorage.getItem("majeedLang") === "en" ? "en" : "ar";
+const savedLang = localStorage.getItem("majeedLang");
+let currentLang = savedLang === "ar" ? "ar" : "en";
 const words = {
  ar: {
   navFirmware:"الفيرموير",navPayloads:"Payloads",navApps:"التطبيقات",navAbout:"حول الموقع",

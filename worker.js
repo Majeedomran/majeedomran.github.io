@@ -77,6 +77,33 @@ export default {
       const token = await makeSession(env.SESSION_SECRET);
       return json({ ok: true, token }, 200, headers);
     }
+    if (url.pathname === "/health" && request.method === "GET") {
+      return json({ ok: true, service: "MAJEED PS4 HOST checker" }, 200, headers);
+    }
+    if (url.pathname === "/link-check" && request.method === "POST") {
+      const body = await request.json().catch(() => ({}));
+      const allowed = new Set(["github.com","www.github.com","ta3reb.com","www.ta3reb.com","muarrab.com","www.muarrab.com","prx0.com","orbispatches.com","www.orbispatches.com"]);
+      const urls = Array.isArray(body.urls) ? body.urls.slice(0, 30) : [];
+      const results = await Promise.all(urls.map(async value => {
+        try {
+          const parsed = new URL(value);
+          if (parsed.protocol !== "https:" || !allowed.has(parsed.hostname)) return { url: value, ok: false, status: "blocked" };
+          const controller = new AbortController();
+          const timer = setTimeout(() => controller.abort(), 7000);
+          try {
+            let response = await fetch(parsed.toString(), { method: "HEAD", redirect: "manual", signal: controller.signal });
+            if (response.status === 405 || response.status === 403) response = await fetch(parsed.toString(), { method: "GET", headers: { "Range": "bytes=0-0" }, redirect: "manual", signal: controller.signal });
+            const location = response.headers.get("Location");
+            if (location) {
+              const redirected = new URL(location, parsed);
+              if (redirected.protocol !== "https:" || !allowed.has(redirected.hostname)) return { url: value, ok: false, status: "external redirect blocked" };
+            }
+            return { url: value, ok: response.status >= 200 && response.status < 400, status: response.status };
+          } finally { clearTimeout(timer); }
+        } catch (error) { return { url: value, ok: false, status: error.name === "AbortError" ? "timeout" : "error" }; }
+      }));
+      return json({ results }, 200, headers);
+    }
     if (url.pathname === "/logout" && request.method === "POST") {
       return json({ ok: true }, 200, headers);
     }

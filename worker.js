@@ -68,8 +68,6 @@ export default {
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: corsHeaders() });
     const url = new URL(request.url);
     const headers = corsHeaders();
-    if (!env.ADMIN_PASSWORD || !env.GH_TOKEN || !env.SESSION_SECRET) return json({ error: "Worker secrets are not configured" }, 500, headers);
-
     if (url.pathname === "/login" && request.method === "POST") {
       if (origin !== ORIGIN) return json({ error: "Invalid origin" }, 403, headers);
       const body = await request.json().catch(() => ({}));
@@ -80,6 +78,8 @@ export default {
     if (url.pathname === "/health" && request.method === "GET") {
       return json({ ok: true, service: "MAJEED PS4 HOST checker" }, 200, headers);
     }
+
+    if (!env.ADMIN_PASSWORD || !env.GH_TOKEN || !env.SESSION_SECRET) return json({ error: "Worker secrets are not configured" }, 500, headers);
     if (url.pathname === "/link-check" && request.method === "POST") {
       const body = await request.json().catch(() => ({}));
       const allowed = new Set(["github.com","www.github.com","ta3reb.com","www.ta3reb.com","muarrab.com","www.muarrab.com","prx0.com","orbispatches.com","www.orbispatches.com"]);

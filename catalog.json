@@ -4,129 +4,140 @@
     {
       "version": "5.05",
       "status": "unverified",
-      "note": ""
+      "note": "مصنف في مرجع ConsoleMods كإصدار مرجعي مستقر (Gold Standard). هذا لا يعني أن كل Payload أو تطبيق يعمل تلقائياً؛ تحقق من إصدار HEN المطلوب.",
+      "note_en": "Listed by the ConsoleMods chart as a gold-standard firmware with strong stability. This does not guarantee every payload or app works; check the required HEN release."
     },
     {
       "version": "6.72",
       "status": "unverified",
-      "note": ""
+      "note": "الثغرات الأساسية موثقة ومستقرة بعد تحسينات المجتمع. GoldHEN الرسمي يذكر دعم 6.71/6.72؛ تحقق من الإصدار المستخدم.",
+      "note_en": "The exploit chain is documented and has been optimized by the community. Official GoldHEN notes list 6.71/6.72; verify the exact release."
     },
     {
       "version": "7.02",
       "status": "unverified",
-      "note": ""
+      "note": "مرجع الثغرات يذكر WebKit وVue After Free مع خيارات Kernel مثل Lapse؛ يوصى بالمتصفح أو Vue After Free، وليس PPPwn لهذا النطاق.",
+      "note_en": "The exploit chart lists WebKit and Vue After Free with kernel options including Lapse. Browser or Vue After Free is recommended over PPPwn for this range."
     },
     {
       "version": "7.55",
       "status": "unverified",
-      "note": ""
+      "note": "مرجع الثغرات يذكر WebKit وVue After Free مع خيارات Kernel مثل Lapse؛ تحقق من طريقة الدخول ونسخة HEN قبل التشغيل.",
+      "note_en": "The exploit chart lists WebKit and Vue After Free with kernel options including Lapse. Verify the entry point and HEN build before use."
     },
     {
       "version": "9.00",
       "status": "unverified",
-      "note": ""
+      "note": "إصدار مرجعي مستقر جداً (Gold Standard). تتوفر عدة طرق دخول وثغرات Kernel؛ الطريقة الأصلية قد تتطلب USB في أول تشغيل. تحقق من HEN المناسب.",
+      "note_en": "A highly stable gold-standard firmware with several entry points and kernel exploits. The original method may require USB for initial setup; verify the matching HEN."
     },
     {
       "version": "9.03",
       "status": "unverified",
-      "note": ""
+      "note": "مرجع الثغرات يذكر WebKit وBD-JB وVue After Free مع خيارات Kernel. المصدر يوصي بالبقاء أو التحديث إلى 9.60 كحد أعلى ضمن هذا النطاق.",
+      "note_en": "The exploit chart lists WebKit, BD-JB and Vue After Free with kernel options. It recommends staying or updating to 9.60 at most within this range."
     },
     {
       "version": "9.60",
       "status": "unverified",
-      "note": ""
+      "note": "مرجع ConsoleMods يوصي بالبقاء على هذا الإصدار. GoldHEN الرسمي يذكر دعمه؛ راجع ملاحظات الإصدار الدقيق.",
+      "note_en": "The ConsoleMods chart recommends staying on this version. Official GoldHEN notes list support; check the exact release notes."
     },
     {
       "version": "10.00",
       "status": "unverified",
-      "note": ""
+      "note": "تتوفر طرق WebKit/Slopkit وVue After Free وBD-JB مع خيارات Kernel. GoldHEN الرسمي يذكر 10.00/10.01؛ لا تعمم ذلك على إصدارات أخرى.",
+      "note_en": "WebKit/Slopkit, Vue After Free and BD-JB entry points are listed with kernel options. Official GoldHEN notes list 10.00/10.01; do not generalize to other versions."
     },
     {
       "version": "11.00",
       "status": "unverified",
-      "note": ""
+      "note": "مرجع الثغرات يوصي بالبقاء على الإصدار؛ وهو آخر إصدار يدعم PPPwn. GoldHEN الرسمي يذكر دعمه. قد تكون طرق WebKit/Vue After Free أفضل من PPPwn حسب الحالة.",
+      "note_en": "The exploit chart recommends staying; this is the last firmware supporting PPPwn. Official GoldHEN notes list support. WebKit/Vue After Free may be preferable to PPPwn depending on setup."
     },
     {
       "version": "11.02",
       "status": "unverified",
-      "note": ""
+      "note": "مرجع الثغرات يذكر Lapse وNetctrl/Poopsploit. لا تخلط بين وجود Kernel exploit وبين دعم إصدار GoldHEN أو Payload بعينه؛ تحقق من البناء المحدد.",
+      "note_en": "The exploit chart lists Lapse and Netctrl/Poopsploit. A kernel exploit does not automatically mean a specific GoldHEN or payload build supports it; verify the exact build."
     },
     {
       "version": "11.50",
       "status": "unverified",
-      "note": "تم إدراج الإصدار في قائمة النظام؛ لم يتم توثيق توافق كسر الحماية لهذا الإصدار.",
-      "note_en": "This system version is listed in the catalogue; jailbreak compatibility has not been documented for this version."
+      "note": "توجد طرق دخول WebKit/Slopkit وBD-JB وVue After Free وفق المرجع؛ تحقق بشكل منفصل من توفر Kernel exploit وHEN لهذا الإصدار قبل التشغيل.",
+      "note_en": "The reference lists WebKit/Slopkit, BD-JB and Vue After Free entry points. Separately verify kernel-exploit and HEN availability for this version before use."
     },
     {
       "version": "11.52",
       "status": "unverified",
-      "note": "تم إدراج الإصدار في قائمة النظام؛ لم يتم توثيق توافق كسر الحماية لهذا الإصدار.",
-      "note_en": "This system version is listed in the catalogue; jailbreak compatibility has not been documented for this version."
+      "note": "توجد طرق دخول WebKit/Slopkit وBD-JB وVue After Free وفق المرجع؛ تحقق بشكل منفصل من توفر Kernel exploit وHEN لهذا الإصدار قبل التشغيل.",
+      "note_en": "The reference lists WebKit/Slopkit, BD-JB and Vue After Free entry points. Separately verify kernel-exploit and HEN availability for this version before use."
     },
     {
       "version": "12.00",
       "status": "unverified",
-      "note": ""
+      "note": "مرجع الثغرات يوصي بالبقاء أو التحديث إلى 12.02 كحد أعلى. Lapse متاح ضمن هذا النطاق؛ تحقق من HEN المطابق.",
+      "note_en": "The exploit chart recommends staying or updating to 12.02 at most. Lapse is listed for this range; verify the matching HEN build."
     },
     {
       "version": "12.02",
       "status": "unverified",
-      "note": "تم إدراج الإصدار في قائمة النظام؛ لم يتم توثيق توافق كسر الحماية لهذا الإصدار.",
-      "note_en": "This system version is listed in the catalogue; jailbreak compatibility has not been documented for this version."
+      "note": "مرجع الثغرات يوصي بالبقاء على 12.02 وعدم التحديث فوقه حالياً؛ توافق 12.5x يختلف، وLapse أكثر اتساقاً وفق المرجع.",
+      "note_en": "The exploit chart recommends staying on 12.02 and not updating beyond it for now; 12.5x compatibility differs, and Lapse is described as more consistent."
     },
     {
       "version": "12.50",
       "status": "unverified",
-      "note": "تم إدراج الإصدار في قائمة النظام؛ لم يتم توثيق توافق كسر الحماية لهذا الإصدار.",
-      "note_en": "This system version is listed in the catalogue; jailbreak compatibility has not been documented for this version."
+      "note": "مرجع الثغرات يذكر Slopkit وBD-JB وNetctrl/Poopsploit وRelapse. ثغرة Lapse لم تعد متوافقة ابتداءً من 12.50؛ راجع القيود.",
+      "note_en": "The exploit chart lists Slopkit, BD-JB, Netctrl/Poopsploit and Relapse. Lapse is no longer compatible starting at 12.50; review the limitations."
     },
     {
       "version": "12.52",
       "status": "unverified",
-      "note": "تم إدراج الإصدار في قائمة النظام؛ لم يتم توثيق توافق كسر الحماية لهذا الإصدار.",
-      "note_en": "This system version is listed in the catalogue; jailbreak compatibility has not been documented for this version."
+      "note": "مرجع الثغرات يذكر Slopkit وBD-JB وNetctrl/Poopsploit وRelapse. ثغرة Lapse لم تعد متوافقة ابتداءً من 12.50؛ راجع القيود.",
+      "note_en": "The exploit chart lists Slopkit, BD-JB, Netctrl/Poopsploit and Relapse. Lapse is no longer compatible starting at 12.50; review the limitations."
     },
     {
       "version": "13.00",
       "status": "unverified",
-      "note": "تم إدراج الإصدار في قائمة النظام؛ لم يتم توثيق توافق كسر الحماية لهذا الإصدار.",
-      "note_en": "This system version is listed in the catalogue; jailbreak compatibility has not been documented for this version."
+      "note": "توجد طرق دخول WebKit/Slopkit وBD-JB؛ حالة Kernel وHEN تعتمد على السلسلة والبناء المستخدم. لا تعتمد على دعم إصدار أقدم من GoldHEN.",
+      "note_en": "WebKit/Slopkit and BD-JB entry points are listed; kernel and HEN availability depend on the exact chain and build. Do not assume an older GoldHEN build supports it."
     },
     {
       "version": "13.02",
       "status": "unverified",
-      "note": "تم إدراج الإصدار في قائمة النظام؛ لم يتم توثيق توافق كسر الحماية لهذا الإصدار.",
-      "note_en": "This system version is listed in the catalogue; jailbreak compatibility has not been documented for this version."
+      "note": "مرجع الثغرات يذكر Slopkit مع Relapse، بينما Vue After Free مذكور كنظري لهذا النطاق. تحقق من اختبارات الجهاز الفعلية وPayload المحدد.",
+      "note_en": "The exploit chart lists Slopkit with Relapse, while Vue After Free is marked theoretical for this range. Check real-hardware tests and the exact payload."
     },
     {
       "version": "13.04",
       "status": "unverified",
-      "note": "تم إدراج الإصدار في قائمة النظام؛ لم يتم توثيق توافق كسر الحماية لهذا الإصدار.",
-      "note_en": "This system version is listed in the catalogue; jailbreak compatibility has not been documented for this version."
+      "note": "توجد معلومات ثغرات قريبة من نطاق 13.02، لكن لا تعتبر التوافق مكافئاً تلقائياً. تحقق من سلسلة Kernel/HEN المخصصة لهذا الإصدار.",
+      "note_en": "Exploit information is adjacent to the 13.02 range, but compatibility is not automatically identical. Verify a kernel/HEN chain specifically for this version."
     },
     {
       "version": "13.50",
       "status": "unverified",
-      "note": "تم إدراج الإصدار في قائمة النظام؛ لم يتم توثيق توافق كسر الحماية لهذا الإصدار.",
-      "note_en": "This system version is listed in the catalogue; jailbreak compatibility has not been documented for this version."
+      "note": "مرجع الثغرات يذكر Slopkit وBD-JB كنقاط دخول؛ لا يفترض ذلك وجود Kernel exploit أو HEN عام لهذا الإصدار.",
+      "note_en": "The exploit chart lists Slopkit and BD-JB entry points; this does not imply a general kernel exploit or HEN build is available for this version."
     },
     {
       "version": "13.52",
       "status": "unverified",
-      "note": "تم إدراج الإصدار في قائمة النظام؛ لم يتم توثيق توافق كسر الحماية لهذا الإصدار.",
-      "note_en": "This system version is listed in the catalogue; jailbreak compatibility has not been documented for this version."
+      "note": "مرجع الثغرات يذكر Slopkit وBD-JB كنقاط دخول؛ تحقق من وجود Kernel/HEN متوافق قبل تشغيل Payloads. بعض أدوات التحكم الحديثة تختبر هذا الإصدار تحديداً.",
+      "note_en": "The exploit chart lists Slopkit and BD-JB entry points; verify a compatible kernel/HEN before running payloads. Some recent controller tools specifically test this version."
     },
     {
       "version": "14.00",
       "status": "unverified",
-      "note": "تم إدراج الإصدار في قائمة النظام؛ لم يتم توثيق توافق كسر الحماية لهذا الإصدار.",
-      "note_en": "This system version is listed in the catalogue; jailbreak compatibility has not been documented for this version."
+      "note": "مرجع الثغرات يذكر Slopkit مع Prolapse، كما يذكر BD-JB/Bonk؛ تحقق من المصدر والتحذيرات، خصوصاً أن ملفات Bonk المتداولة غير اعتيادية.",
+      "note_en": "The exploit chart lists Slopkit with Prolapse and BD-JB/Bonk. Verify the source and warnings carefully, especially because circulating Bonk files are unusual."
     },
     {
       "version": "14.02",
       "status": "unverified",
-      "note": "تم إدراج الإصدار في قائمة النظام؛ لم يتم توثيق توافق كسر الحماية لهذا الإصدار.",
-      "note_en": "This system version is listed in the catalogue; jailbreak compatibility has not been documented for this version."
+      "note": "مرجع الثغرات يذكر Slopkit مع Afterglow. تحقق من بناء Kernel وHEN المحدد؛ لا تفترض أن إصدارات GoldHEN القديمة تعمل هنا.",
+      "note_en": "The exploit chart lists Slopkit with Afterglow. Verify the exact kernel and HEN build; do not assume older GoldHEN releases work here."
     }
   ],
   "payloads": [

@@ -244,6 +244,66 @@
       "firmware": "اختبارات محدودة؛ راجع سجل الإصدار والتوافق قبل التشغيل.",
       "firmware_en": "Limited testing; review release notes and compatibility before running.",
       "sourceUrl": "https://github.com/veildarkness001/controller3to4Bridge"
+    },
+    {
+      "name": "Control4Free",
+      "name_en": "Control4Free",
+      "version": "1.3.1",
+      "status": "experimental",
+      "category": "Utilities",
+      "description": "Payload GoldHEN يحول الهاتف أو الكمبيوتر إلى ما يصل إلى أربعة أيدي تحكم افتراضية DualShock 4 عبر المتصفح. يتطلب GoldHEN 2.4b18.10 أو أحدث؛ راجع متطلبات الشبكة والتحذيرات قبل الاستخدام.",
+      "description_en": "A GoldHEN payload that turns a phone or computer browser into up to four virtual DualShock 4 controllers. Requires GoldHEN 2.4b18.10 or later; review network requirements and warnings before use.",
+      "firmware": "اختبارات المطور على 10.01 و11.02 و13.02 و13.04 و13.52؛ يتطلب GoldHEN 2.4b18.10+.",
+      "firmware_en": "Developer testing on 10.01, 11.02, 13.02, 13.04 and 13.52; requires GoldHEN 2.4b18.10+.",
+      "sourceUrl": "https://github.com/MoHadiShibli/Control4Free"
+    },
+    {
+      "name": "AnyController",
+      "name_en": "AnyController",
+      "version": "1.0.0",
+      "status": "experimental",
+      "category": "Utilities",
+      "description": "Payload لتشغيل يد تحكم سلكية من طرف ثالث كأنها DualShock 4 على مستوى النظام. النسخة الأولى موجهة إلى Firmware 11.00 مع GoldHEN 2.4b18.10+؛ بقية الأجهزة والإصدارات غير مؤكدة.",
+      "description_en": "Payload that presents a wired third-party controller as a system-wide virtual DualShock 4. First release targets firmware 11.00 with GoldHEN 2.4b18.10+; other devices and versions are not fully verified.",
+      "firmware": "المطور يؤكد 11.00؛ توجد تقارير مستخدمين عن 9.00 و13.52، غير معتمدة كاختبار رسمي.",
+      "firmware_en": "Developer-confirmed on 11.00; user reports mention 9.00 and 13.52, not official test confirmation.",
+      "sourceUrl": "https://github.com/ElZeeky/PS4-AnyController"
+    },
+    {
+      "name": "Xbox 360 USB (PS4)",
+      "name_en": "Xbox 360 USB (PS4)",
+      "version": "0.7-usb",
+      "status": "experimental",
+      "category": "Utilities",
+      "description": "Payload لتشغيل يد Xbox 360 السلكية ويد DualShock 3 عبر USB كأجهزة تحكم افتراضية على PS4. المطور يذكر اختبارات على Firmware 13.02؛ Bluetooth تجريبي وغير مؤكد.",
+      "description_en": "Payload for using wired Xbox 360 and DualShock 3 controllers over USB as virtual controllers on PS4. Developer reports testing on firmware 13.02; Bluetooth is experimental and unconfirmed.",
+      "firmware": "اختبار المطور على 13.02 مع GoldHEN؛ لا تشغله بالتزامن مع Control4Free أو إضافات تحكم مشابهة.",
+      "firmware_en": "Developer testing on 13.02 with GoldHEN; do not run alongside Control4Free or similar controller payloads.",
+      "sourceUrl": "https://github.com/lucianomiki/PS4-Xbox360-USB-Direct"
+    },
+    {
+      "name": "Plugins Mgr",
+      "name_en": "Plugins Mgr",
+      "version": "1.0",
+      "status": "unverified",
+      "category": "Utilities",
+      "description": "Payload ومدير عبر المتصفح لإدارة إضافات GoldHEN وملف plugins.ini، مع رفع ونسخ ونقل وحذف الملفات ونسخ احتياطي قبل التعديل.",
+      "description_en": "Payload and browser-based manager for GoldHEN plugins and plugins.ini, with file upload, copy, move, delete and automatic backups before edits.",
+      "firmware": "يتطلب GoldHEN؛ المثبت المساعد يذكر GoldHEN 2.4b18.10 أو أحدث.",
+      "firmware_en": "Requires GoldHEN; the included installer references GoldHEN 2.4b18.10 or later.",
+      "sourceUrl": "https://github.com/h5d7r/Plugins-Mgr"
+    },
+    {
+      "name": "ezRemote Server",
+      "name_en": "ezRemote Server",
+      "version": "1.01",
+      "status": "unverified",
+      "category": "Utilities",
+      "description": "Payload خلفي لـ ezRemote Client لاستكمال تنزيل وتثبيت الحزم الكبيرة في الخلفية بعد إغلاق العميل. بعض الخيارات لا تعمل مع Disk Cache أو الحزم داخل ZIP.",
+      "description_en": "Background payload for ezRemote Client, allowing large downloads and package installs to continue after closing the client. Some options do not work with Disk Cache or packages inside ZIP archives.",
+      "firmware": "يعمل مع ezRemote Client؛ راجع متطلبات GoldHEN والإصدار.",
+      "firmware_en": "Works with ezRemote Client; check GoldHEN and release requirements.",
+      "sourceUrl": "https://github.com/cy33hc/ps4-ezremote-server"
     }
   ],
   "apps": [
@@ -578,6 +638,90 @@
       "firmware": "مرجع معلوماتي؛ راجع تاريخ تحديث الصفحة.",
       "firmware_en": "Reference only; check the page's update history.",
       "sourceUrl": "https://consolemods.org/wiki/PS4:FAQ"
+    },
+    {
+      "name": "STORM – Network PKG Installer",
+      "name_en": "STORM – Network PKG Installer",
+      "version": "1.60",
+      "status": "unverified",
+      "category": "Essentials",
+      "description": "مدير تثبيت PKG عبر الشبكة يدعم بروتوكول Remote Package Installer، مع قائمة انتظار ومراقبة المساحة وواجهات API. يدعم عدة منافذ؛ راجع سجل الإصدار.",
+      "description_en": "Network PKG installer supporting the Remote Package Installer protocol, with a job queue, storage checks and APIs. Supports multiple ports; review the release notes.",
+      "firmware": "يتطلب بيئة GoldHEN؛ تحقق من متطلبات الإصدار.",
+      "firmware_en": "Requires a GoldHEN environment; check release requirements.",
+      "sourceUrl": "https://github.com/ReiKatari/STORM_PS4_PKG_INSTALLER"
+    },
+    {
+      "name": "ProCon",
+      "name_en": "ProCon",
+      "version": "0.3-hotfix",
+      "status": "experimental",
+      "category": "Utilities",
+      "description": "إضافة GoldHEN لربط وحدات تحكم USB ولوحة المفاتيح والفأرة مع DualShock 4 داخل الألعاب. المطور اختبرها على 13.50؛ كثير من أنواع الأجهزة المذكورة لم تُختبر.",
+      "description_en": "GoldHEN plugin mapping USB controllers, keyboard and mouse to DualShock 4 input in games. Developer testing was on 13.50; many listed device types remain untested.",
+      "firmware": "اختبار المطور على 13.50؛ توافق الأجهزة الأخرى غير مؤكد.",
+      "firmware_en": "Developer testing on 13.50; other controller compatibility is unverified.",
+      "sourceUrl": "https://github.com/joojofc13-wq/ProCon"
+    },
+    {
+      "name": "GoldHEN Plugin Manager",
+      "name_en": "GoldHEN Plugin Manager",
+      "version": "1.1.1",
+      "status": "unverified",
+      "category": "Utilities",
+      "description": "تطبيق لإدارة إضافات GoldHEN العامة أو الخاصة بكل لعبة دون تعديل plugins.ini يدوياً عبر FTP، مع حفظ نسخة احتياطية من الملفات قبل الحفظ.",
+      "description_en": "Application for managing global or per-game GoldHEN plugins without manually editing plugins.ini over FTP; it backs up the original files before saving.",
+      "firmware": "يتطلب GoldHEN؛ راجع صفحة المطور للإصدار المطلوب.",
+      "firmware_en": "Requires GoldHEN; check the developer page for the required version.",
+      "sourceUrl": "https://github.com/ezecernadas/goldhen-plugin-manager"
+    },
+    {
+      "name": "Dropbear SSH for PS4",
+      "name_en": "Dropbear SSH for PS4",
+      "version": "1.07-build57",
+      "status": "experimental",
+      "category": "Development",
+      "description": "منفذ تجريبي لخادم SSH على PS4. المطور اختبره على 9.00 فقط، ويأتي بإعداد دخول افتراضي غير آمن؛ غيّر إعدادات الدخول واستخدم مفتاحاً عاماً، ولا تفتح المنفذ على الإنترنت.",
+      "description_en": "Experimental SSH server port for PS4. Developer testing is limited to 9.00 and the package uses an insecure default login; configure key-based authentication and never expose the port to the internet.",
+      "firmware": "اختبار المطور على 9.00 فقط؛ بحثي وتجريبي.",
+      "firmware_en": "Developer-tested on 9.00 only; research/experimental software.",
+      "sourceUrl": "https://github.com/RuxaXa/ps4-dropbear-ssh"
+    },
+    {
+      "name": "PS4Load",
+      "name_en": "PS4Load",
+      "version": "0.5.0",
+      "status": "unverified",
+      "category": "Development",
+      "description": "أداة تطوير ترسل ملف eboot.bin من الكمبيوتر إلى PS4 عبر الشبكة لتشغيله، ويمكنها فك ملفات ZIP إلى مجلد /data/. إصدار قديم.",
+      "description_en": "Development helper that sends an eboot.bin from a computer to the PS4 over the network and runs it; it can also unpack ZIP files into /data/. Legacy release.",
+      "firmware": "أداة تطوير قديمة؛ تحقق من المتطلبات الحالية قبل الاستخدام.",
+      "firmware_en": "Legacy development tool; verify current requirements before use.",
+      "sourceUrl": "https://github.com/bucanero/ps4load"
+    },
+    {
+      "name": "PS4 Vibe",
+      "name_en": "PS4 Vibe",
+      "version": "1.02",
+      "status": "unverified",
+      "category": "Utilities",
+      "description": "أداة بسيطة لاختبار اهتزاز يد التحكم على PS4. آخر تحديث مسجل في 2021؛ مشروع قديم.",
+      "description_en": "A small utility for testing controller rumble on PS4. Last listed update is from 2021; legacy project.",
+      "firmware": "مشروع قديم؛ تحقق من التوافق قبل الاستخدام.",
+      "firmware_en": "Legacy project; verify compatibility before use.",
+      "sourceUrl": "https://github.com/Al-Azif/ps4-vibe"
+    },
+    {
+      "name": "OrbisFTP",
+      "name_en": "OrbisFTP",
+      "version": "1.0",
+      "status": "unverified",
+      "category": "Utilities",
+      "description": "خادم FTP يعمل في الخلفية بعد مغادرة التطبيق. مستودع المشروع مؤرشف؛ استخدمه كأداة قديمة ولا تفترض استمرار الدعم.",
+      "description_en": "FTP server that continues running in the background after leaving the app. The project repository is archived; treat it as legacy software without ongoing support.",
+      "firmware": "المستودع مؤرشف؛ الإصدار يذكر دعم الأنظمة وقت نشره فقط.",
+      "firmware_en": "Repository is archived; its compatibility notes apply to the release era only.",
+      "sourceUrl": "https://github.com/OSM-Made/OrbisFTP"
     }
   ]
 }

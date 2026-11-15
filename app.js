@@ -172,7 +172,7 @@ const categoryOrder=["Essentials","Utilities","Homebrew","Emulators","Desktop","
 const categoryLabels={Essentials:["البرامج الأساسية","Essential tools"],Utilities:["أدوات مساعدة","Utilities"],Homebrew:["هومبرو","Homebrew"],Emulators:["محاكيات PS4","PS4 emulators"],Desktop:["محاكيات الكمبيوتر","PC emulators"],Media:["الوسائط","Media"],Mods:["التعديلات والغش","Mods & cheats"],Development:["التطوير","Development"],Translations:["التعريبات","Translations"]};
 let activeView="apps";
 function showView(view){activeView=view;document.querySelectorAll(".view-panel").forEach(el=>el.classList.toggle("is-hidden",el.id!==view));document.querySelectorAll(".library-menu button").forEach(b=>b.classList.toggle("active",b.dataset.view===view||(view==="apps"&&b.dataset.category===$("#appCategory").value)));}
-function buildMenu(){const host=$("#libraryMenu");host.innerHTML="";const add=(label,view,category=null)=>{const b=document.createElement("button");b.type="button";b.textContent=label;b.dataset.view=view;if(category)b.dataset.category=category;b.addEventListener("click",()=>{if(category){$("#appCategory").value=category;showView("apps");draw();}else showView(view);});host.appendChild(b);};categoryOrder.forEach(cat=>add(categoryLabels[cat][currentLang==="en"?1:0],"apps",cat));add(currentLang==="en"?"Payloads":"البايلودات","payloads");add(currentLang==="en"?"Firmware":"إصدارات النظام","firmware");}
+function buildMenu(draw){const host=$("#libraryMenu");host.innerHTML="";const add=(label,view,category=null)=>{const b=document.createElement("button");b.type="button";b.textContent=label;b.dataset.view=view;if(category)b.dataset.category=category;b.addEventListener("click",()=>{if(category){$("#appCategory").value=category;showView("apps");draw();}else showView(view);});host.appendChild(b);};categoryOrder.forEach(cat=>add(categoryLabels[cat][currentLang==="en"?1:0],"apps",cat));add(currentLang==="en"?"Payloads":"البايلودات","payloads");add(currentLang==="en"?"Firmware":"إصدارات النظام","firmware");}
 async function init(){
  try{
   const response=await fetch("catalog.json?v="+Date.now(),{cache:"no-store"});
@@ -190,9 +190,9 @@ async function init(){
    document.querySelectorAll(".library-menu button").forEach(b=>b.classList.toggle("active",b.dataset.category===selected&&activeView==="apps"));
   }
   ["payloadSearch","payloadFilter","appSearch"].forEach(id=>$("#"+id).addEventListener("input",draw));
-  $("#langBtn").addEventListener("click",()=>{currentLang=currentLang==="ar"?"en":"ar";localStorage.setItem("majeedLang",currentLang);applyLanguage();buildMenu();draw();const fw=$("#fwSelect").value;if(fw){const f=catalog.firmware.find(x=>x.version===fw);$("#fwResult").textContent=f?`${statusLabel(f.status)} — ${(currentLang==="en"?(f.note_en||f.note):f.note)||t("noFirmwareNote")}`:t("notSelected");}else $("#fwResult").textContent=t("fwEmpty");});
+  $("#langBtn").addEventListener("click",()=>{currentLang=currentLang==="ar"?"en":"ar";localStorage.setItem("majeedLang",currentLang);applyLanguage();buildMenu(draw);draw();const fw=$("#fwSelect").value;if(fw){const f=catalog.firmware.find(x=>x.version===fw);$("#fwResult").textContent=f?`${statusLabel(f.status)} — ${(currentLang==="en"?(f.note_en||f.note):f.note)||t("noFirmwareNote")}`:t("notSelected");}else $("#fwResult").textContent=t("fwEmpty");});
   $("#year").textContent=new Date().getFullYear();
-  $("#appCategory").value="Essentials";buildMenu();showView("apps");applyLanguage();draw();
+  $("#appCategory").value="Essentials";buildMenu(draw);showView("apps");applyLanguage();draw();
  }catch(error){console.error(error);$("#payloadCards").innerHTML=`<div class="empty">${t("loadError")}</div>`;}
 }
 init();

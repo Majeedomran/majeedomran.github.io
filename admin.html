@@ -1,19 +1,49 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#080b13">
-<title>إدارة الموقع | MAJEED PS4 HOST</title><link rel="stylesheet" href="style.css">
+<title>Admin | MAJEED PS4 HOST</title>
+<link rel="stylesheet" href="style.css?v=20261116-admin-ui">
 <style>
-.admin-wrap{max-width:980px;margin:55px auto;padding:0 18px}.admin-panel{background:#101624;border:1px solid #263149;border-radius:18px;padding:24px;margin:18px 0}.admin-panel h1,.admin-panel h2{margin-top:0}.admin-panel p,.hint{color:#9aa8bd;font-size:13px}.admin-panel textarea{width:100%;min-height:390px;background:#080f1c;color:#eaf1ff;border:1px solid #263149;border-radius:12px;padding:14px;font:13px/1.7 monospace;direction:ltr;text-align:left}.admin-panel input{max-width:440px;display:block;margin:8px 0 14px}.admin-btn{background:linear-gradient(100deg,#4d8dff,#6959e8);border:0;border-radius:10px;color:white;padding:11px 20px;font-weight:700;cursor:pointer;margin:6px 0}.admin-btn.secondary{background:transparent;border:1px solid #263149}.admin-status{margin:12px 0;color:#42d7e8;font-size:13px;min-height:24px}.hidden{display:none!important}.admin-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.admin-wrap{max-width:1100px;margin:42px auto;padding:0 18px}.admin-panel{background:#101624;border:1px solid #263149;border-radius:18px;padding:24px;margin:18px 0}.admin-panel h1,.admin-panel h2{margin-top:0}.admin-panel p,.hint{color:#9aa8bd;font-size:13px}.admin-panel input,.admin-panel select,.admin-panel textarea{width:100%;margin:6px 0 14px}.admin-panel textarea{min-height:320px;background:#080f1c;color:#eaf1ff;border:1px solid #263149;border-radius:12px;padding:14px;font:13px/1.7 monospace;direction:ltr;text-align:left}.admin-btn{background:linear-gradient(100deg,#4d8dff,#6959e8);border:0;border-radius:10px;color:white;padding:11px 18px;font-weight:700;cursor:pointer;margin:5px 5px 5px 0}.admin-btn.secondary{background:transparent;border:1px solid #344663;color:#eaf1ff}.admin-btn.danger{background:#54232b}.admin-btn:disabled{opacity:.5;cursor:not-allowed}.admin-status{margin:12px 0;color:#55e0e8;font-size:13px;min-height:24px}.hidden{display:none!important}.admin-top,.admin-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.admin-toolbar>*{flex:1;min-width:170px}.admin-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}.admin-grid label,.field-label{display:block;color:#b9c8dc;font-size:12px}.admin-grid .wide{grid-column:1/-1}.admin-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}.admin-note{padding:12px 14px;background:#111f34;border:1px solid #2b4160;border-radius:10px;color:#aebfd5;font-size:12px}.admin-panel textarea{direction:ltr}.admin-panel input:focus,.admin-panel select:focus,.admin-panel textarea:focus{border-color:#55e0e8}@media(max-width:650px){.admin-grid{grid-template-columns:1fr}.admin-grid .wide{grid-column:auto}.admin-panel{padding:18px}}
 </style></head>
 <body>
-<header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">M</span><span>MAJEED <b>PS4 HOST</b><small>ADMINISTRATION</small></span></a><a class="secondary" href="index.html">العودة للموقع</a></header>
+<header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">M</span><span>MAJEED <b>PS4 HOST</b><small>ADMINISTRATION</small></span></a><a class="secondary" href="index.html">Back to site</a></header>
 <main class="admin-wrap">
-<section class="admin-panel" id="loginPanel"><h1>دخول لوحة التحكم</h1><p>هذه الصفحة مخصصة لإدارة كتالوج الموقع.</p><label for="password">كلمة مرور الإدارة</label><input id="password" type="password" autocomplete="current-password" placeholder="أدخل كلمة المرور"><button class="admin-btn" id="loginBtn">تسجيل الدخول</button><div class="admin-status" id="loginStatus" role="status"></div></section>
-<section class="admin-panel hidden" id="editorPanel"><div class="admin-top"><div><h1>إدارة الكتالوج</h1><p>عدّل بيانات التطبيقات والـPayloads وإصدارات النظام بصيغة JSON.</p></div><button class="admin-btn secondary" id="logoutBtn">تسجيل الخروج</button></div>
-<p class="hint">الحالات المسموحة: verified / unverified / experimental / unsupported. لا تضع رابط تحميل أو توافقاً إلا بعد التحقق من المصدر الرسمي.</p>
-<textarea id="catalogEditor" spellcheck="false" aria-label="محرر بيانات الكتالوج"></textarea>
-<div><button class="admin-btn" id="loadBtn">إعادة تحميل البيانات</button> <button class="admin-btn" id="saveBtn">حفظ ونشر التغييرات</button></div><div class="admin-status" id="editorStatus" role="status"></div></section>
+<section class="admin-panel" id="loginPanel">
+<h1>Admin sign in</h1><p>Sign in to manage the public PS4 catalogue.</p>
+<label class="field-label" for="password">Admin password</label><input id="password" type="password" autocomplete="current-password" placeholder="Enter admin password">
+<button class="admin-btn" id="loginBtn">Sign in</button><div class="admin-status" id="loginStatus" role="status"></div>
+</section>
+<section class="admin-panel hidden" id="editorPanel">
+<div class="admin-top"><div><h1>Catalogue manager</h1><p>Add, edit and remove catalogue entries without editing JSON manually.</p></div><button class="admin-btn secondary" id="logoutBtn">Sign out</button></div>
+<div class="admin-toolbar">
+<div><label class="field-label" for="recordType">Catalogue section</label><select id="recordType"><option value="apps">Applications</option><option value="payloads">Payloads</option><option value="firmware">Firmware</option></select></div>
+<div><label class="field-label" for="recordSelect">Existing entry</label><select id="recordSelect"></select></div>
+<div class="admin-actions"><button class="admin-btn secondary" id="newBtn">New entry</button><button class="admin-btn danger" id="deleteBtn">Delete entry</button></div>
+</div>
+<div class="admin-note">Use original developer source pages. Mark uncertain or experimental compatibility honestly. Do not treat a working source link as proof that a file is safe or compatible.</div>
+<form id="entryForm">
+<div class="admin-grid">
+<div id="nameWrap"><label class="field-label" for="entryName">Name</label><input id="entryName" autocomplete="off"></div>
+<div id="nameEnWrap"><label class="field-label" for="entryNameEn">English name</label><input id="entryNameEn" autocomplete="off"></div>
+<div><label class="field-label" for="entryVersion">Version</label><input id="entryVersion" autocomplete="off"></div>
+<div id="categoryWrap"><label class="field-label" for="entryCategory">Category</label><select id="entryCategory"><option>Essentials</option><option>Utilities</option><option>Homebrew</option><option>Emulators</option><option>Desktop</option><option>Media</option><option>Mods</option><option>Development</option><option>Translations</option></select></div>
+<div><label class="field-label" for="entryStatus">Status</label><select id="entryStatus"><option value="unverified">Unverified</option><option value="verified">Verified</option><option value="experimental">Experimental</option><option value="unsupported">Unsupported</option></select></div>
+<div><label class="field-label" for="entryFirmware">Compatibility / firmware</label><input id="entryFirmware" autocomplete="off"></div>
+<div class="wide" id="noteWrap"><label class="field-label" for="entryNote">Firmware note (Arabic)</label><input id="entryNote" autocomplete="off"></div>
+<div class="wide" id="noteEnWrap"><label class="field-label" for="entryNoteEn">Firmware note (English)</label><input id="entryNoteEn" autocomplete="off"></div>
+<div class="wide" id="descriptionWrap"><label class="field-label" for="entryDescription">Description (Arabic)</label><textarea id="entryDescription" rows="3"></textarea></div>
+<div class="wide" id="descriptionEnWrap"><label class="field-label" for="entryDescriptionEn">Description (English)</label><textarea id="entryDescriptionEn" rows="3"></textarea></div>
+<div class="wide" id="firmwareEnWrap"><label class="field-label" for="entryFirmwareEn">Compatibility / firmware (English)</label><input id="entryFirmwareEn" autocomplete="off"></div>
+<div class="wide" id="sourceWrap"><label class="field-label" for="entrySource">Official source URL (HTTPS)</label><input id="entrySource" type="url" placeholder="https://..."></div>
+<div class="wide" id="downloadWrap"><label class="field-label" for="entryDownload">Direct download URL (optional, HTTPS)</label><input id="entryDownload" type="url" placeholder="https://..."></div>
+</div>
+<div class="admin-actions"><button class="admin-btn" type="submit" id="applyEntryBtn">Add entry to draft</button><button class="admin-btn secondary" type="button" id="saveBtn">Save and publish catalogue</button><button class="admin-btn secondary" type="button" id="loadBtn">Reload from GitHub</button><button class="admin-btn secondary" type="button" id="toggleJsonBtn">Advanced JSON editor</button></div>
+</form>
+<div class="admin-status" id="editorStatus" role="status"></div>
+<div id="jsonWrap" class="hidden"><p class="hint">Advanced mode: edit the complete catalogue JSON. Saving this field replaces the current draft.</p><textarea id="catalogEditor" spellcheck="false" aria-label="Advanced catalogue JSON editor"></textarea><button class="admin-btn secondary" id="applyJsonBtn" type="button">Apply JSON to draft</button></div>
+</section>
 </main>
-<script src="admin.js"></script></body></html>
+<script src="admin.js?v=20261116-admin-ui"></script></body></html>

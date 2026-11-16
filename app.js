@@ -249,7 +249,7 @@ async function init(){
   $("#langBtn").addEventListener("click",()=>{currentLang=currentLang==="ar"?"en":"ar";localStorage.setItem("majeedLang",currentLang);applyLanguage();buildMenu(draw);if(activeView==="apps"||activeView==="payloads")draw();$("#updatesList").querySelectorAll(".timeline-item p").forEach((p,i)=>p.textContent=currentLang==="en"?updates[i][2]:updates[i][1]);const fw=$("#fwSelect").value;if(fw)updateFirmwareInfo(fw,$("#fwResult"));else $("#fwResult").textContent=t("fwEmpty");const homeFw=$("#homeFwSelect").value;if(homeFw)updateFirmwareInfo(homeFw,$("#homeFwResult"));else $("#homeFwResult").textContent=t("homeFwEmpty");});
   $("#year").textContent=new Date().getFullYear();
   document.querySelectorAll(".view-panel").forEach(el=>el.classList.toggle("is-hidden",el.id!=="home"));
-  $("#appCategory").value="Essentials";buildMenu(draw);showView("home");applyLanguage();
+  $("#appCategory").value="Essentials";buildMenu(draw);const requestedView=location.hash.slice(1);const allowedViews=["home","apps","payloads","firmware","assistant","updates","linkcheck","status"];showView(allowedViews.includes(requestedView)?requestedView:"home");applyLanguage();
  }catch(error){console.error(error);$("#payloadCards").innerHTML=`<div class="empty">${t("loadError")}</div>`;}
 }
 init();

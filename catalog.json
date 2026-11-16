@@ -317,7 +317,7 @@
       "sourceUrl": "https://github.com/bucanero/apollo-ps4/releases",
       "description_en": "Manage, edit, back up and restore save files, manage trophies, and use patch/cheat tools. Version 2.4.0 is officially published; feature support depends on the system and game.",
       "firmware_en": "Version 2.0+ states support for all system software versions; some features may require GoldHEN/ps4debug.",
-      "downloadUrl": "https://github.com/bucanero/apollo-ps4/releases/download/v2.4.0/IV0000-APOL00004_00-APOLLO0000000PS4.pkg"
+      "downloadUrl": "https://store.brewology.com/dl/5906/IV0000-APOL00004_00-APOLLO0000000PS4.pkg"
     },
     {
       "name": "Itemzflow",
@@ -341,7 +341,7 @@
       "description_en": "A file and connection manager for FTP/SFTP/SMB/NFS/WebDAV and Google Drive, with remote PKG downloading and installation. Stores may list newer builds than GitHub Releases; check the source.",
       "firmware_en": "Check the selected release requirements; version cross-checked against the Brewology index.",
       "version_note": "Latest version listed by Brewology on 14 Nov 2026; check developer release page.",
-      "downloadUrl": "https://github.com/cy33hc/ps4-ezremote-client/releases/download/2.11/ezremote_client.pkg"
+      "downloadUrl": "https://store.brewology.com/dl/15781/ezremote_client.pkg"
     },
     {
       "name": "PS4-Xplorer",
@@ -389,7 +389,7 @@
       "firmware": "يتطلب HEN متوافقاً؛ راجع صفحة الإصدارات.",
       "firmware_en": "Requires a compatible HEN environment; check the release notes.",
       "sourceUrl": "https://github.com/AldySan/ps4_remote_pkg_installer_nextgen/releases",
-      "downloadUrl": "https://github.com/AldySan/ps4_remote_pkg_installer_nextgen/releases/download/v0.0.9/RemotePkgInstallerNextGen-0.0.9.pkg"
+      "downloadUrl": "https://store.brewology.com/dl/14286/RemotePkgInstallerNextGen-0.0.9.pkg"
     },
     {
       "name": "Orbis Toolbox",
@@ -659,7 +659,7 @@
       "firmware": "يتطلب بيئة GoldHEN؛ تحقق من متطلبات الإصدار.",
       "firmware_en": "Requires a GoldHEN environment; check release requirements.",
       "sourceUrl": "https://github.com/ReiKatari/STORM_PS4_PKG_INSTALLER",
-      "downloadUrl": "https://github.com/ReiKatari/STORM_PS4_PKG_INSTALLER/releases/download/1.60/STORM_PS4_PKG_INSTALLER_1.60.pkg"
+      "downloadUrl": "https://store.brewology.com/dl/6352/STORM_PS4_PKG_INSTALLER_1.60.pkg"
     },
     {
       "name": "ProCon",
@@ -672,7 +672,7 @@
       "firmware": "اختبار المطور على 13.50؛ توافق الأجهزة الأخرى غير مؤكد.",
       "firmware_en": "Developer testing on 13.50; other controller compatibility is unverified.",
       "sourceUrl": "https://github.com/joojofc13-wq/ProCon",
-      "downloadUrl": "https://github.com/joojofc13-wq/ProCon/releases/download/0.3-hotfix/ProCon-0.3-hotfix.pkg"
+      "downloadUrl": "https://store.brewology.com/dl/6218/ProCon-0.3-hotfix.pkg"
     },
     {
       "name": "GoldHEN Plugin Manager",
@@ -685,7 +685,7 @@
       "firmware": "يتطلب GoldHEN؛ راجع صفحة المطور للإصدار المطلوب.",
       "firmware_en": "Requires GoldHEN; check the developer page for the required version.",
       "sourceUrl": "https://github.com/ezecernadas/goldhen-plugin-manager",
-      "downloadUrl": "https://github.com/ezecernadas/goldhen-plugin-manager/releases/download/v1.1.1/goldhen-plugin-manager-v1.1.1.pkg"
+      "downloadUrl": "https://store.brewology.com/dl/6127/goldhen-plugin-manager-v1.1.1.pkg"
     },
     {
       "name": "Dropbear SSH for PS4",
@@ -698,7 +698,7 @@
       "firmware": "اختبار المطور على 9.00 فقط؛ بحثي وتجريبي.",
       "firmware_en": "Developer-tested on 9.00 only; research/experimental software.",
       "sourceUrl": "https://github.com/RuxaXa/ps4-dropbear-ssh",
-      "downloadUrl": "https://github.com/RuxaXa/ps4-dropbear-ssh/releases/download/v1.07-build57/IV0000-BREW00010_00-DROPBEARSSH00000.pkg"
+      "downloadUrl": "https://store.brewology.com/dl/6359/IV0000-BREW00010_00-DROPBEARSSH00000.pkg"
     },
     {
       "name": "PS4Load",
@@ -711,7 +711,7 @@
       "firmware": "أداة تطوير قديمة؛ تحقق من المتطلبات الحالية قبل الاستخدام.",
       "firmware_en": "Legacy development tool; verify current requirements before use.",
       "sourceUrl": "https://github.com/bucanero/ps4load",
-      "downloadUrl": "https://github.com/bucanero/ps4load/releases/download/v0.5.0/IV0000-LOAD00044_00-SDL2GLES20000000.pkg"
+      "downloadUrl": "https://store.brewology.com/dl/5928/IV0000-LOAD00044_00-SDL2GLES20000000.pkg"
     },
     {
       "name": "PS4 Vibe",
@@ -724,7 +724,7 @@
       "firmware": "مشروع قديم؛ تحقق من التوافق قبل الاستخدام.",
       "firmware_en": "Legacy project; verify compatibility before use.",
       "sourceUrl": "https://github.com/Al-Azif/ps4-vibe",
-      "downloadUrl": "https://github.com/Al-Azif/ps4-vibe/releases/download/v1.02/IV0000-AZIF00001_00-PS4VIBE000000000.pkg"
+      "downloadUrl": "https://store.brewology.com/dl/5886/IV0000-AZIF00001_00-PS4VIBE000000000.pkg"
     },
     {
       "name": "OrbisFTP",
@@ -737,7 +737,7 @@
       "firmware": "المستودع مؤرشف؛ الإصدار يذكر دعم الأنظمة وقت نشره فقط.",
       "firmware_en": "Repository is archived; its compatibility notes apply to the release era only.",
       "sourceUrl": "https://github.com/OSM-Made/OrbisFTP",
-      "downloadUrl": "https://github.com/OSM-Made/OrbisFTP/releases/download/1.0/IV0000-OFTP00000_00-FTPINSTALLR00000.pkg"
+      "downloadUrl": "https://store.brewology.com/dl/6321/IV0000-OFTP00000_00-FTPINSTALLR00000.pkg"
     }
   ]
 }

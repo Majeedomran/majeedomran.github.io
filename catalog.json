@@ -316,7 +316,8 @@
       "firmware": "إصدار 2.0+ يذكر دعم جميع إصدارات النظام؛ بعض الوظائف قد تتطلب GoldHEN/ps4debug",
       "sourceUrl": "https://github.com/bucanero/apollo-ps4/releases",
       "description_en": "Manage, edit, back up and restore save files, manage trophies, and use patch/cheat tools. Version 2.4.0 is officially published; feature support depends on the system and game.",
-      "firmware_en": "Version 2.0+ states support for all system software versions; some features may require GoldHEN/ps4debug."
+      "firmware_en": "Version 2.0+ states support for all system software versions; some features may require GoldHEN/ps4debug.",
+      "downloadUrl": "https://github.com/bucanero/apollo-ps4/releases/download/v2.4.0/IV0000-APOL00004_00-APOLLO0000000PS4.pkg"
     },
     {
       "name": "Itemzflow",
@@ -339,7 +340,8 @@
       "sourceUrl": "https://github.com/cy33hc/ps4-ezremote-client/releases",
       "description_en": "A file and connection manager for FTP/SFTP/SMB/NFS/WebDAV and Google Drive, with remote PKG downloading and installation. Stores may list newer builds than GitHub Releases; check the source.",
       "firmware_en": "Check the selected release requirements; version cross-checked against the Brewology index.",
-      "version_note": "Latest version listed by Brewology on 14 Nov 2026; check developer release page."
+      "version_note": "Latest version listed by Brewology on 14 Nov 2026; check developer release page.",
+      "downloadUrl": "https://github.com/cy33hc/ps4-ezremote-client/releases/download/2.11/ezremote_client.pkg"
     },
     {
       "name": "PS4-Xplorer",
@@ -373,7 +375,8 @@
       "description_en": "A USB MTP file manager for direct transfers between an Android phone, USB storage and the PS4 internal drive, with direct PKG installation. The developer reports testing on 9.00, 10.01 and 11.00; do not generalize compatibility beyond those versions.",
       "firmware": "اختبار المطور: 9.00 و10.01 و11.00 مع GoldHEN",
       "firmware_en": "Developer-reported tests: 9.00, 10.01 and 11.00 with GoldHEN.",
-      "sourceUrl": "https://github.com/nueex/ps-mtp-explorer/releases"
+      "sourceUrl": "https://github.com/nueex/ps-mtp-explorer/releases",
+      "downloadUrl": "https://github.com/nueex/ps-mtp-explorer/releases/download/v2.0.0/PS-MTP-Explorer-2.0.0.pkg"
     },
     {
       "name": "Remote PKG Installer NextGen",
@@ -385,7 +388,8 @@
       "description_en": "A PS4 app for installing PKG files over the network, with a transfer dashboard and pause/resume controls. Requires GoldHEN or an environment supporting fPKG installation; review release notes before installing.",
       "firmware": "يتطلب HEN متوافقاً؛ راجع صفحة الإصدارات.",
       "firmware_en": "Requires a compatible HEN environment; check the release notes.",
-      "sourceUrl": "https://github.com/AldySan/ps4_remote_pkg_installer_nextgen/releases"
+      "sourceUrl": "https://github.com/AldySan/ps4_remote_pkg_installer_nextgen/releases",
+      "downloadUrl": "https://github.com/AldySan/ps4_remote_pkg_installer_nextgen/releases/download/v0.0.9/RemotePkgInstallerNextGen-0.0.9.pkg"
     },
     {
       "name": "Orbis Toolbox",
@@ -418,7 +422,8 @@
       "firmware": "راجع صفحة الإصدار ومتطلبات التشغيل",
       "sourceUrl": "https://github.com/iHaiDeeZ/DolphinPS4/releases",
       "description_en": "A Nintendo GameCube and Wii emulator for PS4. The latest release shown on its Releases page is 04.19; performance and compatibility vary by game.",
-      "firmware_en": "Check the release page and runtime requirements."
+      "firmware_en": "Check the release page and runtime requirements.",
+      "downloadUrl": "https://github.com/iHaiDeeZ/DolphinPS4/releases/download/v04.19/DolphinPS4-v04.19.pkg"
     },
     {
       "name": "EmuSuNi",
@@ -430,7 +435,8 @@
       "description_en": "A multi-system emulator launcher for jailbroken PS4: NES, SNES, N64, Game Boy, GBA, PS1, PSP, Dreamcast, DS and more. Some systems are experimental; use only your own game backups and BIOS files.",
       "firmware": "يتطلب PS4 مع GoldHEN؛ الأداء والتوافق يختلفان حسب النظام واللعبة",
       "firmware_en": "Requires a PS4 with GoldHEN; performance and compatibility vary by system and game.",
-      "sourceUrl": "https://github.com/arturofuentes1988/EmuSuNi/releases"
+      "sourceUrl": "https://github.com/arturofuentes1988/EmuSuNi/releases",
+      "downloadUrl": "https://github.com/arturofuentes1988/EmuSuNi/releases/download/v00.24/EmuSuNi-v00.24.pkg"
     },
     {
       "name": "RetroArchV",
@@ -487,7 +493,8 @@
       "firmware": "يتطلب بيئة GoldHEN متوافقة",
       "sourceUrl": "https://github.com/GoldHEN/GoldHEN_Cheat_Manager",
       "description_en": "A homebrew application for managing cheat files compatible with GoldHEN. A listed cheat file is not guaranteed to work with every game update.",
-      "firmware_en": "Requires a compatible GoldHEN environment."
+      "firmware_en": "Requires a compatible GoldHEN environment.",
+      "downloadUrl": "https://github.com/GoldHEN/GoldHEN_Cheat_Manager/releases/download/v1.1.4/IV0000-GOLD00777_00-GOLDCHEATS000PS4.pkg"
     },
     {
       "name": "GoldHEN Cheat Repository",
@@ -589,7 +596,8 @@
       "description_en": "A project for additional controller support and compatibility features. Version 1.2.3 includes user-profile navigation and controller-recognition fixes; follow developer instructions and do not combine with AnyPad when Bluetooth patching is active.",
       "firmware": "المطور يذكر 5.05 إلى 14.00+؛ التوافق الفعلي يعتمد على الجهاز والوظيفة.",
       "firmware_en": "Developer notes mention 5.05 through 14.00+; actual compatibility depends on hardware and feature.",
-      "sourceUrl": "https://github.com/ChiricoG/OneFamily/releases"
+      "sourceUrl": "https://github.com/ChiricoG/OneFamily/releases",
+      "downloadUrl": "https://github.com/ChiricoG/OneFamily/releases/download/v1.2.3/onefamily_companion.pkg"
     },
     {
       "name": "VCFG – Frame Generation Plugin",
@@ -601,7 +609,8 @@
       "description_en": "A GoldHEN plugin that generates intermediate frames for PS4 games. Experimental; compatibility depends on CUSA, game update and console model. Some titles are unsupported and plugin conflicts may cause crashes.",
       "firmware": "يتطلب GoldHEN؛ راجع قائمة التوافق لكل لعبة. لا يوجد دعم عام لكل الألعاب.",
       "firmware_en": "Requires GoldHEN; check per-title compatibility. Not universally supported.",
-      "sourceUrl": "https://github.com/Melnikoff07/vcfg/releases"
+      "sourceUrl": "https://github.com/Melnikoff07/vcfg/releases",
+      "downloadUrl": "https://github.com/Melnikoff07/vcfg/releases/download/v2.36/VCFG_v2.36.pkg"
     },
     {
       "name": "Brewology PS4 Homebrew Store",
@@ -649,7 +658,8 @@
       "description_en": "Network PKG installer supporting the Remote Package Installer protocol, with a job queue, storage checks and APIs. Supports multiple ports; review the release notes.",
       "firmware": "يتطلب بيئة GoldHEN؛ تحقق من متطلبات الإصدار.",
       "firmware_en": "Requires a GoldHEN environment; check release requirements.",
-      "sourceUrl": "https://github.com/ReiKatari/STORM_PS4_PKG_INSTALLER"
+      "sourceUrl": "https://github.com/ReiKatari/STORM_PS4_PKG_INSTALLER",
+      "downloadUrl": "https://github.com/ReiKatari/STORM_PS4_PKG_INSTALLER/releases/download/1.60/STORM_PS4_PKG_INSTALLER_1.60.pkg"
     },
     {
       "name": "ProCon",
@@ -661,7 +671,8 @@
       "description_en": "GoldHEN plugin mapping USB controllers, keyboard and mouse to DualShock 4 input in games. Developer testing was on 13.50; many listed device types remain untested.",
       "firmware": "اختبار المطور على 13.50؛ توافق الأجهزة الأخرى غير مؤكد.",
       "firmware_en": "Developer testing on 13.50; other controller compatibility is unverified.",
-      "sourceUrl": "https://github.com/joojofc13-wq/ProCon"
+      "sourceUrl": "https://github.com/joojofc13-wq/ProCon",
+      "downloadUrl": "https://github.com/joojofc13-wq/ProCon/releases/download/0.3-hotfix/ProCon-0.3-hotfix.pkg"
     },
     {
       "name": "GoldHEN Plugin Manager",
@@ -673,7 +684,8 @@
       "description_en": "Application for managing global or per-game GoldHEN plugins without manually editing plugins.ini over FTP; it backs up the original files before saving.",
       "firmware": "يتطلب GoldHEN؛ راجع صفحة المطور للإصدار المطلوب.",
       "firmware_en": "Requires GoldHEN; check the developer page for the required version.",
-      "sourceUrl": "https://github.com/ezecernadas/goldhen-plugin-manager"
+      "sourceUrl": "https://github.com/ezecernadas/goldhen-plugin-manager",
+      "downloadUrl": "https://github.com/ezecernadas/goldhen-plugin-manager/releases/download/v1.1.1/goldhen-plugin-manager-v1.1.1.pkg"
     },
     {
       "name": "Dropbear SSH for PS4",
@@ -685,7 +697,8 @@
       "description_en": "Experimental SSH server port for PS4. Developer testing is limited to 9.00 and the package uses an insecure default login; configure key-based authentication and never expose the port to the internet.",
       "firmware": "اختبار المطور على 9.00 فقط؛ بحثي وتجريبي.",
       "firmware_en": "Developer-tested on 9.00 only; research/experimental software.",
-      "sourceUrl": "https://github.com/RuxaXa/ps4-dropbear-ssh"
+      "sourceUrl": "https://github.com/RuxaXa/ps4-dropbear-ssh",
+      "downloadUrl": "https://github.com/RuxaXa/ps4-dropbear-ssh/releases/download/v1.07-build57/IV0000-BREW00010_00-DROPBEARSSH00000.pkg"
     },
     {
       "name": "PS4Load",
@@ -697,7 +710,8 @@
       "description_en": "Development helper that sends an eboot.bin from a computer to the PS4 over the network and runs it; it can also unpack ZIP files into /data/. Legacy release.",
       "firmware": "أداة تطوير قديمة؛ تحقق من المتطلبات الحالية قبل الاستخدام.",
       "firmware_en": "Legacy development tool; verify current requirements before use.",
-      "sourceUrl": "https://github.com/bucanero/ps4load"
+      "sourceUrl": "https://github.com/bucanero/ps4load",
+      "downloadUrl": "https://github.com/bucanero/ps4load/releases/download/v0.5.0/IV0000-LOAD00044_00-SDL2GLES20000000.pkg"
     },
     {
       "name": "PS4 Vibe",
@@ -709,7 +723,8 @@
       "description_en": "A small utility for testing controller rumble on PS4. Last listed update is from 2021; legacy project.",
       "firmware": "مشروع قديم؛ تحقق من التوافق قبل الاستخدام.",
       "firmware_en": "Legacy project; verify compatibility before use.",
-      "sourceUrl": "https://github.com/Al-Azif/ps4-vibe"
+      "sourceUrl": "https://github.com/Al-Azif/ps4-vibe",
+      "downloadUrl": "https://github.com/Al-Azif/ps4-vibe/releases/download/v1.02/IV0000-AZIF00001_00-PS4VIBE000000000.pkg"
     },
     {
       "name": "OrbisFTP",
@@ -721,7 +736,8 @@
       "description_en": "FTP server that continues running in the background after leaving the app. The project repository is archived; treat it as legacy software without ongoing support.",
       "firmware": "المستودع مؤرشف؛ الإصدار يذكر دعم الأنظمة وقت نشره فقط.",
       "firmware_en": "Repository is archived; its compatibility notes apply to the release era only.",
-      "sourceUrl": "https://github.com/OSM-Made/OrbisFTP"
+      "sourceUrl": "https://github.com/OSM-Made/OrbisFTP",
+      "downloadUrl": "https://github.com/OSM-Made/OrbisFTP/releases/download/1.0/IV0000-OFTP00000_00-FTPINSTALLR00000.pkg"
     }
   ]
 }

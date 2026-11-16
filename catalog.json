@@ -610,7 +610,7 @@
       "firmware": "يتطلب GoldHEN؛ راجع قائمة التوافق لكل لعبة. لا يوجد دعم عام لكل الألعاب.",
       "firmware_en": "Requires GoldHEN; check per-title compatibility. Not universally supported.",
       "sourceUrl": "https://github.com/Melnikoff07/vcfg/releases",
-      "downloadUrl": "https://github.com/Melnikoff07/vcfg/releases/download/v2.36/VCFG_v2.36.pkg"
+      "downloadUrl": "https://store.brewology.com/dl/11487/VCFG_v2.36.pkg"
     },
     {
       "name": "Brewology PS4 Homebrew Store",

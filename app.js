@@ -181,7 +181,7 @@ function buildMenu(draw){const host=$("#libraryMenu");host.innerHTML="";const ad
 async function init(){
  applyLanguage();
  try{
-  const response=await fetch("catalog.json?v=20261116-quickstart1",{cache:"force-cache"});
+  const response=await fetch("catalog.json?v=20261116-brewmirror1",{cache:"force-cache"});
   if(!response.ok)throw new Error("Catalogue load failed");
   const catalog=await response.json();
   const updateFirmwareInfo=(version,target)=>{const f=catalog.firmware.find(x=>x.version===version);target.textContent=f?statusLabel(f.status)+" — "+((currentLang==="en"?(f.note_en||firmwareNoteEnglish):f.note)||t("noFirmwareNote")):t("homeFwEmpty");};

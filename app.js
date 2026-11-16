@@ -158,8 +158,10 @@ function card(item,type){
  const displayDescription=(currentLang==="en"?(item.description_en||translated.description):item.description)||t("noDesc");
  const displayFirmware=(currentLang==="en"?(item.firmware_en||translated.firmware):item.firmware)||"—";
  const source=item.sourceUrl&&/^https:\/\//i.test(item.sourceUrl)?`<a href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noopener noreferrer">${t("source")}</a>`:`<span class="meta">${t("noSource")}</span>`;
- const download=item.downloadUrl&&/^https:\/\//i.test(item.downloadUrl)?`<a href="${escapeHtml(item.downloadUrl)}" target="_blank" rel="noopener noreferrer">${t("download")}</a>`:"";
- el.innerHTML=`<div class="item-top"><span class="item-icon">${type==="payload"?"P":"A"}</span><span class="status ${item.status==="verified"?"verified":""}">${statusLabel(item.status||"unverified")}</span></div><h3>${escapeHtml(displayName)}</h3><p>${escapeHtml(displayDescription||t("noDesc"))}</p><div class="meta">${t("version")} ${escapeHtml(item.version||"—")} · ${t("compatibility")} ${escapeHtml(displayFirmware||"—")}</div>${source}${download}`;
+ const hasDirect=type==="app"&&item.downloadUrl&&/^https:\/\//i.test(item.downloadUrl);
+ const download=hasDirect?`<a class="direct-download" href="${escapeHtml(item.downloadUrl)}">${currentLang==="en"?"Download PKG directly ↓":"تحميل PKG مباشرة ↓"}</a>`:"";
+ el.innerHTML=`<div class="item-top"><span class="item-icon">${type==="payload"?"P":"A"}</span><span class="status ${item.status==="verified"?"verified":""}">${statusLabel(item.status||"unverified")}</span></div><h3>${escapeHtml(displayName)}</h3><p>${escapeHtml(displayDescription||t("noDesc"))}</p><div class="meta">${t("version")} ${escapeHtml(item.version||"—")} · ${t("compatibility")} ${escapeHtml(displayFirmware||"—")}</div>${download}${source}`;
+ if(hasDirect)el.addEventListener("click",event=>{if(!event.target.closest("a"))window.location.href=item.downloadUrl;});
  return el;
 }
 function render(list,target,type,query="",filter="all",category="all"){

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080d18"><meta name="description" content="M4 HUB download speed test for PS4 and mobile browsers.">
+<title>اختبار سرعة التحميل | M4 HUB</title>
+<style>
+:root{color-scheme:dark;--bg:#070b13;--panel:#111d30;--line:#2b3e5c;--txt:#f4f7fc;--muted:#9eacc1;--cyan:#52dce8;--green:#72dfb4;--amber:#f1c66d;--red:#ff8585}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#1b3760 0,transparent 38%),var(--bg);color:var(--txt);font:15px/1.7 Arial,sans-serif}
+a{color:inherit;text-decoration:none}.top{padding:13px clamp(14px,4vw,48px);background:#080e19ed;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:10px}.btn,button{border:1px solid var(--line);background:var(--panel);color:var(--txt);padding:10px 14px;border-radius:10px;cursor:pointer;font:inherit}.primary{background:linear-gradient(110deg,#3979eb,#6559df);border:0}.wrap{max-width:850px;margin:auto;padding:24px 15px 55px}.panel{border:1px solid var(--line);background:var(--panel);border-radius:18px;padding:20px;margin-bottom:14px}.hero{text-align:center;padding:26px 18px}.hero h1{margin:0 0 6px;font-size:27px}.muted,small{color:var(--muted)}.big{font-size:clamp(44px,12vw,76px);font-weight:800;line-height:1.2;color:var(--cyan);font-variant-numeric:tabular-nums;margin:18px 0 4px}.unit{font-size:14px;color:var(--muted)}.bar{height:10px;background:#091321;border-radius:20px;overflow:hidden;margin:17px 0}.fill{height:100%;width:0;background:linear-gradient(90deg,#3979eb,#52dce8);transition:width .15s}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.stat{border:1px solid var(--line);border-radius:12px;padding:12px}.stat strong{display:block;font-size:21px;font-variant-numeric:tabular-nums}.controls{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:15px}.note{font-size:12px;color:var(--muted);line-height:1.8}.status{min-height:28px;margin-top:12px}.good{color:var(--green)}.warn{color:var(--amber)}.error{color:var(--red)}button:disabled{opacity:.45;cursor:default}footer{text-align:center;color:var(--muted);font-size:11px;padding:25px}
+@media(max-width:480px){.top{align-items:flex-start}.hero h1{font-size:23px}.panel{padding:15px}}
+</style></head>
+<body>
+<header class="top"><b>M4 <span style="color:var(--cyan)">HUB</span> · SPEED TEST</b><a class="btn" href="./">العودة للمكتبة</a></header>
+<main class="wrap">
+<section class="panel hero">
+<h1>اختبار سرعة التحميل</h1>
+<div class="muted">اختبر سرعة اتصالك من نفس الجهاز والمتصفح الذي تستخدمه للتنزيل</div>
+<div class="big" id="speed">—</div><div class="unit">Mbps · ميغابت بالثانية</div>
+<div class="bar"><div class="fill" id="fill"></div></div>
+<div class="status" id="status">اضغط بدء الاختبار لقياس سرعة التحميل</div>
+<div class="controls"><button class="primary" id="start">▶ بدء الاختبار</button><button id="stop" disabled>إيقاف</button></div>
+</section>
+<section class="panel">
+<div class="stats">
+<div class="stat"><small>زمن الاستجابة</small><strong id="ping">—</strong><small>ms</small></div>
+<div class="stat"><small>أفضل سرعة مقاسة</small><strong id="best">—</strong><small>Mbps</small></div>
+<div class="stat"><small>حجم البيانات المستهلكة</small><strong id="used">0</strong><small>MB تقريباً</small></div>
+<div class="stat"><small>حالة الاختبار</small><strong id="phase" style="font-size:15px">جاهز</strong></div>
+</div>
+</section>
+<section class="panel">
+<b>كيف نقرأ النتيجة؟</b>
+<p class="note">هذا اختبار سرعة اتصال الإنترنت عبر شبكة Cloudflare، وليس قياساً مضموناً لسرعة كل سيرفر أو ملف في المكتبة. سرعة التنزيل الفعلية من مصدر اللعبة قد تختلف حسب السيرفر والازدحام والواي فاي أو الشبكة.</p>
+<p class="note">الاختبار يستخدم حتى نحو 7.25 MB من البيانات. لا يجري اختبار رفع الملفات ولا يحمّل أي لعبة أو PKG.</p>
+<p class="note">إذا لم يعمل الاختبار على متصفح PS4، استخدم الرابط الخارجي الرسمي لقياس السرعة: <a style="color:var(--cyan);text-decoration:underline" href="https://speed.cloudflare.com/">Cloudflare Speed Test ↗</a></p>
+</section>
+</main><footer>© M4 HUB · اختبار تحميل فقط · لا يتم حفظ عنوان IP أو نتائج الاختبار في موقعنا</footer>
+<script>
+(function(){
+'use strict';
+var $=function(id){return document.getElementById(id);};
+var active=null,cancelled=false,used=0,best=0;
+function fmt(n){return n<10?n.toFixed(2):n.toFixed(1);}
+function setStatus(t,cls){$('status').className='status '+(cls||'');$('status').textContent=t;}
+function request(bytes){
+ return new Promise(function(resolve,reject){
+  var xhr=new XMLHttpRequest(),start=Date.now(),last=start,lastBytes=0;
+  active=xhr;
+  xhr.open('GET','https://speed.cloudflare.com/__down?bytes='+bytes+'&m4='+Date.now()+'_'+Math.floor(Math.random()*100000),true);
+  xhr.responseType='arraybuffer';xhr.timeout=18000;
+  xhr.onprogress=function(e){
+   var now=Date.now(),delta=e.loaded-lastBytes,ms=now-last;
+   if(ms>=180&&delta>0){var rate=delta*8/ms/1000;if(isFinite(rate)){best=Math.max(best,rate);$('speed').textContent=fmt(rate);$('best').textContent=fmt(best);$('fill').style.width=Math.min(100,rate/150*100)+'%';}last=now;lastBytes=e.loaded;}
+  };
+  xhr.onload=function(){active=null;if(xhr.status>=200&&xhr.status<300){var duration=Math.max(1,Date.now()-start),size=(xhr.response&&xhr.response.byteLength)||bytes;resolve({mbps:size*8/duration/1000,ms:duration,size:size});}else reject(new Error('HTTP '+xhr.status));};
+  xhr.onerror=function(){active=null;reject(new Error('CORS_OR_NETWORK'));};
+  xhr.ontimeout=function(){active=null;reject(new Error('TIMEOUT'));};
+  xhr.onabort=function(){active=null;reject(new Error('ABORT'));};
+  xhr.send();
+ });
+}
+async function run(){
+ cancelled=false;used=0;best=0;$('speed').textContent='—';$('best').textContent='—';$('ping').textContent='—';$('used').textContent='0';$('fill').style.width='0';$('start').disabled=true;$('stop').disabled=false;
+ try{
+  $('phase').textContent='استجابة';setStatus('يقيس زمن الاستجابة…');
+  var p=await request(0);$('ping').textContent=String(p.ms);if(cancelled)return;
+  var sizes=[262144,1048576,5242880],last=0;
+  for(var i=0;i<sizes.length;i++){
+   if(cancelled)return;
+   $('phase').textContent=(i+1)+' / 3';setStatus('اختبار التحميل · المرحلة '+(i+1)+' من 3');
+   var r=await request(sizes[i]);last=r.mbps;used+=r.size/1048576;$('used').textContent=fmt(used);
+   $('speed').textContent=fmt(r.mbps);best=Math.max(best,r.mbps);$('best').textContent=fmt(best);
+  }
+  $('phase').textContent='اكتمل';setStatus('اكتمل الاختبار بنجاح. سرعة التحميل المقاسة: '+fmt(last)+' Mbps','good');
+ }catch(e){
+  if(e.message==='ABORT'||cancelled){$('phase').textContent='متوقف';setStatus('تم إيقاف الاختبار.','warn');}
+  else{$('phase').textContent='تعذّر';setStatus('تعذّر القياس من هذا المتصفح أو أن الاتصال بالخادم محجوب. جرّب الرابط الخارجي أدناه.','error');}
+ }finally{$('start').disabled=false;$('stop').disabled=true;active=null;}
+}
+$('start').addEventListener('click',run);
+$('stop').addEventListener('click',function(){cancelled=true;if(active)active.abort();else{$('phase').textContent='متوقف';$('start').disabled=false;$('stop').disabled=true;}});
+})();
+</script></body></html>

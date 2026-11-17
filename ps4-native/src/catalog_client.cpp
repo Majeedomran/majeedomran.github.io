@@ -140,7 +140,7 @@ cleanup:
     if (conn >= 0) sceHttpDeleteConnection(conn);
     if (tpl >= 0) sceHttpDeleteTemplate(tpl);
     if (http_ctx >= 0) sceHttpTerm(http_ctx);
-    if (ssl_ctx >= 0) sceSslTerm(ssl_ctx);
+    if (ssl_ctx >= 0) sceSslTerm();
     if (net_pool >= 0) sceNetPoolDestroy(net_pool);
     return ok ? 1 : 0;
 }

@@ -200,3 +200,17 @@ button:disabled{opacity:.6;cursor:wait}
 
 @media(max-width:760px){.topbar{gap:12px;padding:10px 14px}.top-nav{gap:12px;flex-wrap:wrap;justify-content:center}.top-nav a{font-size:11px}}
 @media(max-width:520px){.topbar{display:flex;flex-wrap:wrap;min-height:0}.brand{order:1}.topbar #langBtn{order:2;margin-inline-start:auto}.top-nav{order:3;width:100%;justify-content:space-between;gap:8px}.top-nav a{font-size:10px}}
+
+
+/* M4 HUB portal navigation */
+.top-nav{gap:clamp(9px,1.25vw,16px);flex-wrap:wrap;justify-content:flex-end;max-width:760px}
+.top-nav a{white-space:nowrap;font-size:12px}
+.top-nav a:focus-visible,.hero-actions a:focus-visible,.outline:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+@media(max-width:760px){
+ .top-nav{max-width:none;gap:10px 14px}
+ .top-nav a{font-size:11px}
+}
+@media(max-width:520px){
+ .top-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+ .top-nav a{text-align:center;padding:7px 3px;border:1px solid var(--line);border-radius:8px;font-size:10px}
+}

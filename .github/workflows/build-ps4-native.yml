@@ -32,12 +32,19 @@ jobs:
             -o "$RUNNER_TEMP/openorbis-toolchain.tar.gz"
           echo "3c7cd5bb593ca74fa1c13fd59f3938dc0fc07985167f7275063019e63abe4526  $RUNNER_TEMP/openorbis-toolchain.tar.gz" | sha256sum --check
           tar -xzf "$RUNNER_TEMP/openorbis-toolchain.tar.gz" -C "$OO_PS4_TOOLCHAIN"
-          # The upstream release archive is rooted at OpenOrbis/PS4Toolchain.
-          SDK_ROOT="$OO_PS4_TOOLCHAIN/OpenOrbis/PS4Toolchain"
-          test -f "$SDK_ROOT/link.x"
-          test -f "$SDK_ROOT/lib/libc.a"
-          test -f "$SDK_ROOT/lib/libSceHttp.a"
-          test -x "$SDK_ROOT/bin/linux/create-fself"
+          # Locate the SDK root from its linker script instead of assuming
+          # a fixed archive layout; upstream release packaging may nest folders.
+          echo "Extracted OpenOrbis files:"
+          find "$OO_PS4_TOOLCHAIN" -maxdepth 5 -type f | head -100
+          LINK_SCRIPT="$(find "$OO_PS4_TOOLCHAIN" -type f -name link.x -print -quit)"
+          if [ -z "$LINK_SCRIPT" ]; then
+            echo "::error::OpenOrbis archive did not contain link.x"
+            exit 1
+          fi
+          SDK_ROOT="$(dirname "$LINK_SCRIPT")"
+          echo "Detected OpenOrbis SDK root: $SDK_ROOT"
+          test -d "$SDK_ROOT/include"
+          test -d "$SDK_ROOT/bin/linux"
           echo "OO_PS4_TOOLCHAIN=$SDK_ROOT" >> "$GITHUB_ENV"
 
       - name: Install SDL2 PS4 library

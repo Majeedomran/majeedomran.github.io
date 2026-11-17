@@ -13,7 +13,7 @@ LDFLAGS     := -m elf_x86_64 -pie --script $(TOOLCHAIN)/link.x --eh-frame-hdr -L
 UNAME_S     := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
   CXX := clang++-18
-  LD  := ld.lld
+  LD  := ld.lld-18
   CDIR := linux
 else ifeq ($(UNAME_S),Darwin)
   CXX := /usr/local/opt/llvm/bin/clang++

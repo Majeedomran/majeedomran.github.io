@@ -1,4 +1,4 @@
-# MAJEED PS4 Ultimate — native application roadmap
+# M4 HUB — native application roadmap
 
 This folder is the planning and source boundary for the future installable PS4 PKG companion.
 

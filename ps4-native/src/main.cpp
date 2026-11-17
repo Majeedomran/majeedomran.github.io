@@ -16,6 +16,9 @@ static int lastAnalogX = 0, lastAnalogY = 0;
 static Uint32 lastAnalogMove = 0;
 static int selected = 0;
 static int page = 0;
+static int debugButton = -1;
+static int debugAxisX = 0, debugAxisY = 0, debugAxisCount = 0;
+static int debugJoyCount = 0;
 static char networkStatus[128] = "PRESS TRIANGLE TO REFRESH CATALOG";
 
 struct GameItem { char name[112]; char cusa[24]; double sizeGB; bool hasSize; };
@@ -312,7 +315,7 @@ static void draw() {
         text(145,515,"NO PLACEHOLDER DOWNLOAD BUTTONS OR FAKE FILE LINKS",2,165,190,205);
         text(145,575,"CATALOG AND NETWORK SUPPORT ARE UNDER DEVELOPMENT",2,165,190,205);
         text(90,820,"CIRCLE - BACK TO HOME",3,36,205,186);
-        text(90,900,"M4 HUB NATIVE CLIENT - VERSION 0.1.2",2,121,143,166);
+        text(90,900,"M4 HUB NATIVE CLIENT - VERSION 0.1.3",2,121,143,166);
         text(90,960,networkStatus,2,36,205,186);
     }
     SDL_RenderPresent(gRenderer);
@@ -339,11 +342,12 @@ static void navigate(int dx, int dy) {
     }
 }
 static void handleLegacyJoystickButton(Uint8 b) {
-    // Raw DualShock 4 button order: Square=0, Cross=1, Circle=2, Triangle=3.
+    debugButton = (int)b;
+    // Raw button IDs are displayed for hardware calibration.
     switch(b) {
-        case 0: if(page==0) { selected=7; page=8; } break; // Square: Favorites
+        case 0: if(page==0) { page=8; selected=0; } break; // Square: Favorites
         case 1: if(page==0) page=selected+1; else if((page==3 && gameCount>0) || (page==4 && localizedCount>0)) detailOpen=true; break; // Cross: Open
-        case 2: if(detailOpen) detailOpen=false; else page=0; break; // Circle: Back
+        case 2: if(detailOpen) detailOpen=false; else { page=0; selected=0; listOffset=0; } break; // Circle: Back
         case 3: m4hub_refresh_catalog(networkStatus, sizeof(networkStatus)); loadGamesFromCache(); break; // Triangle: Refresh
     }
 }
@@ -364,7 +368,9 @@ extern "C" int main(int, char**) {
     gRenderer=SDL_CreateSoftwareRenderer(surface);
     if (!gRenderer) { std::printf("M4 HUB: renderer failed: %s\n",SDL_GetError()); return 1; }
     SDL_JoystickEventState(SDL_ENABLE);
-    if (SDL_NumJoysticks()>0) gPad=SDL_JoystickOpen(0);
+    debugJoyCount = SDL_NumJoysticks();
+    if (debugJoyCount>0) gPad=SDL_JoystickOpen(0);
+    if (gPad) debugAxisCount = SDL_JoystickNumAxes(gPad);
     loadGamesFromCache();
     bool running=true;
     while (running) {
@@ -386,8 +392,10 @@ extern "C" int main(int, char**) {
             }
         }
         if(gPad && SDL_JoystickNumAxes(gPad)>=2) {
+            SDL_JoystickUpdate();
             Sint16 ax=SDL_JoystickGetAxis(gPad,0);
             Sint16 ay=SDL_JoystickGetAxis(gPad,1);
+            debugAxisX=(int)ax; debugAxisY=(int)ay;
             // One step per tilt; require a real return to center before re-arming.
             const int engageDeadzone = 12000;
             const int releaseDeadzone = 7000;
@@ -402,6 +410,10 @@ extern "C" int main(int, char**) {
             }
         }
         draw();
+        char diag[112];
+        std::snprintf(diag,sizeof(diag),"PAD %d AXES %d X %d Y %d BTN %d",debugJoyCount,debugAxisCount,debugAxisX,debugAxisY,debugButton);
+        text(90,1030,diag,1,255,190,90);
+        SDL_RenderPresent(gRenderer);
         SDL_Delay(16);
     }
     if (gPad) SDL_JoystickClose(gPad);

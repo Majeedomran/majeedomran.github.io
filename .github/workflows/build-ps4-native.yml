@@ -14,7 +14,7 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     env:
-      OO_PS4_TOOLCHAIN: ${{ runner.temp }}/OpenOrbisSDK
+      OO_PS4_TOOLCHAIN: /tmp/OpenOrbisSDK
     steps:
       - name: Checkout M4 HUB
         uses: actions/checkout@v4

@@ -65,14 +65,15 @@ async function run(){
  try{
   $('phase').textContent='استجابة';setStatus('يقيس زمن الاستجابة…');
   var p=await request(0);$('ping').textContent=String(p.ms);if(cancelled)return;
-  var sizes=[262144,1048576,5242880],last=0;
+  var sizes=[1048576,8388608,16777216],measurements=[];
   for(var i=0;i<sizes.length;i++){
    if(cancelled)return;
    $('phase').textContent=(i+1)+' / 3';setStatus('اختبار التحميل · المرحلة '+(i+1)+' من 3');
-   var r=await request(sizes[i]);last=r.mbps;used+=r.size/1048576;$('used').textContent=fmt(used);
-   $('speed').textContent=fmt(r.mbps);best=Math.max(best,r.mbps);$('best').textContent=fmt(best);
+   var r=await request(sizes[i]);used+=r.size/1048576;$('used').textContent=fmt(used);
+   if(i>0){measurements.push(r);best=Math.max(best,r.mbps);$('best').textContent=fmt(best);}
+   if(i===0){$('speed').textContent='…';}
   }
-  $('phase').textContent='اكتمل';setStatus('اكتمل الاختبار بنجاح. سرعة التحميل المقاسة: '+fmt(last)+' Mbps','good');
+  var totalBytes=measurements[0].size+measurements[1].size,totalMs=measurements[0].ms+measurements[1].ms;var average=totalBytes*8/totalMs/1000;$('speed').textContent=fmt(average);$('fill').style.width=Math.min(100,average/300*100)+'%';$('phase').textContent='اكتمل';setStatus('اكتمل الاختبار. متوسط القياسين الكبيرين: '+fmt(average)+' Mbps','good');
  }catch(e){
   if(e.message==='ABORT'||cancelled){$('phase').textContent='متوقف';setStatus('تم إيقاف الاختبار.','warn');}
   else{$('phase').textContent='تعذّر';setStatus('تعذّر القياس من هذا المتصفح أو أن الاتصال بالخادم محجوب. جرّب الرابط الخارجي أدناه.','error');}

@@ -1,4 +1,4 @@
-# MAJEED PS4 HOST
+# M4 HUB
 
 A public, responsive PS4 community catalogue for homebrew applications, payloads, firmware references, emulators, utilities, mods, development resources and Arabic game-translation directories.
 
@@ -49,4 +49,4 @@ GitHub Pages serves the repository root from the default branch. Frontend change
 
 ## Disclaimer
 
-MAJEED PS4 HOST is an independent community project and is not affiliated with or endorsed by Sony Interactive Entertainment. Use homebrew, payloads, plugins and third-party files at your own risk. Back up important data and review each project's original documentation before use.
+M4 HUB is an independent community project and is not affiliated with or endorsed by Sony Interactive Entertainment. Use homebrew, payloads, plugins and third-party files at your own risk. Back up important data and review each project's original documentation before use.

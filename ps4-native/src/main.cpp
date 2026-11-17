@@ -6,12 +6,13 @@
 #include <cctype>
 #include <cmath>
 #include <ctime>
+#include <sys/sysctl.h>
 #include <orbis/Pad.h>
 #include <orbis/UserService.h>
 #include <orbis/libkernel.h>
 
 // Optional read-only sensor export; unavailable on some firmware/builds.
-extern "C" int sceKernelGetCpuTemperature(int* temperature) __attribute__((weak));
+extern "C" uint32_t sceKernelGetCpuTemperature(uint32_t* temperature) __attribute__((weak));
 
 static const int SCREEN_W = 1920;
 static const int SCREEN_H = 1080;
@@ -262,20 +263,28 @@ static void draw() {
         } else { std::snprintf(clockLabel,sizeof(clockLabel),"TIME NOT AVAILABLE"); std::snprintf(dateLabel,sizeof(dateLabel),"DATE NOT AVAILABLE"); }
         text(1030,145,clockLabel,2,245,248,255);
         text(1450,145,dateLabel,2,143,190,205);
-        OrbisKernelSwVersion systemVersion;
-        std::memset(&systemVersion,0,sizeof(systemVersion));
+        // Match ItemzFlow: obtain the firmware from machdep.lower_limit_upd_version.
+        static uint32_t sdkVersion = UINT32_MAX;
+        if (sdkVersion != 0 && sdkVersion != UINT32_MAX) {
+            // cached below
+        } else {
+            size_t fwLength = sizeof(sdkVersion);
+            if (sysctlbyname("machdep.lower_limit_upd_version", &sdkVersion, &fwLength, nullptr, 0) != 0)
+                sdkVersion = 0;
+        }
         char firmwareLabel[48];
-        if(sceKernelGetSystemSwVersion(&systemVersion)==0 && systemVersion.Version!=0) {
-            unsigned major=(systemVersion.Version>>24)&0xFF;
-            unsigned minor=(systemVersion.Version>>16)&0xFF;
+        if (sdkVersion != 0 && sdkVersion != UINT32_MAX) {
+            unsigned major=(sdkVersion>>24)&0xFF;
+            unsigned minor=(sdkVersion>>16)&0xFF;
             std::snprintf(firmwareLabel,sizeof(firmwareLabel),"PS4 FW %u.%02u",major,minor);
         } else {
             std::snprintf(firmwareLabel,sizeof(firmwareLabel),"PS4 FW N/A");
         }
         char temperatureLabel[48];
-        int cpuTemperature=0;
-        if(sceKernelGetCpuTemperature && sceKernelGetCpuTemperature(&cpuTemperature)==0 && cpuTemperature>0 && cpuTemperature<150)
-            std::snprintf(temperatureLabel,sizeof(temperatureLabel),"CPU TEMP %d C",cpuTemperature);
+        uint32_t cpuTemperature=0;
+        uint32_t tempResult = sceKernelGetCpuTemperature ? sceKernelGetCpuTemperature(&cpuTemperature) : UINT32_MAX;
+        if(tempResult==0 && cpuTemperature>0 && cpuTemperature<150)
+            std::snprintf(temperatureLabel,sizeof(temperatureLabel),"CPU TEMP %u C",cpuTemperature);
         else
             std::snprintf(temperatureLabel,sizeof(temperatureLabel),"CPU TEMP N/A");
         text(1030,185,firmwareLabel,2,36,205,186);

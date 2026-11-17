@@ -91,29 +91,43 @@ static void draw() {
     color(9,13,24); SDL_RenderClear(gRenderer);
     rect(0,0,SCREEN_W,10,36,190,170);
     text(86,58,"M4 HUB",9,245,248,255);
-    text(90,145,"YOUR PS4 LIBRARY - NATIVE PREVIEW",3,143,164,190);
-    rect(80,220,1760,3,38,57,78);
-    text(90,260,"SELECT A SECTION",3,36,205,186);
-    const int left=90, top=330, cw=405, ch=205, gap=34;
-    for (int i=0;i<8;++i) {
-        int col=i%4, row=i/4;
-        int x=left+col*(cw+gap), y=top+row*(ch+36);
-        bool active=(i==selected);
-        rect(x,y,cw,ch,active?24:17,active?54:27,active?66:42);
-        outline(x,y,cw,ch,active?45:43,active?220:63,active?195:82);
-        rect(x+24,y+24,8,ch-48,active?36:27,active?210:110,active?185:135);
-        char number[4]; std::snprintf(number,sizeof(number),"%02d",i+1);
-        text(x+55,y+42,number,4,active?90:83,active?230:151,active?205:174);
-        text(x+55,y+105,cards[i],3,245,248,255);
-        text(x+55,y+151,descriptions[i],1,active?175:128,active?221:151,active?210:174);
+    if (page==0) {
+        text(90,145,"YOUR PS4 LIBRARY - NATIVE PREVIEW",3,143,164,190);
+        rect(80,220,1760,3,38,57,78);
+        text(90,260,"SELECT A SECTION",3,36,205,186);
+        const int left=90, top=330, cw=405, ch=205, gap=34;
+        for (int i=0;i<8;++i) {
+            int col=i%4, row=i/4;
+            int x=left+col*(cw+gap), y=top+row*(ch+36);
+            bool active=(i==selected);
+            rect(x,y,cw,ch,active?24:17,active?54:27,active?66:42);
+            outline(x,y,cw,ch,active?45:43,active?220:63,active?195:82);
+            rect(x+24,y+24,8,ch-48,active?36:27,active?210:110,active?185:135);
+            char number[4]; std::snprintf(number,sizeof(number),"%02d",i+1);
+            text(x+55,y+42,number,4,active?90:83,active?230:151,active?205:174);
+            text(x+55,y+105,cards[i],3,245,248,255);
+            text(x+55,y+151,descriptions[i],1,active?175:128,active?221:151,active?210:174);
+        }
+        rect(80,850,1760,2,38,57,78);
+        text(90,885,"D PAD - MOVE",2,167,185,203);
+        text(470,885,"CROSS - OPEN",2,167,185,203);
+        text(850,885,"CIRCLE - BACK",2,167,185,203);
+        text(1230,885,"M4 HUB V0.1 - PREVIEW",2,36,205,186);
+        text(90,960,"CATALOG SYNC AND DOWNLOADS ARE THE NEXT DEVELOPMENT STAGE",2,121,143,166);
+        text(90,1010,"NO GAME FILES ARE INCLUDED IN THIS PREVIEW",2,121,143,166);
+    } else {
+        int index=page-1;
+        text(90,150,cards[index],5,36,205,186);
+        rect(80,240,1760,3,38,57,78);
+        rect(90,300,1740,420,17,27,42);
+        outline(90,300,1740,420,43,63,82);
+        text(145,365,descriptions[index],3,245,248,255);
+        text(145,455,"THIS SECTION WILL LOAD FROM THE LIVE M4 HUB CATALOG",2,165,190,205);
+        text(145,515,"NO PLACEHOLDER DOWNLOAD BUTTONS OR FAKE FILE LINKS",2,165,190,205);
+        text(145,575,"CATALOG AND NETWORK SUPPORT ARE UNDER DEVELOPMENT",2,165,190,205);
+        text(90,820,"CIRCLE - BACK TO HOME",3,36,205,186);
+        text(90,900,"M4 HUB NATIVE CLIENT - VERSION 0.1.0",2,121,143,166);
     }
-    rect(80,850,1760,2,38,57,78);
-    text(90,885,"D PAD - MOVE",2,167,185,203);
-    text(470,885,"CROSS - OPEN",2,167,185,203);
-    text(850,885,"CIRCLE - BACK",2,167,185,203);
-    text(1230,885,"M4 HUB V0.1 - PREVIEW",2,36,205,186);
-    text(90,960,"CATALOG SYNC AND DOWNLOADS ARE THE NEXT DEVELOPMENT STAGE",2,121,143,166);
-    text(90,1010,"NO GAME FILES ARE INCLUDED IN THIS PREVIEW",2,121,143,166);
     SDL_RenderPresent(gRenderer);
     SDL_UpdateWindowSurface(gWindow);
 }

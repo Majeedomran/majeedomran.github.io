@@ -47,7 +47,7 @@ static void readJsonText(const char* obj,const char* key,char* out,std::size_t c
     out[n]=0;
 }
 static void loadLocalizedFromCache(const char* json) {
-    const char* p=std::strstr(json,"\\"localizedGames\\"");
+    const char* p=std::strstr(json, "\"localizedGames\"");
     if(!p) return;
     p=std::strchr(p,'['); if(!p) return; ++p;
     localizedCount=0;
@@ -57,7 +57,7 @@ static void loadLocalizedFromCache(const char* json) {
         const char* start=p; int depth=0; bool quoted=false,escape=false;
         do {
             char ch=*p++;
-            if(quoted) { if(escape) escape=false; else if(ch=='\\\\') escape=true; else if(ch=='"') quoted=false; }
+            if(quoted) { if(escape) escape=false; else if(ch=='\\') escape=true; else if(ch=='"') quoted=false; }
             else { if(ch=='"') quoted=true; else if(ch=='{') ++depth; else if(ch=='}') --depth; }
         } while(*p && depth>0);
         if(depth!=0) break;

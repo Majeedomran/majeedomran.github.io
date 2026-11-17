@@ -4,7 +4,6 @@
 #include <cstring>
 #include <cstdlib>
 #include <cctype>
-#include <cmath>
 
 static const int SCREEN_W = 1920;
 static const int SCREEN_H = 1080;
@@ -302,9 +301,9 @@ static void moveSelection(int dx,int dy) {
 }
 static void handleButton(int b) {
     switch(b) {
-        case 0: if((page==3 && gameCount>0 && selected<gameCount) || (page==4 && localizedCount>0 && selected<localizedCount)) detailOpen=true; else page=selected+1; break; // CROSS
-        case 1: if(detailOpen) detailOpen=false; else page=0; break; // CIRCLE
-        case 3: m4hub_refresh_catalog(networkStatus, sizeof(networkStatus)); loadGamesFromCache(); break; // TRIANGLE: fetch live catalog
+        case 0: if((page==3 && gameCount>0 && selected<gameCount) || (page==4 && localizedCount>0 && selected<localizedCount)) detailOpen=true; else page=selected+1; break;
+        case 1: if(detailOpen) detailOpen=false; else page=0; break;
+        case 3: m4hub_refresh_catalog(networkStatus, sizeof(networkStatus)); loadGamesFromCache(); break;
         case 12: if((page==3 && gameCount>0) || (page==4 && localizedCount>0)) { if(selected>0)--selected; } else moveSelection(0,-1); break;
         case 13: if(page==3 && gameCount>0) { if(selected<gameCount-1)++selected; } else if(page==4 && localizedCount>0) { if(selected<localizedCount-1)++selected; } else moveSelection(0,1); break;
         case 14: if(page==3 && gameCount>0) { selected-=8; if(selected<0)selected=0; } else if(page==4 && localizedCount>0) { selected-=8; if(selected<0)selected=0; } else moveSelection(-1,0); break;

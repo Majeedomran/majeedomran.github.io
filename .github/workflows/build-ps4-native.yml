@@ -62,7 +62,11 @@ jobs:
           test -f "$OO_PS4_TOOLCHAIN/include/orbis/Http.h"
           test -f "$OO_PS4_TOOLCHAIN/include/orbis/Ssl.h"
           test -f "$OO_PS4_TOOLCHAIN/include/orbis/Net.h"
-          # The official SDL2 sample includes right.sprx in every app package.\n          mkdir -p ps4-native/sce_sys/about\n          cp "$OO_PS4_TOOLCHAIN/samples/SDL2/sce_sys/about/right.sprx" ps4-native/sce_sys/about/right.sprx\n          test -s ps4-native/sce_sys/about/right.sprx\n
+          # The official SDL2 sample includes right.sprx in every app package.
+          mkdir -p ps4-native/sce_sys/about
+          cp "$OO_PS4_TOOLCHAIN/samples/SDL2/sce_sys/about/right.sprx" ps4-native/sce_sys/about/right.sprx
+          test -s ps4-native/sce_sys/about/right.sprx
+
       - name: Install LibOrbisPkg command-line tool
         run: |
           mkdir -p "$OO_PS4_TOOLCHAIN/bin/linux"

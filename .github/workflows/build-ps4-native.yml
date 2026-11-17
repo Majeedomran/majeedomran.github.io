@@ -67,6 +67,23 @@ jobs:
           cp "$OO_PS4_TOOLCHAIN/samples/SDL2/sce_sys/about/right.sprx" ps4-native/sce_sys/about/right.sprx
           test -s ps4-native/sce_sys/about/right.sprx
 
+      - name: Build and include OpenOrbis runtime modules
+        run: |
+          # The official SDL2 sample packages libc.prx and libSceFios2.prx.
+          # OpenOrbis module makefiles call the conventional host tool names.
+          sudo ln -sf "$(command -v clang-18)" /usr/local/bin/clang
+          sudo ln -sf "$(command -v clang++-18)" /usr/local/bin/clang++
+          sudo ln -sf "$(command -v ld.lld-18)" /usr/local/bin/ld.lld
+          cd "$RUNNER_TEMP/OpenOrbis-source/src/modules"
+          bash build-and-copy.sh
+          cd "$GITHUB_WORKSPACE"
+          mkdir -p ps4-native/sce_module
+          cp "$RUNNER_TEMP/OpenOrbis-source/src/modules/libc.prx" ps4-native/sce_module/libc.prx
+          cp "$RUNNER_TEMP/OpenOrbis-source/src/modules/libSceFios2.prx" ps4-native/sce_module/libSceFios2.prx
+          cp "$RUNNER_TEMP/OpenOrbis-source/src/modules/right.sprx" ps4-native/sce_sys/about/right.sprx
+          test -s ps4-native/sce_module/libc.prx
+          test -s ps4-native/sce_module/libSceFios2.prx
+
       - name: Install LibOrbisPkg command-line tool
         run: |
           mkdir -p "$OO_PS4_TOOLCHAIN/bin/linux"

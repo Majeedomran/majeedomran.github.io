@@ -5,5 +5,3 @@
 // TLS certificate verification is left enabled (no certificate-bypass callback).
 // Returns 1 on HTTP 200 + completed write, otherwise 0 and writes a short status.
 int m4hub_refresh_catalog(char* status, std::size_t status_size);
-// Fetch current outdoor temperature for Amman, Jordan.
-int m4hub_refresh_weather(char* output, std::size_t output_size);

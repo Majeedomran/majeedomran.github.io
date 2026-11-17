@@ -79,6 +79,7 @@ static void loadGamesFromCache() {
     if(len<=0 || len>8*1024*1024) { std::fclose(f); return; }
     char* json=(char*)std::malloc((std::size_t)len+1); if(!json){std::fclose(f);return;}
     std::size_t got=std::fread(json,1,(std::size_t)len,f); std::fclose(f); json[got]=0;
+    loadLocalizedFromCache(json);
     const char* p=std::strstr(json,"\"games\""); if(!p){std::free(json);return;}
     p=std::strchr(p,'['); if(!p){std::free(json);return;} ++p;
     gameCount=0;

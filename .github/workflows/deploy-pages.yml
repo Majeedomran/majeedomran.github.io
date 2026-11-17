@@ -31,6 +31,21 @@ jobs:
           git -C /tmp/WebKitty checkout --detach FETCH_HEAD
           rsync -a --exclude='.git' --exclude='CNAME' /tmp/WebKitty/ _site/jb/
           cp /tmp/WebKitty/index.html _site/jb/index.html
+          # Keep the exploit host on the MAJEED domain; disable WebKitty's forced redirect to its own domain.
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path("_site/jb/index.html")
+          s = p.read_text()
+          start = s.find("        // redirect to http request")
+          if start != -1:
+              end = s.find("\n        }", start)
+              if end == -1:
+                  raise SystemExit("Could not locate end of WebKitty redirect block")
+              s = s[:start] + "        // MAJEED patch: stay on the hosted MAJEED PS4 HOST domain.\n" + s[end + len("\n        }"):]
+              p.write_text(s)
+          if "window.location.href = \"http://webkitty.arabpixel.net\"" in s:
+              raise SystemExit("WebKitty external redirect is still present")
+          PY
           touch _site/.nojekyll _site/jb/.nojekyll
           test -s _site/jb/index.html
           echo "Verified exploit host entry: _site/jb/index.html"

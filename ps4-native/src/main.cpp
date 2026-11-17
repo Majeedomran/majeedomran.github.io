@@ -396,19 +396,21 @@ extern "C" int main(int, char**) {
             Sint16 ax=SDL_JoystickGetAxis(gPad,0);
             Sint16 ay=SDL_JoystickGetAxis(gPad,1);
             debugAxisX=(int)ax; debugAxisY=(int)ay;
-            // Continuous navigation while held, with a short initial delay and repeat.
-            const int engageDeadzone = 6500;
+            // Higher deadzone filters stick drift; movement stops as soon as the stick is released.
+            const int engageDeadzone = 17000;
+            const int releaseDeadzone = 10500;
             int dx=(ax < -engageDeadzone)?-1:((ax > engageDeadzone)?1:0);
             int dy=(ay < -engageDeadzone)?-1:((ay > engageDeadzone)?1:0);
             Uint32 now = SDL_GetTicks();
+            bool centered = std::abs((int)ax)<releaseDeadzone && std::abs((int)ay)<releaseDeadzone;
             bool movedDirection = (dx!=lastAnalogX || dy!=lastAnalogY);
             if (dx!=0 || dy!=0) {
-                if (!analogEngaged || movedDirection || now-lastAnalogMove>=150) {
+                if (!analogEngaged || movedDirection || now-lastAnalogMove>=190) {
                     navigate(dx,dy);
                     analogEngaged = true;
                     lastAnalogX=dx; lastAnalogY=dy; lastAnalogMove=now;
                 }
-            } else {
+            } else if (centered) {
                 analogEngaged = false;
                 lastAnalogX=0; lastAnalogY=0;
             }

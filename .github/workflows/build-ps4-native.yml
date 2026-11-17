@@ -38,8 +38,16 @@ jobs:
           curl --fail --location --retry 3 \
             https://github.com/OpenOrbis/SDL-PS4/releases/download/v1.0/SDL2.tar.gz \
             -o "$RUNNER_TEMP/SDL2-PS4.tar.gz"
-          tar -tzf "$RUNNER_TEMP/SDL2-PS4.tar.gz" | head -40
           tar -xzf "$RUNNER_TEMP/SDL2-PS4.tar.gz" -C "$OO_PS4_TOOLCHAIN"
+
+      - name: Ensure OpenOrbis SDK headers are present
+        run: |
+          git clone --depth 1 --branch v0.5.4 https://github.com/OpenOrbis/OpenOrbis-PS4-Toolchain.git "$RUNNER_TEMP/OpenOrbis-source"
+          mkdir -p "$OO_PS4_TOOLCHAIN/include/orbis"
+          cp -a "$RUNNER_TEMP/OpenOrbis-source/include/orbis/." "$OO_PS4_TOOLCHAIN/include/orbis/"
+          test -f "$OO_PS4_TOOLCHAIN/include/orbis/Http.h"
+          test -f "$OO_PS4_TOOLCHAIN/include/orbis/Ssl.h"
+          test -f "$OO_PS4_TOOLCHAIN/include/orbis/Net.h"
 
       - name: Install LibOrbisPkg command-line tool
         run: |

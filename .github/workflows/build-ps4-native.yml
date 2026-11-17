@@ -22,7 +22,7 @@ jobs:
       - name: Install host build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y clang-18 lld-18 libc++-18-dev libc++abi-18-dev make python3 curl unzip
+          sudo apt-get install -y clang-18 lld-18 libc++-18-dev libc++abi-18-dev libc6-dev make python3 curl unzip
 
       - name: Install pinned OpenOrbis toolchain
         run: |

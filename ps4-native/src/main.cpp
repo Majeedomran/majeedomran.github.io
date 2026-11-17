@@ -22,20 +22,20 @@ static int listOffset = 0;
 static bool detailOpen = false;
 
 static const char* skipSpace(const char* p) { while (*p && std::isspace((unsigned char)*p)) ++p; return p; }
-static const char* findJsonString(const char* obj, const char* key) {
+static const char* findJsonValue(const char* obj, const char* key) {
     char pattern[64]; std::snprintf(pattern,sizeof(pattern),"\"%s\"",key);
     const char* p=obj;
     while ((p=std::strstr(p,pattern))) {
         p=skipSpace(p+std::strlen(pattern));
         if (*p++!=':') continue;
         p=skipSpace(p);
-        if (*p=='"') return p+1;
+        return p;
     }
     return nullptr;
 }
 static void readJsonText(const char* obj,const char* key,char* out,std::size_t cap) {
     if (!cap) return; out[0]=0;
-    const char* p=findJsonString(obj,key); if(!p) return;
+    const char* p=findJsonValue(obj,key); if(!p || *p!='"') return; ++p;
     std::size_t n=0;
     while(*p && *p!='"' && n+1<cap) {
         if(*p=='\\' && p[1]) { ++p; if(*p=='n') out[n++]=' '; else out[n++]=*p++; }
@@ -69,7 +69,7 @@ static void loadGamesFromCache() {
         readJsonText(obj,"name_en",g.name,sizeof(g.name));
         if(!g.name[0]) readJsonText(obj,"name",g.name,sizeof(g.name));
         readJsonText(obj,"cusa",g.cusa,sizeof(g.cusa));
-        const char* size=findJsonString(obj,"sizeGB");
+        const char* size=findJsonValue(obj,"sizeGB");
         if(size) { char* end=nullptr; double v=std::strtod(size,&end); if(end!=size && v>0 && v<2000){g.sizeGB=v;g.hasSize=true;} }
         if(g.name[0]) ++gameCount;
         std::free(obj);
@@ -264,10 +264,10 @@ int main(int, char**) {
             if (event.type==SDL_JOYBUTTONDOWN) handleButton(event.jbutton.button);
             if (event.type==SDL_KEYDOWN) {
                 switch(event.key.keysym.sym) {
-                    case SDLK_UP: moveSelection(0,-1); break;
-                    case SDLK_DOWN: moveSelection(0,1); break;
-                    case SDLK_LEFT: moveSelection(-1,0); break;
-                    case SDLK_RIGHT: moveSelection(1,0); break;
+                    case SDLK_UP: if(page==3 && gameCount>0) { if(selected>0)--selected; } else moveSelection(0,-1); break;
+                    case SDLK_DOWN: if(page==3 && gameCount>0) { if(selected<gameCount-1)++selected; } else moveSelection(0,1); break;
+                    case SDLK_LEFT: if(page==3 && gameCount>0) { selected-=8; if(selected<0)selected=0; } else moveSelection(-1,0); break;
+                    case SDLK_RIGHT: if(page==3 && gameCount>0) { selected+=8; if(selected>=gameCount)selected=gameCount-1; } else moveSelection(1,0); break;
                     case SDLK_RETURN: page=selected+1; break;
                     case SDLK_ESCAPE: page=0; break;
                     default: break;

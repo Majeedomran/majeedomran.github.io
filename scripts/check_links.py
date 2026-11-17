@@ -96,6 +96,12 @@ def probe(original: str) -> dict:
             current = next_url
             continue
         response.close()
+        if code in (401, 403, 429):
+            return {
+                "url": original, "ok": False,
+                "status": "access_blocked" if code in (401, 403) else "rate_limited",
+                "httpStatus": code, "checkedUrl": current, "redirects": redirects
+            }
         ok = 200 <= code < 400
         return {
             "url": original, "ok": ok,

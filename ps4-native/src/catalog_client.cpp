@@ -12,6 +12,7 @@
 namespace {
 constexpr const char* CATALOG_URL = "https://majeedomran.github.io/catalog.json";
 constexpr const char* CATALOG_PATH = "/data/m4hub_catalog.json";
+constexpr const char* CATALOG_TEMP_PATH = "/data/m4hub_catalog.tmp";
 constexpr std::size_t MAX_CATALOG_BYTES = 8u * 1024u * 1024u;
 constexpr std::size_t NET_POOL_BYTES = 256u * 1024u;
 constexpr const char* USER_AGENT = "M4-HUB-PS4/0.1";
@@ -84,7 +85,7 @@ int m4hub_refresh_catalog(char* status, std::size_t status_size) {
         goto cleanup;
     }
 
-    file = std::fopen(CATALOG_PATH, "wb");
+    file = std::fopen(CATALOG_TEMP_PATH, "wb");
     if (!file) {
         set_status(status, status_size, "Cannot write /data/m4hub_catalog.json");
         goto cleanup;
@@ -115,6 +116,16 @@ int m4hub_refresh_catalog(char* status, std::size_t status_size) {
         set_status(status, status_size, "Could not flush catalog file");
         goto cleanup;
     }
+    if (std::fclose(file) != 0) {
+        file = nullptr;
+        set_status(status, status_size, "Could not close catalog file");
+        goto cleanup;
+    }
+    file = nullptr;
+    if (std::rename(CATALOG_TEMP_PATH, CATALOG_PATH) != 0) {
+        set_status(status, status_size, "Could not activate downloaded catalog");
+        goto cleanup;
+    }
     ok = true;
     {
         char message[96];
@@ -124,6 +135,7 @@ int m4hub_refresh_catalog(char* status, std::size_t status_size) {
 
 cleanup:
     if (file) std::fclose(file);
+    if (!ok) std::remove(CATALOG_TEMP_PATH);
     if (req >= 0) sceHttpDeleteRequest(req);
     if (conn >= 0) sceHttpDeleteConnection(conn);
     if (tpl >= 0) sceHttpDeleteTemplate(tpl);

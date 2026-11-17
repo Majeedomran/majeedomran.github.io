@@ -7,6 +7,7 @@ CONTENT_ID  := IV0000-MFOB00001_00-M4HUBNATIVE00001
 TOOLCHAIN   := $(OO_PS4_TOOLCHAIN)
 PROJDIR     := src
 INTDIR      := $(PROJDIR)/x64/Debug
+LIBMODULES := $(wildcard sce_module/*)
 LIBS        := -lc -lkernel -lc++ -lSceUserService -lSceVideoOut -lSceAudioOut -lScePad -lSceSysmodule -lSceNet -lSceSsl -lSceHttp -lSDL2
 CXXFLAGS    := --target=x86_64-pc-freebsd12-elf -fPIC -funwind-tables -c -isysroot $(TOOLCHAIN) -isystem $(TOOLCHAIN)/include -isystem $(TOOLCHAIN)/include/c++/v1
 LDFLAGS     := -m elf_x86_64 -pie --script $(TOOLCHAIN)/link.x --eh-frame-hdr -L$(TOOLCHAIN)/lib $(LIBS) $(TOOLCHAIN)/lib/crt1.o
@@ -62,7 +63,7 @@ sce_sys/param.sfo: Makefile
 	"$(TOOLCHAIN)/bin/$(CDIR)/PkgTool.Core" sfo_setentry $@ TITLE_ID --type Utf8 --maxsize 12 --value '$(TITLE_ID)'
 	"$(TOOLCHAIN)/bin/$(CDIR)/PkgTool.Core" sfo_setentry $@ VERSION --type Utf8 --maxsize 8 --value '$(VERSION)'
 
-pkg.gp4: eboot.bin sce_sys/about/right.sprx sce_sys/icon0.png sce_sys/param.sfo
+pkg.gp4: eboot.bin sce_sys/about/right.sprx sce_sys/icon0.png sce_sys/param.sfo $(LIBMODULES)
 	"$(TOOLCHAIN)/bin/$(CDIR)/create-gp4" -out $@ --content-id=$(CONTENT_ID) --files "$^"
 
 $(CONTENT_ID).pkg: pkg.gp4

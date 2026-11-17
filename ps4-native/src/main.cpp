@@ -11,9 +11,7 @@ static SDL_Window* gWindow = nullptr;
 static SDL_Renderer* gRenderer = nullptr;
 static SDL_Joystick* gPad = nullptr;
 static SDL_GameController* gController = nullptr;
-static int lastAxisX = 0, lastAxisY = 0;
-static int lastJoyAxisX = 0, lastJoyAxisY = 0;
-static Uint32 lastAxisMove = 0;
+static bool analogEngaged = false;
 static int selected = 0;
 static int page = 0;
 static char networkStatus[128] = "PRESS TRIANGLE TO REFRESH CATALOG";
@@ -393,13 +391,20 @@ extern "C" int main(int, char**) {
         if(gController || gPad) {
             Sint16 ax=gController ? SDL_GameControllerGetAxis(gController,SDL_CONTROLLER_AXIS_LEFTX) : SDL_JoystickGetAxis(gPad,0);
             Sint16 ay=gController ? SDL_GameControllerGetAxis(gController,SDL_CONTROLLER_AXIS_LEFTY) : SDL_JoystickGetAxis(gPad,1);
-            int dx=(ax < -12000)?-1:((ax > 12000)?1:0);
-            int dy=(ay < -12000)?-1:((ay > 12000)?1:0);
-            Uint32 now=SDL_GetTicks();
-            if((dx!=0 || dy!=0) && (dx!=lastAxisX || dy!=lastAxisY || now-lastAxisMove>180)) {
-                navigate(dx,dy); lastAxisMove=now;
+            // One navigation step per stick tilt. Re-arm only after the stick
+            // returns close to center, preventing runaway movement from drift.
+            const int engageDeadzone = 18000;
+            const int releaseDeadzone = 8500;
+            int dx=(ax < -engageDeadzone)?-1:((ax > engageDeadzone)?1:0);
+            int dy=(ay < -engageDeadzone)?-1:((ay > engageDeadzone)?1:0);
+            if (!analogEngaged && (dx!=0 || dy!=0)) {
+                navigate(dx,dy);
+                analogEngaged = true;
+            } else if (analogEngaged &&
+                       std::abs((int)ax) < releaseDeadzone &&
+                       std::abs((int)ay) < releaseDeadzone) {
+                analogEngaged = false;
             }
-            lastAxisX=dx; lastAxisY=dy;
         }
         draw();
         SDL_Delay(16);

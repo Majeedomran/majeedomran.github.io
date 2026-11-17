@@ -20,6 +20,9 @@ static GameItem gameItems[80];
 static int gameCount = 0;
 static int listOffset = 0;
 static bool detailOpen = false;
+struct LocalizedItem { char name[112]; char type[80]; };
+static LocalizedItem localizedItems[120];
+static int localizedCount = 0;
 
 static const char* skipSpace(const char* p) { while (*p && std::isspace((unsigned char)*p)) ++p; return p; }
 static const char* findJsonValue(const char* obj, const char* key) {
@@ -42,6 +45,33 @@ static void readJsonText(const char* obj,const char* key,char* out,std::size_t c
         else out[n++]=*p++;
     }
     out[n]=0;
+}
+static void loadLocalizedFromCache(const char* json) {
+    const char* p=std::strstr(json,"\\"localizedGames\\"");
+    if(!p) return;
+    p=std::strchr(p,'['); if(!p) return; ++p;
+    localizedCount=0;
+    while(*p && localizedCount<120) {
+        p=skipSpace(p); if(*p==']') break;
+        if(*p==','){++p;continue;} if(*p!='{'){++p;continue;}
+        const char* start=p; int depth=0; bool quoted=false,escape=false;
+        do {
+            char ch=*p++;
+            if(quoted) { if(escape) escape=false; else if(ch=='\\\\') escape=true; else if(ch=='"') quoted=false; }
+            else { if(ch=='"') quoted=true; else if(ch=='{') ++depth; else if(ch=='}') --depth; }
+        } while(*p && depth>0);
+        if(depth!=0) break;
+        std::size_t n=(std::size_t)(p-start);
+        char* obj=(char*)std::malloc(n+1); if(!obj) break;
+        std::memcpy(obj,start,n); obj[n]=0;
+        LocalizedItem& item=localizedItems[localizedCount]; std::memset(&item,0,sizeof(item));
+        readJsonText(obj,"name_en",item.name,sizeof(item.name));
+        if(!item.name[0]) readJsonText(obj,"name",item.name,sizeof(item.name));
+        readJsonText(obj,"translationType_en",item.type,sizeof(item.type));
+        if(!item.type[0]) readJsonText(obj,"translationType",item.type,sizeof(item.type));
+        if(item.name[0]) ++localizedCount;
+        std::free(obj);
+    }
 }
 static void loadGamesFromCache() {
     FILE* f=std::fopen("/data/m4hub_catalog.json","rb"); if(!f) return;
@@ -232,13 +262,13 @@ static void moveSelection(int dx,int dy) {
 }
 static void handleButton(int b) {
     switch(b) {
-        case 0: if(page==3 && gameCount>0 && selected<gameCount) { /* game source is informational; URL is not opened in this prototype */ } else page=selected+1; break; // CROSS
+        case 0: if(page==3 && gameCount>0 && selected<gameCount) { /* informational game entry; no unauthorized package download */ } else if(page==4 && localizedCount>0) { /* localization metadata only; source verification is required */ } else page=selected+1; break; // CROSS
         case 1: page=0; break;         // CIRCLE
         case 3: m4hub_refresh_catalog(networkStatus, sizeof(networkStatus)); loadGamesFromCache(); break; // TRIANGLE: fetch live catalog
-        case 12: if(page==3 && gameCount>0) { if(selected>0)--selected; } else moveSelection(0,-1); break;
-        case 13: if(page==3 && gameCount>0) { if(selected<gameCount-1)++selected; } else moveSelection(0,1); break;
-        case 14: if(page==3 && gameCount>0) { selected-=8; if(selected<0)selected=0; } else moveSelection(-1,0); break;
-        case 15: if(page==3 && gameCount>0) { selected+=8; if(selected>=gameCount)selected=gameCount-1; } else moveSelection(1,0); break;
+        case 12: if((page==3 && gameCount>0) || (page==4 && localizedCount>0)) { if(selected>0)--selected; } else moveSelection(0,-1); break;
+        case 13: if(page==3 && gameCount>0) { if(selected<gameCount-1)++selected; } else if(page==4 && localizedCount>0) { if(selected<localizedCount-1)++selected; } else moveSelection(0,1); break;
+        case 14: if(page==3 && gameCount>0) { selected-=8; if(selected<0)selected=0; } else if(page==4 && localizedCount>0) { selected-=8; if(selected<0)selected=0; } else moveSelection(-1,0); break;
+        case 15: if(page==3 && gameCount>0) { selected+=8; if(selected>=gameCount)selected=gameCount-1; } else if(page==4 && localizedCount>0) { selected+=8; if(selected>=localizedCount)selected=localizedCount-1; } else moveSelection(1,0); break;
         case 4: moveSelection(-1,0); break;
         case 5: moveSelection(1,0); break;
         case 9: page=0; break;
@@ -264,10 +294,10 @@ int main(int, char**) {
             if (event.type==SDL_JOYBUTTONDOWN) handleButton(event.jbutton.button);
             if (event.type==SDL_KEYDOWN) {
                 switch(event.key.keysym.sym) {
-                    case SDLK_UP: if(page==3 && gameCount>0) { if(selected>0)--selected; } else moveSelection(0,-1); break;
-                    case SDLK_DOWN: if(page==3 && gameCount>0) { if(selected<gameCount-1)++selected; } else moveSelection(0,1); break;
-                    case SDLK_LEFT: if(page==3 && gameCount>0) { selected-=8; if(selected<0)selected=0; } else moveSelection(-1,0); break;
-                    case SDLK_RIGHT: if(page==3 && gameCount>0) { selected+=8; if(selected>=gameCount)selected=gameCount-1; } else moveSelection(1,0); break;
+                    case SDLK_UP: if(page==3 && gameCount>0) { if(selected>0)--selected; } else if(page==4 && localizedCount>0) { if(selected>0)--selected; } else moveSelection(0,-1); break;
+                    case SDLK_DOWN: if(page==3 && gameCount>0) { if(selected<gameCount-1)++selected; } else if(page==4 && localizedCount>0) { if(selected<localizedCount-1)++selected; } else moveSelection(0,1); break;
+                    case SDLK_LEFT: if(page==3 && gameCount>0) { selected-=8; if(selected<0)selected=0; } else if(page==4 && localizedCount>0) { selected-=8; if(selected<0)selected=0; } else moveSelection(-1,0); break;
+                    case SDLK_RIGHT: if(page==3 && gameCount>0) { selected+=8; if(selected>=gameCount)selected=gameCount-1; } else if(page==4 && localizedCount>0) { selected+=8; if(selected>=localizedCount)selected=localizedCount-1; } else moveSelection(1,0); break;
                     case SDLK_RETURN: page=selected+1; break;
                     case SDLK_ESCAPE: page=0; break;
                     default: break;

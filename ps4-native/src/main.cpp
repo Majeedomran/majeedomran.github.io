@@ -6,11 +6,12 @@
 #include <cctype>
 #include <cmath>
 #include <ctime>
-#include <sys/sysctl.h>
 #include <orbis/Pad.h>
 #include <orbis/UserService.h>
 #include <orbis/libkernel.h>
 
+// ItemzFlow uses this libc sysctl entry; declare it because OpenOrbis omits sys/sysctl.h.
+extern "C" int sysctlbyname(const char*, void*, std::size_t*, void*, std::size_t);
 // Optional read-only sensor export; unavailable on some firmware/builds.
 extern "C" uint32_t sceKernelGetCpuTemperature(uint32_t* temperature) __attribute__((weak));
 

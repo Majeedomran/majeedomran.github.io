@@ -26,6 +26,8 @@ int m4hub_refresh_catalog(char* status, std::size_t status_size) {
     int tpl = -1, conn = -1, req = -1;
     FILE* file = nullptr;
     bool ok = false;
+    int32_t http_code = 0;
+    std::size_t total = 0;
     char buffer[64 * 1024];
 
     set_status(status, status_size, "Starting HTTPS connection");
@@ -75,7 +77,6 @@ int m4hub_refresh_catalog(char* status, std::size_t status_size) {
         goto cleanup;
     }
 
-    int32_t http_code = 0;
     if (sceHttpGetStatusCode(req, &http_code) < 0 || http_code != 200) {
         char message[80];
         std::snprintf(message, sizeof(message), "Catalog server returned HTTP %d", (int)http_code);
@@ -89,7 +90,6 @@ int m4hub_refresh_catalog(char* status, std::size_t status_size) {
         goto cleanup;
     }
 
-    std::size_t total = 0;
     for (;;) {
         int got = sceHttpReadData(req, buffer, sizeof(buffer));
         if (got < 0) {

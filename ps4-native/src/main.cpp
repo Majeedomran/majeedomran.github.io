@@ -216,7 +216,17 @@ static void draw() {
     } else if (page==3) {
         text(90,150,"GAME LIBRARY",5,36,205,186);
         rect(80,240,1760,3,38,57,78);
-        if(gameCount==0) {
+        if(detailOpen && gameCount>0 && selected<gameCount) {
+            rect(95,300,1720,440,17,27,42); outline(95,300,1720,440,43,63,82);
+            text(140,350,gameItems[selected].name,4,245,248,255);
+            char detailMeta[100];
+            if(gameItems[selected].hasSize) std::snprintf(detailMeta,sizeof(detailMeta),"SIZE %.2f GB APPROX",gameItems[selected].sizeGB);
+            else std::snprintf(detailMeta,sizeof(detailMeta),"SIZE NOT LISTED");
+            text(140,455,detailMeta,2,143,190,205);
+            text(140,520,gameItems[selected].cusa[0]?gameItems[selected].cusa:"CUSA NOT VERIFIED",2,143,190,205);
+            text(140,600,"INFO ONLY - NO GAME PKG DOWNLOAD PROVIDED",2,36,205,186);
+            text(90,900,"CIRCLE - BACK TO GAME LIST",2,167,185,203);
+        } else if(gameCount==0) {
             text(145,365,"NO CACHED CATALOG - PRESS TRIANGLE ON HOME",3,245,248,255);
         } else {
             char countLabel[80]; std::snprintf(countLabel,sizeof(countLabel),"GAMES IN CATALOG: %d",gameCount);
@@ -242,7 +252,14 @@ static void draw() {
     } else if (page==4) {
         text(90,150,"LOCALIZED GAMES",5,36,205,186);
         rect(80,240,1760,3,38,57,78);
-        if(localizedCount==0) {
+        if(detailOpen && localizedCount>0 && selected<localizedCount) {
+            rect(95,300,1720,440,17,27,42); outline(95,300,1720,440,43,63,82);
+            text(140,350,localizedItems[selected].name,4,245,248,255);
+            text(140,455,localizedItems[selected].type[0]?localizedItems[selected].type:"TYPE NOT LISTED",2,143,190,205);
+            text(140,545,"CHECK GAME REGION AND CUSA BEFORE INSTALL",2,36,205,186);
+            text(140,610,"SOURCE DETAILS MUST BE VERIFIED BEFORE USE",2,143,190,205);
+            text(90,900,"CIRCLE - BACK TO LOCALIZED LIST",2,167,185,203);
+        } else if(localizedCount==0) {
             text(145,365,"NO LOCALIZATION METADATA IN CACHED CATALOG",3,245,248,255);
         } else {
             char countLabel[80]; std::snprintf(countLabel,sizeof(countLabel),"LOCALIZED ENTRIES: %d",localizedCount);
@@ -285,8 +302,8 @@ static void moveSelection(int dx,int dy) {
 }
 static void handleButton(int b) {
     switch(b) {
-        case 0: if(page==3 && gameCount>0 && selected<gameCount) { /* informational game entry; no unauthorized package download */ } else if(page==4 && localizedCount>0) { /* localization metadata only; source verification is required */ } else page=selected+1; break; // CROSS
-        case 1: page=0; break;         // CIRCLE
+        case 0: if((page==3 && gameCount>0 && selected<gameCount) || (page==4 && localizedCount>0 && selected<localizedCount)) detailOpen=true; else page=selected+1; break; // CROSS
+        case 1: if(detailOpen) detailOpen=false; else page=0; break; // CIRCLE
         case 3: m4hub_refresh_catalog(networkStatus, sizeof(networkStatus)); loadGamesFromCache(); break; // TRIANGLE: fetch live catalog
         case 12: if((page==3 && gameCount>0) || (page==4 && localizedCount>0)) { if(selected>0)--selected; } else moveSelection(0,-1); break;
         case 13: if(page==3 && gameCount>0) { if(selected<gameCount-1)++selected; } else if(page==4 && localizedCount>0) { if(selected<localizedCount-1)++selected; } else moveSelection(0,1); break;
@@ -321,8 +338,8 @@ int main(int, char**) {
                     case SDLK_DOWN: if(page==3 && gameCount>0) { if(selected<gameCount-1)++selected; } else if(page==4 && localizedCount>0) { if(selected<localizedCount-1)++selected; } else moveSelection(0,1); break;
                     case SDLK_LEFT: if(page==3 && gameCount>0) { selected-=8; if(selected<0)selected=0; } else if(page==4 && localizedCount>0) { selected-=8; if(selected<0)selected=0; } else moveSelection(-1,0); break;
                     case SDLK_RIGHT: if(page==3 && gameCount>0) { selected+=8; if(selected>=gameCount)selected=gameCount-1; } else if(page==4 && localizedCount>0) { selected+=8; if(selected>=localizedCount)selected=localizedCount-1; } else moveSelection(1,0); break;
-                    case SDLK_RETURN: if(page==0) page=selected+1; break;
-                    case SDLK_ESCAPE: page=0; break;
+                    case SDLK_RETURN: if(page==0) page=selected+1; else if(page==3 || page==4) detailOpen=true; break;
+                    case SDLK_ESCAPE: if(detailOpen) detailOpen=false; else page=0; break;
                     default: break;
                 }
             }

@@ -10,6 +10,9 @@ static const int SCREEN_H = 1080;
 static SDL_Window* gWindow = nullptr;
 static SDL_Renderer* gRenderer = nullptr;
 static SDL_Joystick* gPad = nullptr;
+static SDL_GameController* gController = nullptr;
+static int lastAxisX = 0, lastAxisY = 0;
+static Uint32 lastAxisMove = 0;
 static int selected = 0;
 static int page = 0;
 static char networkStatus[128] = "PRESS TRIANGLE TO REFRESH CATALOG";
@@ -299,19 +302,47 @@ static void moveSelection(int dx,int dy) {
     col=(col+dx+4)%4; row=(row+dy+2)%2;
     selected=row*4+col;
 }
-static void handleButton(int b) {
-    switch(b) {
-        case 0: if((page==3 && gameCount>0 && selected<gameCount) || (page==4 && localizedCount>0 && selected<localizedCount)) detailOpen=true; else page=selected+1; break;
-        case 1: if(detailOpen) detailOpen=false; else page=0; break;
-        case 3: m4hub_refresh_catalog(networkStatus, sizeof(networkStatus)); loadGamesFromCache(); break;
-        case 12: if((page==3 && gameCount>0) || (page==4 && localizedCount>0)) { if(selected>0)--selected; } else moveSelection(0,-1); break;
-        case 13: if(page==3 && gameCount>0) { if(selected<gameCount-1)++selected; } else if(page==4 && localizedCount>0) { if(selected<localizedCount-1)++selected; } else moveSelection(0,1); break;
-        case 14: if(page==3 && gameCount>0) { selected-=8; if(selected<0)selected=0; } else if(page==4 && localizedCount>0) { selected-=8; if(selected<0)selected=0; } else moveSelection(-1,0); break;
-        case 15: if(page==3 && gameCount>0) { selected+=8; if(selected>=gameCount)selected=gameCount-1; } else if(page==4 && localizedCount>0) { selected+=8; if(selected>=localizedCount)selected=localizedCount-1; } else moveSelection(1,0); break;
-        case 4: moveSelection(-1,0); break;
-        case 5: moveSelection(1,0); break;
-        case 9: page=0; break;
+static void navigate(int dx, int dy) {
+    if (page==3 && gameCount>0) {
+        if (dx<0) selected-=8; else if(dx>0) selected+=8;
+        else selected+=dy;
+        if(selected<0) selected=0;
+        if(selected>=gameCount) selected=gameCount-1;
+    } else if(page==4 && localizedCount>0) {
+        if (dx<0) selected-=8; else if(dx>0) selected+=8;
+        else selected+=dy;
+        if(selected<0) selected=0;
+        if(selected>=localizedCount) selected=localizedCount-1;
+    } else {
+        if(page==0) moveSelection(dx,dy);
     }
+}
+static void handleControllerButton(SDL_GameControllerButton b) {
+    switch(b) {
+        case SDL_CONTROLLER_BUTTON_A:
+            if(page==3 && gameCount>0 && selected<gameCount) detailOpen=true;
+            else if(page==4 && localizedCount>0 && selected<localizedCount) detailOpen=true;
+            else if(page==0) page=selected+1;
+            break;
+        case SDL_CONTROLLER_BUTTON_B:
+            if(detailOpen) detailOpen=false; else page=0;
+            break;
+        case SDL_CONTROLLER_BUTTON_Y:
+            m4hub_refresh_catalog(networkStatus, sizeof(networkStatus)); loadGamesFromCache();
+            break;
+        case SDL_CONTROLLER_BUTTON_DPAD_UP: navigate(0,-1); break;
+        case SDL_CONTROLLER_BUTTON_DPAD_DOWN: navigate(0,1); break;
+        case SDL_CONTROLLER_BUTTON_DPAD_LEFT: navigate(-1,0); break;
+        case SDL_CONTROLLER_BUTTON_DPAD_RIGHT: navigate(1,0); break;
+        case SDL_CONTROLLER_BUTTON_START: page=0; detailOpen=false; break;
+        default: break;
+    }
+}
+static void handleLegacyHat(Uint8 value) {
+    if(value & SDL_HAT_UP) navigate(0,-1);
+    else if(value & SDL_HAT_DOWN) navigate(0,1);
+    else if(value & SDL_HAT_LEFT) navigate(-1,0);
+    else if(value & SDL_HAT_RIGHT) navigate(1,0);
 }
 extern "C" int main(int, char**) {
     setvbuf(stdout,nullptr,_IONBF,0);
@@ -323,29 +354,46 @@ extern "C" int main(int, char**) {
     SDL_Surface* surface=SDL_GetWindowSurface(gWindow);
     gRenderer=SDL_CreateSoftwareRenderer(surface);
     if (!gRenderer) { std::printf("M4 HUB: renderer failed: %s\n",SDL_GetError()); return 1; }
-    if (SDL_NumJoysticks()>0) gPad=SDL_JoystickOpen(0);
+    SDL_GameControllerEventState(SDL_ENABLE);
+    for (int i=0;i<SDL_NumJoysticks();++i) {
+        if (SDL_IsGameController(i)) { gController=SDL_GameControllerOpen(i); if(gController) break; }
+    }
+    if (!gController && SDL_NumJoysticks()>0) gPad=SDL_JoystickOpen(0);
     loadGamesFromCache();
     bool running=true;
     while (running) {
         SDL_Event event;
         while (SDL_PollEvent(&event)) {
             if (event.type==SDL_QUIT) running=false;
-            if (event.type==SDL_JOYBUTTONDOWN) handleButton(event.jbutton.button);
+            if (event.type==SDL_CONTROLLERBUTTONDOWN) handleControllerButton((SDL_GameControllerButton)event.cbutton.button);
+            if (event.type==SDL_JOYHATMOTION) handleLegacyHat(event.jhat.value);
             if (event.type==SDL_KEYDOWN) {
                 switch(event.key.keysym.sym) {
-                    case SDLK_UP: if(page==3 && gameCount>0) { if(selected>0)--selected; } else if(page==4 && localizedCount>0) { if(selected>0)--selected; } else moveSelection(0,-1); break;
-                    case SDLK_DOWN: if(page==3 && gameCount>0) { if(selected<gameCount-1)++selected; } else if(page==4 && localizedCount>0) { if(selected<localizedCount-1)++selected; } else moveSelection(0,1); break;
-                    case SDLK_LEFT: if(page==3 && gameCount>0) { selected-=8; if(selected<0)selected=0; } else if(page==4 && localizedCount>0) { selected-=8; if(selected<0)selected=0; } else moveSelection(-1,0); break;
-                    case SDLK_RIGHT: if(page==3 && gameCount>0) { selected+=8; if(selected>=gameCount)selected=gameCount-1; } else if(page==4 && localizedCount>0) { selected+=8; if(selected>=localizedCount)selected=localizedCount-1; } else moveSelection(1,0); break;
+                    case SDLK_UP: navigate(0,-1); break;
+                    case SDLK_DOWN: navigate(0,1); break;
+                    case SDLK_LEFT: navigate(-1,0); break;
+                    case SDLK_RIGHT: navigate(1,0); break;
                     case SDLK_RETURN: if(page==0) page=selected+1; else if(page==3 || page==4) detailOpen=true; break;
                     case SDLK_ESCAPE: if(detailOpen) detailOpen=false; else page=0; break;
                     default: break;
                 }
             }
         }
+        if(gController) {
+            Sint16 ax=SDL_GameControllerGetAxis(gController,SDL_CONTROLLER_AXIS_LEFTX);
+            Sint16 ay=SDL_GameControllerGetAxis(gController,SDL_CONTROLLER_AXIS_LEFTY);
+            int dx=(ax < -12000)?-1:((ax > 12000)?1:0);
+            int dy=(ay < -12000)?-1:((ay > 12000)?1:0);
+            Uint32 now=SDL_GetTicks();
+            if((dx!=0 || dy!=0) && (dx!=lastAxisX || dy!=lastAxisY || now-lastAxisMove>180)) {
+                navigate(dx,dy); lastAxisMove=now;
+            }
+            lastAxisX=dx; lastAxisY=dy;
+        }
         draw();
         SDL_Delay(16);
     }
+    if (gController) SDL_GameControllerClose(gController);
     if (gPad) SDL_JoystickClose(gPad);
     SDL_DestroyRenderer(gRenderer); SDL_DestroyWindow(gWindow); SDL_Quit();
     return 0;

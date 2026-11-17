@@ -13,7 +13,6 @@
 // ItemzFlow uses this libc sysctl entry; declare it because OpenOrbis omits sys/sysctl.h.
 extern "C" int sysctlbyname(const char*, void*, std::size_t*, void*, std::size_t);
 // Optional read-only sensor export; unavailable on some firmware/builds.
-extern "C" uint32_t sceKernelGetCpuTemperature(uint32_t* temperature) __attribute__((weak));
 
 static const int SCREEN_W = 1920;
 static const int SCREEN_H = 1080;
@@ -275,21 +274,15 @@ static void draw() {
         }
         char firmwareLabel[48];
         if (sdkVersion != 0 && sdkVersion != UINT32_MAX) {
-            unsigned major=(sdkVersion>>24)&0xFF;
-            unsigned minor=(sdkVersion>>16)&0xFF;
+            unsigned major=(sdkVersion>>8)&0xFF;
+            unsigned minor=sdkVersion&0xFF;
             std::snprintf(firmwareLabel,sizeof(firmwareLabel),"PS4 FW %u.%02u",major,minor);
         } else {
             std::snprintf(firmwareLabel,sizeof(firmwareLabel),"PS4 FW N/A");
         }
-        char temperatureLabel[48];
-        uint32_t cpuTemperature=0;
-        uint32_t tempResult = sceKernelGetCpuTemperature ? sceKernelGetCpuTemperature(&cpuTemperature) : UINT32_MAX;
-        if(tempResult==0 && cpuTemperature>0 && cpuTemperature<150)
-            std::snprintf(temperatureLabel,sizeof(temperatureLabel),"CPU TEMP %u C",cpuTemperature);
-        else
-            std::snprintf(temperatureLabel,sizeof(temperatureLabel),"CPU TEMP N/A");
+        const char* temperatureLabel = "CPU TEMP N/A"; // ItemzFlow panel uses a fixed demo value, not a live sensor reading.
         text(1030,185,firmwareLabel,2,36,205,186);
-        text(1320,185,"M4 HUB 0.1.8",2,143,190,205);
+        text(1320,185,"M4 HUB 0.1.9",2,143,190,205);
         text(1580,185,temperatureLabel,2,36,205,186);
         rect(80,240,1760,3,38,57,78);
         if(detailOpen && gameCount>0 && selected<gameCount) {
@@ -365,7 +358,7 @@ static void draw() {
         text(145,515,"NO PLACEHOLDER DOWNLOAD BUTTONS OR FAKE FILE LINKS",2,165,190,205);
         text(145,575,"CATALOG AND NETWORK SUPPORT ARE UNDER DEVELOPMENT",2,165,190,205);
         text(90,820,"CIRCLE - BACK TO HOME",3,36,205,186);
-        text(90,900,"M4 HUB NATIVE CLIENT - VERSION 0.1.7",2,121,143,166);
+        text(90,900,"M4 HUB NATIVE CLIENT - VERSION 0.1.9",2,121,143,166);
         text(90,960,networkStatus,2,36,205,186);
     }
     SDL_RenderPresent(gRenderer);

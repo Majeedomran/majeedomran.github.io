@@ -238,6 +238,28 @@ static void draw() {
         text(90,900,"UP DOWN - SELECT GAME",2,167,185,203);
         text(650,900,"CROSS - OFFICIAL SOURCE",2,167,185,203);
         text(90,960,networkStatus,2,36,205,186);
+    } else if (page==4) {
+        text(90,150,"LOCALIZED GAMES",5,36,205,186);
+        rect(80,240,1760,3,38,57,78);
+        if(localizedCount==0) {
+            text(145,365,"NO LOCALIZATION METADATA IN CACHED CATALOG",3,245,248,255);
+        } else {
+            char countLabel[80]; std::snprintf(countLabel,sizeof(countLabel),"LOCALIZED ENTRIES: %d",localizedCount);
+            text(100,270,countLabel,2,143,164,190);
+            int visible=8;
+            if(selected>=localizedCount) selected=localizedCount-1;
+            if(selected<0) selected=0;
+            if(selected<listOffset) listOffset=selected;
+            if(selected>=listOffset+visible) listOffset=selected-visible+1;
+            for(int i=0;i<visible && listOffset+i<localizedCount;++i) {
+                int idx=listOffset+i, y=325+i*66; bool active=(idx==selected);
+                rect(95,y,1720,54,active?24:17,active?54:27,active?66:42);
+                text(125,y+16,localizedItems[idx].name,2,245,248,255);
+                text(1200,y+18,localizedItems[idx].type[0]?localizedItems[idx].type:"TYPE NOT LISTED",1,active?90:143,active?230:164,active?205:190);
+            }
+        }
+        text(90,900,"UP DOWN - SELECT ENTRY",2,167,185,203);
+        text(90,960,networkStatus,2,36,205,186);
     } else {
         int index=page-1;
         text(90,150,cards[index],5,36,205,186);

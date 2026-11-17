@@ -35,14 +35,14 @@ for y in range(H):
         # Accent bar
         if 142 <= x < 370 and 330 <= y < 342:
             base = (35, 201, 184)
-        pixels.extend((*base, 255))
+        pixels.extend(base)
 
 def chunk(kind, data):
     return struct.pack(">I", len(data)) + kind + data + struct.pack(">I", zlib.crc32(kind + data) & 0xffffffff)
 
 raw = bytes(pixels)
 png = b"\x89PNG\r\n\x1a\n"
-png += chunk(b"IHDR", struct.pack(">2I5B", W, H, 8, 6, 0, 0, 0))
+png += chunk(b"IHDR", struct.pack(">2I5B", W, H, 8, 2, 0, 0, 0))
 png += chunk(b"IDAT", zlib.compress(raw, 9))
 png += chunk(b"IEND", b"")
 with open(sys.argv[1] if len(sys.argv) > 1 else "sce_sys/icon0.png", "wb") as f:

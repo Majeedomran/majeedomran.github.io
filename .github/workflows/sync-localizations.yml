@@ -1,0 +1,45 @@
+name: M4 HUB Arabic localization sync
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * 1"
+  push:
+    branches: [main]
+    paths:
+      - "scripts/sync_localizations.py"
+      - ".github/workflows/sync-localizations.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: m4-hub-localization-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out catalogue
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Import latest PS4 localization metadata
+        run: python scripts/sync_localizations.py
+      - name: Commit catalogue updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- catalog.json; then
+            echo "No new or changed PS4 localization entries."
+            exit 0
+          fi
+          git add catalog.json
+          git commit -m "Sync PS4 Arabic localization catalogue"
+          git push origin HEAD:main

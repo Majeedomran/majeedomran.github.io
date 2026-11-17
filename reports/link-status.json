@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "application": "M4 HUB",
+  "checkedAt": null,
+  "policy": "No scheduled check has completed yet. The monitor checks allow-listed HTTPS source/download pages; it does not download files or certify safety, authenticity, or firmware compatibility.",
+  "summary": {
+    "total": 0,
+    "reachable": 0,
+    "httpErrors": 0,
+    "needsReview": 0
+  },
+  "results": []
+}

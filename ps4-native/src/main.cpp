@@ -4,14 +4,16 @@
 #include <cstring>
 #include <cstdlib>
 #include <cctype>
+#include <cmath>
 
 static const int SCREEN_W = 1920;
 static const int SCREEN_H = 1080;
 static SDL_Window* gWindow = nullptr;
 static SDL_Renderer* gRenderer = nullptr;
 static SDL_Joystick* gPad = nullptr;
-static SDL_GameController* gController = nullptr;
 static bool analogEngaged = false;
+static int lastAnalogX = 0, lastAnalogY = 0;
+static Uint32 lastAnalogMove = 0;
 static int selected = 0;
 static int page = 0;
 static char networkStatus[128] = "PRESS TRIANGLE TO REFRESH CATALOG";
@@ -154,6 +156,25 @@ static const Glyph FONT[] = {
 };
 
 static void color(Uint8 r, Uint8 g, Uint8 b) { SDL_SetRenderDrawColor(gRenderer, r, g, b, 255); }
+static void drawButtonIcon(int x, int y, int kind) {
+    color(205, 225, 238);
+    if (kind == 0) { // X / Cross
+        SDL_RenderDrawLine(gRenderer,x,y,x+22,y+22);
+        SDL_RenderDrawLine(gRenderer,x+22,y,x,y+22);
+    } else if (kind == 1) { // Circle / O
+        const int cx=x+11, cy=y+11, radius=11;
+        for(int i=0;i<32;++i) {
+            double a1=(i*6.28318530718)/32.0, a2=((i+1)*6.28318530718)/32.0;
+            SDL_RenderDrawLine(gRenderer,cx+(int)(radius*std::cos(a1)),cy+(int)(radius*std::sin(a1)),cx+(int)(radius*std::cos(a2)),cy+(int)(radius*std::sin(a2)));
+        }
+    } else if (kind == 2) { // Triangle
+        SDL_RenderDrawLine(gRenderer,x+11,y,x+22,y+21);
+        SDL_RenderDrawLine(gRenderer,x+22,y+21,x,y+21);
+        SDL_RenderDrawLine(gRenderer,x,y+21,x+11,y);
+    } else { // Square
+        SDL_Rect q={x,y,22,22}; SDL_RenderDrawRect(gRenderer,&q);
+    }
+}
 static void rect(int x,int y,int w,int h,Uint8 r,Uint8 g,Uint8 b) {
     color(r,g,b); SDL_Rect q={x,y,w,h}; SDL_RenderFillRect(gRenderer,&q);
 }
@@ -207,14 +228,14 @@ static void draw() {
             text(x+55,y+151,descriptions[i],1,active?175:128,active?221:151,active?210:174);
         }
         rect(80,850,1760,2,38,57,78);
-        text(90,885,"D PAD / LEFT STICK - MOVE",2,167,185,203);
-        text(470,885,"CROSS - OPEN",2,167,185,203);
-        text(850,885,"CIRCLE - BACK",2,167,185,203);
-        text(90,920,"TRIANGLE - UPDATE CATALOG",2,36,205,186);
-        text(1230,885,"M4 HUB V0.1 - PREVIEW",2,36,205,186);
-        text(90,960,"CATALOG SYNC AND DOWNLOADS ARE THE NEXT DEVELOPMENT STAGE",2,121,143,166);
-        text(90,990,"NO GAME FILES ARE INCLUDED IN THIS PREVIEW",2,121,143,166);
-        text(90,1030,networkStatus,2,36,205,186);
+        text(90,875,"MOVE: D PAD OR LEFT STICK",2,167,185,203);
+        drawButtonIcon(620,868,0); text(652,875,"OPEN",2,167,185,203);
+        drawButtonIcon(850,868,1); text(882,875,"BACK",2,167,185,203);
+        drawButtonIcon(1080,868,2); text(1112,875,"REFRESH",2,36,205,186);
+        drawButtonIcon(1390,868,3); text(1422,875,"FAVORITES",2,167,185,203);
+        text(90,925,"CATALOG SYNC AND DOWNLOADS ARE THE NEXT DEVELOPMENT STAGE",2,121,143,166);
+        text(90,960,"NO GAME FILES ARE INCLUDED IN THIS PREVIEW",2,121,143,166);
+        text(90,1000,networkStatus,2,36,205,186);
     } else if (page==3) {
         text(90,150,"GAME LIBRARY",5,36,205,186);
         rect(80,240,1760,3,38,57,78);
@@ -291,7 +312,7 @@ static void draw() {
         text(145,515,"NO PLACEHOLDER DOWNLOAD BUTTONS OR FAKE FILE LINKS",2,165,190,205);
         text(145,575,"CATALOG AND NETWORK SUPPORT ARE UNDER DEVELOPMENT",2,165,190,205);
         text(90,820,"CIRCLE - BACK TO HOME",3,36,205,186);
-        text(90,900,"M4 HUB NATIVE CLIENT - VERSION 0.1.1",2,121,143,166);
+        text(90,900,"M4 HUB NATIVE CLIENT - VERSION 0.1.2",2,121,143,166);
         text(90,960,networkStatus,2,36,205,186);
     }
     SDL_RenderPresent(gRenderer);
@@ -317,33 +338,13 @@ static void navigate(int dx, int dy) {
         if(page==0) moveSelection(dx,dy);
     }
 }
-static void handleControllerButton(SDL_GameControllerButton b) {
-    switch(b) {
-        case SDL_CONTROLLER_BUTTON_A:
-            if(page==3 && gameCount>0 && selected<gameCount) detailOpen=true;
-            else if(page==4 && localizedCount>0 && selected<localizedCount) detailOpen=true;
-            else if(page==0) page=selected+1;
-            break;
-        case SDL_CONTROLLER_BUTTON_B:
-            if(detailOpen) detailOpen=false; else page=0;
-            break;
-        case SDL_CONTROLLER_BUTTON_Y:
-            m4hub_refresh_catalog(networkStatus, sizeof(networkStatus)); loadGamesFromCache();
-            break;
-        case SDL_CONTROLLER_BUTTON_DPAD_UP: navigate(0,-1); break;
-        case SDL_CONTROLLER_BUTTON_DPAD_DOWN: navigate(0,1); break;
-        case SDL_CONTROLLER_BUTTON_DPAD_LEFT: navigate(-1,0); break;
-        case SDL_CONTROLLER_BUTTON_DPAD_RIGHT: navigate(1,0); break;
-        case SDL_CONTROLLER_BUTTON_START: page=0; detailOpen=false; break;
-        default: break;
-    }
-}
 static void handleLegacyJoystickButton(Uint8 b) {
-    // Common DualShock 4 SDL raw-button order: Cross=1, Circle=2, Triangle=3.
+    // Raw DualShock 4 button order: Square=0, Cross=1, Circle=2, Triangle=3.
     switch(b) {
-        case 1: if(page==0) page=selected+1; else if((page==3 && gameCount>0) || (page==4 && localizedCount>0)) detailOpen=true; break;
-        case 2: if(detailOpen) detailOpen=false; else page=0; break;
-        case 3: m4hub_refresh_catalog(networkStatus, sizeof(networkStatus)); loadGamesFromCache(); break;
+        case 0: if(page==0) { selected=7; page=8; } break; // Square: Favorites
+        case 1: if(page==0) page=selected+1; else if((page==3 && gameCount>0) || (page==4 && localizedCount>0)) detailOpen=true; break; // Cross: Open
+        case 2: if(detailOpen) detailOpen=false; else page=0; break; // Circle: Back
+        case 3: m4hub_refresh_catalog(networkStatus, sizeof(networkStatus)); loadGamesFromCache(); break; // Triangle: Refresh
     }
 }
 static void handleLegacyHat(Uint8 value) {
@@ -362,20 +363,16 @@ extern "C" int main(int, char**) {
     SDL_Surface* surface=SDL_GetWindowSurface(gWindow);
     gRenderer=SDL_CreateSoftwareRenderer(surface);
     if (!gRenderer) { std::printf("M4 HUB: renderer failed: %s\n",SDL_GetError()); return 1; }
-    SDL_GameControllerEventState(SDL_ENABLE);
-    for (int i=0;i<SDL_NumJoysticks();++i) {
-        if (SDL_IsGameController(i)) { gController=SDL_GameControllerOpen(i); if(gController) break; }
-    }
-    if (!gController && SDL_NumJoysticks()>0) gPad=SDL_JoystickOpen(0);
+    SDL_JoystickEventState(SDL_ENABLE);
+    if (SDL_NumJoysticks()>0) gPad=SDL_JoystickOpen(0);
     loadGamesFromCache();
     bool running=true;
     while (running) {
         SDL_Event event;
         while (SDL_PollEvent(&event)) {
             if (event.type==SDL_QUIT) running=false;
-            if (event.type==SDL_CONTROLLERBUTTONDOWN) handleControllerButton((SDL_GameControllerButton)event.cbutton.button);
             if (event.type==SDL_JOYHATMOTION) handleLegacyHat(event.jhat.value);
-            if (event.type==SDL_JOYBUTTONDOWN && !gController) handleLegacyJoystickButton(event.jbutton.button);
+            if (event.type==SDL_JOYBUTTONDOWN) handleLegacyJoystickButton(event.jbutton.button);
             if (event.type==SDL_KEYDOWN) {
                 switch(event.key.keysym.sym) {
                     case SDLK_UP: navigate(0,-1); break;
@@ -388,28 +385,25 @@ extern "C" int main(int, char**) {
                 }
             }
         }
-        if(gController || gPad) {
-            Sint16 ax=gController ? SDL_GameControllerGetAxis(gController,SDL_CONTROLLER_AXIS_LEFTX) : SDL_JoystickGetAxis(gPad,0);
-            Sint16 ay=gController ? SDL_GameControllerGetAxis(gController,SDL_CONTROLLER_AXIS_LEFTY) : SDL_JoystickGetAxis(gPad,1);
-            // One navigation step per stick tilt. Re-arm only after the stick
-            // returns close to center, preventing runaway movement from drift.
-            const int engageDeadzone = 18000;
-            const int releaseDeadzone = 8500;
+        if(gPad && SDL_JoystickNumAxes(gPad)>=2) {
+            Sint16 ax=SDL_JoystickGetAxis(gPad,0);
+            Sint16 ay=SDL_JoystickGetAxis(gPad,1);
+            // One step per tilt; require a real return to center before re-arming.
+            const int engageDeadzone = 12000;
+            const int releaseDeadzone = 7000;
             int dx=(ax < -engageDeadzone)?-1:((ax > engageDeadzone)?1:0);
             int dy=(ay < -engageDeadzone)?-1:((ay > engageDeadzone)?1:0);
             if (!analogEngaged && (dx!=0 || dy!=0)) {
                 navigate(dx,dy);
                 analogEngaged = true;
-            } else if (analogEngaged &&
-                       std::abs((int)ax) < releaseDeadzone &&
-                       std::abs((int)ay) < releaseDeadzone) {
-                analogEngaged = false;
+                lastAnalogX=dx; lastAnalogY=dy; lastAnalogMove=SDL_GetTicks();
+            } else if (analogEngaged && std::abs((int)ax)<releaseDeadzone && std::abs((int)ay)<releaseDeadzone) {
+                analogEngaged = false; lastAnalogX=0; lastAnalogY=0;
             }
         }
         draw();
         SDL_Delay(16);
     }
-    if (gController) SDL_GameControllerClose(gController);
     if (gPad) SDL_JoystickClose(gPad);
     SDL_DestroyRenderer(gRenderer); SDL_DestroyWindow(gWindow); SDL_Quit();
     return 0;

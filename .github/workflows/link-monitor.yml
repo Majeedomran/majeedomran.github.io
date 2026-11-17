@@ -21,27 +21,38 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - name: Check out catalogue
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
 
-      - name: Check catalogue links
-        run: python scripts/check_links.py
-
-      - name: Publish report when changed
+      - name: Check links and publish report safely
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add reports/link-status.json
-          if git diff --cached --quiet; then
-            echo "Link report has no changes."
-          else
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            python scripts/check_links.py
+            git add reports/link-status.json
+            if git diff --cached --quiet; then
+              echo "Link report has no changes."
+              exit 0
+            fi
             git commit -m "Update scheduled link status report"
-            git push
-          fi
+            if git push origin HEAD:main; then
+              echo "Link report published."
+              exit 0
+            fi
+            echo "Push raced with another update; retrying ($attempt/3)."
+            sleep 2
+          done
+          echo "Could not publish the link report after three attempts."
+          exit 1

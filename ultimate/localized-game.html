@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080d18"><title>تفاصيل اللعبة | M4 HUB</title>
+<style>
+:root{color-scheme:dark;--bg:#070b13;--panel:#111d30;--line:#2b3e5c;--txt:#f4f7fc;--muted:#9eacc1;--cyan:#52dce8;--blue:#548dff}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#1b3760 0,transparent 38%),var(--bg);color:var(--txt);font:15px/1.7 Arial,system-ui,sans-serif}a{color:var(--cyan);text-decoration:none}.top{display:flex;justify-content:space-between;align-items:center;padding:13px max(15px,calc((100% - 1050px)/2));border-bottom:1px solid var(--line);background:#080e19ed}.btn{border:1px solid var(--line);background:#111d30;color:var(--txt);padding:9px 13px;border-radius:10px;cursor:pointer}.wrap{max-width:1050px;margin:25px auto;padding:0 15px 50px}.crumb{color:var(--muted);font-size:12px;margin-bottom:14px}.hero{display:grid;grid-template-columns:220px 1fr;gap:22px;padding:22px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#142238,#0d1625)}.cover{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px;background:#0a1423;border:1px solid var(--line)}.placeholder{display:grid;place-items:center;aspect-ratio:3/4;border-radius:12px;background:linear-gradient(145deg,#183458,#0a1423);font-size:48px;color:var(--cyan)}h1{font-size:clamp(25px,5vw,38px);line-height:1.25;margin:6px 0 12px}.muted{color:var(--muted)}.pill{display:inline-block;padding:3px 10px;border-radius:99px;background:#12392f;color:#73e3b8;font-size:11px}.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:18px}.fact,.panel{padding:13px;border:1px solid var(--line);border-radius:12px;background:#0b1422}.fact small{display:block;color:var(--muted);font-size:11px}.fact b{overflow-wrap:anywhere}.panel{margin-top:15px}.panel h2{font-size:17px;margin:0 0 7px}.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}.actions a{padding:9px 12px;border:1px solid #315273;border-radius:10px}.warning{border-color:#594a27;background:#241f14;color:#d8c99f;font-size:12px}.empty{padding:30px;text-align:center;border:1px dashed var(--line);border-radius:15px;color:var(--muted)}@media(max-width:620px){.hero{grid-template-columns:1fr}.cover,.placeholder{max-width:180px}.facts{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header class="top"><a href="./index.html">← <b>M4 HUB</b></a><button class="btn" id="lang">EN</button></header>
+<main class="wrap"><div class="crumb"><a href="./index.html">M4 HUB</a> / <a href="./index.html#localizedGames" id="backLabel">الألعاب المعربة</a> / <span id="crumbName">تفاصيل اللعبة</span></div><div id="app"><div class="empty">جارٍ تحميل بيانات اللعبة…</div></div></main>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id);let lang='ar',game=null;
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const param=new URLSearchParams(location.search).get('name')||'';
+const text=(ar,en)=>lang==='ar'?ar:en;
+const safeUrl=u=>typeof u==='string'&&/^https:\/\//i.test(u);
+function fact(label,value){return value?'<div class="fact"><small>'+label+'</small><b>'+esc(value)+'</b></div>':''}
+function render(){
+if(!game){$('app').innerHTML='<div class="empty">'+text('لم نعثر على اللعبة في الكتالوج. ارجع للمكتبة واختر لعبة من قسم الألعاب المعربة.','Game not found in the catalogue. Return to the library and select a title from Arabic Games.')+'</div>';return}
+const name=lang==='en'?(game.name_en||game.name):game.name;
+const desc=lang==='en'?(game.description_en||game.description):(game.description||game.description_en);
+const official=game.localizationType==='official';
+const cover=safeUrl(game.coverUrl)?'<img class="cover" src="'+esc(game.coverUrl)+'" alt="'+esc(name)+'" loading="lazy">':'<div class="placeholder" aria-label="'+esc(name)+'">🎮</div>';
+let actions='';
+if(safeUrl(game.sourceUrl||game.source_url||game.url))actions+='<a href="'+esc(game.sourceUrl||game.source_url||game.url)+'" target="_blank" rel="noopener">'+text('صفحة صاحب التعريب ↗','Original translation source ↗')+'</a>';
+if(safeUrl(game.downloadUrl||game.download_url))actions+='<a href="'+esc(game.downloadUrl||game.download_url)+'">'+text('تنزيل ملف التعريب','Download translation patch')+'</a>';
+$('crumbName').textContent=name;
+$('app').innerHTML='<section class="hero"><div>'+cover+'</div><div><span class="pill">'+(official?text('تعريب رسمي حسب الفهرس','Official listing'):text('تعريب مجتمعي','Community translation'))+'</span><h1>'+esc(name)+'</h1><p class="muted">'+esc(desc||text('لا يوجد وصف إضافي مسجل. افتح صفحة المصدر لمعرفة التفاصيل.','No further description is recorded. Open the source page for details.'))+'</p><div class="facts">'+fact(text('رقم CUSA','CUSA ID'),game.cusaId)+fact(text('إصدار اللعبة المطلوب','Required game update'),game.gameVersion||game.baseGameVersion)+fact(text('إصدار التعريب','Translation release'),game.translationVersion||game.version)+fact(text('نوع التعريب','Translation type'),lang==='en'?(game.translationType_en||game.translationType):game.translationType)+fact(text('المنطقة','Region'),game.region)+fact(text('المنصة','Platform'),game.platform||'PS4')+'</div><div class="actions">'+actions+'</div></div></section><section class="panel"><h2>'+text('طريقة التحقق قبل التثبيت','Before installing')+'</h2><p class="muted">'+text('1. طابق رقم CUSA مع نسختك المثبتة على الجهاز. 2. تأكد من إصدار تحديث اللعبة المطلوب من صفحة المصدر. 3. اقرأ تعليمات صاحب التعريب وطريقة تثبيت الباتش. 4. احتفظ بنسخة احتياطية من بياناتك قبل التعديل.','1. Match the CUSA ID with your installed game. 2. Confirm the required game update from the source page. 3. Follow the creator’s patch and installation instructions. 4. Back up your data before modifying files.')+'</p></section><section class="panel warning">'+text('تنبيه: ظهور اللعبة في الفهرس لا يضمن توافق التعريب مع كل المناطق أو الإصدارات. الحقول غير المؤكدة تُترك فارغة. M4 HUB لا يستضيف ملفات الألعاب التجارية ولا يعيد توزيع ملفات دون إذن.','Note: A catalogue listing does not guarantee compatibility with every region or game build. Unconfirmed fields are left blank. M4 HUB does not host commercial game files or redistribute files without permission.')+'</section>';
+}
+$('lang').addEventListener('click',()=>{lang=lang==='ar'?'en':'ar';document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';$('lang').textContent=lang==='ar'?'EN':'عربي';$('backLabel').textContent=text('الألعاب المعربة','Arabic Games');render()});
+fetch('../catalog.json?detail='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(data=>{game=(data.localizedGames||[]).find(x=>x.name===param)||null;render()}).catch(()=>{$('app').innerHTML='<div class="empty">'+text('تعذر تحميل الكتالوج. تحقق من الاتصال ثم أعد المحاولة.','Could not load the catalogue. Check your connection and retry.')+'</div>'});
+})();
+</script>
+</body></html>

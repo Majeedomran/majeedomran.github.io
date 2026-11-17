@@ -315,7 +315,7 @@ static void draw() {
         text(145,515,"NO PLACEHOLDER DOWNLOAD BUTTONS OR FAKE FILE LINKS",2,165,190,205);
         text(145,575,"CATALOG AND NETWORK SUPPORT ARE UNDER DEVELOPMENT",2,165,190,205);
         text(90,820,"CIRCLE - BACK TO HOME",3,36,205,186);
-        text(90,900,"M4 HUB NATIVE CLIENT - VERSION 0.1.4",2,121,143,166);
+        text(90,900,"M4 HUB NATIVE CLIENT - VERSION 0.1.6",2,121,143,166);
         text(90,960,networkStatus,2,36,205,186);
     }
     SDL_RenderPresent(gRenderer);
@@ -403,9 +403,10 @@ extern "C" int main(int, char**) {
             int dy=(ay < -engageDeadzone)?-1:((ay > engageDeadzone)?1:0);
             Uint32 now = SDL_GetTicks();
             bool centered = std::abs((int)ax)<releaseDeadzone && std::abs((int)ay)<releaseDeadzone;
-            bool movedDirection = (dx!=lastAnalogX || dy!=lastAnalogY);
+            // Edge-triggered navigation: one step per stick tilt.
+            // This prevents runaway scrolling if the controller reports a drifting axis.
             if (dx!=0 || dy!=0) {
-                if (!analogEngaged || movedDirection || now-lastAnalogMove>=190) {
+                if (!analogEngaged) {
                     navigate(dx,dy);
                     analogEngaged = true;
                     lastAnalogX=dx; lastAnalogY=dy; lastAnalogMove=now;

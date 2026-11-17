@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "application": "M4 HUB",
-  "checkedAt": "2026-11-17T11:59:44.390878+00:00",
+  "checkedAt": "2026-11-17T12:05:32.642628+00:00",
   "policy": "Checks HTTPS source/download URLs only; does not download files or certify safety, authenticity, or firmware compatibility.",
   "summary": {
-    "total": 144,
+    "total": 145,
     "reachable": 124,
     "httpErrors": 0,
-    "needsReview": 20
+    "needsReview": 21
   },
   "results": [
     {
@@ -142,7 +142,7 @@
       "ok": false,
       "status": "access_blocked",
       "httpStatus": 403,
-      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1369289735/1b7cdf33-6516-418d-933a-ab29422f925e?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A54%3A01Z&rscd=attachment%3B+filename%3Dfan_control.elf&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A53%3A49Z&ske=2026-11-17T12%3A54%3A01Z&sks=b&skv=2018-11-09&sig=HD%2FdEPpbFsKsJkIgwFQ5M5vC%2ByspowJiMl7V7brxqsM%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzA3MCwibmJmIjoxNzk0OTE2NzcwLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.S5G5bA5H03BBsaNAtKeUt3bic41qJOp0jT3fibXytdQ&response-content-disposition=attachment%3B%20filename%3Dfan_control.elf&response-content-type=application%2Foctet-stream",
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1369289735/1b7cdf33-6516-418d-933a-ab29422f925e?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A52%3A41Z&rscd=attachment%3B+filename%3Dfan_control.elf&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A52%3A36Z&ske=2026-11-17T12%3A52%3A41Z&sks=b&skv=2018-11-09&sig=4dHGm4rUzaPjP9e1W7AuId5KoI6ELniaq%2BXYDJcJNrc%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzQyMSwibmJmIjoxNzk0OTE3MTIxLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.90HFm_iCqQyN9X0fk6zvHI0Sn9bZ4dM2-mrd16h0fUs&response-content-disposition=attachment%3B%20filename%3Dfan_control.elf&response-content-type=application%2Foctet-stream",
       "redirects": [
         {
           "from": "https://store.brewology.com/dl/6150/fan_control.elf",
@@ -151,7 +151,7 @@
         },
         {
           "from": "https://github.com/grimstatic/payload-fan-control-ps4/releases/download/V1.1/fan_control.elf",
-          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1369289735/1b7cdf33-6516-418d-933a-ab29422f925e?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A54%3A01Z&rscd=attachment%3B+filename%3Dfan_control.elf&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A53%3A49Z&ske=2026-11-17T12%3A54%3A01Z&sks=b&skv=2018-11-09&sig=HD%2FdEPpbFsKsJkIgwFQ5M5vC%2ByspowJiMl7V7brxqsM%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzA3MCwibmJmIjoxNzk0OTE2NzcwLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.S5G5bA5H03BBsaNAtKeUt3bic41qJOp0jT3fibXytdQ&response-content-disposition=attachment%3B%20filename%3Dfan_control.elf&response-content-type=application%2Foctet-stream",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1369289735/1b7cdf33-6516-418d-933a-ab29422f925e?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A52%3A41Z&rscd=attachment%3B+filename%3Dfan_control.elf&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A52%3A36Z&ske=2026-11-17T12%3A52%3A41Z&sks=b&skv=2018-11-09&sig=4dHGm4rUzaPjP9e1W7AuId5KoI6ELniaq%2BXYDJcJNrc%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzQyMSwibmJmIjoxNzk0OTE3MTIxLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.90HFm_iCqQyN9X0fk6zvHI0Sn9bZ4dM2-mrd16h0fUs&response-content-disposition=attachment%3B%20filename%3Dfan_control.elf&response-content-type=application%2Foctet-stream",
           "httpStatus": 302
         }
       ]
@@ -288,7 +288,7 @@
       "ok": true,
       "status": "reachable",
       "httpStatus": 206,
-      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/427692744/106823cf-621f-4504-9b95-490a8ba59a6f?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A56%3A05Z&rscd=attachment%3B+filename%3DIV0000-APOL00004_00-APOLLO0000000PS4.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A56%3A05Z&ske=2026-11-17T12%3A56%3A05Z&sks=b&skv=2018-11-09&sig=zV7vWfCmQinshBXqUOraVjlpBumgPuQPkimr496mvqo%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxODU3MSwibmJmIjoxNzk0OTE2NzcxLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.ODuoE4_zSjBEjedKo-hlaWFe94PR1TwlNOOfBjYpeKE&response-content-disposition=attachment%3B%20filename%3DIV0000-APOL00004_00-APOLLO0000000PS4.pkg&response-content-type=application%2Foctet-stream",
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/427692744/106823cf-621f-4504-9b95-490a8ba59a6f?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T13%3A04%3A18Z&rscd=attachment%3B+filename%3DIV0000-APOL00004_00-APOLLO0000000PS4.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T12%3A04%3A01Z&ske=2026-11-17T13%3A04%3A18Z&sks=b&skv=2018-11-09&sig=SJMiSc2AmYDB9HhYalhlGbpodIFNr%2B8Pz7x%2BjCviSyY%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxODkyMSwibmJmIjoxNzk0OTE3MTIxLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.zOnLLX-aYKaQ6hYIpcJx2-YHjVOYqrE7_9kyBUaKkQ4&response-content-disposition=attachment%3B%20filename%3DIV0000-APOL00004_00-APOLLO0000000PS4.pkg&response-content-type=application%2Foctet-stream",
       "redirects": [
         {
           "from": "https://store.brewology.com/dl/5906/IV0000-APOL00004_00-APOLLO0000000PS4.pkg",
@@ -297,7 +297,7 @@
         },
         {
           "from": "https://github.com/bucanero/apollo-ps4/releases/download/v2.4.0/IV0000-APOL00004_00-APOLLO0000000PS4.pkg",
-          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/427692744/106823cf-621f-4504-9b95-490a8ba59a6f?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A56%3A05Z&rscd=attachment%3B+filename%3DIV0000-APOL00004_00-APOLLO0000000PS4.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A56%3A05Z&ske=2026-11-17T12%3A56%3A05Z&sks=b&skv=2018-11-09&sig=zV7vWfCmQinshBXqUOraVjlpBumgPuQPkimr496mvqo%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxODU3MSwibmJmIjoxNzk0OTE2NzcxLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.ODuoE4_zSjBEjedKo-hlaWFe94PR1TwlNOOfBjYpeKE&response-content-disposition=attachment%3B%20filename%3DIV0000-APOL00004_00-APOLLO0000000PS4.pkg&response-content-type=application%2Foctet-stream",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/427692744/106823cf-621f-4504-9b95-490a8ba59a6f?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T13%3A04%3A18Z&rscd=attachment%3B+filename%3DIV0000-APOL00004_00-APOLLO0000000PS4.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T12%3A04%3A01Z&ske=2026-11-17T13%3A04%3A18Z&sks=b&skv=2018-11-09&sig=SJMiSc2AmYDB9HhYalhlGbpodIFNr%2B8Pz7x%2BjCviSyY%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxODkyMSwibmJmIjoxNzk0OTE3MTIxLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.zOnLLX-aYKaQ6hYIpcJx2-YHjVOYqrE7_9kyBUaKkQ4&response-content-disposition=attachment%3B%20filename%3DIV0000-APOL00004_00-APOLLO0000000PS4.pkg&response-content-type=application%2Foctet-stream",
           "httpStatus": 302
         }
       ]
@@ -344,7 +344,7 @@
       "ok": true,
       "status": "reachable",
       "httpStatus": 206,
-      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/597518713/21287dad-5a51-45d8-bbae-53bc89e50bcd?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A49%3A57Z&rscd=attachment%3B+filename%3Dezremote_client.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A49%3A29Z&ske=2026-11-17T12%3A49%3A57Z&sks=b&skv=2018-11-09&sig=asjk1ldY2Zf6qirDR4Rt6e8%2FjMHMK0R0hTtQx8jG7Xc%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxODU3MSwibmJmIjoxNzk0OTE2NzcxLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.ODuoE4_zSjBEjedKo-hlaWFe94PR1TwlNOOfBjYpeKE&response-content-disposition=attachment%3B%20filename%3Dezremote_client.pkg&response-content-type=application%2Foctet-stream",
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/597518713/21287dad-5a51-45d8-bbae-53bc89e50bcd?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A53%3A36Z&rscd=attachment%3B+filename%3Dezremote_client.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A53%3A32Z&ske=2026-11-17T12%3A53%3A36Z&sks=b&skv=2018-11-09&sig=YNbPTGrp6tXkIyd9uIB89%2BtzpsrqI9APEeoOWCe8lY4%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxODkyMSwibmJmIjoxNzk0OTE3MTIxLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.zOnLLX-aYKaQ6hYIpcJx2-YHjVOYqrE7_9kyBUaKkQ4&response-content-disposition=attachment%3B%20filename%3Dezremote_client.pkg&response-content-type=application%2Foctet-stream",
       "redirects": [
         {
           "from": "https://store.brewology.com/dl/15781/ezremote_client.pkg",
@@ -353,7 +353,7 @@
         },
         {
           "from": "https://github.com/cy33hc/ps4-ezremote-client/releases/download/2.11/ezremote_client.pkg",
-          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/597518713/21287dad-5a51-45d8-bbae-53bc89e50bcd?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A49%3A57Z&rscd=attachment%3B+filename%3Dezremote_client.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A49%3A29Z&ske=2026-11-17T12%3A49%3A57Z&sks=b&skv=2018-11-09&sig=asjk1ldY2Zf6qirDR4Rt6e8%2FjMHMK0R0hTtQx8jG7Xc%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxODU3MSwibmJmIjoxNzk0OTE2NzcxLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.ODuoE4_zSjBEjedKo-hlaWFe94PR1TwlNOOfBjYpeKE&response-content-disposition=attachment%3B%20filename%3Dezremote_client.pkg&response-content-type=application%2Foctet-stream",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/597518713/21287dad-5a51-45d8-bbae-53bc89e50bcd?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A53%3A36Z&rscd=attachment%3B+filename%3Dezremote_client.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A53%3A32Z&ske=2026-11-17T12%3A53%3A36Z&sks=b&skv=2018-11-09&sig=YNbPTGrp6tXkIyd9uIB89%2BtzpsrqI9APEeoOWCe8lY4%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxODkyMSwibmJmIjoxNzk0OTE3MTIxLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.zOnLLX-aYKaQ6hYIpcJx2-YHjVOYqrE7_9kyBUaKkQ4&response-content-disposition=attachment%3B%20filename%3Dezremote_client.pkg&response-content-type=application%2Foctet-stream",
           "httpStatus": 302
         }
       ]
@@ -420,11 +420,11 @@
       "ok": true,
       "status": "reachable",
       "httpStatus": 206,
-      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1430051056/9fef6723-31b0-48bf-8064-a6af9ea0bb82?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A58%3A14Z&rscd=attachment%3B+filename%3DPS-MTP-Explorer-2.0.0.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A57%3A52Z&ske=2026-11-17T12%3A58%3A14Z&sks=b&skv=2018-11-09&sig=qU%2F9%2B7XLgdvQeo5Nf7SNBOC%2BD0kQ1JQJc5%2Fp0QEktO4%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzA3MSwibmJmIjoxNzk0OTE2NzcxLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.dFigF9iJySLWNkOei-mHIBceLkUY8mMSvvFY72yfvm0&response-content-disposition=attachment%3B%20filename%3DPS-MTP-Explorer-2.0.0.pkg&response-content-type=application%2Foctet-stream",
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1430051056/9fef6723-31b0-48bf-8064-a6af9ea0bb82?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A38%3A31Z&rscd=attachment%3B+filename%3DPS-MTP-Explorer-2.0.0.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A38%3A13Z&ske=2026-11-17T12%3A38%3A31Z&sks=b&skv=2018-11-09&sig=39w5HiIVI0jWexDp5Ayv1Iiebbxawu7Tj67ITQTW%2FCU%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzQyMiwibmJmIjoxNzk0OTE3MTIyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.XcMIi3bGfcLIxIfHcAfRRvXWAdUg33kt6uiD1rNa4Ss&response-content-disposition=attachment%3B%20filename%3DPS-MTP-Explorer-2.0.0.pkg&response-content-type=application%2Foctet-stream",
       "redirects": [
         {
           "from": "https://github.com/nueex/ps-mtp-explorer/releases/download/v2.0.0/PS-MTP-Explorer-2.0.0.pkg",
-          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1430051056/9fef6723-31b0-48bf-8064-a6af9ea0bb82?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A58%3A14Z&rscd=attachment%3B+filename%3DPS-MTP-Explorer-2.0.0.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A57%3A52Z&ske=2026-11-17T12%3A58%3A14Z&sks=b&skv=2018-11-09&sig=qU%2F9%2B7XLgdvQeo5Nf7SNBOC%2BD0kQ1JQJc5%2Fp0QEktO4%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzA3MSwibmJmIjoxNzk0OTE2NzcxLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.dFigF9iJySLWNkOei-mHIBceLkUY8mMSvvFY72yfvm0&response-content-disposition=attachment%3B%20filename%3DPS-MTP-Explorer-2.0.0.pkg&response-content-type=application%2Foctet-stream",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1430051056/9fef6723-31b0-48bf-8064-a6af9ea0bb82?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A38%3A31Z&rscd=attachment%3B+filename%3DPS-MTP-Explorer-2.0.0.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A38%3A13Z&ske=2026-11-17T12%3A38%3A31Z&sks=b&skv=2018-11-09&sig=39w5HiIVI0jWexDp5Ayv1Iiebbxawu7Tj67ITQTW%2FCU%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzQyMiwibmJmIjoxNzk0OTE3MTIyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.XcMIi3bGfcLIxIfHcAfRRvXWAdUg33kt6uiD1rNa4Ss&response-content-disposition=attachment%3B%20filename%3DPS-MTP-Explorer-2.0.0.pkg&response-content-type=application%2Foctet-stream",
           "httpStatus": 302
         }
       ]
@@ -456,7 +456,7 @@
       "ok": true,
       "status": "reachable",
       "httpStatus": 206,
-      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1435739581/18433c41-14a9-40a0-b7d3-819056b6b3ba?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A54%3A58Z&rscd=attachment%3B+filename%3DRemotePkgInstallerNextGen-0.0.9.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A54%3A46Z&ske=2026-11-17T12%3A54%3A58Z&sks=b&skv=2018-11-09&sig=vgKonofUfQEi3zNRfn28wGIM5Om0kGymGI1rXyJoomk%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzA3MiwibmJmIjoxNzk0OTE2NzcyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.CAG-aIhq1V-RASurfLon53yaurxSBXvzJ9pbdahoJbQ&response-content-disposition=attachment%3B%20filename%3DRemotePkgInstallerNextGen-0.0.9.pkg&response-content-type=application%2Foctet-stream",
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1435739581/18433c41-14a9-40a0-b7d3-819056b6b3ba?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T13%3A01%3A28Z&rscd=attachment%3B+filename%3DRemotePkgInstallerNextGen-0.0.9.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T12%3A01%3A22Z&ske=2026-11-17T13%3A01%3A28Z&sks=b&skv=2018-11-09&sig=ep8pcNkLXB2Bqcm1K5PxbGnQb8hq6y99K5GH%2FcCm0sQ%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzQyMiwibmJmIjoxNzk0OTE3MTIyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.XcMIi3bGfcLIxIfHcAfRRvXWAdUg33kt6uiD1rNa4Ss&response-content-disposition=attachment%3B%20filename%3DRemotePkgInstallerNextGen-0.0.9.pkg&response-content-type=application%2Foctet-stream",
       "redirects": [
         {
           "from": "https://store.brewology.com/dl/14286/RemotePkgInstallerNextGen-0.0.9.pkg",
@@ -465,7 +465,7 @@
         },
         {
           "from": "https://github.com/AldySan/ps4_remote_pkg_installer_nextgen/releases/download/v0.0.9/RemotePkgInstallerNextGen-0.0.9.pkg",
-          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1435739581/18433c41-14a9-40a0-b7d3-819056b6b3ba?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A54%3A58Z&rscd=attachment%3B+filename%3DRemotePkgInstallerNextGen-0.0.9.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A54%3A46Z&ske=2026-11-17T12%3A54%3A58Z&sks=b&skv=2018-11-09&sig=vgKonofUfQEi3zNRfn28wGIM5Om0kGymGI1rXyJoomk%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzA3MiwibmJmIjoxNzk0OTE2NzcyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.CAG-aIhq1V-RASurfLon53yaurxSBXvzJ9pbdahoJbQ&response-content-disposition=attachment%3B%20filename%3DRemotePkgInstallerNextGen-0.0.9.pkg&response-content-type=application%2Foctet-stream",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1435739581/18433c41-14a9-40a0-b7d3-819056b6b3ba?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T13%3A01%3A28Z&rscd=attachment%3B+filename%3DRemotePkgInstallerNextGen-0.0.9.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T12%3A01%3A22Z&ske=2026-11-17T13%3A01%3A28Z&sks=b&skv=2018-11-09&sig=ep8pcNkLXB2Bqcm1K5PxbGnQb8hq6y99K5GH%2FcCm0sQ%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzQyMiwibmJmIjoxNzk0OTE3MTIyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.XcMIi3bGfcLIxIfHcAfRRvXWAdUg33kt6uiD1rNa4Ss&response-content-disposition=attachment%3B%20filename%3DRemotePkgInstallerNextGen-0.0.9.pkg&response-content-type=application%2Foctet-stream",
           "httpStatus": 302
         }
       ]
@@ -512,11 +512,11 @@
       "ok": true,
       "status": "reachable",
       "httpStatus": 206,
-      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1404785797/66c21301-e869-43c8-af5b-9358d3f023a7?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A51%3A24Z&rscd=attachment%3B+filename%3DDolphinPS4-v04.19.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A51%3A17Z&ske=2026-11-17T12%3A51%3A24Z&sks=b&skv=2018-11-09&sig=q1MpaZo9PcL3fbpbjXBmtPNZWGKAu6uw67ljvMFFgdY%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkyMDM3MSwibmJmIjoxNzk0OTE2NzcxLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.8LW6TfgOhq-jhgw300rPcxGPNsdi-YLBDXb0Pxxsz0s&response-content-disposition=attachment%3B%20filename%3DDolphinPS4-v04.19.pkg&response-content-type=application%2Foctet-stream",
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1404785797/66c21301-e869-43c8-af5b-9358d3f023a7?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A50%3A51Z&rscd=attachment%3B+filename%3DDolphinPS4-v04.19.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A50%3A17Z&ske=2026-11-17T12%3A50%3A51Z&sks=b&skv=2018-11-09&sig=uvuq5Dr2NM7Z7Ui8sPW4VKxvTGU8S1KUA%2Bu0WA%2F1bNw%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkyMDcyMiwibmJmIjoxNzk0OTE3MTIyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.Fkne7H_4aRHtREEEkMD6ncaFGVodX_mvQxY3eulxbgk&response-content-disposition=attachment%3B%20filename%3DDolphinPS4-v04.19.pkg&response-content-type=application%2Foctet-stream",
       "redirects": [
         {
           "from": "https://github.com/iHaiDeeZ/DolphinPS4/releases/download/v04.19/DolphinPS4-v04.19.pkg",
-          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1404785797/66c21301-e869-43c8-af5b-9358d3f023a7?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A51%3A24Z&rscd=attachment%3B+filename%3DDolphinPS4-v04.19.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A51%3A17Z&ske=2026-11-17T12%3A51%3A24Z&sks=b&skv=2018-11-09&sig=q1MpaZo9PcL3fbpbjXBmtPNZWGKAu6uw67ljvMFFgdY%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkyMDM3MSwibmJmIjoxNzk0OTE2NzcxLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.8LW6TfgOhq-jhgw300rPcxGPNsdi-YLBDXb0Pxxsz0s&response-content-disposition=attachment%3B%20filename%3DDolphinPS4-v04.19.pkg&response-content-type=application%2Foctet-stream",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1404785797/66c21301-e869-43c8-af5b-9358d3f023a7?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A50%3A51Z&rscd=attachment%3B+filename%3DDolphinPS4-v04.19.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A50%3A17Z&ske=2026-11-17T12%3A50%3A51Z&sks=b&skv=2018-11-09&sig=uvuq5Dr2NM7Z7Ui8sPW4VKxvTGU8S1KUA%2Bu0WA%2F1bNw%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkyMDcyMiwibmJmIjoxNzk0OTE3MTIyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.Fkne7H_4aRHtREEEkMD6ncaFGVodX_mvQxY3eulxbgk&response-content-disposition=attachment%3B%20filename%3DDolphinPS4-v04.19.pkg&response-content-type=application%2Foctet-stream",
           "httpStatus": 302
         }
       ]
@@ -548,11 +548,11 @@
       "ok": true,
       "status": "reachable",
       "httpStatus": 206,
-      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1420958706/4ebabe92-e074-4280-880b-6e850863a888?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A52%3A10Z&rscd=attachment%3B+filename%3DEmuSuNi-v00.24.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A51%3A43Z&ske=2026-11-17T12%3A52%3A10Z&sks=b&skv=2018-11-09&sig=AQwakveeWvPZBP1u%2BSveCp8Y3Yw31YFLA6xL2Rns%2Bz8%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkyMDM3MiwibmJmIjoxNzk0OTE2NzcyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.8hyyLb3It-T29lHlZ7nVMIQ11agQcN-QRgMXkOG4q2w&response-content-disposition=attachment%3B%20filename%3DEmuSuNi-v00.24.pkg&response-content-type=application%2Foctet-stream",
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1420958706/4ebabe92-e074-4280-880b-6e850863a888?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A55%3A57Z&rscd=attachment%3B+filename%3DEmuSuNi-v00.24.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A54%3A59Z&ske=2026-11-17T12%3A55%3A57Z&sks=b&skv=2018-11-09&sig=8TEOkuCaGRgaShvrEvqeX8fVu6blzVL4GPby44IgszU%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkyMDcyMiwibmJmIjoxNzk0OTE3MTIyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.Fkne7H_4aRHtREEEkMD6ncaFGVodX_mvQxY3eulxbgk&response-content-disposition=attachment%3B%20filename%3DEmuSuNi-v00.24.pkg&response-content-type=application%2Foctet-stream",
       "redirects": [
         {
           "from": "https://github.com/arturofuentes1988/EmuSuNi/releases/download/v00.24/EmuSuNi-v00.24.pkg",
-          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1420958706/4ebabe92-e074-4280-880b-6e850863a888?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A52%3A10Z&rscd=attachment%3B+filename%3DEmuSuNi-v00.24.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A51%3A43Z&ske=2026-11-17T12%3A52%3A10Z&sks=b&skv=2018-11-09&sig=AQwakveeWvPZBP1u%2BSveCp8Y3Yw31YFLA6xL2Rns%2Bz8%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkyMDM3MiwibmJmIjoxNzk0OTE2NzcyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.8hyyLb3It-T29lHlZ7nVMIQ11agQcN-QRgMXkOG4q2w&response-content-disposition=attachment%3B%20filename%3DEmuSuNi-v00.24.pkg&response-content-type=application%2Foctet-stream",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1420958706/4ebabe92-e074-4280-880b-6e850863a888?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A55%3A57Z&rscd=attachment%3B+filename%3DEmuSuNi-v00.24.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A54%3A59Z&ske=2026-11-17T12%3A55%3A57Z&sks=b&skv=2018-11-09&sig=8TEOkuCaGRgaShvrEvqeX8fVu6blzVL4GPby44IgszU%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkyMDcyMiwibmJmIjoxNzk0OTE3MTIyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.Fkne7H_4aRHtREEEkMD6ncaFGVodX_mvQxY3eulxbgk&response-content-disposition=attachment%3B%20filename%3DEmuSuNi-v00.24.pkg&response-content-type=application%2Foctet-stream",
           "httpStatus": 302
         }
       ]
@@ -644,11 +644,11 @@
       "ok": true,
       "status": "reachable",
       "httpStatus": 206,
-      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/737915296/a0cf3879-3d6d-4c45-b2a6-31e706c1a154?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A52%3A00Z&rscd=attachment%3B+filename%3DIV0000-GOLD00777_00-GOLDCHEATS000PS4.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A51%3A27Z&ske=2026-11-17T12%3A52%3A00Z&sks=b&skv=2018-11-09&sig=Q4lnJmQTZAm4dZZTRYRMP8K2oOl5zu7RJq48LyCg55U%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxODU3MiwibmJmIjoxNzk0OTE2NzcyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.ho_loOoVdvjmBZuo_f0akgmkQbF3FpzBgNXuuMg2wjA&response-content-disposition=attachment%3B%20filename%3DIV0000-GOLD00777_00-GOLDCHEATS000PS4.pkg&response-content-type=application%2Foctet-stream",
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/737915296/a0cf3879-3d6d-4c45-b2a6-31e706c1a154?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A51%3A57Z&rscd=attachment%3B+filename%3DIV0000-GOLD00777_00-GOLDCHEATS000PS4.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A51%3A25Z&ske=2026-11-17T12%3A51%3A57Z&sks=b&skv=2018-11-09&sig=AHSPhUU3gaaXFqL67EwbW1syeA%2BFqLxi9r1wOsK00W4%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxODkyMiwibmJmIjoxNzk0OTE3MTIyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.FTvwTvOBwadqYbA8U9gnAIOeOt3Uwdvc9JveWVE3cT0&response-content-disposition=attachment%3B%20filename%3DIV0000-GOLD00777_00-GOLDCHEATS000PS4.pkg&response-content-type=application%2Foctet-stream",
       "redirects": [
         {
           "from": "https://github.com/GoldHEN/GoldHEN_Cheat_Manager/releases/download/v1.1.4/IV0000-GOLD00777_00-GOLDCHEATS000PS4.pkg",
-          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/737915296/a0cf3879-3d6d-4c45-b2a6-31e706c1a154?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A52%3A00Z&rscd=attachment%3B+filename%3DIV0000-GOLD00777_00-GOLDCHEATS000PS4.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A51%3A27Z&ske=2026-11-17T12%3A52%3A00Z&sks=b&skv=2018-11-09&sig=Q4lnJmQTZAm4dZZTRYRMP8K2oOl5zu7RJq48LyCg55U%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxODU3MiwibmJmIjoxNzk0OTE2NzcyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.ho_loOoVdvjmBZuo_f0akgmkQbF3FpzBgNXuuMg2wjA&response-content-disposition=attachment%3B%20filename%3DIV0000-GOLD00777_00-GOLDCHEATS000PS4.pkg&response-content-type=application%2Foctet-stream",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/737915296/a0cf3879-3d6d-4c45-b2a6-31e706c1a154?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A51%3A57Z&rscd=attachment%3B+filename%3DIV0000-GOLD00777_00-GOLDCHEATS000PS4.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A51%3A25Z&ske=2026-11-17T12%3A51%3A57Z&sks=b&skv=2018-11-09&sig=AHSPhUU3gaaXFqL67EwbW1syeA%2BFqLxi9r1wOsK00W4%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxODkyMiwibmJmIjoxNzk0OTE3MTIyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.FTvwTvOBwadqYbA8U9gnAIOeOt3Uwdvc9JveWVE3cT0&response-content-disposition=attachment%3B%20filename%3DIV0000-GOLD00777_00-GOLDCHEATS000PS4.pkg&response-content-type=application%2Foctet-stream",
           "httpStatus": 302
         }
       ]
@@ -885,11 +885,11 @@
       "ok": false,
       "status": "access_blocked",
       "httpStatus": 403,
-      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1435760299/6bad6678-16b5-4af2-87d8-89813d9081a8?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A50%3A09Z&rscd=attachment%3B+filename%3Donefamily_companion.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A49%3A38Z&ske=2026-11-17T12%3A50%3A09Z&sks=b&skv=2018-11-09&sig=0NktSfkQyP0QcMCrPoxJ7%2FYhWSkItBrmmnLLnqMu%2Fwk%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzA3MywibmJmIjoxNzk0OTE2NzczLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.j1IqdLG-Tn0PMX8RorAdzCbiZIX6G5OaTQ9_f3hy4XM&response-content-disposition=attachment%3B%20filename%3Donefamily_companion.pkg&response-content-type=application%2Foctet-stream",
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1435760299/6bad6678-16b5-4af2-87d8-89813d9081a8?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A58%3A32Z&rscd=attachment%3B+filename%3Donefamily_companion.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A57%3A56Z&ske=2026-11-17T12%3A58%3A32Z&sks=b&skv=2018-11-09&sig=%2BKdHmax6fs33%2BdcCWpyqz3CYomRcA3o%2FQKXhrhoM09Q%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzQyMywibmJmIjoxNzk0OTE3MTIzLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.3l_6QJT4XVxBJ-xjlr2mJxiLH4mofQWV8gvlXIyS9BQ&response-content-disposition=attachment%3B%20filename%3Donefamily_companion.pkg&response-content-type=application%2Foctet-stream",
       "redirects": [
         {
           "from": "https://github.com/ChiricoG/OneFamily/releases/download/v1.2.3/onefamily_companion.pkg",
-          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1435760299/6bad6678-16b5-4af2-87d8-89813d9081a8?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A50%3A09Z&rscd=attachment%3B+filename%3Donefamily_companion.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A49%3A38Z&ske=2026-11-17T12%3A50%3A09Z&sks=b&skv=2018-11-09&sig=0NktSfkQyP0QcMCrPoxJ7%2FYhWSkItBrmmnLLnqMu%2Fwk%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzA3MywibmJmIjoxNzk0OTE2NzczLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.j1IqdLG-Tn0PMX8RorAdzCbiZIX6G5OaTQ9_f3hy4XM&response-content-disposition=attachment%3B%20filename%3Donefamily_companion.pkg&response-content-type=application%2Foctet-stream",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1435760299/6bad6678-16b5-4af2-87d8-89813d9081a8?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A58%3A32Z&rscd=attachment%3B+filename%3Donefamily_companion.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A57%3A56Z&ske=2026-11-17T12%3A58%3A32Z&sks=b&skv=2018-11-09&sig=%2BKdHmax6fs33%2BdcCWpyqz3CYomRcA3o%2FQKXhrhoM09Q%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzQyMywibmJmIjoxNzk0OTE3MTIzLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.3l_6QJT4XVxBJ-xjlr2mJxiLH4mofQWV8gvlXIyS9BQ&response-content-disposition=attachment%3B%20filename%3Donefamily_companion.pkg&response-content-type=application%2Foctet-stream",
           "httpStatus": 302
         }
       ]
@@ -921,7 +921,7 @@
       "ok": true,
       "status": "reachable",
       "httpStatus": 206,
-      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1425663668/c33490e8-1d63-4cb3-919f-b7ba34e363df?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A50%3A39Z&rscd=attachment%3B+filename%3DVCFG_v2.36.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A49%3A55Z&ske=2026-11-17T12%3A50%3A39Z&sks=b&skv=2018-11-09&sig=d%2BM8mNKsPhESvug50Ek%2FvsW31S9IWKFl5I8NqnsoatM%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzA3MywibmJmIjoxNzk0OTE2NzczLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.j1IqdLG-Tn0PMX8RorAdzCbiZIX6G5OaTQ9_f3hy4XM&response-content-disposition=attachment%3B%20filename%3DVCFG_v2.36.pkg&response-content-type=application%2Foctet-stream",
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1425663668/c33490e8-1d63-4cb3-919f-b7ba34e363df?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A38%3A33Z&rscd=attachment%3B+filename%3DVCFG_v2.36.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A38%3A31Z&ske=2026-11-17T12%3A38%3A33Z&sks=b&skv=2018-11-09&sig=hQjrzs5jLMke%2BugRsLEENXA28W%2BiHl%2FrhPyxwmIdYvg%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzQyMywibmJmIjoxNzk0OTE3MTIzLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.3l_6QJT4XVxBJ-xjlr2mJxiLH4mofQWV8gvlXIyS9BQ&response-content-disposition=attachment%3B%20filename%3DVCFG_v2.36.pkg&response-content-type=application%2Foctet-stream",
       "redirects": [
         {
           "from": "https://store.brewology.com/dl/11487/VCFG_v2.36.pkg",
@@ -930,7 +930,7 @@
         },
         {
           "from": "https://github.com/Melnikoff07/vcfg/releases/download/v2.36/VCFG_v2.36.pkg",
-          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1425663668/c33490e8-1d63-4cb3-919f-b7ba34e363df?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A50%3A39Z&rscd=attachment%3B+filename%3DVCFG_v2.36.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A49%3A55Z&ske=2026-11-17T12%3A50%3A39Z&sks=b&skv=2018-11-09&sig=d%2BM8mNKsPhESvug50Ek%2FvsW31S9IWKFl5I8NqnsoatM%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzA3MywibmJmIjoxNzk0OTE2NzczLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.j1IqdLG-Tn0PMX8RorAdzCbiZIX6G5OaTQ9_f3hy4XM&response-content-disposition=attachment%3B%20filename%3DVCFG_v2.36.pkg&response-content-type=application%2Foctet-stream",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1425663668/c33490e8-1d63-4cb3-919f-b7ba34e363df?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A38%3A33Z&rscd=attachment%3B+filename%3DVCFG_v2.36.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A38%3A31Z&ske=2026-11-17T12%3A38%3A33Z&sks=b&skv=2018-11-09&sig=hQjrzs5jLMke%2BugRsLEENXA28W%2BiHl%2FrhPyxwmIdYvg%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzQyMywibmJmIjoxNzk0OTE3MTIzLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.3l_6QJT4XVxBJ-xjlr2mJxiLH4mofQWV8gvlXIyS9BQ&response-content-disposition=attachment%3B%20filename%3DVCFG_v2.36.pkg&response-content-type=application%2Foctet-stream",
           "httpStatus": 302
         }
       ]
@@ -1007,7 +1007,7 @@
       "ok": false,
       "status": "access_blocked",
       "httpStatus": 403,
-      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1149519288/490886d2-1583-4c55-8f15-8e8862745b75?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A57%3A39Z&rscd=attachment%3B+filename%3DSTORM_PS4_PKG_INSTALLER_1.60.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A56%3A40Z&ske=2026-11-17T12%3A57%3A39Z&sks=b&skv=2018-11-09&sig=8zvaMcKWxCb1LxgRcibIn2zgQxWfkcw9871MIQkhZS4%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxODU3MywibmJmIjoxNzk0OTE2NzczLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.6uj4iHg4LDEjVDH4NnvlMISJIT6vI6Y4Mba32JfeK4I&response-content-disposition=attachment%3B%20filename%3DSTORM_PS4_PKG_INSTALLER_1.60.pkg&response-content-type=application%2Foctet-stream",
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1149519288/490886d2-1583-4c55-8f15-8e8862745b75?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A56%3A32Z&rscd=attachment%3B+filename%3DSTORM_PS4_PKG_INSTALLER_1.60.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A55%3A33Z&ske=2026-11-17T12%3A56%3A32Z&sks=b&skv=2018-11-09&sig=6uY1U4S7qi1CV%2B9GNlQNawp3rRXIawTKboZ%2BRkJEAxo%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxODkyMywibmJmIjoxNzk0OTE3MTIzLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.dlMv-XxGiPNQedy_3JaD7XaPOogTeGSIvpnOxx33PIc&response-content-disposition=attachment%3B%20filename%3DSTORM_PS4_PKG_INSTALLER_1.60.pkg&response-content-type=application%2Foctet-stream",
       "redirects": [
         {
           "from": "https://store.brewology.com/dl/6352/STORM_PS4_PKG_INSTALLER_1.60.pkg",
@@ -1016,7 +1016,7 @@
         },
         {
           "from": "https://github.com/ReiKatari/STORM_PS4_PKG_INSTALLER/releases/download/1.60/STORM_PS4_PKG_INSTALLER_1.60.pkg",
-          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1149519288/490886d2-1583-4c55-8f15-8e8862745b75?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A57%3A39Z&rscd=attachment%3B+filename%3DSTORM_PS4_PKG_INSTALLER_1.60.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A56%3A40Z&ske=2026-11-17T12%3A57%3A39Z&sks=b&skv=2018-11-09&sig=8zvaMcKWxCb1LxgRcibIn2zgQxWfkcw9871MIQkhZS4%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxODU3MywibmJmIjoxNzk0OTE2NzczLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.6uj4iHg4LDEjVDH4NnvlMISJIT6vI6Y4Mba32JfeK4I&response-content-disposition=attachment%3B%20filename%3DSTORM_PS4_PKG_INSTALLER_1.60.pkg&response-content-type=application%2Foctet-stream",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1149519288/490886d2-1583-4c55-8f15-8e8862745b75?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A56%3A32Z&rscd=attachment%3B+filename%3DSTORM_PS4_PKG_INSTALLER_1.60.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A55%3A33Z&ske=2026-11-17T12%3A56%3A32Z&sks=b&skv=2018-11-09&sig=6uY1U4S7qi1CV%2B9GNlQNawp3rRXIawTKboZ%2BRkJEAxo%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxODkyMywibmJmIjoxNzk0OTE3MTIzLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.dlMv-XxGiPNQedy_3JaD7XaPOogTeGSIvpnOxx33PIc&response-content-disposition=attachment%3B%20filename%3DSTORM_PS4_PKG_INSTALLER_1.60.pkg&response-content-type=application%2Foctet-stream",
           "httpStatus": 302
         }
       ]
@@ -1048,7 +1048,7 @@
       "ok": false,
       "status": "access_blocked",
       "httpStatus": 403,
-      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1390386378/2a6d2d25-19f4-4043-a39a-caaa8ac4fc6d?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A53%3A16Z&rscd=attachment%3B+filename%3DProCon-0.3-hotfix.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A52%3A31Z&ske=2026-11-17T12%3A53%3A16Z&sks=b&skv=2018-11-09&sig=L4liqoZRKDJ%2F%2FeWguUpnStW%2FtZsGkHoGLuL0PFQSzPU%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzA3MywibmJmIjoxNzk0OTE2NzczLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.j1IqdLG-Tn0PMX8RorAdzCbiZIX6G5OaTQ9_f3hy4XM&response-content-disposition=attachment%3B%20filename%3DProCon-0.3-hotfix.pkg&response-content-type=application%2Foctet-stream",
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1390386378/2a6d2d25-19f4-4043-a39a-caaa8ac4fc6d?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A58%3A35Z&rscd=attachment%3B+filename%3DProCon-0.3-hotfix.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A58%3A26Z&ske=2026-11-17T12%3A58%3A35Z&sks=b&skv=2018-11-09&sig=gDt3DOHyHiPOkt%2FuQbjAPJ6Lb8Jtv3KMmEArcS1PgHs%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzQyMywibmJmIjoxNzk0OTE3MTIzLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.3l_6QJT4XVxBJ-xjlr2mJxiLH4mofQWV8gvlXIyS9BQ&response-content-disposition=attachment%3B%20filename%3DProCon-0.3-hotfix.pkg&response-content-type=application%2Foctet-stream",
       "redirects": [
         {
           "from": "https://store.brewology.com/dl/6218/ProCon-0.3-hotfix.pkg",
@@ -1057,7 +1057,7 @@
         },
         {
           "from": "https://github.com/joojofc13-wq/ProCon/releases/download/0.3-hotfix/ProCon-0.3-hotfix.pkg",
-          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1390386378/2a6d2d25-19f4-4043-a39a-caaa8ac4fc6d?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A53%3A16Z&rscd=attachment%3B+filename%3DProCon-0.3-hotfix.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A52%3A31Z&ske=2026-11-17T12%3A53%3A16Z&sks=b&skv=2018-11-09&sig=L4liqoZRKDJ%2F%2FeWguUpnStW%2FtZsGkHoGLuL0PFQSzPU%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzA3MywibmJmIjoxNzk0OTE2NzczLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.j1IqdLG-Tn0PMX8RorAdzCbiZIX6G5OaTQ9_f3hy4XM&response-content-disposition=attachment%3B%20filename%3DProCon-0.3-hotfix.pkg&response-content-type=application%2Foctet-stream",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1390386378/2a6d2d25-19f4-4043-a39a-caaa8ac4fc6d?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A58%3A35Z&rscd=attachment%3B+filename%3DProCon-0.3-hotfix.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A58%3A26Z&ske=2026-11-17T12%3A58%3A35Z&sks=b&skv=2018-11-09&sig=gDt3DOHyHiPOkt%2FuQbjAPJ6Lb8Jtv3KMmEArcS1PgHs%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzQyMywibmJmIjoxNzk0OTE3MTIzLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.3l_6QJT4XVxBJ-xjlr2mJxiLH4mofQWV8gvlXIyS9BQ&response-content-disposition=attachment%3B%20filename%3DProCon-0.3-hotfix.pkg&response-content-type=application%2Foctet-stream",
           "httpStatus": 302
         }
       ]
@@ -1089,7 +1089,7 @@
       "ok": true,
       "status": "reachable",
       "httpStatus": 206,
-      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1367653354/ec71f473-2c22-455a-b5b5-4b8f78927329?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A56%3A14Z&rscd=attachment%3B+filename%3Dgoldhen-plugin-manager-v1.1.1.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A55%3A22Z&ske=2026-11-17T12%3A56%3A14Z&sks=b&skv=2018-11-09&sig=9V946V0zSPPkwtGKZmwodLFceiNn7fAPmNIuB2LxGzY%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzA3MywibmJmIjoxNzk0OTE2NzczLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.j1IqdLG-Tn0PMX8RorAdzCbiZIX6G5OaTQ9_f3hy4XM&response-content-disposition=attachment%3B%20filename%3Dgoldhen-plugin-manager-v1.1.1.pkg&response-content-type=application%2Foctet-stream",
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1367653354/ec71f473-2c22-455a-b5b5-4b8f78927329?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A52%3A00Z&rscd=attachment%3B+filename%3Dgoldhen-plugin-manager-v1.1.1.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A51%3A40Z&ske=2026-11-17T12%3A52%3A00Z&sks=b&skv=2018-11-09&sig=lgP%2FMYIlTZzARfRQZAB4QtWx2Snae6BaMVnOgWHlqjE%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzQyMywibmJmIjoxNzk0OTE3MTIzLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.3l_6QJT4XVxBJ-xjlr2mJxiLH4mofQWV8gvlXIyS9BQ&response-content-disposition=attachment%3B%20filename%3Dgoldhen-plugin-manager-v1.1.1.pkg&response-content-type=application%2Foctet-stream",
       "redirects": [
         {
           "from": "https://store.brewology.com/dl/6127/goldhen-plugin-manager-v1.1.1.pkg",
@@ -1098,7 +1098,7 @@
         },
         {
           "from": "https://github.com/ezecernadas/goldhen-plugin-manager/releases/download/v1.1.1/goldhen-plugin-manager-v1.1.1.pkg",
-          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1367653354/ec71f473-2c22-455a-b5b5-4b8f78927329?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A56%3A14Z&rscd=attachment%3B+filename%3Dgoldhen-plugin-manager-v1.1.1.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A55%3A22Z&ske=2026-11-17T12%3A56%3A14Z&sks=b&skv=2018-11-09&sig=9V946V0zSPPkwtGKZmwodLFceiNn7fAPmNIuB2LxGzY%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzA3MywibmJmIjoxNzk0OTE2NzczLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.j1IqdLG-Tn0PMX8RorAdzCbiZIX6G5OaTQ9_f3hy4XM&response-content-disposition=attachment%3B%20filename%3Dgoldhen-plugin-manager-v1.1.1.pkg&response-content-type=application%2Foctet-stream",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1367653354/ec71f473-2c22-455a-b5b5-4b8f78927329?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A52%3A00Z&rscd=attachment%3B+filename%3Dgoldhen-plugin-manager-v1.1.1.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A51%3A40Z&ske=2026-11-17T12%3A52%3A00Z&sks=b&skv=2018-11-09&sig=lgP%2FMYIlTZzARfRQZAB4QtWx2Snae6BaMVnOgWHlqjE%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzQyMywibmJmIjoxNzk0OTE3MTIzLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.3l_6QJT4XVxBJ-xjlr2mJxiLH4mofQWV8gvlXIyS9BQ&response-content-disposition=attachment%3B%20filename%3Dgoldhen-plugin-manager-v1.1.1.pkg&response-content-type=application%2Foctet-stream",
           "httpStatus": 302
         }
       ]
@@ -1130,7 +1130,7 @@
       "ok": false,
       "status": "access_blocked",
       "httpStatus": 403,
-      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1317313547/e8a6b8b7-d441-4ea2-a232-8c2e56c5d0ee?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A50%3A04Z&rscd=attachment%3B+filename%3DIV0000-BREW00010_00-DROPBEARSSH00000.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A50%3A03Z&ske=2026-11-17T12%3A50%3A04Z&sks=b&skv=2018-11-09&sig=Wpg3C7V%2BVHaBjY6pt%2FiWZ5H%2F8Ys%2FywLvfzxUXU8r9v0%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzA3MywibmJmIjoxNzk0OTE2NzczLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.j1IqdLG-Tn0PMX8RorAdzCbiZIX6G5OaTQ9_f3hy4XM&response-content-disposition=attachment%3B%20filename%3DIV0000-BREW00010_00-DROPBEARSSH00000.pkg&response-content-type=application%2Foctet-stream",
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1317313547/e8a6b8b7-d441-4ea2-a232-8c2e56c5d0ee?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A55%3A57Z&rscd=attachment%3B+filename%3DIV0000-BREW00010_00-DROPBEARSSH00000.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A55%3A01Z&ske=2026-11-17T12%3A55%3A57Z&sks=b&skv=2018-11-09&sig=bG%2BK5QDd%2BFAYn%2F0D1kuZp1UhwQrORVdnw1YQz3LFcYk%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzQyMywibmJmIjoxNzk0OTE3MTIzLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.3l_6QJT4XVxBJ-xjlr2mJxiLH4mofQWV8gvlXIyS9BQ&response-content-disposition=attachment%3B%20filename%3DIV0000-BREW00010_00-DROPBEARSSH00000.pkg&response-content-type=application%2Foctet-stream",
       "redirects": [
         {
           "from": "https://store.brewology.com/dl/6359/IV0000-BREW00010_00-DROPBEARSSH00000.pkg",
@@ -1139,7 +1139,7 @@
         },
         {
           "from": "https://github.com/RuxaXa/ps4-dropbear-ssh/releases/download/v1.07-build57/IV0000-BREW00010_00-DROPBEARSSH00000.pkg",
-          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1317313547/e8a6b8b7-d441-4ea2-a232-8c2e56c5d0ee?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A50%3A04Z&rscd=attachment%3B+filename%3DIV0000-BREW00010_00-DROPBEARSSH00000.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A50%3A03Z&ske=2026-11-17T12%3A50%3A04Z&sks=b&skv=2018-11-09&sig=Wpg3C7V%2BVHaBjY6pt%2FiWZ5H%2F8Ys%2FywLvfzxUXU8r9v0%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzA3MywibmJmIjoxNzk0OTE2NzczLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.j1IqdLG-Tn0PMX8RorAdzCbiZIX6G5OaTQ9_f3hy4XM&response-content-disposition=attachment%3B%20filename%3DIV0000-BREW00010_00-DROPBEARSSH00000.pkg&response-content-type=application%2Foctet-stream",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1317313547/e8a6b8b7-d441-4ea2-a232-8c2e56c5d0ee?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A55%3A57Z&rscd=attachment%3B+filename%3DIV0000-BREW00010_00-DROPBEARSSH00000.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A55%3A01Z&ske=2026-11-17T12%3A55%3A57Z&sks=b&skv=2018-11-09&sig=bG%2BK5QDd%2BFAYn%2F0D1kuZp1UhwQrORVdnw1YQz3LFcYk%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzQyMywibmJmIjoxNzk0OTE3MTIzLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.3l_6QJT4XVxBJ-xjlr2mJxiLH4mofQWV8gvlXIyS9BQ&response-content-disposition=attachment%3B%20filename%3DIV0000-BREW00010_00-DROPBEARSSH00000.pkg&response-content-type=application%2Foctet-stream",
           "httpStatus": 302
         }
       ]
@@ -1171,7 +1171,7 @@
       "ok": true,
       "status": "reachable",
       "httpStatus": 206,
-      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/490433618/a1911bc5-566f-4e01-844c-f0ce0249cca5?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A57%3A44Z&rscd=attachment%3B+filename%3DIV0000-LOAD00044_00-SDL2GLES20000000.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A56%3A52Z&ske=2026-11-17T12%3A57%3A44Z&sks=b&skv=2018-11-09&sig=i2TNijqLovb7d2rhC27rCFEESTUXIK3WGmdUNDvS6SM%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzA3NCwibmJmIjoxNzk0OTE2Nzc0LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.Qb1xFs-AKalRzFdpNpW04YilXRmPm1Mh8ZShw5DD-M0&response-content-disposition=attachment%3B%20filename%3DIV0000-LOAD00044_00-SDL2GLES20000000.pkg&response-content-type=application%2Foctet-stream",
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/490433618/a1911bc5-566f-4e01-844c-f0ce0249cca5?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A52%3A00Z&rscd=attachment%3B+filename%3DIV0000-LOAD00044_00-SDL2GLES20000000.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A51%3A40Z&ske=2026-11-17T12%3A52%3A00Z&sks=b&skv=2018-11-09&sig=AlDOALDuMjq0wJF2NozWDcFj5mPd9nvTlMsw%2Bam24Ig%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzQyMywibmJmIjoxNzk0OTE3MTIzLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.3l_6QJT4XVxBJ-xjlr2mJxiLH4mofQWV8gvlXIyS9BQ&response-content-disposition=attachment%3B%20filename%3DIV0000-LOAD00044_00-SDL2GLES20000000.pkg&response-content-type=application%2Foctet-stream",
       "redirects": [
         {
           "from": "https://store.brewology.com/dl/5928/IV0000-LOAD00044_00-SDL2GLES20000000.pkg",
@@ -1180,7 +1180,7 @@
         },
         {
           "from": "https://github.com/bucanero/ps4load/releases/download/v0.5.0/IV0000-LOAD00044_00-SDL2GLES20000000.pkg",
-          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/490433618/a1911bc5-566f-4e01-844c-f0ce0249cca5?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A57%3A44Z&rscd=attachment%3B+filename%3DIV0000-LOAD00044_00-SDL2GLES20000000.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A56%3A52Z&ske=2026-11-17T12%3A57%3A44Z&sks=b&skv=2018-11-09&sig=i2TNijqLovb7d2rhC27rCFEESTUXIK3WGmdUNDvS6SM%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzA3NCwibmJmIjoxNzk0OTE2Nzc0LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.Qb1xFs-AKalRzFdpNpW04YilXRmPm1Mh8ZShw5DD-M0&response-content-disposition=attachment%3B%20filename%3DIV0000-LOAD00044_00-SDL2GLES20000000.pkg&response-content-type=application%2Foctet-stream",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/490433618/a1911bc5-566f-4e01-844c-f0ce0249cca5?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A52%3A00Z&rscd=attachment%3B+filename%3DIV0000-LOAD00044_00-SDL2GLES20000000.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A51%3A40Z&ske=2026-11-17T12%3A52%3A00Z&sks=b&skv=2018-11-09&sig=AlDOALDuMjq0wJF2NozWDcFj5mPd9nvTlMsw%2Bam24Ig%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzQyMywibmJmIjoxNzk0OTE3MTIzLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.3l_6QJT4XVxBJ-xjlr2mJxiLH4mofQWV8gvlXIyS9BQ&response-content-disposition=attachment%3B%20filename%3DIV0000-LOAD00044_00-SDL2GLES20000000.pkg&response-content-type=application%2Foctet-stream",
           "httpStatus": 302
         }
       ]
@@ -1212,7 +1212,7 @@
       "ok": false,
       "status": "access_blocked",
       "httpStatus": 403,
-      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/423052703/83262909-b8da-42be-94d3-7e3a66cc5c04?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A48%3A45Z&rscd=attachment%3B+filename%3DIV0000-AZIF00001_00-PS4VIBE000000000.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A48%3A30Z&ske=2026-11-17T12%3A48%3A45Z&sks=b&skv=2018-11-09&sig=mgNUUM1rnwxElX%2FpmiqVftwGuZ%2F0bIpECysVH3FVT4w%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzA3NCwibmJmIjoxNzk0OTE2Nzc0LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.Qb1xFs-AKalRzFdpNpW04YilXRmPm1Mh8ZShw5DD-M0&response-content-disposition=attachment%3B%20filename%3DIV0000-AZIF00001_00-PS4VIBE000000000.pkg&response-content-type=application%2Foctet-stream",
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/423052703/83262909-b8da-42be-94d3-7e3a66cc5c04?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A53%3A34Z&rscd=attachment%3B+filename%3DIV0000-AZIF00001_00-PS4VIBE000000000.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A53%3A21Z&ske=2026-11-17T12%3A53%3A34Z&sks=b&skv=2018-11-09&sig=8Dq0K9Wz77rd4rLWPzFGIZUoIJak2U5Y6TjaPPcFZy0%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzQyNCwibmJmIjoxNzk0OTE3MTI0LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.0QSWmTNKBCC7d32ZW-S6K0w7Dh1T8EK7Z_e0H-czlYU&response-content-disposition=attachment%3B%20filename%3DIV0000-AZIF00001_00-PS4VIBE000000000.pkg&response-content-type=application%2Foctet-stream",
       "redirects": [
         {
           "from": "https://store.brewology.com/dl/5886/IV0000-AZIF00001_00-PS4VIBE000000000.pkg",
@@ -1221,7 +1221,7 @@
         },
         {
           "from": "https://github.com/Al-Azif/ps4-vibe/releases/download/v1.02/IV0000-AZIF00001_00-PS4VIBE000000000.pkg",
-          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/423052703/83262909-b8da-42be-94d3-7e3a66cc5c04?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A48%3A45Z&rscd=attachment%3B+filename%3DIV0000-AZIF00001_00-PS4VIBE000000000.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A48%3A30Z&ske=2026-11-17T12%3A48%3A45Z&sks=b&skv=2018-11-09&sig=mgNUUM1rnwxElX%2FpmiqVftwGuZ%2F0bIpECysVH3FVT4w%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzA3NCwibmJmIjoxNzk0OTE2Nzc0LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.Qb1xFs-AKalRzFdpNpW04YilXRmPm1Mh8ZShw5DD-M0&response-content-disposition=attachment%3B%20filename%3DIV0000-AZIF00001_00-PS4VIBE000000000.pkg&response-content-type=application%2Foctet-stream",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/423052703/83262909-b8da-42be-94d3-7e3a66cc5c04?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A53%3A34Z&rscd=attachment%3B+filename%3DIV0000-AZIF00001_00-PS4VIBE000000000.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A53%3A21Z&ske=2026-11-17T12%3A53%3A34Z&sks=b&skv=2018-11-09&sig=8Dq0K9Wz77rd4rLWPzFGIZUoIJak2U5Y6TjaPPcFZy0%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzQyNCwibmJmIjoxNzk0OTE3MTI0LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.0QSWmTNKBCC7d32ZW-S6K0w7Dh1T8EK7Z_e0H-czlYU&response-content-disposition=attachment%3B%20filename%3DIV0000-AZIF00001_00-PS4VIBE000000000.pkg&response-content-type=application%2Foctet-stream",
           "httpStatus": 302
         }
       ]
@@ -1253,7 +1253,7 @@
       "ok": false,
       "status": "access_blocked",
       "httpStatus": 403,
-      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/350894578/e03fcc00-8c03-11eb-8949-a8741afdbd28?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A49%3A10Z&rscd=attachment%3B+filename%3DIV0000-OFTP00000_00-FTPINSTALLR00000.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A48%3A46Z&ske=2026-11-17T12%3A49%3A10Z&sks=b&skv=2018-11-09&sig=poYXD4ICyDrEcKBSi3YBnGbNhIi05tyUAS%2FLkUgIb6s%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzA3NCwibmJmIjoxNzk0OTE2Nzc0LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.Qb1xFs-AKalRzFdpNpW04YilXRmPm1Mh8ZShw5DD-M0&response-content-disposition=attachment%3B%20filename%3DIV0000-OFTP00000_00-FTPINSTALLR00000.pkg&response-content-type=application%2Foctet-stream",
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/350894578/e03fcc00-8c03-11eb-8949-a8741afdbd28?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A49%3A11Z&rscd=attachment%3B+filename%3DIV0000-OFTP00000_00-FTPINSTALLR00000.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A48%3A56Z&ske=2026-11-17T12%3A49%3A11Z&sks=b&skv=2018-11-09&sig=X0hN0iEPfSlubZsuOEQRduV%2BpqWXTtanLgq%2FVLAs6gg%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzQyNCwibmJmIjoxNzk0OTE3MTI0LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.0QSWmTNKBCC7d32ZW-S6K0w7Dh1T8EK7Z_e0H-czlYU&response-content-disposition=attachment%3B%20filename%3DIV0000-OFTP00000_00-FTPINSTALLR00000.pkg&response-content-type=application%2Foctet-stream",
       "redirects": [
         {
           "from": "https://store.brewology.com/dl/6321/IV0000-OFTP00000_00-FTPINSTALLR00000.pkg",
@@ -1262,7 +1262,7 @@
         },
         {
           "from": "https://github.com/OSM-Made/OrbisFTP/releases/download/1.0/IV0000-OFTP00000_00-FTPINSTALLR00000.pkg",
-          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/350894578/e03fcc00-8c03-11eb-8949-a8741afdbd28?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A49%3A10Z&rscd=attachment%3B+filename%3DIV0000-OFTP00000_00-FTPINSTALLR00000.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A48%3A46Z&ske=2026-11-17T12%3A49%3A10Z&sks=b&skv=2018-11-09&sig=poYXD4ICyDrEcKBSi3YBnGbNhIi05tyUAS%2FLkUgIb6s%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzA3NCwibmJmIjoxNzk0OTE2Nzc0LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.Qb1xFs-AKalRzFdpNpW04YilXRmPm1Mh8ZShw5DD-M0&response-content-disposition=attachment%3B%20filename%3DIV0000-OFTP00000_00-FTPINSTALLR00000.pkg&response-content-type=application%2Foctet-stream",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/350894578/e03fcc00-8c03-11eb-8949-a8741afdbd28?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T12%3A49%3A11Z&rscd=attachment%3B+filename%3DIV0000-OFTP00000_00-FTPINSTALLR00000.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T11%3A48%3A56Z&ske=2026-11-17T12%3A49%3A11Z&sks=b&skv=2018-11-09&sig=X0hN0iEPfSlubZsuOEQRduV%2BpqWXTtanLgq%2FVLAs6gg%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxNzQyNCwibmJmIjoxNzk0OTE3MTI0LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.0QSWmTNKBCC7d32ZW-S6K0w7Dh1T8EK7Z_e0H-czlYU&response-content-disposition=attachment%3B%20filename%3DIV0000-OFTP00000_00-FTPINSTALLR00000.pkg&response-content-type=application%2Foctet-stream",
           "httpStatus": 302
         }
       ]
@@ -2409,6 +2409,90 @@
       "ok": false,
       "status": "host_not_allowlisted",
       "checkedUrl": "https://www.playstation.com/games/bloodborne/",
+      "redirects": []
+    },
+    {
+      "url": "https://www.playstation.com/",
+      "references": [
+        {
+          "section": "games",
+          "name": "Batman: Arkham Knight",
+          "field": "sourceUrl"
+        },
+        {
+          "section": "games",
+          "name": "Detroit: Become Human",
+          "field": "sourceUrl"
+        },
+        {
+          "section": "games",
+          "name": "Far Cry 5",
+          "field": "sourceUrl"
+        },
+        {
+          "section": "games",
+          "name": "Fallout 4",
+          "field": "sourceUrl"
+        },
+        {
+          "section": "games",
+          "name": "Need for Speed Heat",
+          "field": "sourceUrl"
+        },
+        {
+          "section": "games",
+          "name": "Sekiro: Shadows Die Twice",
+          "field": "sourceUrl"
+        },
+        {
+          "section": "games",
+          "name": "Dark Souls III",
+          "field": "sourceUrl"
+        },
+        {
+          "section": "games",
+          "name": "Nioh",
+          "field": "sourceUrl"
+        },
+        {
+          "section": "games",
+          "name": "Ratchet & Clank",
+          "field": "sourceUrl"
+        },
+        {
+          "section": "games",
+          "name": "Mad Max",
+          "field": "sourceUrl"
+        },
+        {
+          "section": "games",
+          "name": "Metro Exodus",
+          "field": "sourceUrl"
+        },
+        {
+          "section": "games",
+          "name": "inFAMOUS: Second Son",
+          "field": "sourceUrl"
+        },
+        {
+          "section": "games",
+          "name": "Shadow of the Tomb Raider",
+          "field": "sourceUrl"
+        },
+        {
+          "section": "games",
+          "name": "The Order: 1886",
+          "field": "sourceUrl"
+        },
+        {
+          "section": "games",
+          "name": "Marvel's Spider-Man: Miles Morales",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": false,
+      "status": "host_not_allowlisted",
+      "checkedUrl": "https://www.playstation.com/",
       "redirects": []
     }
   ]

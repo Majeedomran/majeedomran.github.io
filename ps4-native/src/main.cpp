@@ -225,8 +225,8 @@ static const char* descriptions[] = {
 };
 static void drawSystemInfo() {
     char clockLabel[64], dateLabel[64];
-    std::time_t nowTime=std::time(nullptr); std::tm localTime;
-    if(localtime_r(&nowTime,&localTime)) {
+    std::time_t nowTime=std::time(nullptr) + 3*60*60; std::tm localTime;
+    if(gmtime_r(&nowTime,&localTime)) {
         std::snprintf(clockLabel,sizeof(clockLabel),"TIME %02d:%02d:%02d",localTime.tm_hour,localTime.tm_min,localTime.tm_sec);
         std::snprintf(dateLabel,sizeof(dateLabel),"DATE %02d/%02d/%04d",localTime.tm_mday,localTime.tm_mon+1,localTime.tm_year+1900);
     } else {
@@ -240,9 +240,8 @@ static void drawSystemInfo() {
     }
     char firmwareLabel[48];
     if(fwValue!=0 && fwValue!=UINT32_MAX) {
-        unsigned major=(fwValue>>8)&0xFF, minor=fwValue&0xFF;
-        std::snprintf(firmwareLabel,sizeof(firmwareLabel),"PS4 FW %u.%02u",major,minor);
-    } else std::snprintf(firmwareLabel,sizeof(firmwareLabel),"PS4 FW N/A");
+        std::snprintf(firmwareLabel,sizeof(firmwareLabel),"FW RAW 0x%08X",fwValue);
+    } else std::snprintf(firmwareLabel,sizeof(firmwareLabel),"FW READ ERROR");
     rect(70,145,1780,48,15,34,54);
     outline(70,145,1780,48,36,105,118);
     text(100,162,firmwareLabel,2,36,220,190);

@@ -3,6 +3,8 @@
 #include <cstdio>
 #include <cstring>
 #include <cstdlib>
+#include <cctype>
+#include <cmath>
 
 static const int SCREEN_W = 1920;
 static const int SCREEN_H = 1080;
@@ -12,6 +14,68 @@ static SDL_Joystick* gPad = nullptr;
 static int selected = 0;
 static int page = 0;
 static char networkStatus[128] = "PRESS TRIANGLE TO REFRESH CATALOG";
+
+struct GameItem { char name[112]; char cusa[24]; double sizeGB; bool hasSize; };
+static GameItem gameItems[80];
+static int gameCount = 0;
+static int listOffset = 0;
+static bool detailOpen = false;
+
+static const char* skipSpace(const char* p) { while (*p && std::isspace((unsigned char)*p)) ++p; return p; }
+static const char* findJsonString(const char* obj, const char* key) {
+    char pattern[64]; std::snprintf(pattern,sizeof(pattern),"\"%s\"",key);
+    const char* p=obj;
+    while ((p=std::strstr(p,pattern))) {
+        p=skipSpace(p+std::strlen(pattern));
+        if (*p++!=':') continue;
+        p=skipSpace(p);
+        if (*p=='"') return p+1;
+    }
+    return nullptr;
+}
+static void readJsonText(const char* obj,const char* key,char* out,std::size_t cap) {
+    if (!cap) return; out[0]=0;
+    const char* p=findJsonString(obj,key); if(!p) return;
+    std::size_t n=0;
+    while(*p && *p!='"' && n+1<cap) {
+        if(*p=='\\' && p[1]) { ++p; if(*p=='n') out[n++]=' '; else out[n++]=*p++; }
+        else out[n++]=*p++;
+    }
+    out[n]=0;
+}
+static void loadGamesFromCache() {
+    FILE* f=std::fopen("/data/m4hub_catalog.json","rb"); if(!f) return;
+    std::fseek(f,0,SEEK_END); long len=std::ftell(f); std::rewind(f);
+    if(len<=0 || len>8*1024*1024) { std::fclose(f); return; }
+    char* json=(char*)std::malloc((std::size_t)len+1); if(!json){std::fclose(f);return;}
+    std::size_t got=std::fread(json,1,(std::size_t)len,f); std::fclose(f); json[got]=0;
+    const char* p=std::strstr(json,"\"games\""); if(!p){std::free(json);return;}
+    p=std::strchr(p,'['); if(!p){std::free(json);return;} ++p;
+    gameCount=0;
+    while(*p && gameCount<80) {
+        p=skipSpace(p); if(*p==']') break;
+        if(*p==','){++p;continue;} if(*p!='{'){++p;continue;}
+        const char* start=p; int depth=0; bool quoted=false,escape=false;
+        do {
+            char ch=*p++;
+            if(quoted) { if(escape) escape=false; else if(ch=='\\') escape=true; else if(ch=='"') quoted=false; }
+            else { if(ch=='"') quoted=true; else if(ch=='{') ++depth; else if(ch=='}') --depth; }
+        } while(*p && depth>0);
+        if(depth!=0) break;
+        std::size_t n=(std::size_t)(p-start);
+        char* obj=(char*)std::malloc(n+1); if(!obj) break;
+        std::memcpy(obj,start,n); obj[n]=0;
+        GameItem& g=gameItems[gameCount]; std::memset(&g,0,sizeof(g));
+        readJsonText(obj,"name_en",g.name,sizeof(g.name));
+        if(!g.name[0]) readJsonText(obj,"name",g.name,sizeof(g.name));
+        readJsonText(obj,"cusa",g.cusa,sizeof(g.cusa));
+        const char* size=findJsonString(obj,"sizeGB");
+        if(size) { char* end=nullptr; double v=std::strtod(size,&end); if(end!=size && v>0 && v<2000){g.sizeGB=v;g.hasSize=true;} }
+        if(g.name[0]) ++gameCount;
+        std::free(obj);
+    }
+    std::free(json);
+}
 
 struct Glyph { char c; const char* rows[7]; };
 static const Glyph FONT[] = {
@@ -118,6 +182,32 @@ static void draw() {
         text(90,960,"CATALOG SYNC AND DOWNLOADS ARE THE NEXT DEVELOPMENT STAGE",2,121,143,166);
         text(90,990,"NO GAME FILES ARE INCLUDED IN THIS PREVIEW",2,121,143,166);
         text(90,1030,networkStatus,2,36,205,186);
+    } else if (page==3) {
+        text(90,150,"GAME LIBRARY",5,36,205,186);
+        rect(80,240,1760,3,38,57,78);
+        if(gameCount==0) {
+            text(145,365,"NO CACHED CATALOG - PRESS TRIANGLE ON HOME",3,245,248,255);
+        } else {
+            char countLabel[80]; std::snprintf(countLabel,sizeof(countLabel),"GAMES IN CATALOG: %d",gameCount);
+            text(100,270,countLabel,2,143,164,190);
+            int visible=8;
+            if(selected>=gameCount) selected=gameCount-1;
+            if(selected<0) selected=0;
+            if(selected<listOffset) listOffset=selected;
+            if(selected>=listOffset+visible) listOffset=selected-visible+1;
+            for(int i=0;i<visible && listOffset+i<gameCount;++i) {
+                int idx=listOffset+i, y=325+i*66; bool active=(idx==selected);
+                rect(95,y,1720,54,active?24:17,active?54:27,active?66:42);
+                text(125,y+16,gameItems[idx].name,2,245,248,255);
+                char meta[80];
+                if(gameItems[idx].hasSize) std::snprintf(meta,sizeof(meta),"SIZE %.2f GB APPROX",gameItems[idx].sizeGB);
+                else std::snprintf(meta,sizeof(meta),"SIZE NOT LISTED");
+                text(1200,y+18,meta,1,active?90:143,active?230:164,active?205:190);
+            }
+        }
+        text(90,900,"UP DOWN - SELECT GAME",2,167,185,203);
+        text(650,900,"CROSS - OFFICIAL SOURCE",2,167,185,203);
+        text(90,960,networkStatus,2,36,205,186);
     } else {
         int index=page-1;
         text(90,150,cards[index],5,36,205,186);
@@ -142,13 +232,13 @@ static void moveSelection(int dx,int dy) {
 }
 static void handleButton(int b) {
     switch(b) {
-        case 0: page=selected+1; break; // CROSS
+        case 0: if(page==3 && gameCount>0 && selected<gameCount) { /* game source is informational; URL is not opened in this prototype */ } else page=selected+1; break; // CROSS
         case 1: page=0; break;         // CIRCLE
-        case 3: m4hub_refresh_catalog(networkStatus, sizeof(networkStatus)); break; // TRIANGLE: fetch live catalog
-        case 12: moveSelection(0,-1); break;
-        case 13: moveSelection(0,1); break;
-        case 14: moveSelection(-1,0); break;
-        case 15: moveSelection(1,0); break;
+        case 3: m4hub_refresh_catalog(networkStatus, sizeof(networkStatus)); loadGamesFromCache(); break; // TRIANGLE: fetch live catalog
+        case 12: if(page==3 && gameCount>0) { if(selected>0)--selected; } else moveSelection(0,-1); break;
+        case 13: if(page==3 && gameCount>0) { if(selected<gameCount-1)++selected; } else moveSelection(0,1); break;
+        case 14: if(page==3 && gameCount>0) { selected-=8; if(selected<0)selected=0; } else moveSelection(-1,0); break;
+        case 15: if(page==3 && gameCount>0) { selected+=8; if(selected>=gameCount)selected=gameCount-1; } else moveSelection(1,0); break;
         case 4: moveSelection(-1,0); break;
         case 5: moveSelection(1,0); break;
         case 9: page=0; break;
@@ -165,6 +255,7 @@ int main(int, char**) {
     gRenderer=SDL_CreateSoftwareRenderer(surface);
     if (!gRenderer) { std::printf("M4 HUB: renderer failed: %s\n",SDL_GetError()); return 1; }
     if (SDL_NumJoysticks()>0) gPad=SDL_JoystickOpen(0);
+    loadGamesFromCache();
     bool running=true;
     while (running) {
         SDL_Event event;

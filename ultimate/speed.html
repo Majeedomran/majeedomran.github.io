@@ -51,7 +51,7 @@ function request(bytes){
   xhr.responseType='arraybuffer';xhr.timeout=18000;
   xhr.onprogress=function(e){
    var now=Date.now(),delta=e.loaded-lastBytes,ms=now-last;
-   if(ms>=180&&delta>0){var rate=delta*8/ms/1000;if(isFinite(rate)){best=Math.max(best,rate);$('speed').textContent=fmt(rate);$('best').textContent=fmt(best);$('fill').style.width=Math.min(100,rate/150*100)+'%';}last=now;lastBytes=e.loaded;}
+   if(ms>=180&&delta>0){var rate=delta*8/ms/1000;if(isFinite(rate)){$('speed').textContent=fmt(rate);$('fill').style.width=Math.min(100,rate/300*100)+'%';}last=now;lastBytes=e.loaded;}
   };
   xhr.onload=function(){active=null;if(xhr.status>=200&&xhr.status<300){var duration=Math.max(1,Date.now()-start),size=(xhr.response&&xhr.response.byteLength)||bytes;resolve({mbps:size*8/duration/1000,ms:duration,size:size});}else reject(new Error('HTTP '+xhr.status));};
   xhr.onerror=function(){active=null;reject(new Error('CORS_OR_NETWORK'));};

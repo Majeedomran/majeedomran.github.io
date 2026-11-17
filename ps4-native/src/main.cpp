@@ -243,24 +243,26 @@ static void drawSystemInfo() {
         unsigned major=(fwValue>>8)&0xFF, minor=fwValue&0xFF;
         std::snprintf(firmwareLabel,sizeof(firmwareLabel),"PS4 FW %u.%02u",major,minor);
     } else std::snprintf(firmwareLabel,sizeof(firmwareLabel),"PS4 FW N/A");
-    text(90,112,firmwareLabel,2,36,205,186);
-    text(470,112,clockLabel,2,245,248,255);
-    text(900,112,dateLabel,2,143,190,205);
-    text(1350,112,"CPU TEMP N/A",2,36,205,186);
-    text(1650,112,"M4 HUB 0.1.10",2,143,190,205);
+    rect(70,145,1780,48,15,34,54);
+    outline(70,145,1780,48,36,105,118);
+    text(100,162,firmwareLabel,2,36,220,190);
+    text(430,162,clockLabel,2,245,248,255);
+    text(790,162,dateLabel,2,143,210,225);
+    text(1160,162,"CPU TEMP N/A",2,36,220,190);
+    text(1510,162,"M4 HUB 0.1.11",2,143,210,225);
 }
 static void draw() {
     color(9,13,24); SDL_RenderClear(gRenderer);
     rect(0,0,SCREEN_W,10,36,190,170);
     text(86,58,"M4 HUB",9,245,248,255);
     if (page==0) {
-        text(90,145,"YOUR PS4 LIBRARY - NATIVE PREVIEW",3,143,164,190);
-        rect(80,220,1760,3,38,57,78);
-        text(90,260,"SELECT A SECTION",3,36,205,186);
-        const int left=90, top=330, cw=405, ch=205, gap=34;
+        text(90,230,"YOUR PS4 LIBRARY - NATIVE PREVIEW",3,143,164,190);
+        rect(80,295,1760,3,38,57,78);
+        text(90,330,"SELECT A SECTION",3,36,205,186);
+        const int left=90, top=390, cw=405, ch=180, gap=34;
         for (int i=0;i<8;++i) {
             int col=i%4, row=i/4;
-            int x=left+col*(cw+gap), y=top+row*(ch+36);
+            int x=left+col*(cw+gap), y=top+row*(ch+30);
             bool active=(i==selected);
             rect(x,y,cw,ch,active?24:17,active?54:27,active?66:42);
             outline(x,y,cw,ch,active?45:43,active?220:63,active?195:82);
@@ -280,20 +282,20 @@ static void draw() {
         text(90,960,"NO GAME FILES ARE INCLUDED IN THIS PREVIEW",2,121,143,166);
         text(90,1000,networkStatus,2,36,205,186);
     } else if (page==3) {
-        text(90,150,"GAME LIBRARY",5,36,205,186);
-        rect(80,240,1760,3,38,57,78);
+        text(90,230,"GAME LIBRARY",5,36,205,186);
+        rect(80,320,1760,3,38,57,78);
         if(detailOpen && gameCount>0 && selected<gameCount) {
-            rect(95,300,1720,440,17,27,42); outline(95,300,1720,440,43,63,82);
-            text(140,350,gameItems[selected].name,4,245,248,255);
+            rect(95,380,1720,440,17,27,42); outline(95,300,1720,440,43,63,82);
+            text(140,430,gameItems[selected].name,4,245,248,255);
             char detailMeta[100];
             if(gameItems[selected].hasSize) std::snprintf(detailMeta,sizeof(detailMeta),"SIZE %.2f GB APPROX",gameItems[selected].sizeGB);
             else std::snprintf(detailMeta,sizeof(detailMeta),"SIZE NOT LISTED");
-            text(140,455,detailMeta,2,143,190,205);
-            text(140,520,gameItems[selected].cusa[0]?gameItems[selected].cusa:"CUSA NOT VERIFIED",2,143,190,205);
-            text(140,600,"INFO ONLY - NO GAME PKG DOWNLOAD PROVIDED",2,36,205,186);
+            text(140,535,detailMeta,2,143,190,205);
+            text(140,600,gameItems[selected].cusa[0]?gameItems[selected].cusa:"CUSA NOT VERIFIED",2,143,190,205);
+            text(140,680,"INFO ONLY - NO GAME PKG DOWNLOAD PROVIDED",2,36,205,186);
             text(90,900,"CIRCLE - BACK TO GAME LIST",2,167,185,203);
         } else if(gameCount==0) {
-            text(145,365,"NO CACHED CATALOG - PRESS TRIANGLE ON HOME",3,245,248,255);
+            text(145,445,"NO CACHED CATALOG - PRESS TRIANGLE ON HOME",3,245,248,255);
         } else {
             char countLabel[80]; std::snprintf(countLabel,sizeof(countLabel),"GAMES IN CATALOG: %d",gameCount);
             text(100,270,countLabel,2,143,164,190);
@@ -303,7 +305,7 @@ static void draw() {
             if(selected<listOffset) listOffset=selected;
             if(selected>=listOffset+visible) listOffset=selected-visible+1;
             for(int i=0;i<visible && listOffset+i<gameCount;++i) {
-                int idx=listOffset+i, y=325+i*66; bool active=(idx==selected);
+                int idx=listOffset+i, y=405+i*60; bool active=(idx==selected);
                 rect(95,y,1720,54,active?24:17,active?54:27,active?66:42);
                 text(125,y+16,gameItems[idx].name,2,245,248,255);
                 char meta[80];
@@ -316,7 +318,7 @@ static void draw() {
         text(650,900,"CROSS - OFFICIAL SOURCE",2,167,185,203);
         text(90,960,networkStatus,2,36,205,186);
     } else if (page==4) {
-        text(90,150,"LOCALIZED GAMES",5,36,205,186);
+        text(90,230,"LOCALIZED GAMES",5,36,205,186);
         rect(80,240,1760,3,38,57,78);
         if(detailOpen && localizedCount>0 && selected<localizedCount) {
             rect(95,300,1720,440,17,27,42); outline(95,300,1720,440,43,63,82);
@@ -326,7 +328,7 @@ static void draw() {
             text(140,610,"SOURCE DETAILS MUST BE VERIFIED BEFORE USE",2,143,190,205);
             text(90,900,"CIRCLE - BACK TO LOCALIZED LIST",2,167,185,203);
         } else if(localizedCount==0) {
-            text(145,365,"NO LOCALIZATION METADATA IN CACHED CATALOG",3,245,248,255);
+            text(145,445,"NO LOCALIZATION METADATA IN CACHED CATALOG",3,245,248,255);
         } else {
             char countLabel[80]; std::snprintf(countLabel,sizeof(countLabel),"LOCALIZED ENTRIES: %d",localizedCount);
             text(100,270,countLabel,2,143,164,190);
@@ -346,16 +348,16 @@ static void draw() {
         text(90,960,networkStatus,2,36,205,186);
     } else {
         int index=page-1;
-        text(90,150,cards[index],5,36,205,186);
+        text(90,230,cards[index],5,36,205,186);
         rect(80,240,1760,3,38,57,78);
-        rect(90,300,1740,420,17,27,42);
+        rect(90,380,1740,420,17,27,42);
         outline(90,300,1740,420,43,63,82);
-        text(145,365,descriptions[index],3,245,248,255);
-        text(145,455,"THIS SECTION WILL LOAD FROM THE LIVE M4 HUB CATALOG",2,165,190,205);
-        text(145,515,"NO PLACEHOLDER DOWNLOAD BUTTONS OR FAKE FILE LINKS",2,165,190,205);
-        text(145,575,"CATALOG AND NETWORK SUPPORT ARE UNDER DEVELOPMENT",2,165,190,205);
+        text(145,445,descriptions[index],3,245,248,255);
+        text(145,535,"THIS SECTION WILL LOAD FROM THE LIVE M4 HUB CATALOG",2,165,190,205);
+        text(145,595,"NO PLACEHOLDER DOWNLOAD BUTTONS OR FAKE FILE LINKS",2,165,190,205);
+        text(145,655,"CATALOG AND NETWORK SUPPORT ARE UNDER DEVELOPMENT",2,165,190,205);
         text(90,820,"CIRCLE - BACK TO HOME",3,36,205,186);
-        text(90,900,"M4 HUB NATIVE CLIENT - VERSION 0.1.9",2,121,143,166);
+        text(90,900,"M4 HUB NATIVE CLIENT - VERSION 0.1.11",2,121,143,166);
         text(90,960,networkStatus,2,36,205,186);
     }
     drawSystemInfo();

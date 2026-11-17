@@ -7,23 +7,23 @@
 <style>
 :root{color-scheme:dark;--bg:#070b13;--panel:#111d30;--line:#2b3e5c;--txt:#f4f7fc;--muted:#9eacc1;--cyan:#52dce8;--green:#72dfb4;--amber:#f1c66d;--red:#ff8585}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#1b3760 0,transparent 38%),var(--bg);color:var(--txt);font:15px/1.7 Arial,sans-serif}
-a{color:inherit;text-decoration:none}.top{padding:13px clamp(14px,4vw,48px);background:#080e19ed;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:10px}.btn,button{border:1px solid var(--line);background:var(--panel);color:var(--txt);padding:10px 14px;border-radius:10px;cursor:pointer;font:inherit}.primary{background:linear-gradient(110deg,#3979eb,#6559df);border:0}.wrap{max-width:850px;margin:auto;padding:24px 15px 55px}.panel{border:1px solid var(--line);background:var(--panel);border-radius:18px;padding:20px;margin-bottom:14px}.hero{text-align:center;padding:26px 18px}.hero h1{margin:0 0 6px;font-size:27px}.muted,small{color:var(--muted)}.big{font-size:clamp(44px,12vw,76px);font-weight:800;line-height:1.2;color:var(--cyan);font-variant-numeric:tabular-nums;margin:18px 0 4px}.unit{font-size:14px;color:var(--muted)}.bar{height:10px;background:#091321;border-radius:20px;overflow:hidden;margin:17px 0}.fill{height:100%;width:0;background:linear-gradient(90deg,#3979eb,#52dce8);transition:width .15s}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.stat{border:1px solid var(--line);border-radius:12px;padding:12px}.stat strong{display:block;font-size:21px;font-variant-numeric:tabular-nums}.controls{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:15px}.note{font-size:12px;color:var(--muted);line-height:1.8}.status{min-height:28px;margin-top:12px}.good{color:var(--green)}.warn{color:var(--amber)}.error{color:var(--red)}button:disabled{opacity:.45;cursor:default}footer{text-align:center;color:var(--muted);font-size:11px;padding:25px}
+a{color:inherit;text-decoration:none}.top{padding:13px clamp(14px,4vw,48px);background:#080e19ed;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:10px}.btn,button{border:1px solid var(--line);background:var(--panel);color:var(--txt);padding:10px 14px;border-radius:10px;cursor:pointer;font:inherit;min-height:44px}.btn:focus,button:focus{outline:2px solid var(--cyan);outline-offset:2px}.primary{background:linear-gradient(110deg,#3979eb,#6559df);border:0}.wrap{max-width:850px;margin:auto;padding:24px 15px 55px}.panel{border:1px solid var(--line);background:var(--panel);border-radius:18px;padding:20px;margin-bottom:14px}.hero{text-align:center;padding:26px 18px}.hero h1{margin:0 0 6px;font-size:27px}.muted,small{color:var(--muted)}.big{font-size:clamp(44px,12vw,76px);font-weight:800;line-height:1.2;color:var(--cyan);font-variant-numeric:tabular-nums;margin:18px 0 4px}.unit{font-size:14px;color:var(--muted)}.bar{height:10px;background:#091321;border-radius:20px;overflow:hidden;margin:17px 0}.fill{height:100%;width:0;background:linear-gradient(90deg,#3979eb,#52dce8);transition:width .15s}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.stat{border:1px solid var(--line);border-radius:12px;padding:12px}.stat strong{display:block;font-size:21px;font-variant-numeric:tabular-nums}.controls{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:15px}.note{font-size:12px;color:var(--muted);line-height:1.8}.status{min-height:28px;margin-top:12px}.good{color:var(--green)}.warn{color:var(--amber)}.error{color:var(--red)}button:disabled{opacity:.45;cursor:default}footer{text-align:center;color:var(--muted);font-size:11px;padding:25px}
 @media(max-width:480px){.top{align-items:flex-start}.hero h1{font-size:23px}.panel{padding:15px}}
 </style></head>
 <body>
-<header class="top"><b>M4 <span style="color:var(--cyan)">HUB</span> · SPEED TEST</b><a class="btn" href="./">العودة للمكتبة</a></header>
+<header class="top"><b>M4 <span style="color:var(--cyan)">HUB</span> · SPEED TEST</b><div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn" href="../">⌂ الرئيسية</a><a class="btn" href="./">المكتبة</a><a class="btn" href="./downloads.html">مدير التنزيلات</a></div></header>
 <main class="wrap">
 <section class="panel hero">
 <h1>اختبار سرعة التحميل</h1>
 <div class="muted">اختبر سرعة اتصالك من نفس الجهاز والمتصفح الذي تستخدمه للتنزيل</div>
 <div class="big" id="speed">—</div><div class="unit">Mbps · ميغابت بالثانية</div>
 <div class="bar"><div class="fill" id="fill"></div></div>
-<div class="status" id="status">اضغط بدء الاختبار لقياس سرعة التحميل</div>
+<div class="status" id="status">اضغط بدء الاختبار لقياس سرعة التحميل واستجابة الخادم</div>
 <div class="controls"><button class="primary" id="start">▶ بدء الاختبار</button><button id="stop" disabled>إيقاف</button></div>
 </section>
 <section class="panel">
 <div class="stats">
-<div class="stat"><small>زمن الاستجابة</small><strong id="ping">—</strong><small>ms</small></div>
+<div class="stat"><small>استجابة خادم الاختبار (تقريبية)</small><strong id="ping">—</strong><small>ms</small></div>
 <div class="stat"><small>أفضل سرعة مقاسة</small><strong id="best">—</strong><small>Mbps</small></div>
 <div class="stat"><small>حجم البيانات المستهلكة</small><strong id="used">0</strong><small>MB تقريباً</small></div>
 <div class="stat"><small>حالة الاختبار</small><strong id="phase" style="font-size:15px">جاهز</strong></div>
@@ -63,8 +63,8 @@ function request(bytes){
 async function run(){
  cancelled=false;used=0;best=0;$('speed').textContent='—';$('best').textContent='—';$('ping').textContent='—';$('used').textContent='0';$('fill').style.width='0';$('start').disabled=true;$('stop').disabled=false;
  try{
-  $('phase').textContent='استجابة';setStatus('يقيس زمن الاستجابة…');
-  var p=await request(0);$('ping').textContent=String(p.ms);if(cancelled)return;
+  $('phase').textContent='استجابة';setStatus('يقيس زمن استجابة خادم الاختبار…');
+  var p=await request(0);$('ping').textContent=String(p.ms);if(cancelled){$('phase').textContent='متوقف';setStatus('تم إيقاف الاختبار.','warn');return;}
   var sizes=[1048576,8388608,16777216],measurements=[];
   for(var i=0;i<sizes.length;i++){
    if(cancelled)return;

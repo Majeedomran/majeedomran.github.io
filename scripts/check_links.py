@@ -55,16 +55,18 @@ def safe_url(value: str) -> tuple[bool, str]:
 
 
 def request_once(url: str, method: str):
-    # urllib/http.client requires an ASCII request target. Percent-encode
-    # Arabic and other Unicode path/query characters while preserving URL syntax.
+    # Percent-encode Arabic and other Unicode characters in the request target.
     request_url = urllib.parse.quote(url, safe=":/?&=%#[]@!$()*+,;")
+    req = urllib.request.Request(
+        request_url, method=method,
+        headers={"User-Agent": "M4-HUB-Link-Monitor/1.0", "Range": "bytes=0-0"}
+    )
     try:
         return OPENER.open(req, timeout=TIMEOUT), None
     except urllib.error.HTTPError as exc:
         return exc, None
     except (urllib.error.URLError, TimeoutError, socket.timeout, OSError) as exc:
         return None, exc
-
 
 def probe(original: str) -> dict:
     current = original

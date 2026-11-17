@@ -313,7 +313,7 @@ static void handleButton(int b) {
         case 9: page=0; break;
     }
 }
-int main(int, char**) {
+extern "C" int main(int, char**) {
     setvbuf(stdout,nullptr,_IONBF,0);
     if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_JOYSTICK)!=0) {
         std::printf("M4 HUB: SDL init failed: %s\n",SDL_GetError()); return 1;

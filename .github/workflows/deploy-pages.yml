@@ -1,4 +1,4 @@
-name: Deploy MAJEED PS4 HOST
+name: Deploy M4 HUB
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout MAJEED PS4 HOST
+      - name: Checkout M4 HUB
         uses: actions/checkout@v4
 
       - name: Prepare website and pinned PS4 exploit host
@@ -41,7 +41,7 @@ jobs:
               end = s.find("\n        }", start)
               if end == -1:
                   raise SystemExit("Could not locate end of WebKitty redirect block")
-              s = s[:start] + "        // MAJEED patch: stay on the hosted MAJEED PS4 HOST domain.\n" + s[end + len("\n        }"):]
+              s = s[:start] + "        // MAJEED patch: stay on the hosted M4 HUB domain.\n" + s[end + len("\n        }"):]
               p.write_text(s)
           if "window.location.href = \"http://webkitty.arabpixel.net\"" in s:
               raise SystemExit("WebKitty external redirect is still present")

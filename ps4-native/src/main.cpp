@@ -8,7 +8,10 @@
 #include <ctime>
 #include <orbis/Pad.h>
 #include <orbis/UserService.h>
-#include <orbis/SystemService.h>
+#include <orbis/libkernel.h>
+
+// Optional read-only sensor export; unavailable on some firmware/builds.
+extern "C" int sceKernelGetCpuTemperature(int* temperature) __attribute__((weak));
 
 static const int SCREEN_W = 1920;
 static const int SCREEN_H = 1080;
@@ -21,7 +24,6 @@ static int gPadUserId = -1;
 static bool gPadReady = false;
 static Uint32 lastPadRepeat = 0;
 static int lastPadDx = 0, lastPadDy = 0;
-static char weatherLabel[48] = "TEMP -- C AMMAN";
 static bool analogEngaged = false;
 static int lastAnalogX = 0, lastAnalogY = 0;
 static Uint32 lastAnalogMove = 0;
@@ -260,8 +262,25 @@ static void draw() {
         } else { std::snprintf(clockLabel,sizeof(clockLabel),"TIME NOT AVAILABLE"); std::snprintf(dateLabel,sizeof(dateLabel),"DATE NOT AVAILABLE"); }
         text(1030,145,clockLabel,2,245,248,255);
         text(1450,145,dateLabel,2,143,190,205);
-        text(1030,185,weatherLabel,2,36,205,186);
-        text(1450,185,"VERSION 0.1.7",2,143,190,205);
+        OrbisKernelSwVersion systemVersion;
+        std::memset(&systemVersion,0,sizeof(systemVersion));
+        char firmwareLabel[48];
+        if(sceKernelGetSystemSwVersion(&systemVersion)==0 && systemVersion.Version!=0) {
+            unsigned major=(systemVersion.Version>>24)&0xFF;
+            unsigned minor=(systemVersion.Version>>16)&0xFF;
+            std::snprintf(firmwareLabel,sizeof(firmwareLabel),"PS4 FW %u.%02u",major,minor);
+        } else {
+            std::snprintf(firmwareLabel,sizeof(firmwareLabel),"PS4 FW N/A");
+        }
+        char temperatureLabel[48];
+        int cpuTemperature=0;
+        if(sceKernelGetCpuTemperature && sceKernelGetCpuTemperature(&cpuTemperature)==0 && cpuTemperature>0 && cpuTemperature<150)
+            std::snprintf(temperatureLabel,sizeof(temperatureLabel),"CPU TEMP %d C",cpuTemperature);
+        else
+            std::snprintf(temperatureLabel,sizeof(temperatureLabel),"CPU TEMP N/A");
+        text(1030,185,firmwareLabel,2,36,205,186);
+        text(1320,185,"M4 HUB 0.1.8",2,143,190,205);
+        text(1580,185,temperatureLabel,2,36,205,186);
         rect(80,240,1760,3,38,57,78);
         if(detailOpen && gameCount>0 && selected<gameCount) {
             rect(95,300,1720,440,17,27,42); outline(95,300,1720,440,43,63,82);
@@ -420,7 +439,6 @@ extern "C" int main(int, char**) {
     gRenderer=SDL_CreateSoftwareRenderer(surface);
     if (!gRenderer) { std::printf("M4 HUB: renderer failed: %s\n",SDL_GetError()); return 1; }
     initNativePad();
-    m4hub_refresh_weather(weatherLabel,sizeof(weatherLabel));
     loadGamesFromCache();
     bool running=true;
     while (running) {

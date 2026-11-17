@@ -1,25 +1,29 @@
-# M4 HUB — native application roadmap
+# M4 HUB — native PS4 client source
 
-This folder is the planning and source boundary for the future installable PS4 PKG companion.
+This folder now contains the first native application source scaffold.
 
-## Current status
-- The browser-based Ultimate library lives in `/ultimate/`.
-- The website reads the shared `/catalog.json` at page load and refreshes it periodically without requiring a site-code update.
-- A compiled PS4 PKG is **not** included yet. A valid installable package must be built and tested with a compatible PS4 homebrew toolchain and on hardware/firmware combinations the developer can verify.
+## Current implementation
+- `src/main.cpp`: SDL2 software-rendered 1080p home screen.
+- Controller navigation: D-pad, L1/R1, Cross, Circle and Options; keyboard arrows/Enter/Escape are also supported for host-side testing where SDL input is available.
+- Eight initial sections: Homebrew Apps, Payloads, Game Library, Localized Games, Themes, Firmware Guide, Tools, Favorites.
+- A tiny built-in bitmap font avoids external font assets for this first UI prototype.
+- `Makefile`: OpenOrbis build/package recipe based on the upstream SDL2 sample layout. It copies sample package metadata assets from the selected toolchain.
 
-## Planned native modules
-1. Catalog client: fetch versioned JSON over HTTPS, validate schema, and cache the last successful catalogue.
-2. Library UI: apps, payload references, themes, firmware notes, and user-owned game metadata.
-3. Download manager: queue, progress, pause/resume where supported by the chosen network API, and safe file handling.
-4. Firmware capability display: show only explicitly documented compatibility; never infer support.
-5. Theme settings: local appearance preferences.
-6. Update manifest: check app releases separately from catalogue updates.
+## Build prerequisites
+- Linux or macOS host with the OpenOrbis toolchain installed.
+- `OO_PS4_TOOLCHAIN` set to the toolchain root.
+- Matching Clang/LLD and the SDL2 library shipped for that toolchain.
+- The toolchain's SDL2 sample package assets must be present at `samples/SDL2/sce_sys/`.
 
-## Safety and distribution
-- Only use official project releases or sources with clear redistribution permission.
-- Do not bundle copyrighted commercial game packages or provide unauthorized game-download links.
-- Do not expose GitHub tokens, admin passwords, or Worker secrets in the client.
-- PKG builds must be labelled with their tested firmware range and release hash.
+Build from this directory:
+```sh
+make check-env
+make
+```
 
-## Build status
-No PKG binary is claimed by this repository until the native application is implemented, compiled, and tested.
+The output is intended to be `IV0000-M4HB00001_00-M4HUBNATIVE00001.pkg`.
+
+## Honest status
+This is source code and a build recipe, **not a compiled or tested PKG**. This environment has not run the OpenOrbis compiler or installed the result on a PS4. The first screen is a navigation prototype; catalogue HTTPS fetching, JSON parsing, cache, localized metadata, and verified direct downloads are not implemented yet. The interface currently uses English bitmap labels; Arabic shaping/right-to-left layout is a later UI task.
+
+Do not distribute the package as firmware-compatible until it has been built and tested on actual PS4 hardware with the exact HEN/firmware combination documented.

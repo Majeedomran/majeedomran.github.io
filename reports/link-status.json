@@ -1,13 +1,1160 @@
 {
   "schemaVersion": 1,
   "application": "M4 HUB",
-  "checkedAt": null,
-  "policy": "No scheduled check has completed yet. The monitor checks allow-listed HTTPS source/download pages; it does not download files or certify safety, authenticity, or firmware compatibility.",
+  "checkedAt": "2026-11-17T09:38:32.489990+00:00",
+  "policy": "Checks HTTPS source/download URLs only; does not download files or certify safety, authenticity, or firmware compatibility.",
   "summary": {
-    "total": 0,
-    "reachable": 0,
-    "httpErrors": 0,
+    "total": 66,
+    "reachable": 63,
+    "httpErrors": 3,
     "needsReview": 0
   },
-  "results": []
+  "results": [
+    {
+      "url": "https://github.com/GoldHEN/GoldHEN/releases",
+      "references": [
+        {
+          "section": "payloads",
+          "name": "GoldHEN",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/GoldHEN/GoldHEN/releases",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/Scene-Collective/ps4-hen/releases",
+      "references": [
+        {
+          "section": "payloads",
+          "name": "PS4 HEN (Scene-Collective)",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/Scene-Collective/ps4-hen/releases",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/GoldHEN/ps4debug/releases",
+      "references": [
+        {
+          "section": "payloads",
+          "name": "ps4debug",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/GoldHEN/ps4debug/releases",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/hippie68/ps4-ftp/releases",
+      "references": [
+        {
+          "section": "payloads",
+          "name": "PS4 FTP Server",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/hippie68/ps4-ftp/releases",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/Scene-Collective/ps4-app2usb",
+      "references": [
+        {
+          "section": "payloads",
+          "name": "App2USB",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/Scene-Collective/ps4-app2usb",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/Al-Azif/ps4-payload-guest/releases",
+      "references": [
+        {
+          "section": "payloads",
+          "name": "Payload Guest",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/Al-Azif/ps4-payload-guest/releases",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/ps4-payload-dev/elfldr/releases",
+      "references": [
+        {
+          "section": "payloads",
+          "name": "elfldr",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/ps4-payload-dev/elfldr/releases",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/grimstatic/fan-control/releases",
+      "references": [
+        {
+          "section": "payloads",
+          "name": "Fan Control",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": false,
+      "status": "http_error",
+      "httpStatus": 404,
+      "checkedUrl": "https://github.com/grimstatic/fan-control/releases",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/Vld439/AnyPad-PS4/releases",
+      "references": [
+        {
+          "section": "payloads",
+          "name": "AnyPad PS4",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/Vld439/AnyPad-PS4/releases",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/veildarkness001/controller3to4Bridge",
+      "references": [
+        {
+          "section": "payloads",
+          "name": "Controller3To4Bridge",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/veildarkness001/controller3to4Bridge",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/MoHadiShibli/Control4Free",
+      "references": [
+        {
+          "section": "payloads",
+          "name": "Control4Free",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/MoHadiShibli/Control4Free",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/ElZeeky/PS4-AnyController",
+      "references": [
+        {
+          "section": "payloads",
+          "name": "AnyController",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/ElZeeky/PS4-AnyController",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/lucianomiki/PS4-Xbox360-USB-Direct",
+      "references": [
+        {
+          "section": "payloads",
+          "name": "Xbox 360 USB (PS4)",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/lucianomiki/PS4-Xbox360-USB-Direct",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/h5d7r/Plugins-Mgr",
+      "references": [
+        {
+          "section": "payloads",
+          "name": "Plugins Mgr",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/h5d7r/Plugins-Mgr",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/cy33hc/ps4-ezremote-server",
+      "references": [
+        {
+          "section": "payloads",
+          "name": "ezRemote Server",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/cy33hc/ps4-ezremote-server",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/bucanero/apollo-ps4/releases",
+      "references": [
+        {
+          "section": "apps",
+          "name": "Apollo Save Tool",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/bucanero/apollo-ps4/releases",
+      "redirects": []
+    },
+    {
+      "url": "https://store.brewology.com/dl/5906/IV0000-APOL00004_00-APOLLO0000000PS4.pkg",
+      "references": [
+        {
+          "section": "apps",
+          "name": "Apollo Save Tool",
+          "field": "downloadUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/427692744/106823cf-621f-4504-9b95-490a8ba59a6f?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A33%3A21Z&rscd=attachment%3B+filename%3DIV0000-APOL00004_00-APOLLO0000000PS4.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A33%3A10Z&ske=2026-11-17T10%3A33%3A21Z&sks=b&skv=2018-11-09&sig=iT9ww5QlnUj3uO9MXnp4W78k6g4KaENzt5HY7NWfrDo%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxMDEwOCwibmJmIjoxNzk0OTA4MzA4LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.5j2bLu1rvYzUUqho99zc9dTAWkN4V0C5k4gHTZyTWtg&response-content-disposition=attachment%3B%20filename%3DIV0000-APOL00004_00-APOLLO0000000PS4.pkg&response-content-type=application%2Foctet-stream",
+      "redirects": [
+        {
+          "from": "https://store.brewology.com/dl/5906/IV0000-APOL00004_00-APOLLO0000000PS4.pkg",
+          "to": "https://github.com/bucanero/apollo-ps4/releases/download/v2.4.0/IV0000-APOL00004_00-APOLLO0000000PS4.pkg",
+          "httpStatus": 302
+        },
+        {
+          "from": "https://github.com/bucanero/apollo-ps4/releases/download/v2.4.0/IV0000-APOL00004_00-APOLLO0000000PS4.pkg",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/427692744/106823cf-621f-4504-9b95-490a8ba59a6f?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A33%3A21Z&rscd=attachment%3B+filename%3DIV0000-APOL00004_00-APOLLO0000000PS4.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A33%3A10Z&ske=2026-11-17T10%3A33%3A21Z&sks=b&skv=2018-11-09&sig=iT9ww5QlnUj3uO9MXnp4W78k6g4KaENzt5HY7NWfrDo%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxMDEwOCwibmJmIjoxNzk0OTA4MzA4LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.5j2bLu1rvYzUUqho99zc9dTAWkN4V0C5k4gHTZyTWtg&response-content-disposition=attachment%3B%20filename%3DIV0000-APOL00004_00-APOLLO0000000PS4.pkg&response-content-type=application%2Foctet-stream",
+          "httpStatus": 302
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/LightningMods/Itemzflow/releases",
+      "references": [
+        {
+          "section": "apps",
+          "name": "Itemzflow",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/LightningMods/Itemzflow/releases",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/cy33hc/ps4-ezremote-client/releases",
+      "references": [
+        {
+          "section": "apps",
+          "name": "ezRemote Client",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/cy33hc/ps4-ezremote-client/releases",
+      "redirects": []
+    },
+    {
+      "url": "https://store.brewology.com/dl/15781/ezremote_client.pkg",
+      "references": [
+        {
+          "section": "apps",
+          "name": "ezRemote Client",
+          "field": "downloadUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/597518713/21287dad-5a51-45d8-bbae-53bc89e50bcd?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A33%3A27Z&rscd=attachment%3B+filename%3Dezremote_client.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A32%3A50Z&ske=2026-11-17T10%3A33%3A27Z&sks=b&skv=2018-11-09&sig=HdJvSNiU6Hqms5Dyp2kC8KjNIb4JJylhZ4NqtXQGW2g%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxMDEwOCwibmJmIjoxNzk0OTA4MzA4LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.5j2bLu1rvYzUUqho99zc9dTAWkN4V0C5k4gHTZyTWtg&response-content-disposition=attachment%3B%20filename%3Dezremote_client.pkg&response-content-type=application%2Foctet-stream",
+      "redirects": [
+        {
+          "from": "https://store.brewology.com/dl/15781/ezremote_client.pkg",
+          "to": "https://github.com/cy33hc/ps4-ezremote-client/releases/download/2.11/ezremote_client.pkg",
+          "httpStatus": 302
+        },
+        {
+          "from": "https://github.com/cy33hc/ps4-ezremote-client/releases/download/2.11/ezremote_client.pkg",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/597518713/21287dad-5a51-45d8-bbae-53bc89e50bcd?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A33%3A27Z&rscd=attachment%3B+filename%3Dezremote_client.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A32%3A50Z&ske=2026-11-17T10%3A33%3A27Z&sks=b&skv=2018-11-09&sig=HdJvSNiU6Hqms5Dyp2kC8KjNIb4JJylhZ4NqtXQGW2g%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxMDEwOCwibmJmIjoxNzk0OTA4MzA4LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.5j2bLu1rvYzUUqho99zc9dTAWkN4V0C5k4gHTZyTWtg&response-content-disposition=attachment%3B%20filename%3Dezremote_client.pkg&response-content-type=application%2Foctet-stream",
+          "httpStatus": 302
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/Lapy055/PS4-Xplorer",
+      "references": [
+        {
+          "section": "apps",
+          "name": "PS4-Xplorer",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/Lapy055/PS4-Xplorer",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/LightningMods/PS4-Store",
+      "references": [
+        {
+          "section": "apps",
+          "name": "PS4 Homebrew Store",
+          "field": "sourceUrl"
+        },
+        {
+          "section": "apps",
+          "name": "PS4 Store",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/LightningMods/PS4-Store",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/nueex/ps-mtp-explorer/releases",
+      "references": [
+        {
+          "section": "apps",
+          "name": "PS MTP Explorer",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/nueex/ps-mtp-explorer/releases",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/nueex/ps-mtp-explorer/releases/download/v2.0.0/PS-MTP-Explorer-2.0.0.pkg",
+      "references": [
+        {
+          "section": "apps",
+          "name": "PS MTP Explorer",
+          "field": "downloadUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1430051056/9fef6723-31b0-48bf-8064-a6af9ea0bb82?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A33%3A22Z&rscd=attachment%3B+filename%3DPS-MTP-Explorer-2.0.0.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A32%3A35Z&ske=2026-11-17T10%3A33%3A22Z&sks=b&skv=2018-11-09&sig=ekwLvmIdouqMf7Ow5Kq6uOIbkoO4euuP5b0yh6B0Aac%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkwODYwOSwibmJmIjoxNzk0OTA4MzA5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.JdnzO9m3R7G5Hl_LPiMSJ_Ctrqc8BRzdN7MlhsSb37Q&response-content-disposition=attachment%3B%20filename%3DPS-MTP-Explorer-2.0.0.pkg&response-content-type=application%2Foctet-stream",
+      "redirects": [
+        {
+          "from": "https://github.com/nueex/ps-mtp-explorer/releases/download/v2.0.0/PS-MTP-Explorer-2.0.0.pkg",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1430051056/9fef6723-31b0-48bf-8064-a6af9ea0bb82?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A33%3A22Z&rscd=attachment%3B+filename%3DPS-MTP-Explorer-2.0.0.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A32%3A35Z&ske=2026-11-17T10%3A33%3A22Z&sks=b&skv=2018-11-09&sig=ekwLvmIdouqMf7Ow5Kq6uOIbkoO4euuP5b0yh6B0Aac%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkwODYwOSwibmJmIjoxNzk0OTA4MzA5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.JdnzO9m3R7G5Hl_LPiMSJ_Ctrqc8BRzdN7MlhsSb37Q&response-content-disposition=attachment%3B%20filename%3DPS-MTP-Explorer-2.0.0.pkg&response-content-type=application%2Foctet-stream",
+          "httpStatus": 302
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/AldySan/ps4_remote_pkg_installer_nextgen/releases",
+      "references": [
+        {
+          "section": "apps",
+          "name": "Remote PKG Installer NextGen",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/AldySan/ps4_remote_pkg_installer_nextgen/releases",
+      "redirects": []
+    },
+    {
+      "url": "https://store.brewology.com/dl/14286/RemotePkgInstallerNextGen-0.0.9.pkg",
+      "references": [
+        {
+          "section": "apps",
+          "name": "Remote PKG Installer NextGen",
+          "field": "downloadUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1435739581/18433c41-14a9-40a0-b7d3-819056b6b3ba?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A38%3A08Z&rscd=attachment%3B+filename%3DRemotePkgInstallerNextGen-0.0.9.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A37%3A36Z&ske=2026-11-17T10%3A38%3A08Z&sks=b&skv=2018-11-09&sig=duygWb1y1eAO28aq%2FFVtQU9rA72na3WYSjXLZy%2Bw9%2BQ%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkwODYwOSwibmJmIjoxNzk0OTA4MzA5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.JdnzO9m3R7G5Hl_LPiMSJ_Ctrqc8BRzdN7MlhsSb37Q&response-content-disposition=attachment%3B%20filename%3DRemotePkgInstallerNextGen-0.0.9.pkg&response-content-type=application%2Foctet-stream",
+      "redirects": [
+        {
+          "from": "https://store.brewology.com/dl/14286/RemotePkgInstallerNextGen-0.0.9.pkg",
+          "to": "https://github.com/AldySan/ps4_remote_pkg_installer_nextgen/releases/download/v0.0.9/RemotePkgInstallerNextGen-0.0.9.pkg",
+          "httpStatus": 302
+        },
+        {
+          "from": "https://github.com/AldySan/ps4_remote_pkg_installer_nextgen/releases/download/v0.0.9/RemotePkgInstallerNextGen-0.0.9.pkg",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1435739581/18433c41-14a9-40a0-b7d3-819056b6b3ba?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A38%3A08Z&rscd=attachment%3B+filename%3DRemotePkgInstallerNextGen-0.0.9.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A37%3A36Z&ske=2026-11-17T10%3A38%3A08Z&sks=b&skv=2018-11-09&sig=duygWb1y1eAO28aq%2FFVtQU9rA72na3WYSjXLZy%2Bw9%2BQ%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkwODYwOSwibmJmIjoxNzk0OTA4MzA5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.JdnzO9m3R7G5Hl_LPiMSJ_Ctrqc8BRzdN7MlhsSb37Q&response-content-disposition=attachment%3B%20filename%3DRemotePkgInstallerNextGen-0.0.9.pkg&response-content-type=application%2Foctet-stream",
+          "httpStatus": 302
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/OSM-Made/Orbis-Toolbox",
+      "references": [
+        {
+          "section": "apps",
+          "name": "Orbis Toolbox",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/OSM-Made/Orbis-Toolbox",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/iHaiDeeZ/DolphinPS4/releases",
+      "references": [
+        {
+          "section": "apps",
+          "name": "Dolphin for PS4",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/iHaiDeeZ/DolphinPS4/releases",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/iHaiDeeZ/DolphinPS4/releases/download/v04.19/DolphinPS4-v04.19.pkg",
+      "references": [
+        {
+          "section": "apps",
+          "name": "Dolphin for PS4",
+          "field": "downloadUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1404785797/66c21301-e869-43c8-af5b-9358d3f023a7?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A33%3A17Z&rscd=attachment%3B+filename%3DDolphinPS4-v04.19.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A32%3A42Z&ske=2026-11-17T10%3A33%3A17Z&sks=b&skv=2018-11-09&sig=ta0d9VK1axg4tG%2BJb0pWWTZLi%2BSE8Xd0TQ7I9AABxe8%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxMTkwOSwibmJmIjoxNzk0OTA4MzA5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.oTOiIjGKiP14IAnMGGypzOOAG8EM9xNpPyTKdkJ9EDU&response-content-disposition=attachment%3B%20filename%3DDolphinPS4-v04.19.pkg&response-content-type=application%2Foctet-stream",
+      "redirects": [
+        {
+          "from": "https://github.com/iHaiDeeZ/DolphinPS4/releases/download/v04.19/DolphinPS4-v04.19.pkg",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1404785797/66c21301-e869-43c8-af5b-9358d3f023a7?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A33%3A17Z&rscd=attachment%3B+filename%3DDolphinPS4-v04.19.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A32%3A42Z&ske=2026-11-17T10%3A33%3A17Z&sks=b&skv=2018-11-09&sig=ta0d9VK1axg4tG%2BJb0pWWTZLi%2BSE8Xd0TQ7I9AABxe8%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxMTkwOSwibmJmIjoxNzk0OTA4MzA5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.oTOiIjGKiP14IAnMGGypzOOAG8EM9xNpPyTKdkJ9EDU&response-content-disposition=attachment%3B%20filename%3DDolphinPS4-v04.19.pkg&response-content-type=application%2Foctet-stream",
+          "httpStatus": 302
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/arturofuentes1988/EmuSuNi/releases",
+      "references": [
+        {
+          "section": "apps",
+          "name": "EmuSuNi",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/arturofuentes1988/EmuSuNi/releases",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/arturofuentes1988/EmuSuNi/releases/download/v00.24/EmuSuNi-v00.24.pkg",
+      "references": [
+        {
+          "section": "apps",
+          "name": "EmuSuNi",
+          "field": "downloadUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1420958706/4ebabe92-e074-4280-880b-6e850863a888?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A31%3A48Z&rscd=attachment%3B+filename%3DEmuSuNi-v00.24.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A31%3A22Z&ske=2026-11-17T10%3A31%3A48Z&sks=b&skv=2018-11-09&sig=3hiRDgS5BfaaBY6aV4fTYMFf1E1Zjxf8KHpd8FigOOw%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxMTkwOSwibmJmIjoxNzk0OTA4MzA5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.oTOiIjGKiP14IAnMGGypzOOAG8EM9xNpPyTKdkJ9EDU&response-content-disposition=attachment%3B%20filename%3DEmuSuNi-v00.24.pkg&response-content-type=application%2Foctet-stream",
+      "redirects": [
+        {
+          "from": "https://github.com/arturofuentes1988/EmuSuNi/releases/download/v00.24/EmuSuNi-v00.24.pkg",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1420958706/4ebabe92-e074-4280-880b-6e850863a888?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A31%3A48Z&rscd=attachment%3B+filename%3DEmuSuNi-v00.24.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A31%3A22Z&ske=2026-11-17T10%3A31%3A48Z&sks=b&skv=2018-11-09&sig=3hiRDgS5BfaaBY6aV4fTYMFf1E1Zjxf8KHpd8FigOOw%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxMTkwOSwibmJmIjoxNzk0OTA4MzA5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.oTOiIjGKiP14IAnMGGypzOOAG8EM9xNpPyTKdkJ9EDU&response-content-disposition=attachment%3B%20filename%3DEmuSuNi-v00.24.pkg&response-content-type=application%2Foctet-stream",
+          "httpStatus": 302
+        }
+      ]
+    },
+    {
+      "url": "https://prx0.com/",
+      "references": [
+        {
+          "section": "apps",
+          "name": "RetroArchV",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://prx0.com/",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/shadps4-emu/shadPS4/releases",
+      "references": [
+        {
+          "section": "apps",
+          "name": "shadPS4 (PC Emulator)",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/shadps4-emu/shadPS4/releases",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/Lapy055/PS4Player",
+      "references": [
+        {
+          "section": "apps",
+          "name": "PS4 Player",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/Lapy055/PS4Player",
+      "redirects": []
+    },
+    {
+      "url": "https://orbispatches.com/",
+      "references": [
+        {
+          "section": "apps",
+          "name": "PS4 Patch Installer",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 200,
+      "checkedUrl": "https://orbispatches.com/",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/GoldHEN/GoldHEN_Cheat_Manager",
+      "references": [
+        {
+          "section": "apps",
+          "name": "GoldHEN Cheats Manager",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/GoldHEN/GoldHEN_Cheat_Manager",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/GoldHEN/GoldHEN_Cheat_Manager/releases/download/v1.1.4/IV0000-GOLD00777_00-GOLDCHEATS000PS4.pkg",
+      "references": [
+        {
+          "section": "apps",
+          "name": "GoldHEN Cheats Manager",
+          "field": "downloadUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/737915296/a0cf3879-3d6d-4c45-b2a6-31e706c1a154?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A35%3A19Z&rscd=attachment%3B+filename%3DIV0000-GOLD00777_00-GOLDCHEATS000PS4.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A34%3A34Z&ske=2026-11-17T10%3A35%3A19Z&sks=b&skv=2018-11-09&sig=yB1gxzG2h3lubIcl2w%2B4GM2Jddf%2Fgypkj6f9JOGu44k%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxMDExMCwibmJmIjoxNzk0OTA4MzEwLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.tUdnjSr7aNv92XxFFQ59VLRVpSgHHCjir2JM67SEEbU&response-content-disposition=attachment%3B%20filename%3DIV0000-GOLD00777_00-GOLDCHEATS000PS4.pkg&response-content-type=application%2Foctet-stream",
+      "redirects": [
+        {
+          "from": "https://github.com/GoldHEN/GoldHEN_Cheat_Manager/releases/download/v1.1.4/IV0000-GOLD00777_00-GOLDCHEATS000PS4.pkg",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/737915296/a0cf3879-3d6d-4c45-b2a6-31e706c1a154?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A35%3A19Z&rscd=attachment%3B+filename%3DIV0000-GOLD00777_00-GOLDCHEATS000PS4.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A34%3A34Z&ske=2026-11-17T10%3A35%3A19Z&sks=b&skv=2018-11-09&sig=yB1gxzG2h3lubIcl2w%2B4GM2Jddf%2Fgypkj6f9JOGu44k%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxMDExMCwibmJmIjoxNzk0OTA4MzEwLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.tUdnjSr7aNv92XxFFQ59VLRVpSgHHCjir2JM67SEEbU&response-content-disposition=attachment%3B%20filename%3DIV0000-GOLD00777_00-GOLDCHEATS000PS4.pkg&response-content-type=application%2Foctet-stream",
+          "httpStatus": 302
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/GoldHEN/GoldHEN_Cheat_Repository",
+      "references": [
+        {
+          "section": "apps",
+          "name": "GoldHEN Cheat Repository",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/GoldHEN/GoldHEN_Cheat_Repository",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/OpenOrbis/OpenOrbis-PS4-Toolchain",
+      "references": [
+        {
+          "section": "apps",
+          "name": "OpenOrbis PS4 Toolchain",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/OpenOrbis/OpenOrbis-PS4-Toolchain",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/OpenOrbis/LibOrbisPkg",
+      "references": [
+        {
+          "section": "apps",
+          "name": "LibOrbisPkg",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/OpenOrbis/LibOrbisPkg",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/hippie68/ps4-pkg-manager",
+      "references": [
+        {
+          "section": "apps",
+          "name": "PS4 PKG Manager",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/hippie68/ps4-pkg-manager",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/hippie68/ps4-ftp",
+      "references": [
+        {
+          "section": "apps",
+          "name": "PS4 FTP Server (Linux/PC companion)",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/hippie68/ps4-ftp",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/CaptainTuckerRvB/PS4-Native-Ports-Recomps-Emulators-Apps-Directory",
+      "references": [
+        {
+          "section": "apps",
+          "name": "PS4 Native Ports / Emulators / Apps Directory",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/CaptainTuckerRvB/PS4-Native-Ports-Recomps-Emulators-Apps-Directory",
+      "redirects": []
+    },
+    {
+      "url": "https://ta3reb.com/?platform=PS4",
+      "references": [
+        {
+          "section": "apps",
+          "name": "Ta3reb – مكتبة تعريبات PS4",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 200,
+      "checkedUrl": "https://ta3reb.com/?platform=PS4",
+      "redirects": []
+    },
+    {
+      "url": "https://muarrab.com/en/platforms/ps4/",
+      "references": [
+        {
+          "section": "apps",
+          "name": "Muarrab – دليل الألعاب العربية",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 200,
+      "checkedUrl": "https://muarrab.com/en/platforms/ps4/",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/ChiricoG/OneFamily/releases",
+      "references": [
+        {
+          "section": "apps",
+          "name": "OneFamily",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/ChiricoG/OneFamily/releases",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/ChiricoG/OneFamily/releases/download/v1.2.3/onefamily_companion.pkg",
+      "references": [
+        {
+          "section": "apps",
+          "name": "OneFamily",
+          "field": "downloadUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1435760299/6bad6678-16b5-4af2-87d8-89813d9081a8?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A32%3A52Z&rscd=attachment%3B+filename%3Donefamily_companion.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A32%3A52Z&ske=2026-11-17T10%3A32%3A52Z&sks=b&skv=2018-11-09&sig=znht%2Bp1wsWN6n14YQQdTLE8yTOWogZuDOtSeV9Vb8Cw%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkwODYxMCwibmJmIjoxNzk0OTA4MzEwLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.BMBaOGU_JvZmQLpM-1-eeawVNK6vY28xXtZGOpH30LI&response-content-disposition=attachment%3B%20filename%3Donefamily_companion.pkg&response-content-type=application%2Foctet-stream",
+      "redirects": [
+        {
+          "from": "https://github.com/ChiricoG/OneFamily/releases/download/v1.2.3/onefamily_companion.pkg",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1435760299/6bad6678-16b5-4af2-87d8-89813d9081a8?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A32%3A52Z&rscd=attachment%3B+filename%3Donefamily_companion.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A32%3A52Z&ske=2026-11-17T10%3A32%3A52Z&sks=b&skv=2018-11-09&sig=znht%2Bp1wsWN6n14YQQdTLE8yTOWogZuDOtSeV9Vb8Cw%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkwODYxMCwibmJmIjoxNzk0OTA4MzEwLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.BMBaOGU_JvZmQLpM-1-eeawVNK6vY28xXtZGOpH30LI&response-content-disposition=attachment%3B%20filename%3Donefamily_companion.pkg&response-content-type=application%2Foctet-stream",
+          "httpStatus": 302
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/Melnikoff07/vcfg/releases",
+      "references": [
+        {
+          "section": "apps",
+          "name": "VCFG – Frame Generation Plugin",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/Melnikoff07/vcfg/releases",
+      "redirects": []
+    },
+    {
+      "url": "https://store.brewology.com/dl/11487/VCFG_v2.36.pkg",
+      "references": [
+        {
+          "section": "apps",
+          "name": "VCFG – Frame Generation Plugin",
+          "field": "downloadUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1425663668/c33490e8-1d63-4cb3-919f-b7ba34e363df?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A35%3A34Z&rscd=attachment%3B+filename%3DVCFG_v2.36.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A35%3A23Z&ske=2026-11-17T10%3A35%3A34Z&sks=b&skv=2018-11-09&sig=aL5ypkYGqtegmu%2BN9w4y62EtPIWsGQ77DEyO0bzn4mg%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkwODYxMCwibmJmIjoxNzk0OTA4MzEwLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.BMBaOGU_JvZmQLpM-1-eeawVNK6vY28xXtZGOpH30LI&response-content-disposition=attachment%3B%20filename%3DVCFG_v2.36.pkg&response-content-type=application%2Foctet-stream",
+      "redirects": [
+        {
+          "from": "https://store.brewology.com/dl/11487/VCFG_v2.36.pkg",
+          "to": "https://github.com/Melnikoff07/vcfg/releases/download/v2.36/VCFG_v2.36.pkg",
+          "httpStatus": 302
+        },
+        {
+          "from": "https://github.com/Melnikoff07/vcfg/releases/download/v2.36/VCFG_v2.36.pkg",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1425663668/c33490e8-1d63-4cb3-919f-b7ba34e363df?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A35%3A34Z&rscd=attachment%3B+filename%3DVCFG_v2.36.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A35%3A23Z&ske=2026-11-17T10%3A35%3A34Z&sks=b&skv=2018-11-09&sig=aL5ypkYGqtegmu%2BN9w4y62EtPIWsGQ77DEyO0bzn4mg%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkwODYxMCwibmJmIjoxNzk0OTA4MzEwLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.BMBaOGU_JvZmQLpM-1-eeawVNK6vY28xXtZGOpH30LI&response-content-disposition=attachment%3B%20filename%3DVCFG_v2.36.pkg&response-content-type=application%2Foctet-stream",
+          "httpStatus": 302
+        }
+      ]
+    },
+    {
+      "url": "https://store.brewology.com/ps4/",
+      "references": [
+        {
+          "section": "apps",
+          "name": "Brewology PS4 Homebrew Store",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 200,
+      "checkedUrl": "https://store.brewology.com/ps4/",
+      "redirects": []
+    },
+    {
+      "url": "https://consolemods.org/wiki/PS4:Exploit_Chart",
+      "references": [
+        {
+          "section": "apps",
+          "name": "PS4 Exploit Chart (ConsoleMods)",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": false,
+      "status": "http_error",
+      "httpStatus": 403,
+      "checkedUrl": "https://consolemods.org/wiki/PS4:Exploit_Chart",
+      "redirects": []
+    },
+    {
+      "url": "https://consolemods.org/wiki/PS4:FAQ",
+      "references": [
+        {
+          "section": "apps",
+          "name": "PS4 FAQ & Safety Guide (ConsoleMods)",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": false,
+      "status": "http_error",
+      "httpStatus": 403,
+      "checkedUrl": "https://consolemods.org/wiki/PS4:FAQ",
+      "redirects": []
+    },
+    {
+      "url": "https://github.com/ReiKatari/STORM_PS4_PKG_INSTALLER",
+      "references": [
+        {
+          "section": "apps",
+          "name": "STORM – Network PKG Installer",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/ReiKatari/STORM_PS4_PKG_INSTALLER",
+      "redirects": []
+    },
+    {
+      "url": "https://store.brewology.com/dl/6352/STORM_PS4_PKG_INSTALLER_1.60.pkg",
+      "references": [
+        {
+          "section": "apps",
+          "name": "STORM – Network PKG Installer",
+          "field": "downloadUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1149519288/490886d2-1583-4c55-8f15-8e8862745b75?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A37%3A46Z&rscd=attachment%3B+filename%3DSTORM_PS4_PKG_INSTALLER_1.60.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A37%3A38Z&ske=2026-11-17T10%3A37%3A46Z&sks=b&skv=2018-11-09&sig=wLTkru2ldfGnntEbHtaWg9WqsKjQNjh0vfyIqmU%2FIGk%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxMDExMSwibmJmIjoxNzk0OTA4MzExLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.Jz8C0uTAcUfdUxVNgD0hT-7Licxjkz4neWubqig-ABw&response-content-disposition=attachment%3B%20filename%3DSTORM_PS4_PKG_INSTALLER_1.60.pkg&response-content-type=application%2Foctet-stream",
+      "redirects": [
+        {
+          "from": "https://store.brewology.com/dl/6352/STORM_PS4_PKG_INSTALLER_1.60.pkg",
+          "to": "https://github.com/ReiKatari/STORM_PS4_PKG_INSTALLER/releases/download/1.60/STORM_PS4_PKG_INSTALLER_1.60.pkg",
+          "httpStatus": 302
+        },
+        {
+          "from": "https://github.com/ReiKatari/STORM_PS4_PKG_INSTALLER/releases/download/1.60/STORM_PS4_PKG_INSTALLER_1.60.pkg",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1149519288/490886d2-1583-4c55-8f15-8e8862745b75?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A37%3A46Z&rscd=attachment%3B+filename%3DSTORM_PS4_PKG_INSTALLER_1.60.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A37%3A38Z&ske=2026-11-17T10%3A37%3A46Z&sks=b&skv=2018-11-09&sig=wLTkru2ldfGnntEbHtaWg9WqsKjQNjh0vfyIqmU%2FIGk%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkxMDExMSwibmJmIjoxNzk0OTA4MzExLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.Jz8C0uTAcUfdUxVNgD0hT-7Licxjkz4neWubqig-ABw&response-content-disposition=attachment%3B%20filename%3DSTORM_PS4_PKG_INSTALLER_1.60.pkg&response-content-type=application%2Foctet-stream",
+          "httpStatus": 302
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/joojofc13-wq/ProCon",
+      "references": [
+        {
+          "section": "apps",
+          "name": "ProCon",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/joojofc13-wq/ProCon",
+      "redirects": []
+    },
+    {
+      "url": "https://store.brewology.com/dl/6218/ProCon-0.3-hotfix.pkg",
+      "references": [
+        {
+          "section": "apps",
+          "name": "ProCon",
+          "field": "downloadUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1390386378/2a6d2d25-19f4-4043-a39a-caaa8ac4fc6d?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A31%3A49Z&rscd=attachment%3B+filename%3DProCon-0.3-hotfix.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A31%3A41Z&ske=2026-11-17T10%3A31%3A49Z&sks=b&skv=2018-11-09&sig=OiILAr1oGgeEnRF5DxIsWumo6f59Gva%2FQaqhMt6Tllc%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkwODYxMSwibmJmIjoxNzk0OTA4MzExLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.OLnzzf39rApkzNQpPXNpWOnrjtDFhav8x5lS3gkeFnw&response-content-disposition=attachment%3B%20filename%3DProCon-0.3-hotfix.pkg&response-content-type=application%2Foctet-stream",
+      "redirects": [
+        {
+          "from": "https://store.brewology.com/dl/6218/ProCon-0.3-hotfix.pkg",
+          "to": "https://github.com/joojofc13-wq/ProCon/releases/download/0.3-hotfix/ProCon-0.3-hotfix.pkg",
+          "httpStatus": 302
+        },
+        {
+          "from": "https://github.com/joojofc13-wq/ProCon/releases/download/0.3-hotfix/ProCon-0.3-hotfix.pkg",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1390386378/2a6d2d25-19f4-4043-a39a-caaa8ac4fc6d?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A31%3A49Z&rscd=attachment%3B+filename%3DProCon-0.3-hotfix.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A31%3A41Z&ske=2026-11-17T10%3A31%3A49Z&sks=b&skv=2018-11-09&sig=OiILAr1oGgeEnRF5DxIsWumo6f59Gva%2FQaqhMt6Tllc%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkwODYxMSwibmJmIjoxNzk0OTA4MzExLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.OLnzzf39rApkzNQpPXNpWOnrjtDFhav8x5lS3gkeFnw&response-content-disposition=attachment%3B%20filename%3DProCon-0.3-hotfix.pkg&response-content-type=application%2Foctet-stream",
+          "httpStatus": 302
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/ezecernadas/goldhen-plugin-manager",
+      "references": [
+        {
+          "section": "apps",
+          "name": "GoldHEN Plugin Manager",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/ezecernadas/goldhen-plugin-manager",
+      "redirects": []
+    },
+    {
+      "url": "https://store.brewology.com/dl/6127/goldhen-plugin-manager-v1.1.1.pkg",
+      "references": [
+        {
+          "section": "apps",
+          "name": "GoldHEN Plugin Manager",
+          "field": "downloadUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1367653354/ec71f473-2c22-455a-b5b5-4b8f78927329?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A33%3A08Z&rscd=attachment%3B+filename%3Dgoldhen-plugin-manager-v1.1.1.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A32%3A50Z&ske=2026-11-17T10%3A33%3A08Z&sks=b&skv=2018-11-09&sig=DBEUFGPvpyEs8e6b%2FKtFVXtJSxb7fvx4IQ0h2JxcuuI%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkwODYxMSwibmJmIjoxNzk0OTA4MzExLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.OLnzzf39rApkzNQpPXNpWOnrjtDFhav8x5lS3gkeFnw&response-content-disposition=attachment%3B%20filename%3Dgoldhen-plugin-manager-v1.1.1.pkg&response-content-type=application%2Foctet-stream",
+      "redirects": [
+        {
+          "from": "https://store.brewology.com/dl/6127/goldhen-plugin-manager-v1.1.1.pkg",
+          "to": "https://github.com/ezecernadas/goldhen-plugin-manager/releases/download/v1.1.1/goldhen-plugin-manager-v1.1.1.pkg",
+          "httpStatus": 302
+        },
+        {
+          "from": "https://github.com/ezecernadas/goldhen-plugin-manager/releases/download/v1.1.1/goldhen-plugin-manager-v1.1.1.pkg",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1367653354/ec71f473-2c22-455a-b5b5-4b8f78927329?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A33%3A08Z&rscd=attachment%3B+filename%3Dgoldhen-plugin-manager-v1.1.1.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A32%3A50Z&ske=2026-11-17T10%3A33%3A08Z&sks=b&skv=2018-11-09&sig=DBEUFGPvpyEs8e6b%2FKtFVXtJSxb7fvx4IQ0h2JxcuuI%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkwODYxMSwibmJmIjoxNzk0OTA4MzExLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.OLnzzf39rApkzNQpPXNpWOnrjtDFhav8x5lS3gkeFnw&response-content-disposition=attachment%3B%20filename%3Dgoldhen-plugin-manager-v1.1.1.pkg&response-content-type=application%2Foctet-stream",
+          "httpStatus": 302
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/RuxaXa/ps4-dropbear-ssh",
+      "references": [
+        {
+          "section": "apps",
+          "name": "Dropbear SSH for PS4",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/RuxaXa/ps4-dropbear-ssh",
+      "redirects": []
+    },
+    {
+      "url": "https://store.brewology.com/dl/6359/IV0000-BREW00010_00-DROPBEARSSH00000.pkg",
+      "references": [
+        {
+          "section": "apps",
+          "name": "Dropbear SSH for PS4",
+          "field": "downloadUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1317313547/e8a6b8b7-d441-4ea2-a232-8c2e56c5d0ee?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A31%3A42Z&rscd=attachment%3B+filename%3DIV0000-BREW00010_00-DROPBEARSSH00000.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A31%3A33Z&ske=2026-11-17T10%3A31%3A42Z&sks=b&skv=2018-11-09&sig=8Zj%2BuEDyyKRmFxbBjCMzARNVwOW9%2FMAlkSVLKv9BP3k%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkwODYxMSwibmJmIjoxNzk0OTA4MzExLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.OLnzzf39rApkzNQpPXNpWOnrjtDFhav8x5lS3gkeFnw&response-content-disposition=attachment%3B%20filename%3DIV0000-BREW00010_00-DROPBEARSSH00000.pkg&response-content-type=application%2Foctet-stream",
+      "redirects": [
+        {
+          "from": "https://store.brewology.com/dl/6359/IV0000-BREW00010_00-DROPBEARSSH00000.pkg",
+          "to": "https://github.com/RuxaXa/ps4-dropbear-ssh/releases/download/v1.07-build57/IV0000-BREW00010_00-DROPBEARSSH00000.pkg",
+          "httpStatus": 302
+        },
+        {
+          "from": "https://github.com/RuxaXa/ps4-dropbear-ssh/releases/download/v1.07-build57/IV0000-BREW00010_00-DROPBEARSSH00000.pkg",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/1317313547/e8a6b8b7-d441-4ea2-a232-8c2e56c5d0ee?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A31%3A42Z&rscd=attachment%3B+filename%3DIV0000-BREW00010_00-DROPBEARSSH00000.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A31%3A33Z&ske=2026-11-17T10%3A31%3A42Z&sks=b&skv=2018-11-09&sig=8Zj%2BuEDyyKRmFxbBjCMzARNVwOW9%2FMAlkSVLKv9BP3k%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkwODYxMSwibmJmIjoxNzk0OTA4MzExLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.OLnzzf39rApkzNQpPXNpWOnrjtDFhav8x5lS3gkeFnw&response-content-disposition=attachment%3B%20filename%3DIV0000-BREW00010_00-DROPBEARSSH00000.pkg&response-content-type=application%2Foctet-stream",
+          "httpStatus": 302
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/bucanero/ps4load",
+      "references": [
+        {
+          "section": "apps",
+          "name": "PS4Load",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/bucanero/ps4load",
+      "redirects": []
+    },
+    {
+      "url": "https://store.brewology.com/dl/5928/IV0000-LOAD00044_00-SDL2GLES20000000.pkg",
+      "references": [
+        {
+          "section": "apps",
+          "name": "PS4Load",
+          "field": "downloadUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/490433618/a1911bc5-566f-4e01-844c-f0ce0249cca5?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A36%3A50Z&rscd=attachment%3B+filename%3DIV0000-LOAD00044_00-SDL2GLES20000000.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A36%3A06Z&ske=2026-11-17T10%3A36%3A50Z&sks=b&skv=2018-11-09&sig=QynnYbJYZ9dEGcW3n1RePLtbZSdsqJ0VZSD7%2BNSyrMY%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkwODYxMSwibmJmIjoxNzk0OTA4MzExLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.OLnzzf39rApkzNQpPXNpWOnrjtDFhav8x5lS3gkeFnw&response-content-disposition=attachment%3B%20filename%3DIV0000-LOAD00044_00-SDL2GLES20000000.pkg&response-content-type=application%2Foctet-stream",
+      "redirects": [
+        {
+          "from": "https://store.brewology.com/dl/5928/IV0000-LOAD00044_00-SDL2GLES20000000.pkg",
+          "to": "https://github.com/bucanero/ps4load/releases/download/v0.5.0/IV0000-LOAD00044_00-SDL2GLES20000000.pkg",
+          "httpStatus": 302
+        },
+        {
+          "from": "https://github.com/bucanero/ps4load/releases/download/v0.5.0/IV0000-LOAD00044_00-SDL2GLES20000000.pkg",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/490433618/a1911bc5-566f-4e01-844c-f0ce0249cca5?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A36%3A50Z&rscd=attachment%3B+filename%3DIV0000-LOAD00044_00-SDL2GLES20000000.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A36%3A06Z&ske=2026-11-17T10%3A36%3A50Z&sks=b&skv=2018-11-09&sig=QynnYbJYZ9dEGcW3n1RePLtbZSdsqJ0VZSD7%2BNSyrMY%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkwODYxMSwibmJmIjoxNzk0OTA4MzExLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.OLnzzf39rApkzNQpPXNpWOnrjtDFhav8x5lS3gkeFnw&response-content-disposition=attachment%3B%20filename%3DIV0000-LOAD00044_00-SDL2GLES20000000.pkg&response-content-type=application%2Foctet-stream",
+          "httpStatus": 302
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/Al-Azif/ps4-vibe",
+      "references": [
+        {
+          "section": "apps",
+          "name": "PS4 Vibe",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/Al-Azif/ps4-vibe",
+      "redirects": []
+    },
+    {
+      "url": "https://store.brewology.com/dl/5886/IV0000-AZIF00001_00-PS4VIBE000000000.pkg",
+      "references": [
+        {
+          "section": "apps",
+          "name": "PS4 Vibe",
+          "field": "downloadUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/423052703/83262909-b8da-42be-94d3-7e3a66cc5c04?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A33%3A12Z&rscd=attachment%3B+filename%3DIV0000-AZIF00001_00-PS4VIBE000000000.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A32%3A43Z&ske=2026-11-17T10%3A33%3A12Z&sks=b&skv=2018-11-09&sig=FzyPyhomOLBojTi2cCw%2F3GkosaZRqpqmcwdtB0OO%2F3c%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkwODYxMSwibmJmIjoxNzk0OTA4MzExLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.OLnzzf39rApkzNQpPXNpWOnrjtDFhav8x5lS3gkeFnw&response-content-disposition=attachment%3B%20filename%3DIV0000-AZIF00001_00-PS4VIBE000000000.pkg&response-content-type=application%2Foctet-stream",
+      "redirects": [
+        {
+          "from": "https://store.brewology.com/dl/5886/IV0000-AZIF00001_00-PS4VIBE000000000.pkg",
+          "to": "https://github.com/Al-Azif/ps4-vibe/releases/download/v1.02/IV0000-AZIF00001_00-PS4VIBE000000000.pkg",
+          "httpStatus": 302
+        },
+        {
+          "from": "https://github.com/Al-Azif/ps4-vibe/releases/download/v1.02/IV0000-AZIF00001_00-PS4VIBE000000000.pkg",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/423052703/83262909-b8da-42be-94d3-7e3a66cc5c04?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A33%3A12Z&rscd=attachment%3B+filename%3DIV0000-AZIF00001_00-PS4VIBE000000000.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A32%3A43Z&ske=2026-11-17T10%3A33%3A12Z&sks=b&skv=2018-11-09&sig=FzyPyhomOLBojTi2cCw%2F3GkosaZRqpqmcwdtB0OO%2F3c%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkwODYxMSwibmJmIjoxNzk0OTA4MzExLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.OLnzzf39rApkzNQpPXNpWOnrjtDFhav8x5lS3gkeFnw&response-content-disposition=attachment%3B%20filename%3DIV0000-AZIF00001_00-PS4VIBE000000000.pkg&response-content-type=application%2Foctet-stream",
+          "httpStatus": 302
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/OSM-Made/OrbisFTP",
+      "references": [
+        {
+          "section": "apps",
+          "name": "OrbisFTP",
+          "field": "sourceUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://github.com/OSM-Made/OrbisFTP",
+      "redirects": []
+    },
+    {
+      "url": "https://store.brewology.com/dl/6321/IV0000-OFTP00000_00-FTPINSTALLR00000.pkg",
+      "references": [
+        {
+          "section": "apps",
+          "name": "OrbisFTP",
+          "field": "downloadUrl"
+        }
+      ],
+      "ok": true,
+      "status": "reachable",
+      "httpStatus": 206,
+      "checkedUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/350894578/e03fcc00-8c03-11eb-8949-a8741afdbd28?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A33%3A18Z&rscd=attachment%3B+filename%3DIV0000-OFTP00000_00-FTPINSTALLR00000.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A32%3A50Z&ske=2026-11-17T10%3A33%3A18Z&sks=b&skv=2018-11-09&sig=3fEDhHsrXG7rMo2cxSdnj6SVHOvX%2F7EAu62jEzjXZvk%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkwODYxMiwibmJmIjoxNzk0OTA4MzEyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.PV2oOqHDa4fGt1VRfWz50CdGkBZH3NB8IppOfjkwruA&response-content-disposition=attachment%3B%20filename%3DIV0000-OFTP00000_00-FTPINSTALLR00000.pkg&response-content-type=application%2Foctet-stream",
+      "redirects": [
+        {
+          "from": "https://store.brewology.com/dl/6321/IV0000-OFTP00000_00-FTPINSTALLR00000.pkg",
+          "to": "https://github.com/OSM-Made/OrbisFTP/releases/download/1.0/IV0000-OFTP00000_00-FTPINSTALLR00000.pkg",
+          "httpStatus": 302
+        },
+        {
+          "from": "https://github.com/OSM-Made/OrbisFTP/releases/download/1.0/IV0000-OFTP00000_00-FTPINSTALLR00000.pkg",
+          "to": "https://release-assets.githubusercontent.com/github-production-release-asset/350894578/e03fcc00-8c03-11eb-8949-a8741afdbd28?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-17T10%3A33%3A18Z&rscd=attachment%3B+filename%3DIV0000-OFTP00000_00-FTPINSTALLR00000.pkg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-17T09%3A32%3A50Z&ske=2026-11-17T10%3A33%3A18Z&sks=b&skv=2018-11-09&sig=3fEDhHsrXG7rMo2cxSdnj6SVHOvX%2F7EAu62jEzjXZvk%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDkwODYxMiwibmJmIjoxNzk0OTA4MzEyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.PV2oOqHDa4fGt1VRfWz50CdGkBZH3NB8IppOfjkwruA&response-content-disposition=attachment%3B%20filename%3DIV0000-OFTP00000_00-FTPINSTALLR00000.pkg&response-content-type=application%2Foctet-stream",
+          "httpStatus": 302
+        }
+      ]
+    }
+  ]
 }

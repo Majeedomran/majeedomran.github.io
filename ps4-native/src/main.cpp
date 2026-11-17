@@ -5,12 +5,23 @@
 #include <cstdlib>
 #include <cctype>
 #include <cmath>
+#include <ctime>
+#include <orbis/Pad.h>
+#include <orbis/UserService.h>
+#include <orbis/SystemService.h>
 
 static const int SCREEN_W = 1920;
 static const int SCREEN_H = 1080;
 static SDL_Window* gWindow = nullptr;
 static SDL_Renderer* gRenderer = nullptr;
-static SDL_Joystick* gPad = nullptr;
+static int gPadHandle = -1;
+static uint32_t gPadButtons = 0;
+static uint32_t gPadLastButtons = 0;
+static int gPadUserId = -1;
+static bool gPadReady = false;
+static Uint32 lastPadRepeat = 0;
+static int lastPadDx = 0, lastPadDy = 0;
+static char weatherLabel[48] = "TEMP -- C AMMAN";
 static bool analogEngaged = false;
 static int lastAnalogX = 0, lastAnalogY = 0;
 static Uint32 lastAnalogMove = 0;
@@ -241,6 +252,16 @@ static void draw() {
         text(90,1000,networkStatus,2,36,205,186);
     } else if (page==3) {
         text(90,150,"GAME LIBRARY",5,36,205,186);
+        char clockLabel[64], dateLabel[64];
+        std::time_t nowTime=std::time(nullptr); std::tm localTime;
+        if(localtime_r(&nowTime,&localTime)) {
+            std::snprintf(clockLabel,sizeof(clockLabel),"TIME %02d:%02d:%02d",localTime.tm_hour,localTime.tm_min,localTime.tm_sec);
+            std::snprintf(dateLabel,sizeof(dateLabel),"DATE %02d/%02d/%04d",localTime.tm_mday,localTime.tm_mon+1,localTime.tm_year+1900);
+        } else { std::snprintf(clockLabel,sizeof(clockLabel),"TIME NOT AVAILABLE"); std::snprintf(dateLabel,sizeof(dateLabel),"DATE NOT AVAILABLE"); }
+        text(1030,145,clockLabel,2,245,248,255);
+        text(1450,145,dateLabel,2,143,190,205);
+        text(1030,185,weatherLabel,2,36,205,186);
+        text(1450,185,"VERSION 0.1.7",2,143,190,205);
         rect(80,240,1760,3,38,57,78);
         if(detailOpen && gameCount>0 && selected<gameCount) {
             rect(95,300,1720,440,17,27,42); outline(95,300,1720,440,43,63,82);
@@ -315,7 +336,7 @@ static void draw() {
         text(145,515,"NO PLACEHOLDER DOWNLOAD BUTTONS OR FAKE FILE LINKS",2,165,190,205);
         text(145,575,"CATALOG AND NETWORK SUPPORT ARE UNDER DEVELOPMENT",2,165,190,205);
         text(90,820,"CIRCLE - BACK TO HOME",3,36,205,186);
-        text(90,900,"M4 HUB NATIVE CLIENT - VERSION 0.1.6",2,121,143,166);
+        text(90,900,"M4 HUB NATIVE CLIENT - VERSION 0.1.7",2,121,143,166);
         text(90,960,networkStatus,2,36,205,186);
     }
     SDL_RenderPresent(gRenderer);
@@ -341,25 +362,56 @@ static void navigate(int dx, int dy) {
         if(page==0) moveSelection(dx,dy);
     }
 }
-static void handleLegacyJoystickButton(Uint8 b) {
-    debugButton = (int)b;
-    // Raw button IDs are displayed for hardware calibration.
-    switch(b) {
-        case 0: if(page==0) page=selected+1; else if((page==3 && gameCount>0) || (page==4 && localizedCount>0)) detailOpen=true; break; // Cross: Open
-        case 1: if(detailOpen) detailOpen=false; else { page=0; selected=0; listOffset=0; } break; // Circle: Back
-        case 2: if(page==0) { page=8; selected=0; } break; // Square: Favorites
-        case 3: m4hub_refresh_catalog(networkStatus, sizeof(networkStatus)); loadGamesFromCache(); break; // Triangle: Refresh
+static void handlePadAction(uint32_t pressed) {
+    if(pressed & ORBIS_PAD_BUTTON_CROSS) {
+        if(page==0) page=selected+1;
+        else if((page==3 && gameCount>0) || (page==4 && localizedCount>0)) detailOpen=true;
     }
+    if(pressed & ORBIS_PAD_BUTTON_CIRCLE) {
+        if(detailOpen) detailOpen=false;
+        else { page=0; selected=0; listOffset=0; }
+    }
+    if((pressed & ORBIS_PAD_BUTTON_SQUARE) && page==0) { page=8; selected=0; }
+    if(pressed & ORBIS_PAD_BUTTON_TRIANGLE) { m4hub_refresh_catalog(networkStatus,sizeof(networkStatus)); loadGamesFromCache(); }
 }
-static void handleLegacyHat(Uint8 value) {
-    if(value & SDL_HAT_UP) navigate(0,-1);
-    else if(value & SDL_HAT_DOWN) navigate(0,1);
-    else if(value & SDL_HAT_LEFT) navigate(-1,0);
-    else if(value & SDL_HAT_RIGHT) navigate(1,0);
+static bool initNativePad() {
+    OrbisUserServiceInitializeParams params;
+    std::memset(&params,0,sizeof(params));
+    params.priority=ORBIS_KERNEL_PRIO_FIFO_LOWEST;
+    int r=sceUserServiceInitialize(&params);
+    if(r<0 && r!=ORBIS_USER_SERVICE_ERROR_ALREADY_INITIALIZED) return false;
+    if(scePadInit()<0) return false;
+    if(sceUserServiceGetInitialUser(&gPadUserId)<0) return false;
+    gPadHandle=scePadOpen(gPadUserId,0,0,nullptr);
+    gPadReady=(gPadHandle>=0);
+    return gPadReady;
+}
+static void updateNativePad() {
+    if(!gPadReady) return;
+    OrbisPadData state;
+    std::memset(&state,0,sizeof(state));
+    if(scePadReadState(gPadHandle,&state)<0 || !state.connected) return;
+    gPadLastButtons=gPadButtons;
+    gPadButtons=state.buttons;
+    uint32_t pressed=gPadButtons & ~gPadLastButtons;
+    handlePadAction(pressed);
+    int dx=(gPadButtons & ORBIS_PAD_BUTTON_LEFT)?-1:((gPadButtons & ORBIS_PAD_BUTTON_RIGHT)?1:0);
+    int dy=(gPadButtons & ORBIS_PAD_BUTTON_UP)?-1:((gPadButtons & ORBIS_PAD_BUTTON_DOWN)?1:0);
+    const int center=128, engage=44, release=26;
+    int ax=(int)state.leftStick.x-center, ay=(int)state.leftStick.y-center;
+    if(dx==0) dx=(ax < -engage)?-1:((ax > engage)?1:0);
+    if(dy==0) dy=(ay < -engage)?-1:((ay > engage)?1:0);
+    bool centered=(std::abs(ax)<release && std::abs(ay)<release &&
+        !(gPadButtons & (ORBIS_PAD_BUTTON_UP|ORBIS_PAD_BUTTON_DOWN|ORBIS_PAD_BUTTON_LEFT|ORBIS_PAD_BUTTON_RIGHT)));
+    Uint32 now=SDL_GetTicks();
+    if(dx==0 && dy==0) { lastPadDx=lastPadDy=0; }
+    else if(dx!=lastPadDx || dy!=lastPadDy || (now-lastPadRepeat)>=190) {
+        navigate(dx,dy); lastPadDx=dx; lastPadDy=dy; lastPadRepeat=now;
+    }
 }
 extern "C" int main(int, char**) {
     setvbuf(stdout,nullptr,_IONBF,0);
-    if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_JOYSTICK)!=0) {
+    if (SDL_Init(SDL_INIT_VIDEO)!=0) {
         std::printf("M4 HUB: SDL init failed: %s\n",SDL_GetError()); return 1;
     }
     gWindow=SDL_CreateWindow("M4 HUB",SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,SCREEN_W,SCREEN_H,0);
@@ -367,18 +419,14 @@ extern "C" int main(int, char**) {
     SDL_Surface* surface=SDL_GetWindowSurface(gWindow);
     gRenderer=SDL_CreateSoftwareRenderer(surface);
     if (!gRenderer) { std::printf("M4 HUB: renderer failed: %s\n",SDL_GetError()); return 1; }
-    SDL_JoystickEventState(SDL_ENABLE);
-    debugJoyCount = SDL_NumJoysticks();
-    if (debugJoyCount>0) gPad=SDL_JoystickOpen(0);
-    if (gPad) debugAxisCount = SDL_JoystickNumAxes(gPad);
+    initNativePad();
+    m4hub_refresh_weather(weatherLabel,sizeof(weatherLabel));
     loadGamesFromCache();
     bool running=true;
     while (running) {
         SDL_Event event;
         while (SDL_PollEvent(&event)) {
             if (event.type==SDL_QUIT) running=false;
-            if (event.type==SDL_JOYHATMOTION) handleLegacyHat(event.jhat.value);
-            if (event.type==SDL_JOYBUTTONDOWN) handleLegacyJoystickButton(event.jbutton.button);
             if (event.type==SDL_KEYDOWN) {
                 switch(event.key.keysym.sym) {
                     case SDLK_UP: navigate(0,-1); break;
@@ -391,31 +439,7 @@ extern "C" int main(int, char**) {
                 }
             }
         }
-        if(gPad && SDL_JoystickNumAxes(gPad)>=2) {
-            SDL_JoystickUpdate();
-            Sint16 ax=SDL_JoystickGetAxis(gPad,0);
-            Sint16 ay=SDL_JoystickGetAxis(gPad,1);
-            debugAxisX=(int)ax; debugAxisY=(int)ay;
-            // Higher deadzone filters stick drift; movement stops as soon as the stick is released.
-            const int engageDeadzone = 17000;
-            const int releaseDeadzone = 10500;
-            int dx=(ax < -engageDeadzone)?-1:((ax > engageDeadzone)?1:0);
-            int dy=(ay < -engageDeadzone)?-1:((ay > engageDeadzone)?1:0);
-            Uint32 now = SDL_GetTicks();
-            bool centered = std::abs((int)ax)<releaseDeadzone && std::abs((int)ay)<releaseDeadzone;
-            // Edge-triggered navigation: one step per stick tilt.
-            // This prevents runaway scrolling if the controller reports a drifting axis.
-            if (dx!=0 || dy!=0) {
-                if (!analogEngaged) {
-                    navigate(dx,dy);
-                    analogEngaged = true;
-                    lastAnalogX=dx; lastAnalogY=dy; lastAnalogMove=now;
-                }
-            } else if (centered) {
-                analogEngaged = false;
-                lastAnalogX=0; lastAnalogY=0;
-            }
-        }
+        updateNativePad();
         draw();
         char diag[112];
         std::snprintf(diag,sizeof(diag),"PAD %d AXES %d X %d Y %d BTN %d",debugJoyCount,debugAxisCount,debugAxisX,debugAxisY,debugButton);
@@ -423,7 +447,7 @@ extern "C" int main(int, char**) {
         SDL_RenderPresent(gRenderer);
         SDL_Delay(16);
     }
-    if (gPad) SDL_JoystickClose(gPad);
+    if(gPadReady) scePadClose(gPadHandle);
     SDL_DestroyRenderer(gRenderer); SDL_DestroyWindow(gWindow); SDL_Quit();
     return 0;
 }

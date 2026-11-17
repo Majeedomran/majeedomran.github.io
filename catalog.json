@@ -739,5 +739,12 @@
       "sourceUrl": "https://github.com/OSM-Made/OrbisFTP",
       "downloadUrl": "https://store.brewology.com/dl/6321/IV0000-OFTP00000_00-FTPINSTALLR00000.pkg"
     }
-  ]
+  ],
+  "localizedGames": [],
+  "updatePolicy": {
+    "catalogue": "automatic-on-open-and-every-60-seconds",
+    "website": "published-from-central-repository",
+    "nativeApp": "check-update-manifest-on-launch; download newer PKG when available; user confirmation required for installation",
+    "note": "A new PKG binary is not created by catalogue changes. Native app updates require a separately built, tested and published package."
+  }
 }

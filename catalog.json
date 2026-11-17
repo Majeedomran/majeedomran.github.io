@@ -743,6 +743,18 @@
   ],
   "localizedGames": [
     {
+      "name": "Red Dead Redemption 2",
+      "name_en": "Red Dead Redemption 2",
+      "description": "تعريب مجتمعي لنسخة PS4. صفحة المصدر تصف التعريب بأنه جزئي (حوالي 50%) ويشمل القوائم وجزءاً من القصة والحوارات. توجد تعليقات أحدث تختلف حول نسبة الاكتمال؛ تحقق من آخر تفاصيل المصدر قبل التثبيت.",
+      "description_en": "Community Arabic localization for PS4. The source page describes it as partial (around 50%), covering menus and parts of the main story/dialogue. Some newer comments differ on completion; verify the latest source details before installing.",
+      "platform": "PS4",
+      "translationType": "جزئي حسب وصف صفحة المصدر (50%)",
+      "translationType_en": "Partial according to the source page (50%)",
+      "localizationType": "community",
+      "sourceUrl": "https://pspkg.com/ar/arabic-games/red-dead-redemption-2-arabic-251.html",
+      "status": "unverified"
+    },
+    {
       "name": "Assassin's Creed Mirage",
       "name_en": "Assassins Creed Mirage",
       "year": 2023,
@@ -2101,5 +2113,117 @@
     "website": "published-from-central-repository",
     "nativeApp": "check-update-manifest-on-launch; download newer PKG when available; user confirmation required for installation",
     "note": "A new PKG binary is not created by catalogue changes. Native app updates require a separately built, tested and published package."
-  }
+  },
+  "games": [
+    {
+      "name": "Red Dead Redemption 2",
+      "name_en": "Red Dead Redemption 2",
+      "category": "أكشن، عالم مفتوح، مغامرات",
+      "description": "لعبة عالم مفتوح من Rockstar Games. هذه بطاقة معلومات فقط؛ لا يتوفر تنزيل رسمي مجاني من M4 HUB.",
+      "description_en": "لعبة عالم مفتوح من Rockstar Games. هذه بطاقة معلومات فقط؛ لا يتوفر تنزيل رسمي مجاني من M4 HUB.",
+      "sourceUrl": "https://www.rockstargames.com/reddeadredemption2",
+      "platform": "PS4",
+      "status": "unverified",
+      "listingType": "info"
+    },
+    {
+      "name": "Grand Theft Auto V",
+      "name_en": "Grand Theft Auto V",
+      "category": "أكشن، عالم مفتوح",
+      "description": "لعبة عالم مفتوح من Rockstar Games.",
+      "description_en": "لعبة عالم مفتوح من Rockstar Games.",
+      "sourceUrl": "https://www.rockstargames.com/gta-v",
+      "platform": "PS4",
+      "status": "unverified",
+      "listingType": "info"
+    },
+    {
+      "name": "God of War",
+      "name_en": "God of War",
+      "category": "أكشن، مغامرات",
+      "description": "مغامرة أكشن من Santa Monica Studio.",
+      "description_en": "مغامرة أكشن من Santa Monica Studio.",
+      "sourceUrl": "https://www.playstation.com/games/god-of-war/",
+      "platform": "PS4",
+      "status": "unverified",
+      "listingType": "info"
+    },
+    {
+      "name": "Marvel's Spider-Man",
+      "name_en": "Marvel's Spider-Man",
+      "category": "أكشن، عالم مفتوح",
+      "description": "مغامرة عالم مفتوح من Insomniac Games.",
+      "description_en": "مغامرة عالم مفتوح من Insomniac Games.",
+      "sourceUrl": "https://www.playstation.com/games/marvels-spider-man/",
+      "platform": "PS4",
+      "status": "unverified",
+      "listingType": "info"
+    },
+    {
+      "name": "Uncharted 4: A Thief's End",
+      "name_en": "Uncharted 4: A Thief's End",
+      "category": "أكشن، مغامرات",
+      "description": "مغامرة سينمائية من Naughty Dog.",
+      "description_en": "مغامرة سينمائية من Naughty Dog.",
+      "sourceUrl": "https://www.playstation.com/games/uncharted-4-a-thiefs-end/",
+      "platform": "PS4",
+      "status": "unverified",
+      "listingType": "info"
+    },
+    {
+      "name": "The Last of Us Part II",
+      "name_en": "The Last of Us Part II",
+      "category": "أكشن، مغامرات",
+      "description": "لعبة قصة ومغامرات من Naughty Dog.",
+      "description_en": "لعبة قصة ومغامرات من Naughty Dog.",
+      "sourceUrl": "https://www.playstation.com/games/the-last-of-us-part-ii/",
+      "platform": "PS4",
+      "status": "unverified",
+      "listingType": "info"
+    },
+    {
+      "name": "Ghost of Tsushima",
+      "name_en": "Ghost of Tsushima",
+      "category": "أكشن، عالم مفتوح",
+      "description": "مغامرة عالم مفتوح من Sucker Punch.",
+      "description_en": "مغامرة عالم مفتوح من Sucker Punch.",
+      "sourceUrl": "https://www.playstation.com/games/ghost-of-tsushima/",
+      "platform": "PS4",
+      "status": "unverified",
+      "listingType": "info"
+    },
+    {
+      "name": "Horizon Zero Dawn",
+      "name_en": "Horizon Zero Dawn",
+      "category": "أكشن، عالم مفتوح",
+      "description": "مغامرة عالم مفتوح من Guerrilla.",
+      "description_en": "مغامرة عالم مفتوح من Guerrilla.",
+      "sourceUrl": "https://www.playstation.com/games/horizon-zero-dawn/",
+      "platform": "PS4",
+      "status": "unverified",
+      "listingType": "info"
+    },
+    {
+      "name": "Days Gone",
+      "name_en": "Days Gone",
+      "category": "أكشن، عالم مفتوح",
+      "description": "لعبة بقاء ومغامرات من Bend Studio.",
+      "description_en": "لعبة بقاء ومغامرات من Bend Studio.",
+      "sourceUrl": "https://www.playstation.com/games/days-gone/",
+      "platform": "PS4",
+      "status": "unverified",
+      "listingType": "info"
+    },
+    {
+      "name": "Bloodborne",
+      "name_en": "Bloodborne",
+      "category": "أكشن، تقمص أدوار",
+      "description": "لعبة أكشن وتقمص أدوار من FromSoftware.",
+      "description_en": "لعبة أكشن وتقمص أدوار من FromSoftware.",
+      "sourceUrl": "https://www.playstation.com/games/bloodborne/",
+      "platform": "PS4",
+      "status": "unverified",
+      "listingType": "info"
+    }
+  ]
 }

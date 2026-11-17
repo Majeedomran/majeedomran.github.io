@@ -1,0 +1,69 @@
+name: Build M4 HUB native PS4 PKG
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "ps4-native/**"
+      - ".github/workflows/build-ps4-native.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    env:
+      OO_PS4_TOOLCHAIN: ${{ runner.temp }}/OpenOrbisSDK
+    steps:
+      - name: Checkout M4 HUB
+        uses: actions/checkout@v4
+
+      - name: Install host build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang-18 lld-18 make python3 curl unzip
+
+      - name: Install pinned OpenOrbis toolchain
+        run: |
+          mkdir -p "$OO_PS4_TOOLCHAIN"
+          curl --fail --location --retry 3 \
+            https://github.com/OpenOrbis/OpenOrbis-PS4-Toolchain/releases/download/v0.5.4/toolchain-llvm-18.tar.gz \
+            -o "$RUNNER_TEMP/openorbis-toolchain.tar.gz"
+          echo "3c7cd5bb593ca74fa1c13fd59f3938dc0fc07985167f7275063019e63abe4526  $RUNNER_TEMP/openorbis-toolchain.tar.gz" | sha256sum --check
+          tar -xzf "$RUNNER_TEMP/openorbis-toolchain.tar.gz" -C "$OO_PS4_TOOLCHAIN"
+
+      - name: Install SDL2 PS4 library
+        run: |
+          curl --fail --location --retry 3 \
+            https://github.com/OpenOrbis/SDL-PS4/releases/download/v1.0/SDL2.tar.gz \
+            -o "$RUNNER_TEMP/SDL2-PS4.tar.gz"
+          tar -tzf "$RUNNER_TEMP/SDL2-PS4.tar.gz" | head -40
+          tar -xzf "$RUNNER_TEMP/SDL2-PS4.tar.gz" -C "$OO_PS4_TOOLCHAIN"
+
+      - name: Install LibOrbisPkg command-line tool
+        run: |
+          mkdir -p "$OO_PS4_TOOLCHAIN/bin/linux"
+          curl --fail --location --retry 3 \
+            https://github.com/maxton/LibOrbisPkg/releases/download/v0.2/PkgTool.Core-linux-x64-0.2.231.zip \
+            -o "$RUNNER_TEMP/PkgTool.Core.zip"
+          unzip -o "$RUNNER_TEMP/PkgTool.Core.zip" -d "$OO_PS4_TOOLCHAIN/bin/linux"
+          chmod +x "$OO_PS4_TOOLCHAIN/bin/linux/PkgTool.Core"
+          test -x "$OO_PS4_TOOLCHAIN/bin/linux/PkgTool.Core"
+
+      - name: Build native PS4 package
+        run: |
+          export CXX=clang++-18
+          export LD=ld.lld-18
+          make -C ps4-native check-env
+          make -C ps4-native -j2
+          test -s ps4-native/IV0000-M4HB00001_00-M4HUBNATIVE00001.pkg
+          ls -lh ps4-native/IV0000-M4HB00001_00-M4HUBNATIVE00001.pkg
+
+      - name: Upload PKG artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: M4-HUB-PS4-PKG
+          path: ps4-native/IV0000-M4HB00001_00-M4HUBNATIVE00001.pkg
+          if-no-files-found: error
+          retention-days: 30

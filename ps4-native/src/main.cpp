@@ -223,6 +223,32 @@ static const char* descriptions[] = {
     "CUSTOMIZE YOUR HUB", "CHECK FIRMWARE NOTES",
     "USEFUL PS4 UTILITIES", "YOUR SAVED ITEMS"
 };
+static void drawSystemInfo() {
+    char clockLabel[64], dateLabel[64];
+    std::time_t nowTime=std::time(nullptr); std::tm localTime;
+    if(localtime_r(&nowTime,&localTime)) {
+        std::snprintf(clockLabel,sizeof(clockLabel),"TIME %02d:%02d:%02d",localTime.tm_hour,localTime.tm_min,localTime.tm_sec);
+        std::snprintf(dateLabel,sizeof(dateLabel),"DATE %02d/%02d/%04d",localTime.tm_mday,localTime.tm_mon+1,localTime.tm_year+1900);
+    } else {
+        std::snprintf(clockLabel,sizeof(clockLabel),"TIME N/A");
+        std::snprintf(dateLabel,sizeof(dateLabel),"DATE N/A");
+    }
+    static uint32_t fwValue = UINT32_MAX;
+    if (fwValue == UINT32_MAX) {
+        size_t fwLength=sizeof(fwValue);
+        if(sysctlbyname("machdep.lower_limit_upd_version",&fwValue,&fwLength,nullptr,0)!=0) fwValue=0;
+    }
+    char firmwareLabel[48];
+    if(fwValue!=0 && fwValue!=UINT32_MAX) {
+        unsigned major=(fwValue>>8)&0xFF, minor=fwValue&0xFF;
+        std::snprintf(firmwareLabel,sizeof(firmwareLabel),"PS4 FW %u.%02u",major,minor);
+    } else std::snprintf(firmwareLabel,sizeof(firmwareLabel),"PS4 FW N/A");
+    text(90,112,firmwareLabel,2,36,205,186);
+    text(470,112,clockLabel,2,245,248,255);
+    text(900,112,dateLabel,2,143,190,205);
+    text(1350,112,"CPU TEMP N/A",2,36,205,186);
+    text(1650,112,"M4 HUB 0.1.10",2,143,190,205);
+}
 static void draw() {
     color(9,13,24); SDL_RenderClear(gRenderer);
     rect(0,0,SCREEN_W,10,36,190,170);
@@ -255,35 +281,6 @@ static void draw() {
         text(90,1000,networkStatus,2,36,205,186);
     } else if (page==3) {
         text(90,150,"GAME LIBRARY",5,36,205,186);
-        char clockLabel[64], dateLabel[64];
-        std::time_t nowTime=std::time(nullptr); std::tm localTime;
-        if(localtime_r(&nowTime,&localTime)) {
-            std::snprintf(clockLabel,sizeof(clockLabel),"TIME %02d:%02d:%02d",localTime.tm_hour,localTime.tm_min,localTime.tm_sec);
-            std::snprintf(dateLabel,sizeof(dateLabel),"DATE %02d/%02d/%04d",localTime.tm_mday,localTime.tm_mon+1,localTime.tm_year+1900);
-        } else { std::snprintf(clockLabel,sizeof(clockLabel),"TIME NOT AVAILABLE"); std::snprintf(dateLabel,sizeof(dateLabel),"DATE NOT AVAILABLE"); }
-        text(1030,145,clockLabel,2,245,248,255);
-        text(1450,145,dateLabel,2,143,190,205);
-        // Match ItemzFlow: obtain the firmware from machdep.lower_limit_upd_version.
-        static uint32_t sdkVersion = UINT32_MAX;
-        if (sdkVersion != 0 && sdkVersion != UINT32_MAX) {
-            // cached below
-        } else {
-            size_t fwLength = sizeof(sdkVersion);
-            if (sysctlbyname("machdep.lower_limit_upd_version", &sdkVersion, &fwLength, nullptr, 0) != 0)
-                sdkVersion = 0;
-        }
-        char firmwareLabel[48];
-        if (sdkVersion != 0 && sdkVersion != UINT32_MAX) {
-            unsigned major=(sdkVersion>>8)&0xFF;
-            unsigned minor=sdkVersion&0xFF;
-            std::snprintf(firmwareLabel,sizeof(firmwareLabel),"PS4 FW %u.%02u",major,minor);
-        } else {
-            std::snprintf(firmwareLabel,sizeof(firmwareLabel),"PS4 FW N/A");
-        }
-        const char* temperatureLabel = "CPU TEMP N/A"; // ItemzFlow panel uses a fixed demo value, not a live sensor reading.
-        text(1030,185,firmwareLabel,2,36,205,186);
-        text(1320,185,"M4 HUB 0.1.9",2,143,190,205);
-        text(1580,185,temperatureLabel,2,36,205,186);
         rect(80,240,1760,3,38,57,78);
         if(detailOpen && gameCount>0 && selected<gameCount) {
             rect(95,300,1720,440,17,27,42); outline(95,300,1720,440,43,63,82);
@@ -361,6 +358,7 @@ static void draw() {
         text(90,900,"M4 HUB NATIVE CLIENT - VERSION 0.1.9",2,121,143,166);
         text(90,960,networkStatus,2,36,205,186);
     }
+    drawSystemInfo();
     SDL_RenderPresent(gRenderer);
     SDL_UpdateWindowSurface(gWindow);
 }

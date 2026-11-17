@@ -79,12 +79,14 @@ def probe(original: str) -> dict:
             return {"url": original, "ok": False, "status": "network_error", "detail": str(error)[:180], "redirects": redirects}
         code = getattr(response, "status", response.getcode())
         if code in (403, 405, 501):
+            response.close()
             response, error = request_once(current, "GET")
             if error:
                 return {"url": original, "ok": False, "status": "network_error", "detail": str(error)[:180], "redirects": redirects}
             code = getattr(response, "status", response.getcode())
         if code in REDIRECT_CODES:
             location = response.headers.get("Location")
+            response.close()
             if not location:
                 return {"url": original, "ok": False, "status": "redirect_without_location", "httpStatus": code, "redirects": redirects}
             next_url = urllib.parse.urljoin(current, location)
@@ -93,6 +95,7 @@ def probe(original: str) -> dict:
                 return {"url": original, "ok": False, "status": "too_many_redirects", "redirects": redirects}
             current = next_url
             continue
+        response.close()
         ok = 200 <= code < 400
         return {
             "url": original, "ok": ok,

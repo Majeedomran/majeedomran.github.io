@@ -1,4 +1,5 @@
 #include <SDL2/SDL.h>
+#include "catalog_client.h"
 #include <cstdio>
 #include <cstring>
 #include <cstdlib>
@@ -10,6 +11,7 @@ static SDL_Renderer* gRenderer = nullptr;
 static SDL_Joystick* gPad = nullptr;
 static int selected = 0;
 static int page = 0;
+static char networkStatus[128] = "PRESS TRIANGLE TO REFRESH CATALOG";
 
 struct Glyph { char c; const char* rows[7]; };
 static const Glyph FONT[] = {
@@ -114,7 +116,8 @@ static void draw() {
         text(850,885,"CIRCLE - BACK",2,167,185,203);
         text(1230,885,"M4 HUB V0.1 - PREVIEW",2,36,205,186);
         text(90,960,"CATALOG SYNC AND DOWNLOADS ARE THE NEXT DEVELOPMENT STAGE",2,121,143,166);
-        text(90,1010,"NO GAME FILES ARE INCLUDED IN THIS PREVIEW",2,121,143,166);
+        text(90,990,"NO GAME FILES ARE INCLUDED IN THIS PREVIEW",2,121,143,166);
+        text(90,1030,networkStatus,2,36,205,186);
     } else {
         int index=page-1;
         text(90,150,cards[index],5,36,205,186);
@@ -127,6 +130,7 @@ static void draw() {
         text(145,575,"CATALOG AND NETWORK SUPPORT ARE UNDER DEVELOPMENT",2,165,190,205);
         text(90,820,"CIRCLE - BACK TO HOME",3,36,205,186);
         text(90,900,"M4 HUB NATIVE CLIENT - VERSION 0.1.0",2,121,143,166);
+        text(90,960,networkStatus,2,36,205,186);
     }
     SDL_RenderPresent(gRenderer);
     SDL_UpdateWindowSurface(gWindow);
@@ -140,6 +144,7 @@ static void handleButton(int b) {
     switch(b) {
         case 0: page=selected+1; break; // CROSS
         case 1: page=0; break;         // CIRCLE
+        case 3: m4hub_refresh_catalog(networkStatus, sizeof(networkStatus)); break; // TRIANGLE: fetch live catalog
         case 12: moveSelection(0,-1); break;
         case 13: moveSelection(0,1); break;
         case 14: moveSelection(-1,0); break;

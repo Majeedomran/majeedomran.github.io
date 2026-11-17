@@ -144,3 +144,58 @@ cleanup:
     if (net_pool >= 0) sceNetPoolDestroy(net_pool);
     return ok ? 1 : 0;
 }
+
+int m4hub_refresh_weather(char* output, std::size_t output_size) {
+    int net_pool=-1, ssl_ctx=-1, http_ctx=-1, tpl=-1, conn=-1, req=-1;
+    int32_t http_code=0;
+    char buffer[4096]={0};
+    std::size_t used=0;
+    const char* url="https://api.open-meteo.com/v1/forecast?latitude=31.9539&longitude=35.9106&current=temperature_2m&timezone=Asia%2FAmman";
+    if(!output || output_size==0) return 0;
+    std::snprintf(output,output_size,"TEMP -- C AMMAN");
+    if(sceSysmoduleLoadModuleInternal(ORBIS_SYSMODULE_INTERNAL_NET)<0 ||
+       sceSysmoduleLoadModuleInternal(ORBIS_SYSMODULE_INTERNAL_HTTP)<0 ||
+       sceSysmoduleLoadModuleInternal(ORBIS_SYSMODULE_INTERNAL_SSL)<0) return 0;
+    if(sceNetInit()<0) goto weather_cleanup;
+    net_pool=sceNetPoolCreate("m4weather",128*1024,0);
+    if(net_pool<0) goto weather_cleanup;
+    ssl_ctx=sceSslInit(SSL_POOLSIZE);
+    if(ssl_ctx<0) goto weather_cleanup;
+    http_ctx=sceHttpInit(net_pool,ssl_ctx,LIBHTTP_POOLSIZE);
+    if(http_ctx<0) goto weather_cleanup;
+    tpl=sceHttpCreateTemplate(http_ctx,"M4-HUB-PS4/0.1.7",ORBIS_HTTP_VERSION_1_1,1);
+    if(tpl<0) goto weather_cleanup;
+    conn=sceHttpCreateConnectionWithURL(tpl,url,1);
+    if(conn<0) goto weather_cleanup;
+    req=sceHttpCreateRequestWithURL(conn,ORBIS_METHOD_GET,url,0);
+    if(req<0 || sceHttpSendRequest(req,nullptr,0)<0) goto weather_cleanup;
+    if(sceHttpGetStatusCode(req,&http_code)<0 || http_code!=200) goto weather_cleanup;
+    for(;;) {
+        int got=sceHttpReadData(req,buffer+used,sizeof(buffer)-used-1);
+        if(got<0) goto weather_cleanup;
+        if(got==0) break;
+        used+=(std::size_t)got;
+        if(used>=sizeof(buffer)-1) goto weather_cleanup;
+    }
+    buffer[used]=0;
+    {
+        const char* key=std::strstr(buffer,"\\"temperature_2m\\"");
+        if(key) {
+            key=std::strchr(key,':');
+            if(key) {
+                char* end=nullptr;
+                double value=std::strtod(key+1,&end);
+                if(end!=key+1 && value>-100.0 && value<70.0)
+                    std::snprintf(output,output_size,"TEMP %.1f C AMMAN",value);
+            }
+        }
+    }
+weather_cleanup:
+    if(req>=0) sceHttpDeleteRequest(req);
+    if(conn>=0) sceHttpDeleteConnection(conn);
+    if(tpl>=0) sceHttpDeleteTemplate(tpl);
+    if(http_ctx>=0) sceHttpTerm(http_ctx);
+    if(ssl_ctx>=0) sceSslTerm();
+    if(net_pool>=0) sceNetPoolDestroy(net_pool);
+    return std::strstr(output,"TEMP --")?0:1;
+}

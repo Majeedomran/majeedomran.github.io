@@ -215,11 +215,12 @@
       "name": "Fan Control",
       "version": "1.1",
       "status": "unverified",
-      "description": "Payload لضبط درجة الحرارة التي ترفع عندها مروحة PS4 سرعتها عبر ملف إعدادات. يتطلب محمل ELF؛ غيّر الإعدادات بحذر وراقب حرارة الجهاز.",
-      "description_en": "A payload that sets the temperature threshold at which the PS4 fan ramps up, using a configuration file. Requires an ELF loader; change settings carefully and monitor console temperatures.",
-      "firmware": "يتطلب محمل ELF متوافقاً؛ راجع المصدر",
-      "firmware_en": "Requires a compatible ELF loader; check the source.",
-      "sourceUrl": "https://github.com/grimstatic/fan-control/releases"
+      "description": "Payload لضبط عتبة حرارة مروحة PS4 من ملف إعدادات. الإصدار 1.1؛ المطور يذكر أنه اختُبر على PS4 Pro CUH-7106B بنظام 12.52 فقط، لذلك لا تفترض توافقه مع إصدارات أخرى. يتطلب محمل ELF.",
+      "description_en": "A payload for setting the PS4 fan temperature threshold from a config file. Version 1.1; the developer reports testing only on a PS4 Pro CUH-7106B running firmware 12.52, so do not assume compatibility with other versions. Requires an ELF loader.",
+      "firmware": "اختُبر على PS4 Pro بنظام 12.52 فقط وفق المطور؛ التوافق غير مؤكد للإصدارات الأخرى.",
+      "firmware_en": "Developer-reported test: PS4 Pro on 12.52 only; compatibility on other versions is unverified.",
+      "sourceUrl": "https://github.com/grimstatic/payload-fan-control-ps4",
+      "downloadUrl": "https://store.brewology.com/dl/6150/fan_control.elf"
     },
     {
       "name": "AnyPad PS4",

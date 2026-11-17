@@ -1,6 +1,12 @@
 name: M4 HUB link monitor
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - "catalog.json"
+      - "scripts/check_links.py"
+      - ".github/workflows/link-monitor.yml"
   workflow_dispatch:
   schedule:
     - cron: "23 5 * * 1"

@@ -41,9 +41,9 @@ eboot.bin: check-env $(INTDIR)/main.o
 	$(LD) $(INTDIR)/main.o -o $(INTDIR)/m4hub.elf $(LDFLAGS)
 	$(TOOLCHAIN)/bin/$(CDIR)/create-fself -in=$(INTDIR)/m4hub.elf -out=$(INTDIR)/m4hub.oelf --eboot "eboot.bin" --paid 0x3800000000000011
 
-sce_sys/icon0.png:
-	mkdir -p sce_sys/about
-	cp "$(TOOLCHAIN)/samples/SDL2/sce_sys/icon0.png" "$@"
+sce_sys/icon0.png: scripts/make_icon.py
+	mkdir -p sce_sys
+	python3 scripts/make_icon.py "$@"
 
 sce_sys/about/right.sprx:
 	mkdir -p sce_sys/about

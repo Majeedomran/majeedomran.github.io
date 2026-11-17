@@ -62,7 +62,7 @@ sce_sys/param.sfo: Makefile
 	"$(TOOLCHAIN)/bin/$(CDIR)/PkgTool.Core" sfo_setentry $@ TITLE_ID --type Utf8 --maxsize 12 --value '$(TITLE_ID)'
 	"$(TOOLCHAIN)/bin/$(CDIR)/PkgTool.Core" sfo_setentry $@ VERSION --type Utf8 --maxsize 8 --value '$(VERSION)'
 
-pkg.gp4: eboot.bin sce_sys/icon0.png sce_sys/param.sfo
+pkg.gp4: eboot.bin sce_sys/about/right.sprx sce_sys/icon0.png sce_sys/param.sfo
 	"$(TOOLCHAIN)/bin/$(CDIR)/create-gp4" -out $@ --content-id=$(CONTENT_ID) --files "$^"
 
 $(CONTENT_ID).pkg: pkg.gp4

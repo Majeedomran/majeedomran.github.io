@@ -12,6 +12,7 @@ static SDL_Renderer* gRenderer = nullptr;
 static SDL_Joystick* gPad = nullptr;
 static SDL_GameController* gController = nullptr;
 static int lastAxisX = 0, lastAxisY = 0;
+static int lastJoyAxisX = 0, lastJoyAxisY = 0;
 static Uint32 lastAxisMove = 0;
 static int selected = 0;
 static int page = 0;
@@ -208,9 +209,10 @@ static void draw() {
             text(x+55,y+151,descriptions[i],1,active?175:128,active?221:151,active?210:174);
         }
         rect(80,850,1760,2,38,57,78);
-        text(90,885,"D PAD - MOVE",2,167,185,203);
+        text(90,885,"D PAD / LEFT STICK - MOVE",2,167,185,203);
         text(470,885,"CROSS - OPEN",2,167,185,203);
         text(850,885,"CIRCLE - BACK",2,167,185,203);
+        text(90,920,"TRIANGLE - UPDATE CATALOG",2,36,205,186);
         text(1230,885,"M4 HUB V0.1 - PREVIEW",2,36,205,186);
         text(90,960,"CATALOG SYNC AND DOWNLOADS ARE THE NEXT DEVELOPMENT STAGE",2,121,143,166);
         text(90,990,"NO GAME FILES ARE INCLUDED IN THIS PREVIEW",2,121,143,166);
@@ -338,6 +340,14 @@ static void handleControllerButton(SDL_GameControllerButton b) {
         default: break;
     }
 }
+static void handleLegacyJoystickButton(Uint8 b) {
+    // Common DualShock 4 SDL raw-button order: Cross=1, Circle=2, Triangle=3.
+    switch(b) {
+        case 1: if(page==0) page=selected+1; else if((page==3 && gameCount>0) || (page==4 && localizedCount>0)) detailOpen=true; break;
+        case 2: if(detailOpen) detailOpen=false; else page=0; break;
+        case 3: m4hub_refresh_catalog(networkStatus, sizeof(networkStatus)); loadGamesFromCache(); break;
+    }
+}
 static void handleLegacyHat(Uint8 value) {
     if(value & SDL_HAT_UP) navigate(0,-1);
     else if(value & SDL_HAT_DOWN) navigate(0,1);
@@ -367,6 +377,7 @@ extern "C" int main(int, char**) {
             if (event.type==SDL_QUIT) running=false;
             if (event.type==SDL_CONTROLLERBUTTONDOWN) handleControllerButton((SDL_GameControllerButton)event.cbutton.button);
             if (event.type==SDL_JOYHATMOTION) handleLegacyHat(event.jhat.value);
+            if (event.type==SDL_JOYBUTTONDOWN && !gController) handleLegacyJoystickButton(event.jbutton.button);
             if (event.type==SDL_KEYDOWN) {
                 switch(event.key.keysym.sym) {
                     case SDLK_UP: navigate(0,-1); break;
@@ -379,9 +390,9 @@ extern "C" int main(int, char**) {
                 }
             }
         }
-        if(gController) {
-            Sint16 ax=SDL_GameControllerGetAxis(gController,SDL_CONTROLLER_AXIS_LEFTX);
-            Sint16 ay=SDL_GameControllerGetAxis(gController,SDL_CONTROLLER_AXIS_LEFTY);
+        if(gController || gPad) {
+            Sint16 ax=gController ? SDL_GameControllerGetAxis(gController,SDL_CONTROLLER_AXIS_LEFTX) : SDL_JoystickGetAxis(gPad,0);
+            Sint16 ay=gController ? SDL_GameControllerGetAxis(gController,SDL_CONTROLLER_AXIS_LEFTY) : SDL_JoystickGetAxis(gPad,1);
             int dx=(ax < -12000)?-1:((ax > 12000)?1:0);
             int dy=(ay < -12000)?-1:((ay > 12000)?1:0);
             Uint32 now=SDL_GetTicks();

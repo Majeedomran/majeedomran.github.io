@@ -30,16 +30,25 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
-      - name: Import latest PS4 localization metadata
-        run: python scripts/sync_localizations.py
-      - name: Commit catalogue updates
+      - name: Sync and publish latest PS4 localization metadata
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- catalog.json; then
-            echo "No new or changed PS4 localization entries."
-            exit 0
-          fi
-          git add catalog.json
-          git commit -m "Sync PS4 Arabic localization catalogue"
-          git push origin HEAD:main
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            python scripts/sync_localizations.py
+            git add catalog.json
+            if git diff --cached --quiet; then
+              echo "No new or changed PS4 localization entries."
+              exit 0
+            fi
+            git commit -m "Sync PS4 Arabic localization catalogue"
+            if git push origin HEAD:main; then
+              echo "Localization catalogue published."
+              exit 0
+            fi
+            echo "Push raced with another update; retrying from latest main ($attempt/3)."
+          done
+          echo "Could not publish localization catalogue after three attempts."
+          exit 1

@@ -315,7 +315,7 @@ static void draw() {
         text(145,515,"NO PLACEHOLDER DOWNLOAD BUTTONS OR FAKE FILE LINKS",2,165,190,205);
         text(145,575,"CATALOG AND NETWORK SUPPORT ARE UNDER DEVELOPMENT",2,165,190,205);
         text(90,820,"CIRCLE - BACK TO HOME",3,36,205,186);
-        text(90,900,"M4 HUB NATIVE CLIENT - VERSION 0.1.3",2,121,143,166);
+        text(90,900,"M4 HUB NATIVE CLIENT - VERSION 0.1.4",2,121,143,166);
         text(90,960,networkStatus,2,36,205,186);
     }
     SDL_RenderPresent(gRenderer);
@@ -345,9 +345,9 @@ static void handleLegacyJoystickButton(Uint8 b) {
     debugButton = (int)b;
     // Raw button IDs are displayed for hardware calibration.
     switch(b) {
-        case 0: if(page==0) { page=8; selected=0; } break; // Square: Favorites
-        case 1: if(page==0) page=selected+1; else if((page==3 && gameCount>0) || (page==4 && localizedCount>0)) detailOpen=true; break; // Cross: Open
-        case 2: if(detailOpen) detailOpen=false; else { page=0; selected=0; listOffset=0; } break; // Circle: Back
+        case 0: if(page==0) page=selected+1; else if((page==3 && gameCount>0) || (page==4 && localizedCount>0)) detailOpen=true; break; // Cross: Open
+        case 1: if(detailOpen) detailOpen=false; else { page=0; selected=0; listOffset=0; } break; // Circle: Back
+        case 2: if(page==0) { page=8; selected=0; } break; // Square: Favorites
         case 3: m4hub_refresh_catalog(networkStatus, sizeof(networkStatus)); loadGamesFromCache(); break; // Triangle: Refresh
     }
 }
@@ -396,17 +396,21 @@ extern "C" int main(int, char**) {
             Sint16 ax=SDL_JoystickGetAxis(gPad,0);
             Sint16 ay=SDL_JoystickGetAxis(gPad,1);
             debugAxisX=(int)ax; debugAxisY=(int)ay;
-            // One step per tilt; require a real return to center before re-arming.
-            const int engageDeadzone = 12000;
-            const int releaseDeadzone = 7000;
+            // Continuous navigation while held, with a short initial delay and repeat.
+            const int engageDeadzone = 6500;
             int dx=(ax < -engageDeadzone)?-1:((ax > engageDeadzone)?1:0);
             int dy=(ay < -engageDeadzone)?-1:((ay > engageDeadzone)?1:0);
-            if (!analogEngaged && (dx!=0 || dy!=0)) {
-                navigate(dx,dy);
-                analogEngaged = true;
-                lastAnalogX=dx; lastAnalogY=dy; lastAnalogMove=SDL_GetTicks();
-            } else if (analogEngaged && std::abs((int)ax)<releaseDeadzone && std::abs((int)ay)<releaseDeadzone) {
-                analogEngaged = false; lastAnalogX=0; lastAnalogY=0;
+            Uint32 now = SDL_GetTicks();
+            bool movedDirection = (dx!=lastAnalogX || dy!=lastAnalogY);
+            if (dx!=0 || dy!=0) {
+                if (!analogEngaged || movedDirection || now-lastAnalogMove>=150) {
+                    navigate(dx,dy);
+                    analogEngaged = true;
+                    lastAnalogX=dx; lastAnalogY=dy; lastAnalogMove=now;
+                }
+            } else {
+                analogEngaged = false;
+                lastAnalogX=0; lastAnalogY=0;
             }
         }
         draw();

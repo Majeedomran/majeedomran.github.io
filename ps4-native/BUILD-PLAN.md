@@ -36,7 +36,14 @@ A PKG may be called ready only after all of these pass:
 - Network fetch, controller navigation, catalogue parsing, offline cache, and authorized file download are tested.
 
 ## Current status
-Planning only. No native executable or PKG is included yet. The web library at `/ultimate/` remains the usable release. Do not describe this project as an installable app until the release gates above are complete.
+A first native source prototype now exists in `src/main.cpp`, with an OpenOrbis SDL2 Makefile and an original icon generator. It provides a controller-navigable home screen and section detail placeholders. It has **not** been compiled in this environment and no PKG binary is included. HTTPS catalogue loading, JSON parsing, offline cache, and real download management remain future implementation stages. The web library at `/ultimate/` remains the usable release. Do not describe this project as an installable app until the release gates above are complete.
 
 ## Important compatibility note
 A PKG built with a homebrew toolchain generally requires a PS4 environment that permits homebrew installation and execution. Firmware compatibility is not inferred from the fact that the PKG compiled successfully.
+
+
+## Source prototype notes
+- The current screen uses SDL2 software rendering and a tiny built-in bitmap font to avoid extra font assets.
+- The first UI build uses English labels only; proper Arabic shaping and right-to-left layout need a shaping-capable text renderer.
+- The Makefile uses the OpenOrbis SDL2 sample's package metadata dependency (`sce_sys/about/right.sprx`) and generates an M4 HUB-specific `icon0.png` locally.
+- The prototype's detail pages are honest placeholders; they do not claim to fetch live catalogue data or offer downloads yet.

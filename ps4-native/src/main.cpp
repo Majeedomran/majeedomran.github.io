@@ -285,7 +285,7 @@ static void draw() {
         text(90,230,"GAME LIBRARY",5,36,205,186);
         rect(80,320,1760,3,38,57,78);
         if(detailOpen && gameCount>0 && selected<gameCount) {
-            rect(95,380,1720,440,17,27,42); outline(95,300,1720,440,43,63,82);
+            rect(95,380,1720,440,17,27,42); outline(95,380,1720,440,43,63,82);
             text(140,430,gameItems[selected].name,4,245,248,255);
             char detailMeta[100];
             if(gameItems[selected].hasSize) std::snprintf(detailMeta,sizeof(detailMeta),"SIZE %.2f GB APPROX",gameItems[selected].sizeGB);
@@ -298,7 +298,7 @@ static void draw() {
             text(145,445,"NO CACHED CATALOG - PRESS TRIANGLE ON HOME",3,245,248,255);
         } else {
             char countLabel[80]; std::snprintf(countLabel,sizeof(countLabel),"GAMES IN CATALOG: %d",gameCount);
-            text(100,270,countLabel,2,143,164,190);
+            text(100,350,countLabel,2,143,164,190);
             int visible=8;
             if(selected>=gameCount) selected=gameCount-1;
             if(selected<0) selected=0;
@@ -319,26 +319,26 @@ static void draw() {
         text(90,960,networkStatus,2,36,205,186);
     } else if (page==4) {
         text(90,230,"LOCALIZED GAMES",5,36,205,186);
-        rect(80,240,1760,3,38,57,78);
+        rect(80,320,1760,3,38,57,78);
         if(detailOpen && localizedCount>0 && selected<localizedCount) {
-            rect(95,300,1720,440,17,27,42); outline(95,300,1720,440,43,63,82);
-            text(140,350,localizedItems[selected].name,4,245,248,255);
-            text(140,455,localizedItems[selected].type[0]?localizedItems[selected].type:"TYPE NOT LISTED",2,143,190,205);
-            text(140,545,"CHECK GAME REGION AND CUSA BEFORE INSTALL",2,36,205,186);
-            text(140,610,"SOURCE DETAILS MUST BE VERIFIED BEFORE USE",2,143,190,205);
+            rect(95,300,1720,440,17,27,42); outline(95,380,1720,440,43,63,82);
+            text(140,430,localizedItems[selected].name,4,245,248,255);
+            text(140,535,localizedItems[selected].type[0]?localizedItems[selected].type:"TYPE NOT LISTED",2,143,190,205);
+            text(140,625,"CHECK GAME REGION AND CUSA BEFORE INSTALL",2,36,205,186);
+            text(140,690,"SOURCE DETAILS MUST BE VERIFIED BEFORE USE",2,143,190,205);
             text(90,900,"CIRCLE - BACK TO LOCALIZED LIST",2,167,185,203);
         } else if(localizedCount==0) {
             text(145,445,"NO LOCALIZATION METADATA IN CACHED CATALOG",3,245,248,255);
         } else {
             char countLabel[80]; std::snprintf(countLabel,sizeof(countLabel),"LOCALIZED ENTRIES: %d",localizedCount);
-            text(100,270,countLabel,2,143,164,190);
+            text(100,350,countLabel,2,143,164,190);
             int visible=8;
             if(selected>=localizedCount) selected=localizedCount-1;
             if(selected<0) selected=0;
             if(selected<listOffset) listOffset=selected;
             if(selected>=listOffset+visible) listOffset=selected-visible+1;
             for(int i=0;i<visible && listOffset+i<localizedCount;++i) {
-                int idx=listOffset+i, y=325+i*66; bool active=(idx==selected);
+                int idx=listOffset+i, y=405+i*60; bool active=(idx==selected);
                 rect(95,y,1720,54,active?24:17,active?54:27,active?66:42);
                 text(125,y+16,localizedItems[idx].name,2,245,248,255);
                 text(1200,y+18,localizedItems[idx].type[0]?localizedItems[idx].type:"TYPE NOT LISTED",1,active?90:143,active?230:164,active?205:190);
@@ -349,9 +349,9 @@ static void draw() {
     } else {
         int index=page-1;
         text(90,230,cards[index],5,36,205,186);
-        rect(80,240,1760,3,38,57,78);
+        rect(80,320,1760,3,38,57,78);
         rect(90,380,1740,420,17,27,42);
-        outline(90,300,1740,420,43,63,82);
+        outline(90,380,1740,420,43,63,82);
         text(145,445,descriptions[index],3,245,248,255);
         text(145,535,"THIS SECTION WILL LOAD FROM THE LIVE M4 HUB CATALOG",2,165,190,205);
         text(145,595,"NO PLACEHOLDER DOWNLOAD BUTTONS OR FAKE FILE LINKS",2,165,190,205);

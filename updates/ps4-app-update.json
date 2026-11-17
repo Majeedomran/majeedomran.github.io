@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "application": "MAJEED PS4 ULTIMATE",
+  "channel": "stable",
+  "latestVersion": null,
+  "minimumFirmware": null,
+  "maximumTestedFirmware": null,
+  "pkgUrl": null,
+  "sha256": null,
+  "releaseNotesUrl": "https://github.com/Majeedomran/majeedomran.github.io",
+  "updateAvailable": false,
+  "status": "waiting-for-first-tested-pkg",
+  "policy": {
+    "checkOnLaunch": true,
+    "downloadWhenNewer": true,
+    "installRequiresUserConfirmation": true
+  },
+  "notice": "Do not publish updateAvailable=true until a real PKG has been built, tested, uploaded, and its SHA-256 and supported firmware range recorded."
+}

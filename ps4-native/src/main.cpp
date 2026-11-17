@@ -320,7 +320,7 @@ int main(int, char**) {
                     case SDLK_DOWN: if(page==3 && gameCount>0) { if(selected<gameCount-1)++selected; } else if(page==4 && localizedCount>0) { if(selected<localizedCount-1)++selected; } else moveSelection(0,1); break;
                     case SDLK_LEFT: if(page==3 && gameCount>0) { selected-=8; if(selected<0)selected=0; } else if(page==4 && localizedCount>0) { selected-=8; if(selected<0)selected=0; } else moveSelection(-1,0); break;
                     case SDLK_RIGHT: if(page==3 && gameCount>0) { selected+=8; if(selected>=gameCount)selected=gameCount-1; } else if(page==4 && localizedCount>0) { selected+=8; if(selected>=localizedCount)selected=localizedCount-1; } else moveSelection(1,0); break;
-                    case SDLK_RETURN: page=selected+1; break;
+                    case SDLK_RETURN: if(page==0) page=selected+1; break;
                     case SDLK_ESCAPE: page=0; break;
                     default: break;
                 }

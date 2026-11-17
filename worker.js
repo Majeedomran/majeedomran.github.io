@@ -54,7 +54,7 @@ async function githubRequest(env, method, body) {
     "Authorization": `Bearer ${env.GH_TOKEN}`,
     "Accept": "application/vnd.github+json",
     "X-GitHub-Api-Version": "2022-11-28",
-    "User-Agent": "MAJEED-PS4-HOST-Admin"
+    "User-Agent": "M4-HUB-Admin"
   };
   const response = await fetch(url, { method, headers: { ...headers, ...(body ? {"Content-Type":"application/json"} : {}) }, body: body ? JSON.stringify(body) : undefined });
   const data = await response.json().catch(() => ({}));
@@ -69,7 +69,7 @@ export default {
     const url = new URL(request.url);
     const headers = corsHeaders();
     if (url.pathname === "/health" && request.method === "GET") {
-      return json({ ok: true, service: "MAJEED PS4 HOST checker" }, 200, headers);
+      return json({ ok: true, service: "M4 HUB link checker" }, 200, headers);
     }
     if (!env.ADMIN_PASSWORD || !env.GH_TOKEN || !env.SESSION_SECRET) return json({ error: "Worker secrets are not configured" }, 500, headers);
     if (url.pathname === "/login" && request.method === "POST") {

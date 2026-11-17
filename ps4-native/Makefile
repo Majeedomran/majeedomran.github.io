@@ -8,11 +8,11 @@ TOOLCHAIN   := $(OO_PS4_TOOLCHAIN)
 PROJDIR     := src
 INTDIR      := $(PROJDIR)/x64/Debug
 LIBS        := -lc -lkernel -lc++ -lSceUserService -lSceVideoOut -lSceAudioOut -lScePad -lSceSysmodule -lSceNet -lSceSsl -lSceHttp -lSDL2
-CXXFLAGS    := --target=x86_64-pc-freebsd12-elf -fPIC -funwind-tables -c -isysroot $(TOOLCHAIN) -isystem $(TOOLCHAIN)/include -isystem $(TOOLCHAIN)/include/c++/v1
+CXXFLAGS    := --target=x86_64-pc-freebsd12-elf -ffreestanding -fPIC -funwind-tables -c -isysroot $(TOOLCHAIN) -isystem /usr/lib/llvm-18/include/c++/v1 -isystem $(TOOLCHAIN)/include -isystem $(TOOLCHAIN)/include/c++/v1
 LDFLAGS     := -m elf_x86_64 -pie --script $(TOOLCHAIN)/link.x --eh-frame-hdr -L$(TOOLCHAIN)/lib $(LIBS) $(TOOLCHAIN)/lib/crt1.o
 UNAME_S     := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
-  CXX := clang++
+  CXX := clang++-18
   LD  := ld.lld
   CDIR := linux
 else ifeq ($(UNAME_S),Darwin)

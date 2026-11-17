@@ -32,6 +32,13 @@ jobs:
             -o "$RUNNER_TEMP/openorbis-toolchain.tar.gz"
           echo "3c7cd5bb593ca74fa1c13fd59f3938dc0fc07985167f7275063019e63abe4526  $RUNNER_TEMP/openorbis-toolchain.tar.gz" | sha256sum --check
           tar -xzf "$RUNNER_TEMP/openorbis-toolchain.tar.gz" -C "$OO_PS4_TOOLCHAIN"
+          # The upstream release archive is rooted at OpenOrbis/PS4Toolchain.
+          SDK_ROOT="$OO_PS4_TOOLCHAIN/OpenOrbis/PS4Toolchain"
+          test -f "$SDK_ROOT/link.x"
+          test -f "$SDK_ROOT/lib/libc.a"
+          test -f "$SDK_ROOT/lib/libSceHttp.a"
+          test -x "$SDK_ROOT/bin/linux/create-fself"
+          echo "OO_PS4_TOOLCHAIN=$SDK_ROOT" >> "$GITHUB_ENV"
 
       - name: Install SDL2 PS4 library
         run: |

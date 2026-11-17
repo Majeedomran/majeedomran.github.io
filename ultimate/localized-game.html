@@ -8,7 +8,7 @@
 </style>
 </head>
 <body>
-<header class="top"><a href="./index.html">← <b>M4 HUB</b></a><button class="btn" id="lang">EN</button></header>
+<header class="top"><div style="display:flex;gap:12px;flex-wrap:wrap"><a href="../">⌂ الرئيسية</a><a href="./index.html">← <b>M4 HUB</b></a></div><button class="btn" id="lang">EN</button></header>
 <main class="wrap"><div class="crumb"><a href="./index.html">M4 HUB</a> / <a href="./index.html#localizedGames" id="backLabel">الألعاب المعربة</a> / <span id="crumbName">تفاصيل اللعبة</span></div><div id="app"><div class="empty">جارٍ تحميل بيانات اللعبة…</div></div></main>
 <script>
 (()=>{'use strict';
@@ -25,7 +25,7 @@ const desc=lang==='en'?(game.description_en||game.description):(game.description
 const official=game.localizationType==='official';
 const cover=safeUrl(game.coverUrl)?'<img class="cover" src="'+esc(game.coverUrl)+'" alt="'+esc(name)+'" loading="lazy">':'<div class="placeholder" aria-label="'+esc(name)+'">🎮</div>';
 let actions='';
-if(safeUrl(game.sourceUrl||game.source_url||game.url))actions+='<a href="'+esc(game.sourceUrl||game.source_url||game.url)+'" target="_blank" rel="noopener">'+text('صفحة صاحب التعريب ↗','Original translation source ↗')+'</a>';
+if(safeUrl(game.sourceUrl||game.source_url||game.url))actions+='<a href="'+esc(game.sourceUrl||game.source_url||game.url)+'" rel="noopener">'+text('صفحة صاحب التعريب ↗','Original translation source ↗')+'</a>';
 if(safeUrl(game.downloadUrl||game.download_url))actions+='<a href="'+esc(game.downloadUrl||game.download_url)+'">'+text('تنزيل ملف التعريب','Download translation patch')+'</a>';
 $('crumbName').textContent=name;
 $('app').innerHTML='<section class="hero"><div>'+cover+'</div><div><span class="pill">'+(official?text('تعريب رسمي حسب الفهرس','Official listing'):text('تعريب مجتمعي','Community translation'))+'</span><h1>'+esc(name)+'</h1><p class="muted">'+esc(desc||text('لا يوجد وصف إضافي مسجل. افتح صفحة المصدر لمعرفة التفاصيل.','No further description is recorded. Open the source page for details.'))+'</p><div class="facts">'+fact(text('رقم CUSA','CUSA ID'),game.cusaId)+fact(text('إصدار اللعبة المطلوب','Required game update'),game.gameVersion||game.baseGameVersion)+fact(text('إصدار التعريب','Translation release'),game.translationVersion||game.version)+fact(text('نوع التعريب','Translation type'),lang==='en'?(game.translationType_en||game.translationType):game.translationType)+fact(text('المنطقة','Region'),game.region)+fact(text('المنصة','Platform'),game.platform||'PS4')+'</div><div class="actions">'+actions+'</div></div></section><section class="panel"><h2>'+text('طريقة التحقق قبل التثبيت','Before installing')+'</h2><p class="muted">'+text('1. طابق رقم CUSA مع نسختك المثبتة على الجهاز. 2. تأكد من إصدار تحديث اللعبة المطلوب من صفحة المصدر. 3. اقرأ تعليمات صاحب التعريب وطريقة تثبيت الباتش. 4. احتفظ بنسخة احتياطية من بياناتك قبل التعديل.','1. Match the CUSA ID with your installed game. 2. Confirm the required game update from the source page. 3. Follow the creator’s patch and installation instructions. 4. Back up your data before modifying files.')+'</p></section><section class="panel warning">'+text('تنبيه: ظهور اللعبة في الفهرس لا يضمن توافق التعريب مع كل المناطق أو الإصدارات. الحقول غير المؤكدة تُترك فارغة. M4 HUB لا يستضيف ملفات الألعاب التجارية ولا يعيد توزيع ملفات دون إذن.','Note: A catalogue listing does not guarantee compatibility with every region or game build. Unconfirmed fields are left blank. M4 HUB does not host commercial game files or redistribute files without permission.')+'</section>';

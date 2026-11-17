@@ -57,7 +57,7 @@ def safe_url(value: str) -> tuple[bool, str]:
 def request_once(url: str, method: str):
     # urllib/http.client requires an ASCII request target. Percent-encode
     # Arabic and other Unicode path/query characters while preserving URL syntax.
-    request_url = urllib.parse.quote(url, safe=":/?&=%#[]@!
+    request_url = urllib.parse.quote(url, safe=":/?&=%#[]@!$()*+,;")
     try:
         return OPENER.open(req, timeout=TIMEOUT), None
     except urllib.error.HTTPError as exc:

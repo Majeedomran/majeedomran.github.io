@@ -1,5 +1,4 @@
-# M4 HUB native PS4 client - OpenOrbis SDL2 starter
-# Build on Linux with the matching OpenOrbis toolchain and LLVM/LLD installed.
+# M4 HUB native PS4 client - OpenOrbis SDL2 + SceHttp starter
 TITLE       := M4 HUB
 VERSION     := 0.1.0
 TITLE_ID    := M4HB00001
@@ -8,7 +7,7 @@ CONTENT_ID  := IV0000-M4HB00001_00-M4HUBNATIVE00001
 TOOLCHAIN   := $(OO_PS4_TOOLCHAIN)
 PROJDIR     := src
 INTDIR      := $(PROJDIR)/x64/Debug
-LIBS        := -lc -lkernel -lc++ -lSceUserService -lSceVideoOut -lSceAudioOut -lScePad -lSceSysmodule -lSDL2
+LIBS        := -lc -lkernel -lc++ -lSceUserService -lSceVideoOut -lSceAudioOut -lScePad -lSceSysmodule -lSceNet -lSceSsl -lSceHttp -lSDL2
 CXXFLAGS    := --target=x86_64-pc-freebsd12-elf -fPIC -funwind-tables -c -isysroot $(TOOLCHAIN) -isystem $(TOOLCHAIN)/include -isystem $(TOOLCHAIN)/include/c++/v1
 LDFLAGS     := -m elf_x86_64 -pie --script $(TOOLCHAIN)/link.x --eh-frame-hdr -L$(TOOLCHAIN)/lib $(LIBS) $(TOOLCHAIN)/lib/crt1.o
 UNAME_S     := $(shell uname -s)
@@ -24,21 +23,25 @@ else
   $(error This starter Makefile currently supports Linux and macOS hosts)
 endif
 
+CPPFILES := $(wildcard $(PROJDIR)/*.cpp)
+OBJS := $(patsubst $(PROJDIR)/%.cpp,$(INTDIR)/%.o,$(CPPFILES))
+
 .PHONY: all clean check-env
 all: $(CONTENT_ID).pkg
 
 check-env:
 	@test -n "$(OO_PS4_TOOLCHAIN)" || (echo "Set OO_PS4_TOOLCHAIN to the OpenOrbis toolchain root"; exit 1)
 	@test -f "$(TOOLCHAIN)/lib/libSDL2.a" || (echo "SDL2 library missing from selected toolchain"; exit 1)
+	@test -f "$(TOOLCHAIN)/include/orbis/Http.h" || (echo "OpenOrbis SceHttp headers missing"; exit 1)
 
 $(INTDIR):
 	mkdir -p $(INTDIR)
 
-$(INTDIR)/main.o: $(PROJDIR)/main.cpp | $(INTDIR)
+$(INTDIR)/%.o: $(PROJDIR)/%.cpp | $(INTDIR)
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
-eboot.bin: check-env $(INTDIR)/main.o
-	$(LD) $(INTDIR)/main.o -o $(INTDIR)/m4hub.elf $(LDFLAGS)
+eboot.bin: check-env $(OBJS)
+	$(LD) $(OBJS) -o $(INTDIR)/m4hub.elf $(LDFLAGS)
 	$(TOOLCHAIN)/bin/$(CDIR)/create-fself -in=$(INTDIR)/m4hub.elf -out=$(INTDIR)/m4hub.oelf --eboot "eboot.bin" --paid 0x3800000000000011
 
 sce_sys/icon0.png: scripts/make_icon.py

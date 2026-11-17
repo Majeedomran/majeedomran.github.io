@@ -1,6 +1,6 @@
 # M4 HUB native PS4 client - OpenOrbis SDL2 + SceHttp starter
 TITLE       := M4 HUB
-VERSION     := 0.1.1
+VERSION     := 0.1.2
 TITLE_ID    := MFOB00001
 CONTENT_ID  := IV0000-MFOB00001_00-M4HUBNATIVE00001
 

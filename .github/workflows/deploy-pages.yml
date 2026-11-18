@@ -21,35 +21,15 @@ jobs:
       - name: Checkout M4 HUB
         uses: actions/checkout@v4
 
-      - name: Prepare website and pinned PS4 exploit host
+      - name: Prepare website and PS4 jailbreak shortcut
         run: |
-          mkdir -p _site/jb
+          mkdir -p _site
           rsync -a --exclude='.git' --exclude='.github' --exclude='_site' ./ _site/
-          git init /tmp/WebKitty
-          git -C /tmp/WebKitty remote add origin https://github.com/ArabPixel/WebKitty.git
-          git -C /tmp/WebKitty fetch --depth 1 origin 554cacbd1a24883531952cbdc5deb6d95100b09f
-          git -C /tmp/WebKitty checkout --detach FETCH_HEAD
-          rsync -a --exclude='.git' --exclude='CNAME' /tmp/WebKitty/ _site/jb/
-          cp /tmp/WebKitty/index.html _site/jb/index.html
-          # Keep the exploit host on the MAJEED domain; disable WebKitty's forced redirect to its own domain.
-          python3 - <<'PY'
-          from pathlib import Path
-          p = Path("_site/jb/index.html")
-          s = p.read_text()
-          start = s.find("        // redirect to http request")
-          if start != -1:
-              end = s.find("\n        }", start)
-              if end == -1:
-                  raise SystemExit("Could not locate end of WebKitty redirect block")
-              s = s[:start] + "        // MAJEED patch: stay on the hosted M4 HUB domain.\n" + s[end + len("\n        }"):]
-              p.write_text(s)
-          if "window.location.href = \"http://webkitty.arabpixel.net\"" in s:
-              raise SystemExit("WebKitty external redirect is still present")
-          PY
-          touch _site/.nojekyll _site/jb/.nojekyll
+          touch _site/.nojekyll
           test -s _site/jb/index.html
-          echo "Verified exploit host entry: _site/jb/index.html"
-          find _site/jb -maxdepth 1 -type f -printf '%f\\n' | sort
+          grep -q 'x-f1reball-x.github.io/ps4-jb' _site/jb/index.html
+          echo "Verified M4 HUB PS4 jailbreak redirect:"
+          cat _site/jb/index.html
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

@@ -743,18 +743,6 @@
   ],
   "localizedGames": [
     {
-      "name": "Red Dead Redemption 2",
-      "name_en": "Red Dead Redemption 2",
-      "description": "تعريب مجتمعي لنسخة PS4. صفحة المصدر تصف التعريب بأنه جزئي (حوالي 50%) ويشمل القوائم وجزءاً من القصة والحوارات. توجد تعليقات أحدث تختلف حول نسبة الاكتمال؛ تحقق من آخر تفاصيل المصدر قبل التثبيت.",
-      "description_en": "Community Arabic localization for PS4. The source page describes it as partial (around 50%), covering menus and parts of the main story/dialogue. Some newer comments differ on completion; verify the latest source details before installing.",
-      "platform": "PS4",
-      "translationType": "جزئي حسب وصف صفحة المصدر (50%)",
-      "translationType_en": "Partial according to the source page (50%)",
-      "localizationType": "community",
-      "sourceUrl": "https://pspkg.com/ar/arabic-games/red-dead-redemption-2-arabic-251.html",
-      "status": "unverified"
-    },
-    {
       "name": "Assassin's Creed Mirage",
       "name_en": "Assassins Creed Mirage",
       "year": 2023,
@@ -1800,6 +1788,18 @@
       "sourceName": "Ta3reb",
       "description": "بيانات التعريب مأخوذة من فهرس Ta3reb. راجع صفحة المصدر للتفاصيل وطريقة التثبيت والتوافق قبل الاستخدام.",
       "description_en": "Metadata imported from Ta3reb's directory. Check the source page for installation details and compatibility before use."
+    },
+    {
+      "name": "Red Dead Redemption 2",
+      "name_en": "Red Dead Redemption 2",
+      "description": "تعريب مجتمعي لنسخة PS4. صفحة المصدر تصف التعريب بأنه جزئي (حوالي 50%) ويشمل القوائم وجزءاً من القصة والحوارات. توجد تعليقات أحدث تختلف حول نسبة الاكتمال؛ تحقق من آخر تفاصيل المصدر قبل التثبيت.",
+      "description_en": "Community Arabic localization for PS4. The source page describes it as partial (around 50%), covering menus and parts of the main story/dialogue. Some newer comments differ on completion; verify the latest source details before installing.",
+      "platform": "PS4",
+      "translationType": "جزئي حسب وصف صفحة المصدر (50%)",
+      "translationType_en": "Partial according to the source page (50%)",
+      "localizationType": "community",
+      "sourceUrl": "https://pspkg.com/ar/arabic-games/red-dead-redemption-2-arabic-251.html",
+      "status": "unverified"
     },
     {
       "name": "Relicta",
